@@ -10,6 +10,8 @@
 	<link href="css/loader.css" rel="stylesheet" type="text/css" />
 	<!--<link href="css/multiple-select.css" rel="stylesheet" type="text/css" />-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
+	<link href="css/newstyle.css" rel="stylesheet" type="text/css" />
 	<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script><script src="js/Rotators.js"></script>
 	<!--<script src="js/multiple-select.js">-->
 	</script><script src="js/numeral.min.js" type="text/javascript"></script><script src="js/moment.js" type="text/javascript"></script><script src="js/js.js?nocache=20017"></script><script src="js/dependencias/angular.js"></script><script src="js/dependencias/angular-animate.min.js"></script><script src="js/dependencias/angular-sanitize.min.js"></script><script src="js/dependencias/ngToast.min.js"></script><script src="js/dependencias/ui-bootstrap-tpls-1.3.2.min.js"></script><script src="js/dependencias/angular-ui-router.min.js"></script><script src="js/dependencias/ngStorage.js"></script><script src="js/dependencias/angular-md5.js" type="text/javascript"></script><script src="js/dependencias/ofi.browser.js" type="text/javascript"></script><script src="js/dependencias/fitie.js" type="text/javascript"></script><script src="js/app/app.js?v=1.4"></script><script src="js/services/userService.js" type="text/javascript"></script><script src="js/controllers/activarController.js" type="text/javascript"></script><script src="js/controllers/anunciarPaqueteController.js" type="text/javascript"></script><script src="js/controllers/cerrarSesionController.js" type="text/javascript"></script><script src="js/controllers/editarPerfilController.js" type="text/javascript"></script><script src="js/controllers/indexController.js?v=2" type="text/javascript"></script><script src="js/controllers/inicioController.js?v=2" type="text/javascript"></script><script src="js/controllers/loginController.js?v=2" type="text/javascript"></script><script src="js/controllers/modalCambioClaveController.js" type="text/javascript"></script><script src="js/controllers/modalDetallesArticuloController.js" type="text/javascript"></script><script src="js/controllers/modificarContrasenaController.js" type="text/javascript"></script><script src="js/controllers/passwordController.js" type="text/javascript"></script><script src="js/controllers/seleccionarBoxitController.js?nocache=20012" type="text/javascript"></script><script src="js/controllers/shoppingCarController.js?v=1" type="text/javascript"></script><script src="js/controllers/siginController.js?nocache=20015" type="text/javascript"></script><script src="js/controllers/trakingDePaquetesController.js" type="text/javascript"></script><script src="js/controllers/userMenuController.js?v=1" type="text/javascript"></script><script src="js/controllers/modalShoppingCarController.js" type="text/javascript"></script><script src="js/controllers/detallesDelArticuloController.js" type="text/javascript"></script><script src="js/controllers/modalLoginController.js" type="text/javascript"></script><script src="js/controllers/precioController.js?nocache=20012" type="text/javascript"></script><!--<script src="js/controllers/modalPopUpController.js" type="text/javascript"></script>--><script src="js/controllers/anularController.js" type="text/javascript"></script><script src="js/controllers/homeController.js?nocache=20014" type="text/javascript"></script><!-- BEGIN GOOGLE ANALYTICS--><script>
@@ -41,196 +43,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPBXCP9"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<header class="desktop" style="max-width: 100%;  padding-top: 10px;">
-<!-- <div class="Language">                        <div class="SelectLanguage">
-                                            <div class="Text">Español (ESP)</div>
-                                            <div class="Arrow"></div>
-                                            <div class="Languages">
-                                                <div class="Language Selected" id="ESP" >Español (ESP)</div>
-                                                <div class="Language" id="ING">Ingles (ING)</div>
-                                                <div class="Language" id="FRA">Frances (FRA)</div>
-                                            </div>
-                                        </div></div> -->
-
-<div class="row vcenter " >
-<div class="col-md-offset-1 col-md-1 ">
-<div class="Logo" ><a ui-sref="home"> <img alt="Boxit" src="img/logo-boxit_Menu.png" title="Boxit" /> </a></div>
-</div>
-
-<div class="col-md-3 Menu" >
-<ul>
-	<!-- <li><a ui-sref="home">INICIO</a></li> -->
-	<li><a href="#">SERVICIOS</a>
-	<div class="SubMenu">
-	<div class="SubMenuContainer">
-	<div class="Arrow">
-	<div></div>
-	</div>
-
-	<ul>
-		<li><a ui-sref="nosotros">&iquest;Qu&eacute; es Boxit?</a></li>
-		<li><a ui-sref="retiro">Retiro de paquete</a></li>
- 		<li><a ui-sref="ubicaciones">Ubicaciones</a></li>
-<!--		<li><a ui-sref="enviar">Enviar un paquete</a></li>
-		<li><a ui-sref="pagoservicio">Paga tus servicios</a></li> -->
-	</ul>
-	</div>
-	</div>
-	</li>
-	<li><a ui-sref="precios">PRECIOS</a></li>
-	<li><a href="#">INFORMACI&Oacute;N</a>
-	<div class="SubMenu">
-	<div class="SubMenuContainer">
-	<div class="Arrow">
-	<div></div>
-	</div>
-
-	<ul>
-		<li><a ui-sref="FAQ">Preguntas Frecuentes</a></li>
-		<li><a ui-sref="ProductosProhibidos">Productos Prohibidos</a></li>
-		<li><a ui-sref="FarmaciaDroga">Farmacia y Drogas</a></li>
-		<li><a ui-sref="MaterialPeligroso">Material Peligroso</a></li>
-		<li><a ui-sref="TramitesEspeciales">Tr&aacute;mites Especiales</a></li>
-	</ul>
-	</div>
-	</div>
-	</li>
-<!-- 	<li><a ui-sref="contactanos">CONTACTANOS</a></li> -->
-</ul>
-</div>
-
-<div class="col-md-1">
-<div ><a ui-sref="boxitStore"> <img alt="Boxit" class="img-responsive img-rounded center-block imageFit" src="img/BoxitStore-2.png" style="
-                                 width: 100px;" title="Boxit" /> </a></div>
-</div>
-
-<div class="col-md-3">
-<div class="UserAccountOptions" ng-show="!loged"><a class="btn btn-default sesionButton " role="button" ui-sref="iniciarSesion">INICIA SESI&Oacute;N</a> <a class="btn btn-default userAreaButton " role="button" ui-sref="registro">REG&Iacute;STRATE</a></div>
-
-<div class="UserAccountOptions" ng-show="loged"><a class="btn btn-default sesionButton" href="#" ng-click="cerrarSesion()" role="button">CERRAR SESI&Oacute;N</a> <a class="btn btn-default userAreaButton" role="button" ui-sref="iniciarSesion">AREA DE USUARIO</a></div>
-</div>
-<div class="col-md-2">
-<div class="customLabel"><i class="fa fa-phone"></i> (507) 317-1014</div>
-<div class="customLabel"><i class="fa fa-whatsapp"></i> (507) 63494559</div>
-<div class="customLabel"><i class="fa fa-envelope"></i> hello@myboxit.com</div>
-</div>
-<div class="col-md-2 text-left" >
-<ul class="list-inline">
-	<li><a href="https://www.facebook.com/MyboxitOnline/" target="_blank"><img alt="" src="img/icono-facebook.png" /></a></li>
-	<li><a href="https://www.instagram.com/MyboxitOnline/" target="_blank"><img alt="" src="img/icono-instagram.png" /></a></li>
-</ul>
-</div>
-
-</div>
-</header>
-
-<div class="Mobile">
-<div class="Top">
-<div class="Menu"><img alt="Cart" src="img/IconMenuBurger.svg" title="Cart" /></div>
-
-<div class="Organization"><a href="./"><img alt="Boxit" src="img/logo-boxit_XIT_blanco.png" title="Boxit" /> </a></div>
-</div>
-</div>
-
-<div class="MobileMenu">
-<div class="Menu">
-<div class="Header" ng-click="hideMain()">
-<div class="Close">X</div>
-</div>
-
-<div class="Groups">
-<div class="Group">
-<div class="Header " ng-click="desplegarMenu()">SERVICIOS</div>
-
-<div class="Options desplegable closeMmenu">
-<div class="Option"><a ui-sref="nosotros">&iquest;Qu&eacute; es Boxit?</a></div>
-
-<div class="Option"><a ui-sref="retiro">Retiro de paquete</a></div>
-<div class="Option"><a ui-sref="ubicaciones">Ubicaciones</a></div>
-
-
-<!-- <div class="Option"><a ui-sref="devolucion">Devoluci&oacute;n de compra</a></div>
-
-<div class="Option"><a ui-sref="enviar">Enviar un paquete</a></div>
-
-<div class="Option"><a ui-sref="pagoservicio">Paga tus servicios</a></div> -->
-</div>
-</div>
-
-<div class="Group">
-<div class="Header closeMmenu"><a ui-sref="precios">PRECIOS</a></div>
-</div>
-
-<div class="Group">
-<div class="Header " ng-click="desplegarInformacion()">INFORMACION</div>
-
-<div class="Options desplegableInformacion closeMmenu">
-<div class="Option"><a ui-sref="FAQ">Preguntas Frecuentes</a></div>
-<a ui-sref="FAQ"> </a>
-
-<div class="Option"><a ui-sref="ProductosProhibidos">Productos Prohibidos</a></div>
-
-<div class="Option"><a ui-sref="FarmaciaDroga">Farmacia y Drogas</a></div>
-
-<div class="Option"><a ui-sref="MaterialPeligroso">Material Peligroso</a></div>
-
-<div class="Option"><a ui-sref="TramitesEspeciales">Tr&aacute;mites Especiales</a></div>
-</div>
-</div>
-
-<div class="Group">
-<div class="Header closeMmenu"><a ui-sref="contactanos">CONTACTANOS</a></div>
-</div>
-
-<div class="Group">
-<div class="Header closeMmenu"><a ui-sref="boxitStore">MY BOXIT STORE AMAZON</a></div>
-</div>
-
-<div class="Group">
-<div class="Header" ng-click="desplegarUsu()">DATOS DE USUARIO</div>
-
-<div class="Options desplegableUsu closeMmenu">
-<div class="Option"><a ui-sref="iniciarSesion">Iniciar sesi&oacute;n</a></div>
-
-<div class="Option"><a ui-sref="registro">Registrarse</a></div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="Overlay"></div>
-</div>
-
-<div class="desktop"><br />
- <!-- &nbsp; --> </div>
 <!--AQUI ES DONDE COMIENZA EL BODY-->
-
+<nav ng-include="'views/navbar.html'" class="navbar navbar-fixed-top"></nav>
 <div ui-view=""></div>
-
 <!--AQUI COMIENZA EL FOOTER-->
-
-<!-- <div class="Socials Content">
-<div class="SocialsContainer ContentContainer MaxWidth">
-<div class="Title"><img alt="" src="img/Slogan.png" /></div>
-
-<div class="SocialLinks">
-<ul>
-	<li><a href="https://www.facebook.com/MyboxitOnline/" target="_blank"><img alt="" src="img/icono-facebook.png" /></a></li>
-	<li><a href="https://twitter.com/MyboxitOnline/" target="_blank"><img alt="" src="img/icono-twitter.png" /></a></li>
-	<li><a href="https://www.instagram.com/MyboxitOnline/" target="_blank"><img alt="" src="img/icono-instagram.png" /></a></li>
-</ul>
-</div>
-</div>
-</div> -->
-
-
-<div class="container MaxWidth">
-<div class="row ">
-<div class="col-md-1"></div>
-</div>
-</div>
-
-<footer class="content" ng-include="'views/footer.html'"></footer>
+<footer class="container-fluid" ng-include="'views/footer.html'"></footer>
 <script>
             objectFitImages();
             $(function () { objectFitImages(); });
@@ -244,5 +61,7 @@ s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
-</script><!--End of Tawk.to Script--></body>
+</script><!--End of Tawk.to Script-->
+<script src="js/libs.min.js"></script>
+<script src="js/main.js"></script></body>
 </html>
