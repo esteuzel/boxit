@@ -9,10 +9,12 @@ angular
         .module('boxit')
         .controller('homeController', ['$scope','$uibModal',
             function ($scope,$uibModal,$templateCache) {
-               $templateCache.removeAll();
+                if($templateCache){
+                    $templateCache.removeAll();
+                }
                  $scope.init = function () {
                     
-                       $uibModal.open({
+                       /*$uibModal.open({
                                     animation: true,
                                     templateUrl: 'views/modalPopUp.html',
                                     controller: 'modalPopUpController',
@@ -20,7 +22,7 @@ angular
                                   
                                     }
 
-                                );
+                                );*/
                     
                 };
                 $scope.init();
