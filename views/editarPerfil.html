@@ -1,0 +1,64 @@
+<link href="../css/userStyle.css" rel="stylesheet" type="text/css"/>
+
+
+
+
+<div class="row">
+    <div class ="col-sm-2"></div>
+    <div class="col-sm-6">
+        <h3 class="customLabel">Informacion de Perfil</h3>
+        <hr>
+        <div class="form-group">
+            <label for ="usr" class="customLabel">  Nombres: </label>
+
+            <input type="text"  class="form-control" id="usr" ng-model="username">
+
+        </div>
+        <div class="form-group">
+            <label for ="apellido" class="customLabel" >   Apellidos:</label>
+            <input type="text" class="form-control" id="apellido" ng-model="lastname">
+
+        </div>
+        <div class="form-group">
+            <label for ="mail" class="customLabel">   Email:</label>
+            <input type="text"  class="form-control" id="mail" ng-model="UserEmail">
+        </div>
+        <div class="form-group">
+            <label for="phone" class="customLabel"> Telefono: </label>   
+            <input type="text" class="form-control" id="phone"  placeholder="Ingrese su telefono" ng-model="UserPhone">
+        </div>
+        <div class="form-group">
+            <label for="birth" class="customLabel">
+                Fecha de nacimiento:</label>
+            <div class="FieldContent">
+                <input style="border: 2px solid #cdcdcd;float: left" uib-datepicker-popup="{{format}}" 
+                       class ="form-control"
+                       ng-model="UserBirthdate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">
+                <!--&lt;!&ndash;ng-options="anho for anho in anhosDeNacimiento"&ndash;&gt;-->
+                <!--<option value="">Año</option>-->
+
+                <button type="button" style="float: right" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">
+            <label for="gender" class="customLabel">Genero:</label>
+            <select name="" class="form-control" id="gender" ng-model="UserGender">
+                <option value="">Seleccione un Genero</option>
+                <option value="H">Masculino</option>
+                <option value="M">Femenino</option>
+            </select>
+
+        </div>
+        <div>
+            <div class="Submit">
+                <!--<input type="submit"  value="REGISTRARME">-->
+                <button class="Button WithBackground" ng-click="Update()">Modificar Perfil</button>
+            </div>
+
+
+        </div>
+       
+    </div>
+</div>

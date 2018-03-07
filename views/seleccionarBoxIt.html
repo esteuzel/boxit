@@ -1,0 +1,43 @@
+<script src="../js/moment.js" type="text/javascript"></script>
+
+<script src="../js/controllers/seleccionarBoxitController.js" type="text/javascript"></script>
+
+<script src="../js/services/userService.js" type="text/javascript"></script>
+
+
+
+<link href="../css/userStyle.css" rel="stylesheet" type="text/css"/>
+
+<div class="row">
+
+    <div class="col-sm-2"></div>
+
+    <div class="col-sm-6">
+
+        <h3 class="customLabel">Selecionar Boxit</h3>
+
+        <h4 class="customLabel">Selecciona el boxit de tu preferencia</h4>
+
+        <div class="form-group">
+
+            <select  id='select_boxit_user' onchange='info_boxit_seleccionado()' class="form-control" ng-options="plataforma.attributes.Address + ' - ' + plataforma.attributes.DescPlataforma for plataforma in plataformas" ng-model = "descPlataforma"  ng-selected="default">
+                <!--<option value="">Selecciona tu Boxit más cercano</option>-->
+            </select>
+            <br/>
+            <div class="FieldContent"><textarea class="form-control" id="info_boxit_sel"  rows="2"></textarea></div>
+        </div>
+        <br>
+
+        <br>
+
+        <div class="Submit">
+
+
+
+            <button class="Button WithBackground" ng-click="Update()">Modificar</button>
+
+        </div>
+
+    </div>
+
+</div>

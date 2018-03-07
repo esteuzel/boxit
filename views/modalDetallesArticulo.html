@@ -1,0 +1,99 @@
+<div class="modal-header">
+    <div class="row">
+        <div class="col-lg-1">
+
+        </div>
+        <div class="col-lg-9">
+            <h4 class="text-center modal-title">{{titulo}}.</h4>
+        </div>
+        <div class="col-lg-2">
+            <button class="btn btn-default pull-right" ng-click="closeModal()"><span
+                    class="glyphicon glyphicon-remove"></span></button>
+        </div>
+    </div>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-lg-3">
+            <img style="max-width: 100%;height: 180px" class="img-responsive img-rounded center-block imageFit"
+                 title="{{titulo}}"
+                 src="{{imgUrl}}"/>
+        </div>
+        <div class="col-lg-9">
+            <span style="font-size: 20px"><b>Descripcion: </b></span>
+            <br>
+            <span class="text-justify" style="font-size: 15px">{{texto}}</span>
+            <br>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 1%">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-4" ng-show="showCombination">
+            <select class="form-control" style="height: 44px">
+                <option value="0">{{color}} - {{size}}</option>
+            </select>
+        </div>
+        <div class="col-lg-4" ng-show="showVariationsArray">
+            <select class="form-control" style="height: 44px" ng-options="item.VariationAttributes.VariationAttribute[0].Value + ' - ' + item.VariationAttributes.VariationAttribute[1].Value for item in variations" ng-model="variation" ng-change="refreshItem()">
+                <option value="">Selecciona Talla/Color</option>
+            </select>
+        </div>
+        <div class="col-lg-4" ng-show="showVariationsObject">
+            <select class="form-control" style="height: 44px" ng-options="item.VariationAttributes.VariationAttribute.Value for item in variations" ng-model="variation" ng-change="refreshItem()">
+                <option value="">Selecciona Talla/Color</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-4" ng-show="ShowColor">
+            <div class="input-group">
+                <span class="input-group-addon">Color</span>
+                <span class="btn btn-info disabled form-control">{{color}}</span>
+            </div>
+        </div>
+        <div class="col-lg-5" ng-show="showZise">
+            <div class="input-group">
+                <span class="input-group-addon">Talla</span>
+                <span class="btn btn-info disabled form-control">{{size}}</span>
+            </div>
+        </div>
+        <div class="col-lg-5" ng-show="showFeature">
+            <div class="input-group">
+                <span class="input-group-addon">{{featureName}}</span>
+                <span class="btn btn-info disabled form-control">{{featureValue}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-lg-3 text-left">
+            <!--<span style="font-size: 25px"><b>{{itemPrice}}</b></span>-->
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">P*U</span>
+                <span class="form-control"><b>{{itemPrice}}</b></span>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3 text-left">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Cantidad</span>
+                <input type="text" class="form-control" placeholder="0" ng-model="cantidad" ng-change="refreshTotal()">
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 text-left">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Total</span>
+                <span class="form-control"><b>{{total}}</b></span>
+                <span class="input-group-btn" uib-tooltip="{{tooltip}}"
+                      tooltip-trigger="click" tooltip-placement="top">
+        <button style="border-bottom-left-radius: 0;border-top-left-radius: 0" ng-click="addToCar()"
+                class="btn btn-primary" type="button" ng-disabled="disabledAdd">Añadir
+        </button>
+      </span>
+            </div>
+        </div>
+    </div>
+</div>

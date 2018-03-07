@@ -1,0 +1,40 @@
+<div ng-controller="detallesDelArticuloController">
+    <div class="row">
+        <div class="col-lg-3">
+            <img style="max-width: 100%;height: 180px;" class="img-responsive img-rounded center-block imageFit"
+                 title="{{titulo}}"
+                 src="{{imgUrl}}"/>
+        </div>
+        <div class="col-lg-9">
+            <span style="font-size: 20px"><b>Descripcion: </b></span>
+            <br>
+            <span class="text-justify" style="font-size: 15px">{{texto}}</span>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 1%">
+        <div class="col-lg-3 text-left">
+            <!--<span style="font-size: 25px"><b>{{itemPrice}}</b></span>-->
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">P*U</span>
+                <span class="form-control"><b>{{itemPrice}}</b></span>
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-3 text-left">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Cantidad</span>
+                <input type="text" class="form-control" ng-model="cantidad" ng-change="refreshTotal()">
+            </div>
+        </div>
+        <div class="col-lg-1"></div>
+        <div class="col-lg-4 text-left">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon">Total</span>
+                <span class="form-control"><b>{{total}}</b></span>
+                <span class="input-group-btn">
+        <button class="btn btn-primary" type="button" ng-click="modifyCar()">Añadir</button>
+      </span>
+            </div>
+        </div>
+    </div>
+</div>

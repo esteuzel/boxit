@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="ContentContainer MaxWidthData" ng-controller="modalLoginController">
+    <div class="Formulary" ng-show ="showLogin">
+        <div class="FieldContent">
+            <span>Usuario</span>
+        </div>
+        <input type="text" class="form-control"  placeholder="coloque su correo electrónico"  ng-model="username" ng-keypress="onKeyEnterPress($event)">
+
+        <div class="FieldContent">
+            <span>Contraseña</span>
+        </div>
+        <input type="password" class="form-control" placeholder="coloque su contraseña" ng-model="password" ng-keypress="onKeyEnterPress($event)">
+        <div class="FieldContent">
+            <input type="checkbox"><span>Recordarme</span>
+
+            <div class="Submit">
+                <button ng-click="Login()" class="Button WithBackground">Iniciar sesión</button>
+            </div>
+            <div class="Links">
+                <div class="Link">
+                    <a  href="javascript:;" ng-click="lostPassword()">
+                        ¿Olvidaste tu contraseña?
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="Formulary" ng-show ="showRecuperar">
+        <div class="FieldContent">
+            <span>Correo Electronico</span>
+        </div>
+        <input type="text" class="form-control" ng-model="lostEmail">
+
+
+        <div class="FieldContent">
+
+            <div class="Submit">
+                <button ng-click="restorePassword()" class="Button WithBackground">Recuperar Contraseña</button>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+<!--Begin AutoPilot -->
+<script type="text/javascript">(function(o){var b="https://api.autopilothq.com/anywhere/",t="cb7780893cf5421d9959efe45ff50119761aaf4c5b404556b3591ff3195936d8",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});</script>
+<!--End AutoPilot -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WPBXCP9');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPBXCP9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="row boxitBar">
+<div class="col-md-2 carAvatar">&nbsp;
+<div class="Avatar"></div>
+<span class="Name">Hi, {{UserName}}</span></div>
+
+<div class="form-group col-md-2"><br />
+<select id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select></div>
+
+<div class="form-group col-md-3" ng-show="showSubCategories"><br />
+<select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select></div>
+
+<div class="form-group" ng-class="{'col-md-3':showSubCategories , 'col-md-5':!showSubCategories}"><br />
+<input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> <!--                <button   ng-click="doSearch()"></button>--></div>
+
+<div class="col-md-1 "><br />
+<button class="btn btn-info" ng-click="doSearch()" type="button">Search</button></div>
+
+<div class="col-md-1 " style="cursor: pointer;"><br />
+<a class="cart" ng-click="showShoppingCar()"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
+</div>
+
+<div class="BoxitStoreContainer " ng-init="firstSearch()" style="margin-bottom: 10%;">
+<div class="row">
+<div ng-show="loadMain" style="margin-bottom: 20%">
+<div class="col-lg-12">
+<div id="cssload-pgloading">
+<div class="cssload-loadingwrap">
+<ul class="cssload-bokeh">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div ng-show="showCar">
+<div class="col-lg-offset-1 col-lg-11">
+<div class="col-sm-10" ng-repeat="item in Items" style="width: 250px;height: 270px;padding-top: 10px; "><a ng-click="viewItem(item)" style="cursor: pointer;"><img class="img-responsive img-rounded center-block linkCarrito imageFit" src="{{item.Image.ImageUrl}}" style="max-width: 100%;height: 180px;" title="{{item.Attributes.Title}}" /></a>
+
+<p class="ItemCar linkCarrito"><a ng-click="viewItem(item)" style="cursor: pointer;">{{item.Attributes.Title}}</a></p>
+<span style="color: #333333;font-weight: bold">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span><br />
+<button class="ButtonCar" ng-click="addToCar(item.ItemId)">Add to Cart</button></div>
+</div>
+</div>
+
+<div ng-show="showCarMessage">
+<div class="col-lg-12">
+<h2 class="text-center">No hay Resultados</h2>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-4"></div>
+
+<div class="col-lg-5"><uib-pagination ng-change="pageChanged()" ng-model="currentPage" ng-show="showPagination" total-items="totalItems"></uib-pagination></div>
+
+<div class="col-lg-3"></div>
+</div>
+</div>
+
+<!-- <div class="BannerSobresaliente Content" style="height: 190px;background-color: #00b4cb;">
+<div class="BannerSobresalienteContainer ContentContainer MaxWidth">
+<div class="Title"><img alt="" src="img/bien_cool.png" style="width: 290px;" /></div>
+
+<div class="Description">
+<div class="Text">Registrate y realiza tu compra ya!</div>
+
+<div class="Button WithBackground"><a href="#">REGISTRARME</a></div>
+</div>
+<img src="img/foto-Banner_5.png" style="" /></div>
+</div> -->
+<!--<div class="AlwaysClose Content">
+    <div class="MainTitle">
+        Siempre Cerca
+    </div>
+    <div class="Description">
+        <div class="Text">
+            Regístrate y elige el boxit más cercano a tu casa u oficina
+        </div>
+        <a href="#">
+            <div class="Button WithBackground">CONSIGUE EL BOXIT MÁS CERCANO</div>
+        </a>
+    </div>
+</div>-->
+
+<!-- <div class="BannerSobresaliente Content" style="height: 111px;background-color: #A82773;">
+<div class="BannerSobresalienteContainer ContentContainer MaxWidth">
+<div class="Title">ADEMAS DE TODO; <span>BOXIT</span><br />
+&iexcl;ES BIEN COOL!</div>
+<img src="img/foto-Banner_2.png" /></div>
+</div> -->
+</body>
+</html>

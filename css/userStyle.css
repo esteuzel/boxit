@@ -1,0 +1,138 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 07-may-2016, 23:24:27
+    Author     : LcBc
+*/
+
+
+/*body{
+  //  font-family: 'Open Sans', sans-serif;
+}*/
+
+.Text{
+    font-size: 16px;
+
+}
+
+.customLabel{
+    color: #A82773 !important;
+    font-weight: bold;
+}
+
+.fondo {
+    background-color: white
+
+}
+
+.initButton {
+    float: left;
+    border: 2px solid #c7c7c7;
+    padding: 10px 15px;
+    border-radius: 30px;
+    color: #a82773;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    white-space: nowrap;
+
+}
+
+.cierreSesion {
+    margin-left: 50px;
+
+}
+
+
+.ContenedorBoxitStore{
+    display: inline-block;
+    float: left;
+    width: 33%;
+    height: 10%;
+}
+
+.ContenedorBoxitStore a {
+    border: 2px solid #c7c7c7;
+    padding: 10px 10px;
+    border-radius: 30px;
+
+
+}
+
+.ContenedorBoxitStore a img{
+    width: 70%;
+}
+
+.sesionButton{
+    color: #a82773;
+    font-size: 12px;
+    font-weight: bold;
+
+} 
+
+.userAreaButton{
+    color: #FFFFFF;
+    background-color: #a82773;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.headerPrecio{
+    background-color: #A82773;
+    color: #FFFFFF;
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+
+}
+
+
+.rowPrecio{
+    height: 35px;
+    background-color: #eeeeee;
+    color: #A82773;
+   /* font-weight: bold;*/
+    font-size: 14px;
+
+}
+
+
+.rowInfo{
+
+    height: 35px;
+    background-color: #eeeeee;
+    /*    color: #A82773;*/
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.preciosTable{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+
+}
+
+.imageFit {
+    object-fit: contain;
+    font-family: 'object-fit: contain;'
+}
+
+
+.vcenter {
+    display: flex;
+    align-items: center;
+}
+
+#select_categories option[value="?"] {
+display:none;
+}
+#select_categories option[value="1"] {
+selected: true;
+}

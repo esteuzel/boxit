@@ -1,0 +1,35 @@
+<link href="../css/userStyle.css" rel="stylesheet" type="text/css"/>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">
+        <h3 class="customLabel">Modificar Contraseña</h3>
+        <h4 class="customLabel">Por favor completa los siguientes campos</h4>
+        <hr>
+
+    
+        <div class="form-group">
+            <label for="old" class="customLabel"> Contraseña Anterior*:</label>
+            <input type="password"   class="form-control" id="old" ng-model="oldpassword">
+
+        </div>
+        <div class="form-group">
+            <label for="new1" class="customLabel">  Contraseña Nueva*:</label>
+            <input type="password"  class="form-control" id="new1" ng-model="newpassword">
+
+        </div>
+        <div class="form-group">
+            <label for="new2" class="customLabel">  Confirmar Contraseña Nueva*:</label>
+
+            <input type="password"  class="form-control"  id="new2" ng-model="confirmpassword">
+
+        </div>
+
+        <div class="Submit">
+
+            <button class="Button WithBackground" ng-click="Update()">Modificar Contraseña</button>
+        </div>
+
+    </div>
+    <br>
+    <br>
+</div>
