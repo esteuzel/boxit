@@ -17,218 +17,126 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPBXCP9"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<div class="BarHeader Content">
-<div class="BarHeaderContainer ContentContainer MaxWidth">
-<div class="Text"><span>Reg&iacute;strate.</span> Completa el formulario con tus datos para el registro.</div>
-<img alt="" src="img/image_headerbar_1.png" /></div>
-</div>
+
+<section class="home iniciodesesion">
+	<div class="BarHeader Content">
+		<div class="BarHeaderContainer ContentContainer MaxWidth">
+			<img alt="" src="img/image_headerbar_1.png" />
+		</div>
+	</div>	
+	<div class="container-fluid" id="iniciodesesion-box">		
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1><span>Reg&iacute;strate.</span> Completa el formulario con tus datos para el registro.</h1>
+			</div>
+		</div>	
+		<div class="row">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+
+
+
+
+
 
 <div class="ContentContainer MaxWidthData">
-<div class="Formulary">
-<div class="Groups">
-<div class="Group">
-<div class="Title"><span>Parte 1. </span>Datos personales</div>
+	<div class="Formulary">
+		<div class="Groups">
+			<div class="Group">
+				<div class="Title"><span>Parte 1. </span>Datos personales</div>
 
-<div class="Description">Por favor completa la informaci&oacute;n para iniciar sesi&oacute;n.</div>
+				<div class="Description">Por favor completa la informaci&oacute;n para iniciar sesi&oacute;n.</div>
 
-<div class="Fields">
-<table>
-	<tbody>
-		<tr>
-			<td class="Text">Nombres</td>
-			<td>
-			<div class="FieldContent"><input ng-model="username" placeholder="Ingrese su nombre" type="text" /></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="Text">Apellidos</td>
-			<td>
-			<div class="FieldContent"><input ng-model="lastname" placeholder="Ingrese su apellido" type="text" /></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="Text">Fecha de nacimiento</td>
-			<td style="width: 223px">
-			<div class="FieldContent"><input alt-input-formats="altInputFormats" close-text="Close" datepicker-options="dateOptions" is-open="popup1.opened" ng-model="UserBirthdate" ng-required="true" readonly="readonly" style="border: 2px solid #cdcdcd;float: left" uib-datepicker-popup="{{format}}" /> <!--&lt;!&ndash;ng-options="anho for anho in anhosDeNacimiento"&ndash;&gt;--> <!--<option value="">Año</option>--><button class="btn btn-info btn-xs" ng-click="open()" style="float: left" type="button"><span class="glyphicon glyphicon-search"></span></button></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="Text">G&eacute;nero</td>
-			<td>
-			<div class="FieldContent"><select id="" name="" ng-model="UserGender"><option value="">Seleccione una opci&oacute;n</option><option value="H">Masculino</option><option value="M">Femenino</option> </select></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="Text">Tel&eacute;fono</td>
-			<td>
-			<div class="FieldContent"><input ng-model="Phone" placeholder="Ingrese su teléfono" type="text" /></div>
-			</td>
-		</tr>
-	</tbody>
-</table>
-</div>
-</div>
+				<div class="Fields">
 
-<div class="Group">
-<div class="Title"><span>Parte 2. </span>Datos de la cuenta</div>
+					<div class="FieldContent"><span>Nombres</span></div>
+					<input class="form-control"  ng-model="username" placeholder="Ingrese su nombre" type="text" />
 
-<div class="Description">Escoge un nombre de usuario y contrase&ntilde;a para ingresar en tu cuenta y selecciona el boxit de tu preferencia donde recibir&aacute;s tus paquetes.</div>
+					<div class="FieldContent"><span>Apellidos</span></div>
+					<input class="form-control" ng-model="lastname" placeholder="Ingrese su apellido" type="text" />
 
-<div class="Fields">
-<table>
-	<tbody>
-		<tr>
-			<td class="Text">Nombre de usuario</td>
-			<td>
-			<div class="FieldContent"><input ng-model="useremail" placeholder="tuCorreo@correoelectronico.com" type="text" /></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="Text">Contrase&ntilde;a</td>
-			<td>
-			<div class="FieldContent"><input ng-model="password" placeholder="*******" type="password" /></div>
-			</td>
-		</tr>
-		<tr>
-			<td class="Text">Confirma tu contrase&ntilde;a</td>
-			<td>
-			<div class="FieldContent"><input ng-model="confirmarpassword" placeholder="*******" type="password" /></div>
-			</td>
-		</tr>
-		<tr class="Separator">
-		</tr>
-		<tr ng-show="false">
-			<td class="Text">Pregunta de seguridad</td>
-			<td>
-			<div class="FieldContent"><select id="" name=""><option value=""></option> </select></div>
-			</td>
-		</tr>
-		<tr ng-show="false">
-			<td class="Text">Respuesta de seguridad</td>
-			<td>
-			<div class="FieldContent"><select id="" name=""><option value=""></option> </select></div>
-			</td>
-		</tr>
-		<tr class="Separator">
-		</tr>
-		<tr>
-			<td class="Text">Boxit</td>
-			<td>
-			<div class="FieldContent"><select ng-model="descPlataforma" ng-options="plataforma.attributes.Address +     ' - ' +     plataforma.attributes.DescPlataforma for plataforma in plataformas"><option value="">Selecciona tu Boxit m&aacute;s cercano</option> </select></div>
-			</td>
-		</tr>
-	</tbody>
-</table>
-</div>
-</div>
+					
+					<div class="FieldContent"><span>Fecha de nacimiento</span></div>
+					<div class="input-group">
+						<input type="text" class="form-control" alt-input-formats="altInputFormats" close-text="Close" datepicker-options="dateOptions" is-open="popup1.opened" ng-model="UserBirthdate" ng-required="true" readonly="readonly" uib-datepicker-popup="{{format}}" /> 
 
-<div class="Group" ng-show="true">
-<div class="Title"><span>Parte 3. </span>Datos Personalizados</div>
+						<span class="input-group-btn">
+							<button class="btn btn-info btn-calendar" ng-click="open()" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+						</span>
+					</div>
 
-<div class="Fields">
-<table>
-	<tbody>
-		<tr>
-			<td align="left" class="Text">&iquest;C&oacute;mo te enteraste de Boxit?&nbsp;</td>
-			<td>
-			<div class="FieldContent"><select id="select_CEnteraste" name="" ng-model="CEnteraste" onchange="validar_opcion_centeraste();"><option value="">Seleccione una opci&oacute;n</option><option value="1">Instagram</option><option value="2">Facebook</option><option value="3">Me Tope con el Locker</option><option value="4">Un Amigo</option><option value="7">Codigo Promoción</option><option value="6">Otro</option> </select></div>
-			</td>
-		</tr>
-		<tr id="td_otraopcion" style="display:none;">
-			<td class="Text">Descripci&oacute;n:&nbsp;</td>
-			<td>
-			<div class="FieldContent"><textarea cols="20" id="input_otraopcion" ng-model="Otro_CEnteraste" rows="2"></textarea></div>
-			</td>
-		</tr>
-	</tbody>
-</table>
-&nbsp;
+					<div class="FieldContent"><span>G&eacute;nero</span></div>
+					<select class="form-control" id="" name="" ng-model="UserGender"><option value="">Seleccione una opci&oacute;n</option><option value="H">Masculino</option><option value="M">Femenino</option> </select>
 
-<table>
-	<tbody>
-		<tr>
-			<td class="Text">&iquest;Cual de las siguientes categor&iacute;as de productos te interesa?</td>
-		</tr>
-		<tr ng-repeat="x in Categ">
-			<td>
-			<div align="left"><input id="{{x.id}}" ng-model="x.checked" onclick="mostrar_campo_otracategoria(this.value);" type="checkbox" value="{{x.id}}" /><label for="{{x.id}}">&nbsp;{{x.name}}</label></div>
-			</td>
-		</tr>
-		<tr id="tr_otracategoria" style="display:none">
-			<td>
-			<div align="left" class="FieldContent"><input id="input_otracategoria" ng-model="Otra_Categoria" placeholder="Ingresa Otra Categoría" type="text" /></div>
-			</td>
-		</tr>
-	</tbody>
-</table>
-<!--
-<table id="tabla_categorias">
-	<tbody>
-		<tr>
-			<td class="Text">&iquest;Cual de las siguientes categor&iacute;as de productos te interesa?</td>
-			<td></td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkinstrumento" name="checkinstrumento" type="checkbox" value="1" /> <label for="checkinstrumento">&nbsp;Intrumentos Musicales</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkmoda" name="checkmoda" type="checkbox" value="2" /><label for="checkmoda">&nbsp;Moda Femenina</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkropa" name="checkropa" type="checkbox" value="3" /><label for="checkropa">&nbsp;Ropa</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkjuegos" name="checkjuegos" type="checkbox" value="4" /> <label for="checkjuegos">&nbsp;Videojuegos y Juguetes</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkaccesorios" name="checkaccesorios" type="checkbox" value="5" /><label for="checkaccesorios">&nbsp;Accesorios de Celular</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkdeportivos" name="checkdeportivos" type="checkbox" value="6" /><label for="checkdeportivos">&nbsp;Art&iacute;culos Deportivos</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checklibros" name="checklibros" type="checkbox" value="7" /> <label for="checklibros">&nbsp;Libros</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checktecnologia" name="checktecnologia" type="checkbox" value="8" /><label for="checktecnologia">&nbsp;Tecnolog&iacute;a</label></div>
-			</td>
-		</tr>
-		<tr>
-			<td>
-			<div align="left"><input id="checkotro" name="checkotro" onclick="mostrar_campo_otracategoria();" type="checkbox" value="9" /><label for="checkotro">&nbsp;Otros</label></div>
-			</td>
-		</tr>
-		<tr id="tr_otracategoria" style="display:none">
-			<td>
-			<div align="left" class="FieldContent"><input id="input_otracategoria" ng-model="Otra_Categoria" placeholder="Ingresa Otra Categoría" type="text" /></div>
-			</td>
-		</tr>
-	</tbody>
-</table>
---></div>
-</div>
+					<div class="FieldContent"><span>Tel&eacute;fono</span></div>
+					<input class="form-control" ng-model="Phone" placeholder="Ingrese su teléfono" type="text" />
 
-<div class="Group" ng-show="false">
-<div class="Title"><span>Parte 4. </span>M&eacute;todo de pago</div>
+				</div>
+			</div>
 
-<div class="Description">Puedes registrar una tarjeta de credito para pagar tus paquetes una vez se encuentren en tu boxit seleccionado.</div>
+			<div class="Group">
+				<div class="Title"><span>Parte 2. </span>Datos de la cuenta</div>
 
-<div class="Fields">
+				<div class="Description">Escoge un nombre de usuario y contrase&ntilde;a para ingresar en tu cuenta y selecciona el boxit de tu preferencia donde recibir&aacute;s tus paquetes.</div>
+
+				<div class="Fields">
+					<div class="FieldContent"><span>Nombre de usuario</span></div>
+					<input class="form-control" ng-model="useremail" placeholder="tuCorreo@correoelectronico.com" type="text" />
+
+					<div class="FieldContent"><span>Contrase&ntilde;a</span></div>
+					<input class="form-control" ng-model="password" placeholder="*******" type="password" />
+
+					<div class="FieldContent"><span>Confirma tu contrase&ntilde;a</span></div>
+					<input class="form-control" ng-model="confirmarpassword" placeholder="*******" type="password" />
+
+					<div ng-show="false">
+						<div class="FieldContent"><span>Pregunta de seguridad</span></div>
+						<select id="" name=""><option value=""></option> </select>
+					</div>
+
+					<div ng-show="false">
+						<div class="FieldContent"><span>Respuesta de seguridad</span></div>
+						<select id="" name=""><option value=""></option> </select>
+					</div>
+
+					<div class="FieldContent"><span>Boxit</span></div>
+					<select class="form-control" ng-model="descPlataforma" ng-options="plataforma.attributes.Address +     ' - ' +     plataforma.attributes.DescPlataforma for plataforma in plataformas"><option value="">Selecciona tu Boxit m&aacute;s cercano</option> </select>
+
+				</div>
+			</div>
+
+			<div class="Group" ng-show="true">
+				<div class="Title"><span>Parte 3. </span>Datos Personalizados</div>
+				<div class="Fields">
+						<div class="FieldContent"><span>Boxit</span></div>
+						<select class="form-control" id="select_CEnteraste" name="" ng-model="CEnteraste" onchange="validar_opcion_centeraste();"><option value="">Seleccione una opci&oacute;n</option><option value="1">Instagram</option><option value="2">Facebook</option><option value="3">Me Tope con el Locker</option><option value="4">Un Amigo</option><option value="7">Codigo Promoción</option><option value="6">Otro</option> </select>
+
+						<div id="td_otraopcion" style="display:none;">
+								<div class="FieldContent"><span>Descripci&oacute;n:&nbsp;</span></div>
+								<textarea class="form-control" cols="20" id="input_otraopcion" ng-model="Otro_CEnteraste" rows="2"></textarea>
+						</div>
+
+						<div><p><br></p></div>
+						
+						<div class="FieldContent"><span>&iquest;Cual de las siguientes categor&iacute;as de productos te interesa?</span></div>
+
+						<div ng-repeat="x in Categ">
+							<div align="left"><input id="{{x.id}}" ng-model="x.checked" onclick="mostrar_campo_otracategoria(this.value);" type="checkbox" value="{{x.id}}" /><label for="{{x.id}}">&nbsp;{{x.name}}</label></div>
+						</div>
+						<div id="tr_otracategoria" style="display:none">
+							<input class="form-control" id="input_otracategoria" ng-model="Otra_Categoria" placeholder="Ingresa Otra Categoría" type="text" />
+						</div>
+
+				</div>
+			</div>
+
+			<div class="Group" ng-show="false">
+				<div class="Title"><span>Parte 4. </span>M&eacute;todo de pago</div>
+
+				<div class="Description">Puedes registrar una tarjeta de credito para pagar tus paquetes una vez se encuentren en tu boxit seleccionado.</div>
+
+				<div class="Fields">
 <table>
 	<tbody>
 		<tr>
@@ -286,18 +194,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</tr>
 	</tbody>
 </table>
-</div>
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-5"></div>
+
+				<div class="col-md-4">
+					<div class="Submit"><!--<input type="submit"  value="REGISTRARME">--><button class="Button WithBackground" ng-click="Sigin()">REGISTRARME</button></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-<div class="row">
-<div class="col-md-5"></div>
 
-<div class="col-md-4">
-<div class="Submit"><!--<input type="submit"  value="REGISTRARME">--><button class="Button WithBackground" ng-click="Sigin()">REGISTRARME</button></div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 </body>
 </html>
