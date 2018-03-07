@@ -1,31 +1,57 @@
-<div class="BarHeader Content">
-    <div class="BarHeaderContainer ContentContainer MaxWidth">
-        <div class="Text">
-            <span>Area de usuario.</span>
-
-        </div>
-        <img src="./img/image_headerbar_1.png" alt="">
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-10">
-    <h1 class="customLabel"> Bienvenido {{userName}} </h1>
-    </div>
-</div>
-<div class="row" style="margin-left: 5%;">   
-    <div class="col-lg-2">
-        <ul class="nav nav-pills nav-stacked">
-            <li role="presentation" ng-class="{'active': menu1}" ng-click="active(1)"><a ui-sref="userMenu.inicio">Inicio</a></li>
-            <li role="presentation" ng-class="{'active': menu2}" ng-click="active(2)"><a ui-sref="userMenu.editarPerfil">Editar Perfil</a></li>
-            <li role="presentation" ng-class="{'active': menu3}" ng-click="active(3)"><a ui-sref="userMenu.modificarContrasena">Modificar Contraseña</a></li>
-            <li role="presentation" ng-class="{'active': menu4}" ng-click="active(4)"><a ui-sref="userMenu.seleccionarBoxIt">Seleccionar BoxIt</a></li>
-            <li role="presentation" ng-class="{'active': menu5}" ng-click="active(5)"><a ui-sref="userMenu.anunciarPaquete">Anunciar Paquete</a></li>
-            <li role="presentation" ng-class="{'active': menu6}" ng-click="active(6)"><a ui-sref="userMenu.trakingDePaquetes"> Historial de Compras</a></li>
-            <li role="presentation" ng-class="{'active': menu7}" ng-click="active(7)"><a ui-sref="userMenu.cerrarSesion">Cerrar Sesion</a></li>
-        </ul>
-    </div>
-    <div class="col-lg-10">
-        <div  style="margin-bottom: 10%" ui-view></div>
-    </div>
+<div class="BarHeader Content">
+
+    <div class="BarHeaderContainer ContentContainer MaxWidth">
+
+        <div class="Text">
+
+            <span> </span>
+
+        </div>
+
+        <img src="./img/image_headerbar_1.png" alt="">
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-sm-12">
+
+    <h1 class="customLabel user-welcome"> Bienvenido {{userName}} </h1>
+
+    </div>
+
+</div>
+
+<div class="row" style="margin-left: 5%;">   
+
+    <div class="col-lg-2">
+
+        <ul class="nav nav-pills nav-stacked">
+
+            <li role="presentation" ng-class="{'active': menu1}" ng-click="active(1)"><a ui-sref="userMenu.inicio">Inicio</a></li>
+
+            <li role="presentation" ng-class="{'active': menu2}" ng-click="active(2)"><a ui-sref="userMenu.editarPerfil">Editar Perfil</a></li>
+
+            <li role="presentation" ng-class="{'active': menu3}" ng-click="active(3)"><a ui-sref="userMenu.modificarContrasena">Modificar Contraseña</a></li>
+
+            <li role="presentation" ng-class="{'active': menu4}" ng-click="active(4)"><a ui-sref="userMenu.seleccionarBoxIt">Seleccionar BoxIt</a></li>
+
+            <li role="presentation" ng-class="{'active': menu5}" ng-click="active(5)"><a ui-sref="userMenu.anunciarPaquete">Anunciar Paquete</a></li>
+
+            <li role="presentation" ng-class="{'active': menu6}" ng-click="active(6)"><a ui-sref="userMenu.trakingDePaquetes"> Historial de Compras</a></li>
+
+            <li role="presentation" ng-class="{'active': menu7}" ng-click="active(7)"><a ui-sref="userMenu.cerrarSesion">Cerrar Sesion</a></li>
+
+        </ul>
+
+    </div>
+
+    <div class="col-lg-10">
+
+        <div  style="margin-bottom: 10%" ui-view></div>
+
+    </div>
+
 </div>
