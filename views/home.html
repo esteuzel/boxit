@@ -206,11 +206,29 @@ https://www.google.com/maps/place/Selina+Embassy/@8.9521979,-79.5385483,17z/data
                         anchor: new google.maps.Point(0, 43)
                     };
 
-                    var marker = new google.maps.Marker({
+                    var contentString1 = '<div class="info-windows-content">'+
+                    '<div class="info-windows-title">'+
+                    '<h3>Boxit La Cresta</h3>'+
+                    '</div>'+                    
+                    '<div class="info-windows-phone">'+
+                    '<h4>+507 317-1014</h4>'+
+                    '</div>'+
+                    '<div class="info-windows-address">'+
+                    '<h5>La Cresta, Zaz Food Store, en la estación Delta al lado de la Entrada de Hossana. (Todos los días, 24 horas)</h5>'+
+                    '</div>'+
+                    '</div>';
+                    var infowindow1 = new google.maps.InfoWindow({
+                        content: contentString1
+                    });
+                    var marker1 = new google.maps.Marker({
                         position: ubication1,
                         map: map,
                         icon: image,
                         title: 'Boxit La Cresta'
+                    });
+                    marker1.addListener('click', function() {
+                        infowindow1.open(map, marker1);
+                        map.panTo(ubication1);
                     });
                     var marker = new google.maps.Marker({
                         position: ubication2,
