@@ -243,6 +243,11 @@ angular
              //  $scope.index= $scope.indexs[0];
 
             };
+            $scope.viewItemDetail= function (item) {
+                userData.getItemDetails(item.ItemId).then(function success(result) {
+                    console.log(result);
+                });
+            }
             $scope.viewItem = function (item) {
                 userData.getItemDetails(item.ItemId).then(function success(result) {
                 var modalInstance =   $uibModal.open({
