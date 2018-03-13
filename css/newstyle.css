@@ -939,8 +939,59 @@ section.iniciodesesion {
   margin-bottom: 40px;
 }
 
-/*  store */
+/*  store list*/
+.store-list .col-noppading {
+  padding: 10px;;
+}
+.store-list .product-item {
+  text-align: center;
+  margin: 2px;
+}
+.store-list .product-item-info {
+  border: 1px solid #eee;  
+  padding-top: 10px;
+}
+.store-list .product-item-info:hover {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,.3);
+}
+.store-list .product-image-photo {
+  margin: 0 auto;
+  border: 0;
+  vertical-align: top;
+  height: 180px;
+  max-width: 100%;
+}
+.store-list .product-item-name {
+  font-weight: 500;
+  display: block;
+  word-wrap: break-word;
+  height: 60px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.store-list .price-box {
+min-height: 35px;
+}
+.store-list .product-image-container {
+  padding: 10px 0;
+}
+.store-list .product-item-name .product-item-link {
+  color: #666;
+}
+.store-list .product-item-actions {
+  display: block;
+}
+.store-list .actions-primary {
+  display: grid !important;
+}
+.store-list .actions.add-to-cart button{
+margin: auto;
+float: none;
+width: 100%;
+}
 
+
+/*  store detail*/
 .store-itemdetail {
   min-height: 500px;
   position: relative;
