@@ -33,6 +33,7 @@ angular
                 id = 0;
             }
             
+console.log('controller shoppingCarController');
              //setInterval(getCar, 10000);
             var getCar = function () {
                
@@ -280,6 +281,7 @@ angular
                 }
             };
             $scope.showShoppingCar = function () {
+                    console.log('shoppingCarController showShoppingCar');
                 $state.go('modal');
             };
             $scope.goBack = function () {
