@@ -1262,6 +1262,7 @@ width: 100%;
 .boxit-shopping-cart .action-buttons {
   width: 100%;
   float: left;
+  margin-top: 40px;
 }
 .boxit-shopping-cart .action-buttons .cart-actions{
   float: left;
