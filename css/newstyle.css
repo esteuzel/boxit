@@ -940,6 +940,35 @@ section.iniciodesesion {
 }
 
 /*  store list*/
+.store-list-category {
+margin-top: 60px;
+float: left;
+}
+.store-list-category-title {
+  width: 100%;
+  float: left;
+  min-height: 75px;
+}
+.store-list-category-title-inner {
+  width: 100%;
+  margin-top: 8px;
+  float: left;
+  background: #1CB6CD;
+}
+.store-list-category-title-text {
+  background: #AB3A77 url('../img/newstyle/cat-title.png') top right no-repeat;
+  float: left;
+  margin-top: -8px;
+
+}
+.store-list-category-title h2 {
+  background: #AB3A77;
+  color: #fff;
+  margin-right: 20px;
+  padding: 0 10px;
+  margin-top: 5px;
+  font-size: 24px;
+}
 .store-list .col-noppading {
   padding: 10px;;
 }

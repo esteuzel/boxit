@@ -483,6 +483,7 @@ console.log('controller shoppingCarController');
                 });
             };
             $scope.firstSearch = function () {
+
                 userData.getFirstSearch().then(function success(result) {
                     $scope.loadMain = false;
                     $scope.Items = result;
@@ -490,6 +491,7 @@ console.log('controller shoppingCarController');
                     $scope.showImage = false;
                 }, function error(result) {
                 });
+                
             };
             $scope.clearShoppingCar = function () {
                 clearCar(userObj.IdCliente).then(function success(result) {
@@ -541,5 +543,41 @@ console.log('controller shoppingCarController');
                 });
             };
             
-             getCar();
+            getCar();
+            
+
+
+            var getProductsCategory = function () {
+                var searchParams = {};
+                searchParams["SearchIndex"] = 'Baby';
+                userData.getDefaultSearch(searchParams).then(function success(result) {
+                    var mostrarSoloEstosCuatro = {};
+                    mostrarSoloEstosCuatro[0] = result[0];
+                    mostrarSoloEstosCuatro[1] = result[1];
+                    mostrarSoloEstosCuatro[2] = result[2];
+                    mostrarSoloEstosCuatro[3] = result[3];
+                    $scope.ItemsBaby = mostrarSoloEstosCuatro;
+                    console.log('ItemsBaby',$scope.ItemsBaby)
+                }, function error(result) {
+                });
+
+                var searchParams = {};
+                searchParams["SearchIndex"] = 'Electronics';
+                userData.getDefaultSearch(searchParams).then(function success(result) {
+                    var mostrarSoloEstosCuatro = {};
+                    mostrarSoloEstosCuatro[0] = result[0];
+                    mostrarSoloEstosCuatro[1] = result[1];
+                    mostrarSoloEstosCuatro[2] = result[2];
+                    mostrarSoloEstosCuatro[3] = result[3];
+                    $scope.ItemsElectronics = mostrarSoloEstosCuatro;
+                    console.log('ItemsElectronics',$scope.ItemsElectronics)
+                }, function error(result) {
+                });
+
+
+            };
+
+
+            getProductsCategory();
+
         }]);
