@@ -940,6 +940,24 @@ section.iniciodesesion {
 }
 
 /*  store list*/
+.store-list-category .carousel-indicators {
+bottom: auto;
+top: 14px;
+}
+.store-list-category .carousel-control {
+background: none;
+}
+.store-list-category .carousel .glyphicon {
+  border-radius: 50%;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+}
+.store-list-category .carousel .glyphicon:before {
+  color: #AB3A77;
+}
+
 .store-list-category {
 margin-top: 60px;
 float: left;

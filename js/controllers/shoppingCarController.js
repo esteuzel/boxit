@@ -32,6 +32,7 @@ angular
             } else {
                 id = 0;
             }
+            $scope.showProductsCategory = true;
             
 console.log('controller shoppingCarController');
              //setInterval(getCar, 10000);
@@ -46,6 +47,9 @@ console.log('controller shoppingCarController');
                 });
             };
             $scope.doSearch = function () {
+                console.log('doSearch');
+                $scope.showProductsCategory = false;
+                console.log('showProductsCategory',$scope.showProductsCategory);
                 $scope.loadMain = true;
                 $scope.showCar = false;
                 $scope.currentPage = 1;
@@ -83,6 +87,7 @@ console.log('controller shoppingCarController');
                                 $scope.loadMain = true;
                                 $scope.firstSearch();
                                 getCar();
+                                $scope.showProductsCategory = true;
                             });
                         } else {
                             $scope.loadMain = false;
@@ -548,6 +553,9 @@ console.log('controller shoppingCarController');
 
 
             var getProductsCategory = function () {
+
+                
+            $scope.showProductsCategory = true;
                 var searchParams = {};
                 searchParams["SearchIndex"] = 'Baby';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
@@ -564,12 +572,19 @@ console.log('controller shoppingCarController');
                 var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
-                    var mostrarSoloEstosCuatro = {};
-                    mostrarSoloEstosCuatro[0] = result[0];
-                    mostrarSoloEstosCuatro[1] = result[1];
-                    mostrarSoloEstosCuatro[2] = result[2];
-                    mostrarSoloEstosCuatro[3] = result[3];
-                    $scope.ItemsElectronics = mostrarSoloEstosCuatro;
+                    $scope.ItemsElectronicsUno= {};
+                    $scope.ItemsElectronicsDos= {};
+                    $scope.ItemsElectronicsTres= {};
+                    $scope.ItemsElectronicsUno[0] = result[0];
+                    $scope.ItemsElectronicsUno[1] = result[1];
+                    $scope.ItemsElectronicsUno[2] = result[2];
+                    $scope.ItemsElectronicsUno[3] = result[3];
+                    $scope.ItemsElectronicsDos[0] = result[4];
+                    $scope.ItemsElectronicsDos[1] = result[5];
+                    $scope.ItemsElectronicsDos[2] = result[6];
+                    $scope.ItemsElectronicsDos[3] = result[7];
+                    $scope.ItemsElectronicsTres[0] = result[8];
+                    $scope.ItemsElectronicsTres[1] = result[9];
                     console.log('ItemsElectronics',$scope.ItemsElectronics)
                 }, function error(result) {
                 });
@@ -577,7 +592,8 @@ console.log('controller shoppingCarController');
 
             };
 
-
+            if($scope.showProductsCategory){
             getProductsCategory();
+            }
 
         }]);
