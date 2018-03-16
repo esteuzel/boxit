@@ -596,4 +596,28 @@ console.log('controller shoppingCarController');
             getProductsCategory();
             }
 
+            var refreshMyWishList = function (item) {
+                console.log('item',item.ItemId);
+            }
+            
+            $scope.addToWishList = function (item) {                
+                if(localStorage.getItem('myWishList')=== null){
+                    oldItems = [];
+                                       
+                }else{
+                    console.log('oldItems',oldItems);
+                    var oldItems = JSON.parse(localStorage.getItem('myWishList')) || []; 
+                }
+                var newItem = {
+                    'ItemId': item.ItemId,
+                    'ImageUrl': item.Image.ImageUrl,
+                    'Title': item.Attributes.Title,
+                    'FormattedPrice': item.Offers.Offer.OfferListing.Price.FormattedPrice
+                };
+                oldItems.push(newItem);                
+                localStorage.setItem('myWishList', JSON.stringify(oldItems));
+                refreshMyWishList(item);
+                console.log('oldItems',oldItems);
+            };
+
         }]);

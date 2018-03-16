@@ -940,6 +940,33 @@ section.iniciodesesion {
 }
 
 /*  store list*/
+.boxitBar {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.store-search {
+  width: 100%;
+}
+.boxitBar .carAvatar .Avatar {
+  width: 40px;
+  height: 40px;
+}
+.store-search .store-search-button button{
+  padding: 8px 15px !important;
+}
+.store-search .store-cart {
+  cursor: pointer;
+}
+.store-favoritos-button {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+.store-favoritos-button a.misFavoritos{
+color: #fff;
+font-size: 14px;
+margin-top: 10px;
+}
+
 .store-list-category .carousel-indicators {
 bottom: auto;
 top: 14px;
@@ -1036,7 +1063,17 @@ margin: auto;
 float: none;
 width: 100%;
 }
-
+.actions-secondary {
+  padding-bottom: 10px;
+}
+.actions-secondary a.towishlist {
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+}
+.actions-secondary a.towishlist:hover, .actions-secondary a.towishlist:focus {
+  color: #1cb6cd;
+}
 
 /*  store detail*/
 .store-itemdetail-topbar {

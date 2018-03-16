@@ -19,7 +19,7 @@ $(document).ready(function() {
 	function scrollCheck() {
 		scrollPos = $(window).scrollTop();
 		
-		if (scrollPos >= 300) {
+		if (scrollPos >= 50) {
 			$('.navbar').addClass('change');
 		} else {
 			$('.navbar').removeClass('change');
