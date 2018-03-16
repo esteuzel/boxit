@@ -166,6 +166,16 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 },
                 controller: 'shoppingCarController'
             }
+        ).state('itemDetail', {
+            url: '/itemDetail/:itemId',
+            reloadOnSearch : false,
+            templateUrl: 'views/itemDetail.html',
+            params: {
+                itemId: ""
+            },                
+            controller: 'itemDetailController'
+        }
+        /*
         ).state('itemDetails', {
                 url: '/itemDetails?itemId',
                 parent: 'modal',
@@ -179,6 +189,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 },
                 controller: 'detallesDelArticuloController'
             }
+            */
         ).state('checkoutmessage', {
                 url: '/checkoutmessage',
                 parent: 'modal',

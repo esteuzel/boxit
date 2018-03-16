@@ -35,8 +35,9 @@ angular
                 } else {
                     id = 0;
                 }
+                $scope.mostrarBoxitShoppingCart = false;
 
-
+console.log('controller modalShoppingCarController');
 
 
                 var getCar = function () {
@@ -187,6 +188,7 @@ angular
                     }
                 };
                 $scope.showShoppingCar = function () {
+                    console.log('modalShoppingCarController showShoppingCar');
                     var modalInstance = $uibModal.open({
                         animation: true,
                         templateUrl: 'views/modalShoppingCar.html',
@@ -534,6 +536,7 @@ angular
                                 $scope.carNumber = calcularTotal($scope.carItems);
                                 $scope.loading = false;
                                 $scope.showCarItems = true;
+                                 $scope.mostrarBoxitShoppingCart = true;
                                 angular.element(document.getElementById('cartNumber')).scope().carNumber = $scope.carNumber;
                             } else {
                                 getCar();
@@ -600,7 +603,11 @@ angular
                         $scope.closeModal();
                     });
                 };
+
+
                 getCar();
+
+
                 function calcularTotal(carItems) {
                     var totalAcumulado = 0;
                     for (var i = 0; i < carItems.length; i++) {
