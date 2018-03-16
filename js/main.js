@@ -40,14 +40,6 @@ $(document).ready(function() {
 		$('#navbar a.btn-primary').closest('li').insertBefore('#navbar a.btn-secondary');
 	}
 
-
-
-
-
-
-
-
-
 	// INLINE SVG
 	$('img.svg').each(function(){
 	    var $img = jQuery(this);

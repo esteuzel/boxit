@@ -6,7 +6,7 @@ body{
     transition: width 5s;
 }
 body > * {
-    width: 100% !important;
+    width: 100% ;
 
     box-sizing: border-box;
 }

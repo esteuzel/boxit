@@ -1361,3 +1361,7 @@ width: 100%;
 .boxit-shopping-cart .col-noppading {
   padding: 0!important;
 }
+
+.moveme {
+  max-width: 250px!important;
+}
