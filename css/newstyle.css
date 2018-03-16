@@ -550,12 +550,13 @@ html.touchevents .video-background {
 
 #host-boxit {
   background-color: #fff;
-  background-image: url("../img/newstyle/home/host-a-boxit.jpg");
+  background-image: url("../img/newstyle/home/ubica-un-boxit-en-tu-local.jpg");
   background-position: right center;
   background-size: contain;
   height: 400px; }
   #host-boxit #host-cta {
-    color: #aaa;
+    color: #333;
+    font-weight: bold;
     font-size: 30px;
     margin-top: 0;
     margin-bottom: 16px; }
@@ -564,13 +565,18 @@ html.touchevents .video-background {
       margin: 0 12px;
       position: relative;
       top: 2px;
-      width: 120px; }
+      
+    }
+
   #host-boxit p {
-    color: #888; }
+    color: #333; }
   #host-boxit .cta-row {
     margin-top: 24px;
     padding: 0; }
-
+    #host-boxit .cta-row-contactanos {
+      text-align: left;
+      padding-left: 15px;
+}
 @media screen and (max-width: 1499px) {
   .navbar.navbar-fixed-top .navbar-brand {
     padding: 25px 0; }
