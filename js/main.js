@@ -19,7 +19,7 @@ $(document).ready(function() {
 	function scrollCheck() {
 		scrollPos = $(window).scrollTop();
 		
-		if (scrollPos >= 300) {
+		if (scrollPos >= 50) {
 			$('.navbar').addClass('change');
 		} else {
 			$('.navbar').removeClass('change');
@@ -39,14 +39,6 @@ $(document).ready(function() {
 		$('#navbar a.btn-store').closest('li').prependTo('.navbar-right');
 		$('#navbar a.btn-primary').closest('li').insertBefore('#navbar a.btn-secondary');
 	}
-
-
-
-
-
-
-
-
 
 	// INLINE SVG
 	$('img.svg').each(function(){

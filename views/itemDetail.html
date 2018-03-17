@@ -2,7 +2,17 @@
     <div class="store-itemdetail-top"></div>
     <div class="store-itemdetail-topbar container-fluid">
         <div class="row boxitBarItemDetail">
-            <div class="Avatar"></div>
+            
+                <div class="col-md-2 carAvatar">
+                    <div class="Avatar"></div>
+                    <span class="Name ng-binding">Hola FABIO</span>                
+                </div>
+                <div class="col-md-2 carAvatar">
+                    <div class="store-favoritos-button">
+                        <a class="misFavoritos" ui-sref="misFavoritos" href="#/misFavoritos">Mis Favoritos</a>
+                    </div> 
+                </div>
+
             <div class="store-itemdetail-cart">
                 <a class="cart" ng-click="showShoppingCar()"> 
                     <span id="cartNumber">{{carNumber}}</span>Cart 

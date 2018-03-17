@@ -19,26 +19,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div class="boxitBar-top"></div>
 <div class="row boxitBar">
-<div class="col-md-2 carAvatar">&nbsp;
-<div class="Avatar"></div>
-<span class="Name">Hi, {{UserName}}</span></div>
+    <div class="col-md-2 carAvatar">&nbsp;
+        <div class="Avatar"></div>
+        <span class="Name">Hola {{UserName}}</span>
 
-<div class="form-group col-md-2"><br />
-<select id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select></div>
+        <div class="store-favoritos-button">
+            <a class="misFavoritos" ui-sref="misFavoritos" >Mis Favoritos</a>
+        </div>    
 
-<div class="form-group col-md-3" ng-show="showSubCategories"><br />
-<select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select></div>
+    </div>
 
-<div class="form-group" ng-class="{'col-md-3':showSubCategories , 'col-md-5':!showSubCategories}"><br />
-<input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> <!--                <button   ng-click="doSearch()"></button>--></div>
-
-<div class="col-md-1 "><br />
-<button class="btn btn-info" ng-click="doSearch()" type="button">Search</button></div>
-
-<div class="col-md-1 " style="cursor: pointer;"><br />
-<a class="cart" ng-click="showShoppingCar()"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
+<div class="form-group col-md-2">
+    <select id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
 </div>
-
+<div class="form-group col-md-2" ng-show="showSubCategories">
+    <select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select>
+</div>
+<div class="store-search">
+    <div class="store-search-input col-md-3">
+        <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
+    </div>
+    <div class="store-search-button col-md-2">
+        <button class="btn btn-info" ng-click="doSearch()" type="button">Búsqueda</button>
+    </div>
+    
+    <div class="store-cart col-md-1">
+        <a class="cart" ng-click="showShoppingCar()"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
+    </div>
+</div>
 <div class="BoxitStoreContainer container" ng-init="firstSearch()" style="margin-bottom: 10%;">
 <div class="row">
 <div ng-show="loadMain" style="margin-bottom: 20%">
@@ -91,7 +99,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </button>
                                 </div>
                             </div>
-                            <div class="actions-secondary" data-role="add-to-links"></div>
+                            <div class="actions-secondary">
+                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                    <span>Agregar a Favoritos</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -147,7 +159,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="actions-secondary" data-role="add-to-links"></div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span>Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -190,7 +206,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="actions-secondary" data-role="add-to-links"></div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span>Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +252,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="actions-secondary" data-role="add-to-links"></div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span>Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -303,7 +327,11 @@ $(document).ready(function() {
                                     </button>
                                 </div>
                             </div>
-                            <div class="actions-secondary" data-role="add-to-links"></div>
+                            <div class="actions-secondary">
+                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                    <span>Agregar a Favoritos</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

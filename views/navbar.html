@@ -52,10 +52,10 @@
 <script type="text/javascript">
 $(document).ready(function() {
     var navbarAffixHeight=120;
-	console.log('navbarAffixHeight: ' + navbarAffixHeight);
+	//console.log('navbarAffixHeight: ' + navbarAffixHeight);
 
 	$('a.link-whois').on('click', function(event) {
-		console.log('link-whois click');
+		//console.log('link-whois click');
 		event.preventDefault();
 		var target = $('#about-box');        
 		$('html,body').animate({
@@ -64,7 +64,7 @@ $(document).ready(function() {
 		return false;        
 	});
 	$('a.link-retiro').on('click', function(event) {
-		console.log('link-retiro click');
+		//console.log('link-retiro click');
 		event.preventDefault();
 		var target = $('#home-main');        
 		$('html,body').animate({
@@ -73,7 +73,7 @@ $(document).ready(function() {
 		return false;        
 	});
 	$('a.link-ubicaciones').on('click', function(event) {
-		console.log('link-ubicaciones click');
+		//console.log('link-ubicaciones click');
 		event.preventDefault();
 		var target = $('#ubication-box');        
 		$('html,body').animate({

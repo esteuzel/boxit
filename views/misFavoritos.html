@@ -1,0 +1,157 @@
+
+<div class="boxitBar-top"></div>
+
+<div class="row boxitBar">
+    <div class="col-md-2 carAvatar">
+        <div class="Avatar"></div>
+        <span class="Name">Hola, {{UserName}}</span>
+    </div>
+<!--
+<div class="form-group col-md-2"><br />
+    <select id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
+</div>
+
+<div class="form-group col-md-3" ng-show="showSubCategories"><br />
+    <select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select>
+</div>
+-->
+<div class="store-search">
+    <!--
+    <div class="store-search-input col-md-4">
+        <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
+    </div>
+
+    <div class="store-search-button col-md-2">
+        <button class="btn btn-info" ng-click="doSearch()" type="button">Búsqueda</button>
+    </div>
+
+    <div class="store-search-button col-md-2">
+        
+    </div>
+-->
+<div class="col-md-8"> </div>
+    <div class="store-cart col-md-2">
+        <a class="cart cart_anchor" ng-click="showShoppingCar()"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
+    </div>
+</div>
+
+
+<div class="BoxitStoreContainer container" ng-init="firstSearch()" style="margin-bottom: 10%;">
+<div class="row">
+<div ng-show="loadMain" style="margin-bottom: 20%">
+<div class="col-lg-12">
+<div id="cssload-pgloading">
+<div class="cssload-loadingwrap">
+<ul class="cssload-bokeh">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div ng-show="showCar"> 
+    <div class="store-list">
+        <div class="col-sm-3 col-noppading" ng-repeat="item in Items">
+            <div class="product-item">
+                <div class="product-item-info">
+                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                    <span class="product-image-container">
+                        <span class="product-image-wrapper">
+                            <img id="image-{{item.ItemId}}" class="product-image-photo img-responsive-no" src="{{item.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                        </span>
+                    </span>
+                    </a>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Title}}</a>
+                        </strong>
+                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                            <span class="price-container price-final_price tax weee">
+                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                    <span class="price">{{item.FormattedPrice}}</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="product-item-actions">
+                            <div class="actions-primary actions add-to-cart">
+                                <div class="actions add-to-cart">
+                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}" ng-click="addToCar(item.ItemId)">
+                                        <span>Añadir al carrito</span>
+                                    </button>
+                                </div>
+                            </div>                            
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="showCarMessage">
+<div class="col-lg-12">
+<h2 class="text-center">No hay Resultados</h2>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-lg-4"></div>
+
+<div class="col-lg-5"><uib-pagination ng-change="pageChanged()" ng-model="currentPage" ng-show="showPagination" total-items="totalItems"></uib-pagination></div>
+
+<div class="col-lg-3"></div>
+</div>
+</div>
+
+
+
+<script type="text/javascript">
+function flyToElement(flyer, flyingTo) {
+	var $func = $(this);
+	var divider = 3;
+	var flyerClone = $(flyer).clone();
+    $(flyerClone).css({position: 'absolute', top: $(flyer).offset().top + "px", left: $(flyer).offset().left + "px", opacity: 1, 'z-index': 1000});
+    $(flyerClone).addClass("moveme");
+	$('body').append($(flyerClone));
+    
+    var gotoX = $(flyingTo).offset().left + ($(flyingTo).width() / 2) - ($(flyer).width()/divider)/2;
+	var gotoY = $(flyingTo).offset().top + ($(flyingTo).height() / 2) - ($(flyer).height()/divider)/2;
+	 
+	$(flyerClone).animate({
+		opacity: 0.4,
+		left: gotoX,
+		top: gotoY,
+		width: $(flyer).width()/divider,
+		height: $(flyer).height()/divider
+	}, 700,
+	function () {
+		$(flyingTo).fadeOut('fast', function () {
+			$(flyingTo).fadeIn('fast', function () {
+				$(flyerClone).fadeOut('fast', function () {
+					//$(flyerClone).remove();
+				});
+			});
+		});
+	});
+}
+    $(document).ready(function(){
+        $('.tocart').on('click',function(){
+            $('html, body').animate({
+                'scrollTop' : $("<body>").position().top
+            });            
+            var itemImg = "#"+$(this).attr('data-goimage');
+            console.log('itemImg',itemImg);
+            flyToElement($(itemImg), $('.cart_anchor'));
+        });
+    });
+    </script>

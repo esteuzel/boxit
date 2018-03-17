@@ -209,6 +209,12 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 },
                 controller:'modalLoginController'
             }
+        ).state('misFavoritos', {
+            url: "/misFavoritos",
+            templateUrl: "views/misFavoritos.html",
+            controller: "myWishList"
+
+        }
         );
     }]);
     
