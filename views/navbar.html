@@ -17,16 +17,26 @@
 				</div>
 				<div id="navbar">
 				  <ul class="nav navbar-nav navbar-middle">
+						<li><a ui-sref="home" class="link-compra">Compra</a></li>
+						<li class=""><a class="link-vende" ui-sref="vende">Vende</a></li>
 					<li class="dropdown">
-					  <a class="dropdown-toggle link-servicios" ui-sref="home" data-toggle="dropdown">Servicios</a>
+					  <a class="dropdown-toggle link-empresarial" data-toggle="dropdown">Empresarial</a>
 					  <ul class="dropdown-menu">
-						<li class="dropdown-item"><a href="#" class="link-whois">¿Qué es Boxit?</a></li>
-						<li class="dropdown-item"><a href="#" class="link-retiro">Retiro de paquete</a></li>
-						<li class="dropdown-item"><a href="#" class="link-ubicaciones">Ubicaciones</a></li>
+						<li class="dropdown-item"><a ui-sref="empresarial-boxit-residencial" class="link-empresarial-residencial">Boxit Residencial</a></li>
+						<li class="dropdown-item"><a ui-sref="empresarial-boxit-tulocal" class="link-empresarial-tulocal">Boxit en tu local</a></li>
 					  </ul>
-					</li>				
-					<li class=""><a  ui-sref="FAQ">Información</a> </li>
-						
+					</li>
+					
+					<li class="dropdown">
+							<a class="dropdown-toggle link-informacion" data-toggle="dropdown">Información</a>
+							<ul class="dropdown-menu">
+							<li class="dropdown-item"><a ui-sref="FAQ" class="link-informacion-faq">Preguntas Frecuentes</a></li>
+							<li class="dropdown-item"><a ui-sref="nosotros" class="link-informacion-nosotros">Nosotros</a></li>
+							<li class="dropdown-item"><a ui-sref="home" class="link-ubicaciones">Nuestras Ubicaciones</a></li>
+							<li class="dropdown-item"><a ui-sref="blog" class="link-informacion-blog">Blog</a></li>
+							<li class="dropdown-item"><a ui-sref="prensa" class="link-informacion-prensa">Prensa</a></li>
+							</ul>
+						</li>						
 					
 					<li class="navbar-contactanos"><a ui-sref="contactanos">Contacto</a></li>
 					<li><a class="btn btn-store" ui-sref="boxitStore"><span><span>bo</span>xit</span>Store</a></li>
@@ -51,9 +61,29 @@
             </div><!--/.container-fluid -->
 <script type="text/javascript">
 $(document).ready(function() {
-    var navbarAffixHeight=120;
-	//console.log('navbarAffixHeight: ' + navbarAffixHeight);
 
+	function goToTopBody(){
+		$('html,body').animate({
+			scrollTop: (1)
+		}, 1000);
+	}
+
+    var navbarAffixHeight=120;
+	$('a.link-compra').on('click', function(event) {
+		//event.preventDefault();
+		setTimeout(goToHomeMain, 200);		
+		return false;
+	});
+	function goToHomeMain(){
+		var target = $('#home-main');
+		$('html,body').animate({
+			scrollTop: (target.offset().top - navbarAffixHeight + 1)
+		}, 1000);
+	}
+
+
+	
+		
 	$('a.link-whois').on('click', function(event) {
 		//console.log('link-whois click');
 		event.preventDefault();
@@ -74,12 +104,36 @@ $(document).ready(function() {
 	});
 	$('a.link-ubicaciones').on('click', function(event) {
 		//console.log('link-ubicaciones click');
-		event.preventDefault();
-		var target = $('#ubication-box');        
+		setTimeout(goToHomeUbication, 200);		
+		//return false;        
+		});
+	function goToHomeUbication(){
+		var target = $('#ubication-box');   
 		$('html,body').animate({
 			scrollTop: (target.offset().top - navbarAffixHeight + 1)
 		}, 1000);
-		return false;        
-    });
+	}
+
+	$('a.link-vende').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});
+	$('a.link-informacion-faq').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});
+	$('a.link-informacion-nosotros').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});	
+	$('a.link-informacion-prensa').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});	
+	$('a.link-informacion-blog').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});	
+	$('a.link-empresarial-residencial').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});		
+	$('a.link-empresarial-tulocal').on('click', function(event) {
+		setTimeout(goToTopBody, 200);		
+	});	
 });
 </script>

@@ -278,8 +278,8 @@ hr.tiny-line {
       text-transform: uppercase; }
     .navbar.navbar-fixed-top #navbar ul li .btn-secondary {
       color: #fff !important; }
-    .navbar.navbar-fixed-top #navbar ul li + li {
-      margin-left: 10px; }
+    /*.navbar.navbar-fixed-top #navbar ul li + li {
+      margin-left: 10px; }*/
     .navbar.navbar-fixed-top #navbar .navbar-nav > li > .dropdown-menu {
       border: 0;
       border-radius: 4px;
@@ -451,7 +451,7 @@ html.touchevents .video-background {
 
 #home-main {
   background-color: #fff;
-  margin: -98px 30px 0;
+  margin: 30px 30px 0;
   padding: 30px;
   position: relative;
   z-index: 1006; }
@@ -461,12 +461,12 @@ html.touchevents .video-background {
     #home-main .home-step article {
       height: 280px; }
       #home-main .home-step article h2 {
-        color: #a6d6df;
+        color: #16b5cc;
         font-size: 48px;
         font-weight: 600;
         margin-bottom: 24px; }
       #home-main .home-step article h3 {
-        color: #888;
+        color: #333;
         font-weight: 500;
         letter-spacing: 0.2em;
         text-transform: uppercase; }
@@ -478,7 +478,7 @@ html.touchevents .video-background {
           width: 60px;
           height: 1px; }
     #home-main .home-step p {
-      color: #888;
+      color: #555;
       padding: 0 30px; }
     #home-main .home-step figure {
       background-color: #ddd;
@@ -584,8 +584,8 @@ html.touchevents .video-background {
       height: 60px; }
   .navbar.navbar-fixed-top #navbar ul li a:not(.btn) {
     letter-spacing: 0.05em; }
-  .navbar.navbar-fixed-top #navbar ul li + li {
-    margin-left: 4px; }
+  /*.navbar.navbar-fixed-top #navbar ul li + li {
+    margin-left: 4px; }*/
   .navbar.navbar-fixed-top #navbar .navbar-middle {
     left: 43%;
     transform: translateX(-50%); } }
@@ -615,7 +615,7 @@ html.touchevents .video-background {
       padding: 10px; }
     .navbar.navbar-fixed-top #navbar .navbar-middle {
       left: 42%; }
-    .navbar.navbar-fixed-top #navbar .navbar-nav > li > .dropdown-menu {
+    /*.navbar.navbar-fixed-top #navbar .navbar-nav > li > .dropdown-menu {
       background-color: #a6d6df;
       border-top-left-radius: 0;
       border-top-right-radius: 0;
@@ -625,7 +625,7 @@ html.touchevents .video-background {
         color: #fff;
         font-size: 14px !important; }
       .navbar.navbar-fixed-top #navbar .navbar-nav > li > .dropdown-menu li + li {
-        margin-top: 0; }
+        margin-top: 0; }*/
   footer #footer-signup p {
     padding: 0; }
   #home-main .home-step h2 {
@@ -911,7 +911,35 @@ display: block;
   margin: 30px 30px 0 30px;
   background: #fff;
 }
-
+section.vende {
+  background-color: #a6d6df;
+}
+#vende-box {
+  margin: 30px 30px 0 30px;
+  background: #fff;
+}
+#vende-box p {
+  margin-top: 24px;
+  text-align: justify;
+}
+#vende-box img {
+  max-width: 1000%;
+  width: 100%;
+}
+section.nosotros {
+  background-color: #a6d6df;
+}
+#nosotros-box {
+  margin: 30px 30px 0 30px;
+  background: #fff url(../img/quienes_somos.png) no-repeat top right;
+}
+section.empresarial {
+  background-color: #a6d6df;
+}
+#empresarial-box {
+  background: #fff;
+  margin: 30px 30px 0 30px;
+}
 section.iniciodesesion {
   padding-bottom: 30px;
 }
@@ -1364,4 +1392,43 @@ width: 100%;
 
 .moveme {
   max-width: 250px!important;
+}
+#home-main .obten {color: #333;}
+#navbar ul.navbar-middle li {
+  cursor: pointer;
+}
+.boxit-residencial .content-box {
+  width: 100%;
+  float: left;
+  padding-bottom: 40px;
+}
+.boxit-residencial .content-box-img {
+  width: 18%;
+  float: left;
+}
+.boxit-residencial .content-box-img img {
+  max-width: 100%;
+  height: auto;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 0;
+  vertical-align: middle;
+}
+.boxit-residencial .content-box-text {
+  width: 77%;
+  float: right;
+  padding-top: 40px;
+}
+.boxit-residencial .content-box-text h5 {
+  color: #777;
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+}
+.boxit-residencial .content-box-text p {
+  color: #777;
+  font-size: 16px;
+  line-height: 26px;
+  margin: 0;
+  padding: 7px 0 0;
 }
