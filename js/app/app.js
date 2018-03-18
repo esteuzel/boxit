@@ -62,9 +62,9 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 templateUrl: "views/Enviar.html?v=${new Date().getTime()}",
                 controller: ""
             }
-        ).state('FAQ', {
-                url: "/FAQ",
-                templateUrl: "views/FAQ.html?v=${new Date().getTime()}",
+        ).state('faq', {
+                url: "/faq",
+                templateUrl: "views/faq.html?v=${new Date().getTime()}",
                 controller: ""
 
             }

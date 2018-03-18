@@ -481,8 +481,8 @@ html.touchevents .video-background {
       color: #555;
       padding: 0 30px; }
     #home-main .home-step figure {
-      background-color: #ddd;
-      height: 20vw; }
+      background-color: #fff;
+      height: 10vw; }
 #home-map {
     background-color: #ddd;
     height: 35vw;
@@ -930,8 +930,15 @@ section.nosotros {
   background-color: #a6d6df;
 }
 #nosotros-box {
-  margin: 30px 30px 0 30px;
-  background: #fff url(../img/quienes_somos.png) no-repeat top right;
+  margin: 30px 30px 30px 30px;
+  background: #fff;
+  padding-bottom: 30px;
+}
+#nosotros-box h2 {
+  padding: 30px 0 0 30px;
+}
+#nosotros-box .detalle {
+  padding: 30px 30px 0 30px;
 }
 section.empresarial {
   background-color: #a6d6df;
@@ -939,6 +946,22 @@ section.empresarial {
 #empresarial-box {
   background: #fff;
   margin: 30px 30px 0 30px;
+}
+#empresarial-box .beneficios {
+  padding: 10px 45px 10px 45px;
+}
+#empresarial-box .beneficio {
+  padding: 10px 45px;
+}
+#empresarial-box .beneficio img{
+margin: 0 auto;
+}
+#empresarial-box h2 {
+  color: #a82773;
+}
+
+#empresarial-box .beneficio h4{
+  margin-top: 20px;
 }
 section.iniciodesesion {
   padding-bottom: 30px;
@@ -1431,4 +1454,7 @@ width: 100%;
   line-height: 26px;
   margin: 0;
   padding: 7px 0 0;
+}
+.tesstimonio {
+  padding: 30px;
 }
