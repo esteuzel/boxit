@@ -168,10 +168,20 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 templateUrl: "views/Retiro.html?v=${new Date().getTime()}",
                 controller: ""
             }
+        ).state('boxitStoreOld', {
+                url: "/boxitStoreOld",
+                templateUrl: "views/BoxitStoreOld.html?"+$.now(),
+                controller: "shoppingCarController"
+            }
         ).state('boxitStore', {
                 url: "/boxitStore",
                 templateUrl: "views/BoxitStore.html?"+$.now(),
-                controller: "shoppingCarController"
+                controller: "boxitStoreController"
+            }
+        ).state('carrito', {
+                url: "/carrito",
+                templateUrl: "views/Carrito.html?"+$.now(),
+                controller: "carritoController"
             }
         ).state('modal', {
                 parent: 'boxitStore',

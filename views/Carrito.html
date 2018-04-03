@@ -1,0 +1,123 @@
+<section class="carrito">
+	<div class="boxitBar-top">
+        
+	</div>		
+	<div class="container-fluid" id="carrito-box">			
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1>Carrito</h1>
+			</div>
+		</div>
+
+		<div class="row">
+            <div class="col-xs-12">               
+
+
+<div class="carrito-container">
+    <div style="margin-bottom: 20%" id="cssload-pgloading" ng-show="loading">
+        <div class="cssload-loadingwrap">
+            <ul class="cssload-bokeh">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="boxit-shopping-cart" ng-show="mostrarBoxitShoppingCart">
+    <div class="cart-container">
+        <div class="cart-left">
+            <div class="row" ng-repeat="item in carItems" ng-show="showCarItems">
+                <hr>
+                <div class="col-xs-7 col-lg-7">
+                    <a ui-sref="itemDetails({itemId: item.ItemId })"><span>{{item.Title}}</span></a>
+                </div>
+                <div class="col-lg-1 col-xs-1 col-noppading">
+                    <button class="btn btn-danger" ng-click="modifyCar(0, item.CartItemId, item.Quantity)"><span class="glyphicon glyphicon-minus-sign"></span></button>
+                </div>
+                <div class="col-lg-3 col-xs-3 text-left col-noppading">
+                    <div class="input-group input-group">
+                        <span class="input-group-addon"><b>{{item.Price.FormattedPrice}}</b></span>
+                        <span style="width: 100%" class="form-control"><b>{{item.Quantity}}</b></span>
+                    </div>
+                </div>
+                <div  class="col-lg-1 col-xs-1 col-noppading">
+                    <button class="btn btn-primary" ng-click="modifyCar(1, item.CartItemId, item.Quantity)"><span class="glyphicon glyphicon-plus-sign"></span></button>
+                </div>
+        </div>
+    </div><!--  cart-left   -->
+    
+                    <div class="cart-summary">
+                        <div class="cart-totals">
+                            <div class="table-wrapper">
+                                <table class="data table totals">
+                                    <caption class="table-caption">Total</caption>
+                                    <tbody>
+                                        <tr class="totals sub">
+                                            <th class="texto">Subtotal</th>
+                                            <td class="amount">
+                                                <span class="price" ng-bind="subTotal"></span>
+                                            </td>
+                                        </tr>
+                                        <tr class="grand totals">
+                                            <th class="texto">
+                                                <strong>Orden Total</strong>
+                                            </th>
+                                            <td class="amount">
+                                                <strong><span class="price" ng-bind="subTotal"></span></strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>    
+                        </div>
+                        <div class="pagar-en-efectivo">
+                            <button type="button" ng-click="purchase()" title="Pagar en efectivo" class="action primary checkout">
+                                <span>Pagar en efectivo</span>
+                            </button>
+                        </div>
+                    </div>
+    
+    
+    
+                <div class="action-buttons" ng-show="shopping">            
+                    <div class="cart-actions">                        
+                        <button type="submit" ng-click="clearShoppingCar()" name="update_cart_action" value="empty_cart" title="Clear Shopping Cart" class="action clear">
+                            <span>Limpiar Carrito</span>
+                        </button>
+                        <button type="submit" ng-click="continueBuying()" name="continue" value="continue" title="Update Shopping Cart" class="action continue">
+                            <span>Continuar Comprando</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+    
+</div>
+<div class="container-fluid">			
+<div class="row">
+    <div class="col-md-12 text-center"><p><br></p></div>
+</div>
+</div>
+</section>

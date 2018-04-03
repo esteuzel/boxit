@@ -1337,6 +1337,17 @@ width: 100%;
 }
 
 /*  cart  */
+
+section.carrito {
+  background-color: #a6d6df;
+}
+#carrito-box {
+  margin: 30px 30px 0 30px;
+  background: #fff;
+}
+#carrito-box h1{
+  margin-top: 15px;
+}
 .boxit-shopping-cart {
   width: 100%;
   float: left;
