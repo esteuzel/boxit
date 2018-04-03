@@ -62,12 +62,48 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 templateUrl: "views/Enviar.html?v=${new Date().getTime()}",
                 controller: ""
             }
-        ).state('FAQ', {
-                url: "/FAQ",
-                templateUrl: "views/FAQ.html?v=${new Date().getTime()}",
+        ).state('faq', {
+                url: "/faq",
+                templateUrl: "views/faq.html?v=${new Date().getTime()}",
                 controller: ""
 
             }
+        ).state('vende', {
+            url: "/vende",
+            templateUrl: "views/vende.html",
+            controller: ""
+
+        }
+        ).state('empresarial-boxit-residencial', {
+            url: "/empresarial-boxit-residencial",
+            templateUrl: "views/empresarial-boxit-residencial.html",
+            controller: ""
+
+        }
+        ).state('empresarial-boxit-tulocal', {
+            url: "/empresarial-boxit-tulocal",
+            templateUrl: "views/empresarial-boxit-tulocal.html",
+            controller: ""
+
+        }
+        ).state('nosotros', {
+            url: "/nosotros",
+            templateUrl: "views/nosotros.html",
+            controller: ""
+
+        }
+        ).state('blog', {
+            url: "/blog",
+            templateUrl: "views/blog.html",
+            controller: ""
+
+        }
+        ).state('prensa', {
+            url: "/prensa",
+            templateUrl: "views/prensa.html",
+            controller: ""
+
+        }
 	).state('contactanos', {
 	        url: "/contactanos",
 	        templateUrl: "views/contactanos.html?v=${new Date().getTime()}",
@@ -109,12 +145,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 templateUrl: "views/IniciarSesion.html?v=${new Date().getTime()}",
                 controller: "loginController"
 
-            }
-        ).state('nosotros', {
-                url: "/nosotros",
-                templateUrl: "views/Nosotros.html?v=${new Date().getTime()}",
-                controller: ""
-            }
+            }        
         ).state('pagoservicio', {
                 url: "/pagoservicio",
                 templateUrl: "views/Pagoservicio.html?v=${new Date().getTime()}",
