@@ -1,23 +1,4 @@
-<html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title></title>
-<!--Begin AutoPilot -->
-<script type="text/javascript">(function(o){var b="https://api.autopilothq.com/anywhere/",t="cb7780893cf5421d9959efe45ff50119761aaf4c5b404556b3591ff3195936d8",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});</script>
-<!--End AutoPilot -->
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-WPBXCP9');</script>
-<!-- End Google Tag Manager -->
-</head>
-<body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPBXCP9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-<div class="boxitBar-top"></div>
+<div class="boxitBar-top" id="boxitBar-top"></div>
 <div class="row boxitBar">
     <div class="col-md-2 carAvatar">&nbsp;
         <div class="Avatar"></div>
@@ -44,7 +25,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <div class="store-cart col-md-1">
-        <a class="cart" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
+        <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
     </div>
 </div>
 <div class="BoxitStoreContainer container" ng-init="firstSearch()" style="margin-bottom: 10%;">
@@ -76,7 +57,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
                     <span class="product-image-container">
                         <span class="product-image-wrapper">
-                            <img class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
                         </span>
                     </span>
                     </a>
@@ -94,7 +75,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="product-item-actions">
                             <div class="actions-primary actions add-to-cart">
                                 <div class="actions add-to-cart">
-                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" ng-click="addToCar(item.ItemId)">
+                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item.ItemId,'default')">
                                         <span>Añadir al carrito</span>
                                     </button>
                                 </div>
@@ -136,7 +117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
                                     <span class="product-image-container">
                                         <span class="product-image-wrapper">
-                                            <img class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                            <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
                                         </span>
                                     </span>
                                     </a>
@@ -154,7 +135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="product-item-actions">
                                             <div class="actions-primary actions add-to-cart">
                                                 <div class="actions add-to-cart">
-                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" ng-click="addToCar(item.ItemId)">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-elect" data-goimage="image-{{item.ItemId}}-elect" ng-click="addToCar(item.ItemId,'elect')">
                                                         <span>Añadir al carrito</span>
                                                     </button>
                                                 </div>
@@ -183,7 +164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
                                     <span class="product-image-container">
                                         <span class="product-image-wrapper">
-                                            <img class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                            <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
                                         </span>
                                     </span>
                                     </a>
@@ -201,7 +182,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="product-item-actions">
                                             <div class="actions-primary actions add-to-cart">
                                                 <div class="actions add-to-cart">
-                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" ng-click="addToCar(item.ItemId)">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-elect" data-goimage="image-{{item.ItemId}}-elect" ng-click="addToCar(item.ItemId,'elect')">
                                                         <span>Añadir al carrito</span>
                                                     </button>
                                                 </div>
@@ -229,7 +210,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
                                     <span class="product-image-container">
                                         <span class="product-image-wrapper">
-                                            <img class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                            <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
                                         </span>
                                     </span>
                                     </a>
@@ -247,7 +228,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class="product-item-actions">
                                             <div class="actions-primary actions add-to-cart">
                                                 <div class="actions add-to-cart">
-                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" ng-click="addToCar(item.ItemId)">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-elect" data-goimage="image-{{item.ItemId}}-elect" ng-click="addToCar(item.ItemId,'elect')">
                                                         <span>Añadir al carrito</span>
                                                     </button>
                                                 </div>
@@ -304,7 +285,7 @@ $(document).ready(function() {
                     <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
                     <span class="product-image-container">
                         <span class="product-image-wrapper">
-                            <img class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                            <img id="image-{{item.ItemId}}-baby" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
                         </span>
                     </span>
                     </a>
@@ -322,7 +303,7 @@ $(document).ready(function() {
                         <div class="product-item-actions">
                             <div class="actions-primary actions add-to-cart">
                                 <div class="actions add-to-cart">
-                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" ng-click="addToCar(item.ItemId)">
+                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-baby" data-goimage="image-{{item.ItemId}}-baby" ng-click="addToCar(item.ItemId,'baby')">
                                         <span>Añadir al carrito</span>
                                     </button>
                                 </div>
@@ -357,36 +338,11 @@ $(document).ready(function() {
 </div>
 </div>
 
-<!-- <div class="BannerSobresaliente Content" style="height: 190px;background-color: #00b4cb;">
-<div class="BannerSobresalienteContainer ContentContainer MaxWidth">
-<div class="Title"><img alt="" src="img/bien_cool.png" style="width: 290px;" /></div>
 
-<div class="Description">
-<div class="Text">Registrate y realiza tu compra ya!</div>
 
-<div class="Button WithBackground"><a href="#">REGISTRARME</a></div>
-</div>
-<img src="img/foto-Banner_5.png" style="" /></div>
-</div> -->
-<!--<div class="AlwaysClose Content">
-    <div class="MainTitle">
-        Siempre Cerca
-    </div>
-    <div class="Description">
-        <div class="Text">
-            Regístrate y elige el boxit más cercano a tu casa u oficina
-        </div>
-        <a href="#">
-            <div class="Button WithBackground">CONSIGUE EL BOXIT MÁS CERCANO</div>
-        </a>
-    </div>
-</div>-->
 
-<!-- <div class="BannerSobresaliente Content" style="height: 111px;background-color: #A82773;">
-<div class="BannerSobresalienteContainer ContentContainer MaxWidth">
-<div class="Title">ADEMAS DE TODO; <span>BOXIT</span><br />
-&iexcl;ES BIEN COOL!</div>
-<img src="img/foto-Banner_2.png" /></div>
-</div> -->
-</body>
-</html>
+
+
+</div></div>
+
+
