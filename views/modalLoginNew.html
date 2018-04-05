@@ -1,0 +1,62 @@
+
+<div class="ContentContainer MaxWidthData">
+        <button class="btn btn-default pull-right" ng-click="closeModal()"><span class="glyphicon glyphicon-remove"></span></button>
+
+
+
+
+    <div ng-show="loadingLogin" style="margin-top: 50px; margin-bottom: 200px;">
+        <div class="col-lg-12">
+            <div id="cssload-pgloading">
+                <div class="cssload-loadingwrap">
+                    <ul class="cssload-bokeh">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="Formulary" ng-show ="showLogin">
+
+            <div class="FieldContent">
+                <span>Usuario</span>
+            </div>
+            <input type="text" class="form-control"  placeholder="coloque su correo electrónico"  ng-model="username" ng-keypress="onKeyEnterPress($event)">
+
+            <div class="FieldContent">
+                <span>Contraseña</span>
+            </div>
+            <input type="password" class="form-control" placeholder="coloque su contraseña" ng-model="password" ng-keypress="onKeyEnterPress($event)">
+            <div class="FieldContent">
+                <input type="checkbox"><span>Recordarme</span>
+
+                <div class="Submit">
+                    <button ng-click="Login()" class="Button WithBackground">Iniciar sesión</button>
+                </div>
+                <div class="Links">
+                    <div class="Link">
+                        <a  href="javascript:;" ng-click="lostPassword()">
+                            ¿Olvidaste tu contraseña?
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <div class="Formulary" ng-show ="showRecuperar">
+        <div class="FieldContent">
+            <span>Correo Electronico</span>
+        </div>
+        <input type="text" class="form-control" ng-model="lostEmail">
+        <div class="FieldContent">
+            <div class="Submit">
+                <button ng-click="restorePassword()" class="Button WithBackground">Recuperar Contraseña</button>
+            </div>
+        </div>
+    </div>    
+</div>

@@ -292,9 +292,7 @@ console.log('controller boxitStoreController');
             $scope.goBack = function () {
                 history.back();
             };
-            $scope.closeModal = function () {
-                $localStorage.modalIns.close();
-            };
+            
             var getItemLink = function (id) {
                 var defered = $q.defer();
                 var promise = defered.promise;
@@ -411,21 +409,8 @@ console.log('controller boxitStoreController');
 
             };
             $scope.addToCar = function (id,cat) {
-                
-                console.log('id',id);
-                let boxitBartop = angular.element(document.getElementById('boxitBar-top'));
-                let productaddtocartitemidcat = "product-addtocart-"+id+"-"+cat;
-                let datagoimageContainer = angular.element(document.getElementById(productaddtocartitemidcat));
-                    $('html, body').animate({
-                        'scrollTop' : boxitBartop.position().top
-                    });            
-                    var itemImg = datagoimageContainer.attr('data-goimage');
-                    console.log('itemImg',itemImg);
-                    flyToElement(itemImg, '.cart_anchor');
-               
-
-
                 if (userObj != undefined) {
+                    moveToCart(id,cat);
                     var args = {};
                     args["IdCliente"] = userData.getData().IdCliente;
                     args["ItemId"] = id;
@@ -436,7 +421,27 @@ console.log('controller boxitStoreController');
                         console.log(error);
                     });
                 } else {
-                    $scope.showShoppingCar();
+
+
+                    var modalInstance = $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modalLoginNew.html',
+                        controller: 'modalLoginController',
+                        size: 'md',
+                        resolve: {
+                            mensaje: function () {
+                                var mensaje = {};
+                                mensaje.titulo = "Inicio de sesion";
+                                mensaje.texto = "respuesta";
+                                mensaje.estilo = "alerta";
+                                return mensaje;
+                            }
+                        }
+
+                    });
+
+                    //$scope.showShoppingCar();                    
+                    //$state.go('modalLoginNew');                    
                 }
             };
             var refreshCar = function (result) {
@@ -501,7 +506,7 @@ console.log('controller boxitStoreController');
                 });
             };
             $scope.firstSearch = function () {
-
+                
                 userData.getFirstSearch().then(function success(result) {
                     $scope.loadMain = false;
                     $scope.Items = result;
@@ -633,40 +638,42 @@ console.log('controller boxitStoreController');
                 console.log('oldItems',oldItems);
             };
 
-
-
-
-
+            function moveToCart(id,cat){
+                let boxitBartop = angular.element(document.getElementById('boxitBar-top'));
+                let productaddtocartitemidcat = "product-addtocart-"+id+"-"+cat;
+                let datagoimageContainer = angular.element(document.getElementById(productaddtocartitemidcat));                
+                var body = $("html, body");
+                body.stop().animate({scrollTop:0}, 700, 'swing', function() {});
+                var itemImg = datagoimageContainer.attr('data-goimage');
+                flyToElement(itemImg, '.cart_anchor');
+            }
 
             function flyToElement(flyer, flyingTo) { 
-        //var $func = $(this);
-        let flyer_var = angular.element(document.getElementById(flyer));
-        var divider = 3;
-        var flyerClone = flyer_var.clone();
-        console.log(flyerClone);
-        $(flyerClone).css({position: 'absolute', top: flyer_var.offset().top + "px", left: flyer_var.offset().left + "px", opacity: 1, 'z-index': 1000});
-        $(flyerClone).addClass("moveme");
-        $('body').append($(flyerClone));
-        
-        var gotoX = $(flyingTo).offset().left + ($(flyingTo).width() / 2) - (flyer_var.width()/divider)/2;
-        var gotoY = $(flyingTo).offset().top + ($(flyingTo).height() / 2) - (flyer_var.height()/divider)/2;
-         
-        $(flyerClone).animate({
-            opacity: 0.4,
-            left: gotoX,
-            top: gotoY,
-            width: flyer_var.width()/divider,
-            height: flyer_var.height()/divider
-        }, 700,
-        function () {
-            $(flyingTo).fadeOut('fast', function () {
-                $(flyingTo).fadeIn('fast', function () {
-                    $(flyerClone).fadeOut('fast', function () {
-                        //$(flyerClone).remove();
+                //var $func = $(this);
+                let flyer_var = angular.element(document.getElementById(flyer));
+                var divider = 3;
+                var flyerClone = flyer_var.clone();
+                $(flyerClone).css({position: 'absolute', top: flyer_var.offset().top + "px", left: flyer_var.offset().left + "px", opacity: 1, 'z-index': 1000});
+                $(flyerClone).addClass("moveme");
+                $('body').append($(flyerClone));                
+                var gotoX = $(flyingTo).offset().left + ($(flyingTo).width() / 2) - (flyer_var.width()/divider)/2;
+                var gotoY = $(flyingTo).offset().top + ($(flyingTo).height() / 2) - (flyer_var.height()/divider)/2;                
+                $(flyerClone).animate({
+                    opacity: 0.4,
+                    left: gotoX,
+                    top: gotoY,
+                    width: flyer_var.width()/divider,
+                    height: flyer_var.height()/divider
+                }, 700,
+                function () {
+                    $(flyingTo).fadeOut('fast', function () {
+                        $(flyingTo).fadeIn('fast', function () {
+                            $(flyerClone).fadeOut('fast', function () {
+                                //$(flyerClone).remove();
+                            });
+                        });
                     });
                 });
-            });
-        });
-    }
+            }
 
         }]);

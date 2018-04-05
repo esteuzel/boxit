@@ -250,6 +250,23 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 },
                 controller:'modalLoginController'
             }
+/*
+        ).state('modalLoginNew', {
+                url: '/modalLoginNew',
+                parent: 'boxitStore',
+                onEnter: ['$uibModal', '$state', function ($uibModal, $state) {
+                    console.log('Open modalLoginNew');
+                    $uibModal.open({
+                        templateUrl: "views/modalLoginNew.html?"+$.now(),
+                        size: 'lg',
+                        component: 'close',
+                        controller: 'modalLoginController'
+                    }).result.finally(function () {
+                        $state.go('boxitStore');
+                    });
+                }]
+            }
+            */
         ).state('misFavoritos', {
             url: "/misFavoritos",
             templateUrl: "views/misFavoritos.html",

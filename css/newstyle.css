@@ -1469,3 +1469,15 @@ section.carrito {
 .tesstimonio {
   padding: 30px;
 }
+.store-favoritos-gobak {
+  float: left;
+  margin: 10px 0 0 10px;
+}
+.misFavoritosGoBack {
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+.misFavoritosGoBack:hover {
+  color: #fff;
+}
