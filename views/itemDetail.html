@@ -1,11 +1,11 @@
 <div ng-controller="itemDetailController" class="ng-scope">
-    <div class="store-itemdetail-top"></div>
+    <div class="store-itemdetail-top" id="store-itemdetail-top"></div>
     <div class="store-itemdetail-topbar container-fluid">
         <div class="row boxitBarItemDetail">
             
                 <div class="col-md-2 carAvatar">
                     <div class="Avatar"></div>
-                    <span class="Name ng-binding">Hola FABIO</span>                
+                    <span class="Name ng-binding">Hola {{UserName}}</span>                
                 </div>
                 <div class="col-md-2 carAvatar">
                     <div class="store-favoritos-button">
@@ -14,7 +14,7 @@
                 </div>
 
             <div class="store-itemdetail-cart">
-                <a class="cart" ng-click="showShoppingCar()"> 
+                <a class="cart cart_anchor" ui-sref="carrito"> 
                     <span id="cartNumber">{{carNumber}}</span>Cart 
                 </a>
             </div>
@@ -48,7 +48,7 @@
                 <div class="row">
                     <div class="col col-xs-12 col-sm-6">
                         <div class="itemdetail-image">
-                            <img class="img-responsive" title="{{titulo}}" src="{{imgUrl}}">
+                            <img id="item-image" class="img-responsive" title="{{titulo}}" src="{{imgUrl}}">
                         </div>
                     </div>
                     <div class="col col-xs-12 col-sm-6">
@@ -129,7 +129,7 @@
                                     <div class="actions add-to-cart">
                                         <span class="input-group-btn" uib-tooltip="{{tooltip}}"
                                             tooltip-trigger="click" tooltip-placement="top">
-                                            <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" ng-click="addToCar()" ng-disabled="disabledAdd" disabled="disabled">
+                                            <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" data-goimage="item-image" ng-click="addToCar()" ng-disabled="disabledAdd" disabled="disabled">
                                                 <span>Añadir</span>
                                             </button>
                                         </span>

@@ -183,6 +183,8 @@ angular
             };
 
             $scope.addToCar = function () {
+                moveToCart();
+                console.log('moveToCart');
                 var args = {};
                 args["IdCliente"] = userData.getData().IdCliente;
                 args["ItemId"] = currentIdItem;
@@ -254,6 +256,43 @@ angular
             $scope.showShoppingCar = function () {
                 $state.go('modal');
             };
+
+            function moveToCart(id,cat){
+                let boxitBartop = angular.element(document.getElementById('store-itemdetail-top'));             
+                var body = $("html, body");
+                body.stop().animate({scrollTop:0}, 700, 'swing', function() {});
+                var itemImg = "item-image";
+                console.log('move');
+                flyToElement(itemImg, '.cart_anchor');
+            }
+
+            function flyToElement(flyer, flyingTo) { 
+                //var $func = $(this);
+                let flyer_var = angular.element(document.getElementById(flyer));
+                var divider = 3;
+                var flyerClone = flyer_var.clone();
+                $(flyerClone).css({position: 'absolute', top: flyer_var.offset().top + "px", left: flyer_var.offset().left + "px", opacity: 1, 'z-index': 1000});
+                $(flyerClone).addClass("moveme");
+                $('body').append($(flyerClone));                
+                var gotoX = $(flyingTo).offset().left + ($(flyingTo).width() / 2) - (flyer_var.width()/divider)/2;
+                var gotoY = $(flyingTo).offset().top + ($(flyingTo).height() / 2) - (flyer_var.height()/divider)/2;                
+                $(flyerClone).animate({
+                    opacity: 0.4,
+                    left: gotoX,
+                    top: gotoY,
+                    width: flyer_var.width()/divider,
+                    height: flyer_var.height()/divider
+                }, 700,
+                function () {
+                    $(flyingTo).fadeOut('fast', function () {
+                        $(flyingTo).fadeIn('fast', function () {
+                            $(flyerClone).fadeOut('fast', function () {
+                                //$(flyerClone).remove();
+                            });
+                        });
+                    });
+                });
+            }
 
             
 
