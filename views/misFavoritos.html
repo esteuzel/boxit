@@ -12,6 +12,13 @@
             <a class="misFavoritosGoBack" ng-click="goBack()" >< Vovlver</a>
         </div>
     </div>
+    
+    <div class="col-md-2">
+        <div class="store-favoritos-gobak">
+            <a class="misFavoritosGoBack" ng-click="clearWishList()" >Limpiar Favoritos</a>
+        </div>
+    </div>
+
 <!--
 <div class="form-group col-md-2"><br />
     <select id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
@@ -35,7 +42,7 @@
         
     </div>
 -->
-        <div class="col-md-6"> </div>
+        <div class="col-md-4"> </div>
         <div class="store-cart col-md-2">
             <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>
         </div>

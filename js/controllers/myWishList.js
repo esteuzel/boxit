@@ -130,6 +130,12 @@ angular
                 return totalAcumulado;
             }
 
+            $scope.clearWishList = function (item) {
+                localStorage.setItem('myWishList',null);
+                $state.go('boxitStore');
+                console.log('vaciar');
+            }
+
 
 
 

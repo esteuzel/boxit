@@ -617,7 +617,13 @@ console.log('controller boxitStoreController');
             var refreshMyWishList = function (item) {
                 console.log('item',item.ItemId);
             }
-            
+
+            function goToTopBody(){
+                $('html,body').animate({
+                    scrollTop: (1)
+                }, 1000);
+            }
+
             $scope.addToWishList = function (item) {                
                 if(localStorage.getItem('myWishList')=== null){
                     oldItems = [];
@@ -632,10 +638,25 @@ console.log('controller boxitStoreController');
                     'Title': item.Attributes.Title,
                     'FormattedPrice': item.Offers.Offer.OfferListing.Price.FormattedPrice
                 };
-                oldItems.push(newItem);                
-                localStorage.setItem('myWishList', JSON.stringify(oldItems));
-                refreshMyWishList(item);
-                console.log('oldItems',oldItems);
+                let duplicados = false;
+                for (let index = 0; index < oldItems.length; index++) {
+                    let element = oldItems[index];
+                    if(element.ItemId===item.ItemId){                        
+                        $state.go('misFavoritos');
+                        setTimeout(goToTopBody, 200);
+                        duplicados = true;
+                    }
+                    console.log('element',element);
+                }
+                if(!duplicados){
+                    oldItems.push(newItem);                
+                    localStorage.setItem('myWishList', JSON.stringify(oldItems));
+                    refreshMyWishList(item);
+                    console.log('oldItems',oldItems);
+                    var element = document.getElementsByClassName("add_to_wish_list-"+item.ItemId);
+                    $(element).html("<strong>En Favoritos</strong>");
+                }
+                
             };
 
             function moveToCart(id,cat){
