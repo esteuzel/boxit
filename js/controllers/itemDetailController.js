@@ -35,7 +35,14 @@ angular
                    setItemVariation(item);
                }
             });
+
             
+            function goToTopBody(){
+                $('html,body').animate({
+                    scrollTop: (1)
+                }, 1000);
+            }
+            setTimeout(goToTopBody, 200);
 
             function setItemData(item) {
                 currentIdItem = item.Item.ItemId;
