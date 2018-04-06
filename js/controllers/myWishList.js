@@ -6,6 +6,8 @@ angular
             $scope.showCar = false;
             $scope.showCarMessage = true;
             $scope.showCarItems = false;
+            $scope.carNumber = "";
+            $scope.UserName = "Invitado";
             var userObj =  userData.getData();
             var id;
             if (userObj != undefined) {

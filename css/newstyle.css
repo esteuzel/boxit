@@ -1149,7 +1149,8 @@ width: 100%;
 .store-itemdetail {
   min-height: 500px;
   position: relative;
-  top: 0;
+  top: 0;  
+  padding-top: 40px;
 }
 .store-itemdetail .loadmain {  
   position: absolute;
@@ -1282,6 +1283,7 @@ width: 100%;
   }
   
   .add-to-cart button.button {
+    width: 130px;
       background-image: url(../img/newstyle/cart-list.png);
       background-position: 15px 50%;
       background-repeat: no-repeat;
@@ -1335,11 +1337,16 @@ width: 100%;
 .description-text {
 
 }
-
+.store-itemdetail-inner .col-price {
+  padding: 15px;
+  background: rgb(220, 243, 255);
+  float: left;
+  width: 100%;
+}
 /*  cart  */
 
 section.carrito {
-  background-color: #a6d6df;
+  background-color: #d1eef3;
 }
 #carrito-box {
   margin: 30px 30px 0 30px;

@@ -24,9 +24,9 @@ angular
             $scope.indexs = undefined;  //userData.getSearchIndex();
             if (userObj != undefined) {
                 $scope.UserName = userObj.UserName;
-            } else {
+            } /*else {
                 $scope.UserName = "Invitado";
-            }
+            }*/
             if (userObj != undefined) {
                 id = userObj.IdCliente;
             } else {
@@ -73,7 +73,7 @@ console.log('controller boxitStoreController');
                                 resolve: {
                                     mensaje: function () {
                                         var mensaje = {};
-                                        mensaje.titulo = "Error en la Busqueda";
+                                        mensaje.titulo = "Busqueda";
                                         mensaje.texto = "La busqueda no arrojo resultados";
                                         mensaje.estilo = "alerta";
                                         return mensaje;
@@ -106,7 +106,7 @@ console.log('controller boxitStoreController');
                         resolve: {
                             mensaje: function () {
                                 var mensaje = {};
-                                mensaje.titulo = "Error en la Busqueda";
+                                mensaje.titulo = "Busqueda";
                                 mensaje.texto = "Por Favor seleccione una categoria.";
                                 mensaje.estilo = "alerta";
                                 return mensaje;
