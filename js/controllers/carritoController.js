@@ -64,8 +64,9 @@ angular
                                 } else {
                                     var Items = [];
                                     Items.push(result.data.Data.Cart.CartItems.CartItem);
-                                    $scope.carItems = Items;
+                                    $scope.carItems = Items;                                    
                                 }
+                                
                                 $scope.subTotal = result.data.Data.Cart.CartItems.SubTotal.FormattedPrice;
                                 $scope.amazonLink = result.data.Data.Cart.PurchaseURL;
                                 $scope.carNumber = calcularTotal($scope.carItems);
@@ -97,6 +98,7 @@ angular
 
                         }
                     }
+                    console.log('carItems',$scope.carItems);
                 };
             $scope.modifyCar = function (op, carItemId, cantidad) {
                     var args = {};
@@ -106,6 +108,9 @@ angular
                         args["Quantity"] = (parseInt(cantidad) - 1).toString();
                     } else {
                         args["Quantity"] = (parseInt(cantidad) + 1).toString();
+                    }
+                    if (op == 2) {
+                        args["Quantity"] = "0";
                     }
                     $http({
                         method: "POST",

@@ -33,28 +33,72 @@
 
 
 
+
+
+
+
 <div class="boxit-shopping-cart" ng-show="mostrarBoxitShoppingCart">
-    <div class="cart-container">
-        <div class="cart-left">
-            <div class="row" ng-repeat="item in carItems" ng-show="showCarItems">
-                <hr>
-                <div class="col-xs-7 col-lg-7">
-                    <a ui-sref="itemDetails({itemId: item.ItemId })"><span>{{item.Title}}</span></a>
-                </div>
-                <div class="col-lg-1 col-xs-1 col-noppading">
-                    <button class="btn btn-danger" ng-click="modifyCar(0, item.CartItemId, item.Quantity)"><span class="glyphicon glyphicon-minus-sign"></span></button>
-                </div>
-                <div class="col-lg-3 col-xs-3 text-left col-noppading">
-                    <div class="input-group input-group">
-                        <span class="input-group-addon"><b>{{item.Price.FormattedPrice}}</b></span>
-                        <span style="width: 100%" class="form-control"><b>{{item.Quantity}}</b></span>
+    <table id="shopping-cart-table" class="data-table cart-table">
+        <thead>
+            <tr class="first last">
+                <td colspan="2" class="a-center">Producto</td>
+                <td class="a-center">Cantidad</td>
+                <td class="a-center">Eliminar</td>
+                <td class="a-center">Valor Unitario</td>
+                <td class="a-center last">Valor Total</td>
+            </tr>
+        </thead>
+        <tbody class="notranslate">
+
+            <tr class="first odd" ng-repeat="item in carItems">        
+                <td class="block-img test">
+                    <div style=" text-align:center;">
+                        <a href="#" target="_blank">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="FALTA EN WS">
+                        </a>
                     </div>
-                </div>
-                <div  class="col-lg-1 col-xs-1 col-noppading">
-                    <button class="btn btn-primary" ng-click="modifyCar(1, item.CartItemId, item.Quantity)"><span class="glyphicon glyphicon-plus-sign"></span></button>
-                </div>
-        </div>
-    </div><!--  cart-left   -->
+                </td>
+                
+                <td>
+                    <h2 class="product-name">
+                        <a target="_blank">{{item.Title}}</a>
+                    </h2>
+                    <ul class="item-options">                                
+                        <li>        
+                            <em>Peso: FALTA EN WS</em>
+                        </li>        
+                    </ul>
+                </td>
+                <td class="a-center cart_qty">
+                    <div class="cart-qty">
+                            
+                    <button class="btn22 btn-update" ng-click="modifyCar(0, item.CartItemId, item.Quantity)"><span class="minus">-</span></button>
+                        <input type="text" readonly="readonly" value="{{item.Quantity}}" class="input-text qty" size="2">
+                    <button class="btn22 btn-update" ng-click="modifyCar(1, item.CartItemId, item.Quantity)"><span class="plus">+</span></button>
+                    </div>
+                </td>
+                <td class="a-center td-delete">
+                    <div class="cart-remove">
+                        <a title="Eliminar" class="btn-remove2" ng-click="modifyCar(2, item.CartItemId, item.Quantity)">Eliminar</a>
+                    </div>
+                </td>
+                <td class="a-center notranslate">
+                    <span class="cart-price">        
+                        <span class="price currency_price">FALTA EN WS</span>
+                    </span>
+                </td>
+                <td class="a-center notranslate last">
+                    <span class="price">
+                        <span class="price currency_price">{{item.Price.FormattedPrice}}</span>
+                    </span>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <div class="cart-container">        
     
                     <div class="cart-summary">
                         <div class="cart-totals">
@@ -87,8 +131,6 @@
                         </div>
                     </div>
     
-    
-    
                 <div class="action-buttons" ng-show="shopping">            
                     <div class="cart-actions">                        
                         <button type="submit" ng-click="clearShoppingCar()" name="update_cart_action" value="empty_cart" title="Clear Shopping Cart" class="action clear">
@@ -101,16 +143,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
     </div>
 </div>
     
