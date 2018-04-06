@@ -20,8 +20,9 @@ angular
             }
 
             var getToWishList = function (item) {
-                if(localStorage.getItem('myWishList')){                     
-                    var oldItems = JSON.parse(localStorage.getItem('myWishList')) || [];  
+                console.log('myWishList'+userObj.IdCliente);
+                if(localStorage.getItem('myWishList'+userObj.IdCliente)){                     
+                    var oldItems = JSON.parse(localStorage.getItem('myWishList'+userObj.IdCliente)) || [];  
                     $scope.Items = oldItems;
                     //localStorage.setItem('myWishList', JSON.stringify(oldItems));                
                     console.log('oldItems',oldItems);
@@ -131,9 +132,10 @@ angular
             }
 
             $scope.clearWishList = function (item) {
-                localStorage.setItem('myWishList',null);
+                localStorage.setItem('myWishList'+userObj.IdCliente,null);
                 $state.go('boxitStore');
                 console.log('vaciar');
+                console.log('myWishList'+userObj.IdCliente);
             }
 
 

@@ -624,39 +624,58 @@ console.log('controller boxitStoreController');
                 }, 1000);
             }
 
-            $scope.addToWishList = function (item) {                
-                if(localStorage.getItem('myWishList')=== null){
-                    oldItems = [];
-                                       
-                }else{
-                    console.log('oldItems',oldItems);
-                    var oldItems = JSON.parse(localStorage.getItem('myWishList')) || []; 
-                }
-                var newItem = {
-                    'ItemId': item.ItemId,
-                    'ImageUrl': item.Image.ImageUrl,
-                    'Title': item.Attributes.Title,
-                    'FormattedPrice': item.Offers.Offer.OfferListing.Price.FormattedPrice
-                };
-                let duplicados = false;
-                for (let index = 0; index < oldItems.length; index++) {
-                    let element = oldItems[index];
-                    if(element.ItemId===item.ItemId){                        
-                        $state.go('misFavoritos');
-                        setTimeout(goToTopBody, 200);
-                        duplicados = true;
+            $scope.addToWishList = function (item) {
+                if (userObj != undefined) {
+                    console.log('myWishList'+userObj.IdCliente);
+                    if(localStorage.getItem('myWishList'+userObj.IdCliente)=== null){
+                        oldItems = [];                                       
+                    }else{
+                        console.log('oldItems',oldItems);
+                        var oldItems = JSON.parse(localStorage.getItem('myWishList'+userObj.IdCliente)) || []; 
                     }
-                    console.log('element',element);
-                }
-                if(!duplicados){
-                    oldItems.push(newItem);                
-                    localStorage.setItem('myWishList', JSON.stringify(oldItems));
-                    refreshMyWishList(item);
-                    console.log('oldItems',oldItems);
-                    var element = document.getElementsByClassName("add_to_wish_list-"+item.ItemId);
-                    $(element).html("<strong>En Favoritos</strong>");
-                }
-                
+                    var newItem = {
+                        'ItemId': item.ItemId,
+                        'ImageUrl': item.Image.ImageUrl,
+                        'Title': item.Attributes.Title,
+                        'FormattedPrice': item.Offers.Offer.OfferListing.Price.FormattedPrice
+                    };
+                    let duplicados = false;
+                    for (let index = 0; index < oldItems.length; index++) {
+                        let element = oldItems[index];
+                        if(element.ItemId===item.ItemId){                        
+                            $state.go('misFavoritos');
+                            setTimeout(goToTopBody, 200);
+                            duplicados = true;
+                        }
+                        console.log('element',element);
+                    }
+                    if(!duplicados){
+                        oldItems.push(newItem);                
+                        localStorage.setItem('myWishList'+userObj.IdCliente, JSON.stringify(oldItems));
+                        refreshMyWishList(item);
+                        console.log('oldItems',oldItems);
+                        var element = document.getElementsByClassName("add_to_wish_list-"+item.ItemId);
+                        $(element).html("<strong>En Favoritos</strong>");
+                    }
+
+				} else {
+					var modalInstance = $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modalLoginNew.html',
+                        controller: 'modalLoginController',
+                        size: 'md',
+                        resolve: {
+                            mensaje: function () {
+                                var mensaje = {};
+                                mensaje.titulo = "Inicio de sesion";
+                                mensaje.texto = "respuesta";
+                                mensaje.estilo = "alerta";
+                                return mensaje;
+                            }
+                        }
+
+                    });                  
+                }                
             };
 
             function moveToCart(id,cat){
