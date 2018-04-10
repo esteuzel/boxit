@@ -5,6 +5,8 @@ angular
                 var products = [];
                 var links = [];
             //localStorage.removeItem('myWishList');
+                $scope.CartEmpty = false;
+                $scope.carNumber = 0;
                 $scope.checkout = false;
                 $scope.loggin = false;
                 $scope.shopping = true;
@@ -73,12 +75,14 @@ angular
                                 $scope.loading = false;
                                 $scope.showCarItems = true;
                                 $scope.mostrarBoxitShoppingCart = true;
+                                $scope.CartEmpty = false;
                                 //angular.element(document.getElementById('cartNumber')).scope().carNumber = $scope.carNumber;
                             } else {
                                 getCar();
                             }
                         } else {
                             $scope.carNumber = 0;
+                            $scope.CartEmpty = true;
                             //angular.element(document.getElementById('cartNumber')).scope().carNumber = $scope.carNumber;
                             $scope.subTotal = 0;
                             $scope.showEmptyMessage = true;
@@ -87,6 +91,7 @@ angular
                     } else {
                         $scope.subTotal = 0;
                         $scope.carNumber = 0;
+                        $scope.CartEmpty = true;
                         //angular.element(document.getElementById('cartNumber')).scope().carNumber = $scope.carNumber;
                         $scope.showCarItems = false;
                         if (userObj == undefined) {

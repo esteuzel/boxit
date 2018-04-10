@@ -250,6 +250,19 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 },
                 controller:'modalLoginController'
             }
+            ).state('terminosycondiciones', {
+                url: '/terminosycondiciones',
+                parent: 'home',
+                onEnter: ['$uibModal', '$state', function ($uibModal, $state) {
+                    console.log('Open modal terminosycondiciones');
+                    $uibModal.open({
+                        templateUrl: 'views/terminosycondiciones.html',
+                        size: 'lg',
+                    }).result.finally(function () {
+                        
+                    });
+                }]
+            }
 /*
         ).state('modalLoginNew', {
                 url: '/modalLoginNew',

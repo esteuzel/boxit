@@ -1161,7 +1161,7 @@ width: 100%;
 .store-itemdetail .itemdetail-title h1 span{
   display: block;
   color: #333;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 25px;
   margin: 0;
   text-transform: none;
@@ -1334,8 +1334,9 @@ width: 100%;
 .description-title {
   margin: 20px 0;
 }
-.description-text {
-
+.description-text, .description-text p {
+  font-size: 13px;
+  line-height: 16px;
 }
 .store-itemdetail-inner .col-price {
   padding: 15px;
@@ -1354,6 +1355,8 @@ section.carrito {
 }
 #carrito-box h1{
   margin-top: 15px;
+  float: left;
+  font-size: 24px;
 }
 .boxit-shopping-cart {
   width: 100%;
@@ -1590,4 +1593,7 @@ text-align: center;
 }
 .misFavoritosGoBack:hover {
   color: #fff;
+}
+.container-terminos {
+  width: 100%;
 }
