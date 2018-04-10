@@ -612,7 +612,7 @@ html.touchevents .video-background {
     .navbar.navbar-fixed-top #navbar ul li a:not(.btn) {
       font-size: 12px;
       letter-spacing: 0.05em;
-      padding: 10px; }
+      padding: 10px 10px; }
     .navbar.navbar-fixed-top #navbar .navbar-middle {
       left: 42%; }
     /*.navbar.navbar-fixed-top #navbar .navbar-nav > li > .dropdown-menu {
@@ -1596,4 +1596,76 @@ text-align: center;
 }
 .container-terminos {
   width: 100%;
+}
+
+.usuariotop-right {
+  float: right;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.usuariotop-right .link {
+  padding-bottom: 4px;
+}
+.usuariotop-right .link a {
+  color: #fff;
+}
+.usuariotop-right .link a:hover {
+  text-decoration: none;
+}
+.usuariotop-right .link a.registrate {
+  font-weight: bold;
+}
+
+.rusia2018-right {
+  float: right;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+.rusia2018-right .link a {
+  color: #fff;
+  font-weight: bold;
+}
+.phones-right {
+  float: right;
+  position: absolute;
+  top: -14px;
+  right: 0px;
+}
+.customLabelPhone {
+  float: right;
+}
+.navbar-phones {
+
+}
+.navbar-phones-div {
+
+}
+.navbar-phones-div .customLabelPhone{
+  float: left;
+  margin-left: 10px;
+}
+.navbar.navbar-fixed-top.change .phones-right {
+  top: -6px;
+}
+.navbar.navbar-fixed-top.change .rusia2018-right {
+  margin-top: 16px;
+}
+.navbar.navbar-fixed-top.change .usuariotop-right .link a {
+  color: #000;
+}
+
+.boxitRusia2018-top {
+  background: #ba2e2f;
+  width: 100%;
+  height: 100px;
+}
+.boxitRusia2018 {
+  background: #ba2e2f;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.boxitRusia2018 .store-cart {float: right; margin-right: 50px;}
+
+#rusia2018-box {
+  margin: 0 auto;
 }

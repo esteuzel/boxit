@@ -263,6 +263,22 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                     });
                 }]
             }
+
+        ).state('modalRusia', {
+            parent: 'rusia2018',
+            url: '/rusia2018modal',
+            onEnter: ['$uibModal', '$state', function ($uibModal, $state) {
+                console.log('Open modal');
+                $uibModal.open({
+                    templateUrl: 'views/modalLogin.html',
+                    size: 'lg',
+                    controller: 'modalLoginController'
+                }).result.finally(function () {
+                    $state.go('boxitStore');
+                });
+            }]
+        }
+
 /*
         ).state('modalLoginNew', {
                 url: '/modalLoginNew',
@@ -286,6 +302,13 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             controller: "myWishList"
 
         }
+        
+        ).state('rusia2018', {
+        url: "/rusia2018",
+        templateUrl: "views/rusia2018.html",
+        controller: "rusia2018Controller"
+
+    }
         );
     }]);
     

@@ -1,0 +1,138 @@
+<!--
+<section class="rusia2018">
+	<div class="BarHeader Content">
+		<div class="BarHeaderContainer ContentContainer MaxWidth">
+			<img alt="" src="img/image_headerbar_1.png">
+		</div>
+	</div>		
+	<div class="container" id="rusia2018-box">			
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<h1>Rusia 2018</h1>
+			</div>
+        </div>
+    -->      
+
+
+
+
+
+
+<div class="boxitRusia2018-top"></div>
+<div class="container-fluid">
+    <div class="row boxitRusia2018">
+        <div class="col-md-2 carAvatar">
+            <div class="Avatar"></div>
+            <span class="Name">Hola, {{UserName}}</span>
+        </div>       
+               
+
+        <div class="store-search">
+      
+            <div class="store-cart">
+                <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>
+            </div>
+        </div>
+    </div>
+</div>   
+    
+    <div class="BoxitStoreContainer container" ng-init="firstSearch()" style="margin-bottom: 10%;">
+    <div class="row">
+    <div ng-show="loadMain" style="margin-bottom: 20%">
+    <div class="col-lg-12">
+    <div id="cssload-pgloading">
+    <div class="cssload-loadingwrap">
+    <ul class="cssload-bokeh">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+<div ng-show="showCar"> 
+    <div class="store-list">
+        <div class="col-sm-3 col-noppading" ng-repeat="item in Items">
+            <div class="product-item">
+                <div class="product-item-info">
+                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                    <span class="product-image-container">
+                        <span class="product-image-wrapper">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.ImageUrl}}" alt="{{item.Title}}">
+                        </span>
+                    </span>
+                    </a>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Title}}</a>
+                        </strong>
+                        <span>{{item.SubTitle}}</span>
+                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                            <span class="price-container price-final_price tax weee">
+                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                    <span class="price">{{item.FormattedPrice}}</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="product-item-actions">
+                            <div class="actions-primary actions add-to-cart">
+                                <div class="actions add-to-cart">
+                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item.ItemId,'default')">
+                                        <span>Añadir al carrito</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="actions-secondary">
+                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+        <p><br></p>
+		<div class="row">
+            <div class="col-md-12 text-center">
+				<p></p>
+				<p><br></p>
+            </div>
+        </div>
+        
+      
+    <div class="container-fluid">			
+		<div class="row">
+			<div class="col-md-12 text-center"></div>
+        </div>
+    </div>
+</section>
+
+
+
+
