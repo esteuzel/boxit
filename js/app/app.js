@@ -300,15 +300,18 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             url: "/misFavoritos",
             templateUrl: "views/misFavoritos.html",
             controller: "myWishList"
-
-        }
-        
+        }        
         ).state('rusia2018', {
         url: "/rusia2018",
         templateUrl: "views/rusia2018.html",
         controller: "rusia2018Controller"
+        }    
+        ).state('giftcards', {
+        url: "/giftcards",
+        templateUrl: "views/giftcards.html",
+        controller: "giftcardsController"
+        }
 
-    }
         );
     }]);
     
