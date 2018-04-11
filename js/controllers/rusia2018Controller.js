@@ -45,7 +45,7 @@ angular
                 };
                 oldItems.push(newItem);   
                 var newItem = {
-                    'ItemId': "rusia201802",
+                    'ItemId': "rusia201803",
                     'ImageUrl': "img/rusia2018/mundial-rusia-2018-camiseta-roja-new-balance-mujer.jpg",
                     'Title': "CAMISETA DAMA VISITANTE",
                     'SubTitle': "Talles S M L XL 2XL",
@@ -53,7 +53,7 @@ angular
                 };   
                 oldItems.push(newItem); 
                 var newItem = {
-                    'ItemId': "rusia201802",
+                    'ItemId': "rusia201804",
                     'ImageUrl': "img/rusia2018/mundial-rusia-2018-camiseta-roja-new-balance-ninos.png",
                     'Title': "CAMISETA NIÑO ROJA",
                     'SubTitle': "Talles 18-24M 2/3Y 4/5Y 6/7Y",
@@ -61,11 +61,19 @@ angular
                 };   
                 oldItems.push(newItem);
                 var newItem = {
-                    'ItemId': "rusia201802",
+                    'ItemId': "rusia201805",
                     'ImageUrl': "img/rusia2018/mundial-rusia-2018-camiseta-roja-new-balance-ninos-bebes.png",
                     'Title': "CAMISETA BEBES ROJA",
                     'SubTitle': "Talles 12-18M 6-12M",
                     'FormattedPrice': "$59.95"
+                };   
+                oldItems.push(newItem);
+                var newItem = {
+                    'ItemId': "rusia201806",
+                    'ImageUrl': "img/rusia2018/mundial-rusia-2018-balon-oficial-adidas.jpg",
+                    'Title': "Balón Oficial Rusia 2018",
+                    'SubTitle': "White/Black/Silver - Size 5",
+                    'FormattedPrice': "$29.95"
                 };   
                 oldItems.push(newItem);
                 console.log('oldItems',oldItems);
@@ -118,6 +126,7 @@ angular
                     args["Quantity"] = "1";
                     userData.addItemToCar(args).then(function success(result) {
                         refreshCar(result);
+                        console.log(result);
                     }, function error(error) {
                         console.log(error);
                     });
@@ -196,5 +205,66 @@ angular
                 }
                 return totalAcumulado;
             }
+            var refreshMyWishList = function (item) {
+                console.log('item',item.ItemId);
+            }
+            function goToTopBody(){
+                $('html,body').animate({
+                    scrollTop: (1)
+                }, 1000);
+            }
+            $scope.addToWishList = function (item) {
+                if (userObj != undefined) {
+                    console.log('myWishList'+userObj.IdCliente);
+                    if(localStorage.getItem('myWishList'+userObj.IdCliente)=== null){
+                        oldItems = [];                                       
+                    }else{
+                        console.log('oldItems',oldItems);
+                        var oldItems = JSON.parse(localStorage.getItem('myWishList'+userObj.IdCliente)) || []; 
+                    }
+                    var newItem = {
+                        'ItemId': item.ItemId,
+                        'ImageUrl': item.ImageUrl,
+                        'Title': item.Title,
+                        'FormattedPrice': item.FormattedPrice
+                    };
+                    let duplicados = false;
+                    for (let index = 0; index < oldItems.length; index++) {
+                        let element = oldItems[index];
+                        if(element.ItemId===item.ItemId){                        
+                            $state.go('misFavoritos');
+                            setTimeout(goToTopBody, 200);
+                            duplicados = true;
+                        }
+                        console.log('element',element);
+                    }
+                    if(!duplicados){
+                        oldItems.push(newItem);                
+                        localStorage.setItem('myWishList'+userObj.IdCliente, JSON.stringify(oldItems));
+                        refreshMyWishList(item);
+                        console.log('oldItems',oldItems);
+                        var element = document.getElementsByClassName("add_to_wish_list-"+item.ItemId);
+                        $(element).html("<strong>En Favoritos</strong>");
+                    }
+
+				} else {
+					var modalInstance = $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modalLoginNew.html',
+                        controller: 'modalLoginController',
+                        size: 'md',
+                        resolve: {
+                            mensaje: function () {
+                                var mensaje = {};
+                                mensaje.titulo = "Inicio de sesion";
+                                mensaje.texto = "respuesta";
+                                mensaje.estilo = "alerta";
+                                return mensaje;
+                            }
+                        }
+
+                    });                  
+                }                
+            };
 
         }]);
