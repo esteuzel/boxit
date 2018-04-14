@@ -554,6 +554,7 @@ html.touchevents .video-background {
   background-size: contain;
   height: 400px; }
   #host-boxit #host-cta {
+    text-transform: uppercase;
     color: #333;
     font-weight: bold;
     font-size: 30px;
@@ -578,7 +579,7 @@ html.touchevents .video-background {
 }
 @media screen and (max-width: 1499px) {
   .navbar.navbar-fixed-top .navbar-brand {
-    padding: 25px 0; }
+    padding: 15px 0; }
     .navbar.navbar-fixed-top .navbar-brand svg {
       height: 60px; }
   .navbar.navbar-fixed-top #navbar ul li a:not(.btn) {
@@ -1834,6 +1835,7 @@ section.home {
   letter-spacing: 2px;
   text-align: left;
   color: #222;
+  text-transform: uppercase;
 }
 .how-it-works .max-width-container .content span.description {
   font-family: 'Raleway';
@@ -1937,15 +1939,20 @@ p {
 }
 .lockers-right ul{
   padding: 0;
+  padding-left: 20px;
+}  
+.lockers-right ul li{
+  font-size: 18px;
 }  
 .lockers h2{
   color: #333;
+  text-transform: uppercase;
 }
 .lockers p {
   padding: 50px 0 10px 0;
 }
 .lockers-left {
-  padding-top: 50px;
+  padding-top: 1px;
 }
 @media (max-width:1200px){
   #host-boxit p {
@@ -1965,5 +1972,8 @@ p {
   #host-boxit #host-cta {
   font-size: 20px;
   }
+}
+.logo-footer {
+  max-width: 200px;
 }
 /*  end newhome */
