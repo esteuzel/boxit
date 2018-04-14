@@ -11,8 +11,7 @@ p {
   font-size: 16px;
   line-height: 28px; }
 
-section.home {
-  background-color: #a6d6df; }
+
 
 .align-v {
   position: relative;
@@ -103,7 +102,7 @@ section.home {
     background-color: #fff !important; }
 
 body {
-  font-family: "Montserrat", sans-serif; }
+  font-family: "Roboto", sans-serif; }
 
 h1 {
   color: #a82773;
@@ -451,7 +450,7 @@ html.touchevents .video-background {
 
 #home-main {
   background-color: #fff;
-  margin: 30px 30px 0;
+  /*margin: 30px 30px 0;*/
   padding: 30px;
   position: relative;
   z-index: 1006; }
@@ -899,7 +898,8 @@ display: block;
 
 #ubication-box {
   background-color: #fff;
-  margin: 40px 30px 30px 30px;
+  /*margin: 40px 30px 30px 30px;*/
+  margin: 40px 0;
   padding: 30px;
 }
 
@@ -1798,3 +1798,172 @@ box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
 .store-breadcrumb ul li.separator{
 
 }
+
+/*  newhome  violet : #424996 celeeste 79BAC9 botones 4ABFEE*/
+body {
+  /*background: #424996;*/
+}
+section.home {
+  background-color: #424996; }
+.how-it-works {
+  min-height: 550px;
+  padding-top: 100px;
+  background: #fff;
+}
+.afiliados {
+  background: #fff;
+  padding-top: 60px 0;
+}
+.how-it-works .max-width-container {
+  position: relative;
+}
+.max-width-container {
+  max-width: 1230px;
+  margin: 0 auto;
+}
+.how-it-works .max-width-container .content {
+    margin: 0 0 0 auto;
+    background: #79BAC9;
+    width: 893px;
+    padding: 40px 40px 20px 290px;
+}
+.how-it-works .max-width-container .content h2 {
+  font-family: 'Raleway';
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-align: left;
+  color: #222;
+}
+.how-it-works .max-width-container .content span.description {
+  font-family: 'Raleway';
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.71;
+  letter-spacing: 1px;
+  text-align: left;
+  color: #222;
+}
+p {
+  font-family: 'Raleway';
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.88;
+  color: #222222;
+  margin-bottom: 1.5em;
+  margin-top: 0;
+}
+.how-it-works .max-width-container .media-container {
+  background: url(../img/newstyle/boxit-quienes-somos-fondo.png) center center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: absolute;
+  left: 45px;
+  top: 37px;
+  width: 553px;
+  height: 390px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 1199px) and (min-width: 992px){
+  .how-it-works .max-width-container .media-container {
+      width: 50%;
+  }
+}
+@media (max-width: 1199px) and (min-width: 992px){
+  .how-it-works .max-width-container .content {
+      padding-left: 460px;
+  }
+}
+@media (max-width: 991px){
+  .how-it-works .max-width-container .media-container {
+      position: relative;
+      display: block;
+      top: 0;
+      left: 0;
+      -webkit-order: 2;
+      -ms-flex-order: 2;
+      order: 2;
+      width: auto;
+  }
+  .how-it-works .max-width-container .content {
+    padding: 50px 25px;
+    width: auto;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .how-it-works .max-width-container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+}
+#home-main {
+  margin: 100px 0;
+}
+#home-main h1 {
+  /*font-family: 'Roboto';*/
+  color: #333;
+}
+#pre-foot .btn {  
+  background-color: #16b5cc;
+}
+#pre-foot .btn:hover {
+  background-color: #0693a8!important;
+}
+.lockers-host {
+  background: #fff;
+}
+.lockers {
+  background: #fff;
+}
+.lockers-right {  
+  margin: 50px 0;
+}
+.lockers-right ul{
+  padding: 0;
+}  
+.lockers h2{
+  color: #333;
+}
+.lockers p {
+  padding: 50px 0 10px 0;
+}
+.lockers-left {
+  padding-top: 50px;
+}
+@media (max-width:1200px){
+  #host-boxit p {
+    font-size: 16px;
+  }
+  #host-boxit #host-cta {
+    font-size: 20px;
+  }
+}
+@media (max-width:992px){
+  .lockers p {
+    padding: 10px 0 10px 0;
+  }
+  #host-boxit p {
+    font-size: 14px;
+  }
+  #host-boxit #host-cta {
+  font-size: 20px;
+  }
+}
+/*  end newhome */
