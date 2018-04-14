@@ -1443,7 +1443,9 @@ table#shopping-cart-table {
   vertical-align: middle;
   padding: 7px 12px;
 }
-
+.data-table td.block-img {
+  width: 140px;
+}
 .data-table td {
   border: 1px solid #d6d6d6;
   padding: 14px 15px;
@@ -1779,3 +1781,18 @@ box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
 }
 /*  end neetflix  */
 
+.store-breadcrumb {
+  padding: 10px;
+}
+.store-breadcrumb ul {
+  list-style: none;
+  display: inline;
+}
+.store-breadcrumb ul li{
+  list-style: none;
+  display: inline;
+  padding: 4px 4px;
+}
+.store-breadcrumb ul li.separator{
+
+}

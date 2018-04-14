@@ -41,13 +41,33 @@ angular
 
             var getCar = function () {
                 userData.getShoppingCar(id).then(function success(result) {
-                    refreshCar(result);
+                    refreshCar(result);                    
                     return result;
                 }, function error(result) {
                     console.log(result);
                 });
             };
-            
+
+            var getItemsDetail = function (cartItems) {                
+                let newItems = [];
+                angular.forEach(cartItems, function(value, key) {
+                    console.log('value',value);
+                    let ItemCartId = value.ItemId;                
+                    userData.getItemDetails(ItemCartId).then(function success(item) {
+                        console.log('item',item);
+                        if (item != undefined) {
+                            //return item;
+                            value.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                            value.Image = [];
+                            value.Image.ImageUrl = item.Item.Image.ImageUrl;
+                            value.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
+                            console.log('newItem',value);
+                            newItems.push(value);
+                        }
+                    });                    
+                });
+                return newItems;
+            };
             
             $scope.goBack = function () {
                 history.back();
@@ -57,12 +77,13 @@ angular
                     $scope.showCarItems = false;
                     $scope.showLoginMessage = false;
                     $scope.loading = true;
-                    //   console.log(result.data.Data.Cart);
+                    //console.log(result.data.Data.Cart);
                     if (result.data.Data.Cart != undefined) {
                         if (result.data.Data.Cart.CartItems != undefined || result.data.Data.Cart.CartItems != null) {
                             if (null !== result.data.Data.Cart.CartItems) {
                                 if ($.isArray(result.data.Data.Cart.CartItems.CartItem)) {
-                                    $scope.carItems = result.data.Data.Cart.CartItems.CartItem;
+                                    let itemsWithDetail = getItemsDetail(result.data.Data.Cart.CartItems.CartItem);
+                                    $scope.carItems = itemsWithDetail;
                                 } else {
                                     var Items = [];
                                     Items.push(result.data.Data.Cart.CartItems.CartItem);

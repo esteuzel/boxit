@@ -54,7 +54,7 @@
                 <td class="block-img test">
                     <div style=" text-align:center;">
                         <a href="#" target="_blank">
-                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="FALTA EN WS">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.Image.ImageUrl}}" alt="FALTA EN WS">
                         </a>
                     </div>
                 </td>
@@ -65,7 +65,7 @@
                     </h2>
                     <ul class="item-options">                                
                         <li>        
-                            <em>Peso: FALTA EN WS</em>
+                            <em>Peso: {{item.Weight}} lbs.</em>
                         </li>        
                     </ul>
                 </td>
@@ -84,12 +84,12 @@
                 </td>
                 <td class="a-center notranslate">
                     <span class="cart-price">        
-                        <span class="price currency_price">FALTA EN WS</span>
+                        <span class="price currency_price">{{item.Price.FormattedPrice}}</span>
                     </span>
                 </td>
                 <td class="a-center notranslate last">
                     <span class="price">
-                        <span class="price currency_price">{{item.Price.FormattedPrice}}</span>
+                        <span class="price currency_price">{{item.ItemTotal.FormattedPrice}}</span>
                     </span>
                 </td>
             </tr>

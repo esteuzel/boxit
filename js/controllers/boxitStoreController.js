@@ -148,7 +148,13 @@ console.log('controller boxitStoreController');
                         var searchParams = {};
                       //  console.log(self);
                         searchParams["Keywords"] = self.keyword;
-                        searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
+                        if (self.index != null || self.index != undefined)
+                        {
+                            searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
+
+                        }else{
+                            searchParams["SearchIndex"] = "All";                           
+                        }
                         searchParams["ItemPage"] = i;
                         var curIndex = i;
                         //console.log(curIndex);

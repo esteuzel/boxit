@@ -20,6 +20,19 @@
             </div>
         </div>
     </div>
+    	<div class="store-breadcrumb">
+		<ul>
+			<li>
+				<a ui-sref="boxitStore">boxitStore</a>
+			</li>
+			<li class="separator">
+				<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+			</li>
+			<li>
+				<span>{{titulo}}</span>
+			</li>
+		</ul>
+	</div>
     <div class="store-itemdetail">
         <div class="loadmain" ng-show="loadMain">
             <div class="col-lg-12">
@@ -108,9 +121,9 @@
                                     </span>                                    
                                 </div>
                             </div>
-                            <div class="product_attribute_sku">
-                                
-                                <div class="value" itemprop="sku"><strong class="type">Código </strong>    {{itemCode}}</div>
+                            <div class="product_attribute_sku">                                
+                                <div class="value" itemprop="sku"><strong class="type">Código </strong>{{itemCode}}</div>
+                                <div class="value" itemprop="sku"><strong class="type">Peso </strong>{{peso}} lbs.</div>
                             </div>
         
                             <div class="addtocart">

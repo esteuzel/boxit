@@ -24,7 +24,8 @@ var user = {
         tel: ""
     }
 };
-var host = "https://myboxit.com:8443";
+//var host = "https://myboxit.com:8443";
+var host = "http://162.243.14.131:8080";
 //var host = "";
 angular.module('boxit')
         .factory('userData', function ($http, $q, $localStorage) {
@@ -280,6 +281,48 @@ angular.module('boxit')
                         "IdCliente": id
                     },
                     headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
+            };
+            factory.getShoppingCarDetail = function (id) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: host + "/amazon/amazongetcartdetail",
+                    data: 
+                    {
+                        "IdCliente": id
+                    },
+                    headers: 
+                    {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
+            };
+            factory.getCommission = function (id) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: host + "/amazon/amazongetcomision",
+                    data: 
+                    {
+                        "IdCliente": id
+                    },
+                    headers: 
+                    {
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {

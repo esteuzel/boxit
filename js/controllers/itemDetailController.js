@@ -31,6 +31,7 @@ angular
                    $scope.imgUrl = item.Item.Image.ImageUrl;
                    $scope.itemPrice = item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
                    amount = item.Item.Offers.Offer.OfferListing.Price.Amount;
+                   $scope.peso = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
                    setItemData(item);
                    setItemVariation(item);
                }
@@ -67,6 +68,7 @@ angular
                 $scope.total = numeral(( amount * $scope.cantidad) / 100).format('$0,0.00');
                 $scope.showMain = true;
                 $scope.loadMain = false;
+                $scope.peso = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
                 getCar();
             }
 
