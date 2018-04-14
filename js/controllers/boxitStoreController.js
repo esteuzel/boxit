@@ -414,14 +414,27 @@ console.log('controller boxitStoreController');
 
 
             };
-            $scope.addToCar = function (id,cat) {
+            $scope.addToCar = function (itemadded,cat) {
                 if (userObj != undefined) {
-                    moveToCart(id,cat);
+                    moveToCart(itemadded.ItemId,cat);
                     var args = {};
                     args["IdCliente"] = userData.getData().IdCliente;
-                    args["ItemId"] = id;
+                    args["ItemId"] = itemadded.ItemId;
+                    args["OfferListingId"] = "";
                     args["Quantity"] = "1";
+                    args["Price"] = itemadded.Offers.Offer.OfferListing.Price.Amount / 100;
+
+                    // PackageDimensions 
+                    args["Height"] = itemadded.Attributes.PackageDimensions.Height;
+                    args["Length"] = itemadded.Attributes.PackageDimensions.Length;
+                    args["Weight"] = itemadded.Attributes.PackageDimensions.Weight;
+                    args["Width"] = itemadded.Attributes.PackageDimensions.Width;
+
+                    // Image
+                    args["UrlImage"] = itemadded.Image.ImageUrl;
+                    console.log("args",args);
                     userData.addItemToCar(args).then(function success(result) {
+                        console.log("addItemToCar",result);
                         refreshCar(result);
                     }, function error(error) {
                         console.log(error);

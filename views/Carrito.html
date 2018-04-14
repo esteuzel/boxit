@@ -54,7 +54,7 @@
                 <td class="block-img test">
                     <div style=" text-align:center;">
                         <a href="#" target="_blank">
-                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.Image.ImageUrl}}" alt="FALTA EN WS">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.Image.ImageUrl}}" alt="{{item.Title}}">
                         </a>
                     </div>
                 </td>
@@ -112,12 +112,19 @@
                                                 <span class="price" ng-bind="subTotal"></span>
                                             </td>
                                         </tr>
+                                        <tr class="totals sub">
+                                            <th class="texto">Comisión</th>
+                                            <td class="amount">
+                                                <span class="price" ng-bind="carCommission"></span>
+                                            </td>
+                                        </tr>
+                                        
                                         <tr class="grand totals">
                                             <th class="texto">
                                                 <strong>Orden Total</strong>
                                             </th>
                                             <td class="amount">
-                                                <strong><span class="price" ng-bind="subTotal"></span></strong>
+                                                <strong><span class="price" ng-bind="carTotal"></span></strong>
                                             </td>
                                         </tr>
                                     </tbody>

@@ -22,7 +22,8 @@ angular
                 $scope.amazonLink = "";
                 $scope.showTerms = false;
                 $scope.acceptTerms = true;
-
+                $scope.carCommission = 0;
+                $scope.carTotal = 0;
                 var userObj = userData.getData();
                 var id;
                 if (userObj != undefined) {
@@ -51,10 +52,10 @@ angular
             var getItemsDetail = function (cartItems) {                
                 let newItems = [];
                 angular.forEach(cartItems, function(value, key) {
-                    console.log('value',value);
+                    //console.log('value',value);
                     let ItemCartId = value.ItemId;                
                     userData.getItemDetails(ItemCartId).then(function success(item) {
-                        console.log('item',item);
+                        //console.log('item',item);
                         if (item != undefined) {
                             //return item;
                             value.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
@@ -68,6 +69,24 @@ angular
                 });
                 return newItems;
             };
+            var getItemDetail = function (cartItem) {
+                console.log('cartItem',cartItem);
+                let ItemCartId = cartItem.ItemId;    
+                newItem = cartItem;
+                userData.getItemDetails(ItemCartId).then(function success(item) {
+                    console.log('item',item);
+                    if (item != undefined) {
+                            //return item;
+                            newItem = cartItem;
+                            newItem.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                            newItem.Image = [];
+                            newItem.Image.ImageUrl = item.Item.Image.ImageUrl;
+                            newItem.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
+                            console.log('newItem',newItem);
+                    }                                   
+                });
+                return newItem;
+            };
             
             $scope.goBack = function () {
                 history.back();
@@ -77,7 +96,7 @@ angular
                     $scope.showCarItems = false;
                     $scope.showLoginMessage = false;
                     $scope.loading = true;
-                    //console.log(result.data.Data.Cart);
+                    console.log("Data.Cart",result.data.Data.Cart);
                     if (result.data.Data.Cart != undefined) {
                         if (result.data.Data.Cart.CartItems != undefined || result.data.Data.Cart.CartItems != null) {
                             if (null !== result.data.Data.Cart.CartItems) {
@@ -86,13 +105,15 @@ angular
                                     $scope.carItems = itemsWithDetail;
                                 } else {
                                     var Items = [];
-                                    Items.push(result.data.Data.Cart.CartItems.CartItem);
+                                    let itemWithDetail = getItemDetail(result.data.Data.Cart.CartItems.CartItem);
+                                    Items.push(itemWithDetail);
                                     $scope.carItems = Items;                                    
                                 }
                                 
                                 $scope.subTotal = result.data.Data.Cart.CartItems.SubTotal.FormattedPrice;
+                                $scope.subtotalAmount = result.data.Data.Cart.CartItems.SubTotal.Amount;
                                 $scope.amazonLink = result.data.Data.Cart.PurchaseURL;
-                                $scope.carNumber = calcularTotal($scope.carItems);
+                                getCommission();                                
                                 $scope.loading = false;
                                 $scope.showCarItems = true;
                                 $scope.mostrarBoxitShoppingCart = true;
@@ -124,7 +145,7 @@ angular
 
                         }
                     }
-                    console.log('carItems',$scope.carItems);
+                    //console.log('carItems',$scope.carItems);
                 };
             $scope.modifyCar = function (op, carItemId, cantidad) {
                     var args = {};
@@ -189,7 +210,24 @@ angular
                 }
            
                 getCar();
-
+                
+                function getCommission() {
+                    userData.getCommission(id).then(function success(value) {
+                        if (value != undefined) {
+                            $scope.carCommission = "$"+value.data.Data.Rows.attributes.Commission;
+                            let commissionAmount = parseInt(value.data.Data.Rows.attributes.Commission*100);
+                            console.log('getCommission commissionAmount',commissionAmount);        
+                            let subtotalAmount = parseInt($scope.subtotalAmount);
+                            console.log('getCommission subtotalAmount',subtotalAmount);
+                            $scope.carTotal = "$" + (commissionAmount + subtotalAmount)/100;
+                            console.log('getCommission $scope.carTotal',$scope.carTotal); 
+                            return value.data.Data.Rows.attributes.Commission;
+                        }                                   
+                    }, function error(result) 
+                    {
+                        console.log(result);
+                    });
+                }
 
                 function calcularTotal(carItems) {
                     var totalAcumulado = 0;

@@ -25,7 +25,7 @@ angular
             userData.getItemDetails($stateParams.itemId).then(function success(item) {
                 console.log('item',item);
                if (item != undefined) {
-
+                $scope.itemSelected = item.Item;
                    $scope.titulo = item.Item.Attributes.Title;
                    $scope.texto = getDescription(item).trim();
                    $scope.imgUrl = item.Item.Image.ImageUrl;
@@ -193,10 +193,22 @@ angular
 
             $scope.addToCar = function () {
                 moveToCart();
-                console.log('moveToCart');
+                itemadded = $scope.itemSelected;
+                console.log('addToCar itemadded',itemadded);
                 var args = {};
-                args["IdCliente"] = userData.getData().IdCliente;
-                args["ItemId"] = currentIdItem;
+                    args["IdCliente"] = userData.getData().IdCliente;
+                    args["ItemId"] = itemadded.ItemId;
+                    args["OfferListingId"] = "";
+                    args["Price"] = itemadded.Offers.Offer.OfferListing.Price.Amount / 100;
+                    // PackageDimensions 
+                    args["Height"] = itemadded.Attributes.PackageDimensions.Height == null ? 0 : itemadded.Attributes.PackageDimensions.Height;
+                    args["Length"] = itemadded.Attributes.PackageDimensions.Length == null ? 0 : itemadded.Attributes.PackageDimensions.Length;
+                    args["Weight"] = itemadded.Attributes.PackageDimensions.Weight == null ? 0 : itemadded.Attributes.PackageDimensions.Weight;
+                    args["Width"] = itemadded.Attributes.PackageDimensions.Width == null ? 0 : itemadded.Attributes.PackageDimensions.Width;               
+                    // Image
+                    args["UrlImage"] = itemadded.Image.ImageUrl;
+                    console.log("args",args);
+
                 if ($scope.cantidad == 0 || $scope.cantidad === undefined) {
                     args["Quantity"] = "0";
                 } else {
@@ -205,7 +217,7 @@ angular
                 userData.addItemToCar(args).then(function success(result) {
                     refreshCarNumber(result);
                     //$uibModalInstance.close();
-                    console.log('added to cart', result);
+                    console.log('addItemToCar', result);
                 }, function error(result) {
                     console.log(result);
                 });

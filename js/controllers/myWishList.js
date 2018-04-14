@@ -61,20 +61,37 @@ angular
                 $localStorage.modalIns.close();
             };
             $scope.addToCar = function (id) {
-
-                if (userObj != undefined) {
-                    var args = {};
-                    args["IdCliente"] = userData.getData().IdCliente;
-                    args["ItemId"] = id;
-                    args["Quantity"] = "1";
-                    userData.addItemToCar(args).then(function success(result) {
-                        refreshCar(result);
-                    }, function error(error) {
-                        console.log(error);
-                    });
-                } else {
-                    $scope.showShoppingCar();
-                }
+                userData.getItemDetails(id).then(function success(itemDetail) {
+                    //console.log('itemDetail',itemDetail);
+                    if (itemDetail != undefined) {
+                        //return itemadded;
+                        itemadded = itemDetail.Item;
+                        
+                        if (userObj != undefined) {
+                            var args = {};
+                            args["IdCliente"] = userData.getData().IdCliente;
+                            args["ItemId"] = itemadded.ItemId;
+                            args["OfferListingId"] = "";
+                            args["Price"] = itemadded.Offers.Offer.OfferListing.Price.Amount / 100;
+                            args["Quantity"] = "1";
+                            // PackageDimensions 
+                            args["Height"] = itemadded.Attributes.PackageDimensions.Height == null ? 0 : itemadded.Attributes.PackageDimensions.Height;
+                            args["Length"] = itemadded.Attributes.PackageDimensions.Length == null ? 0 : itemadded.Attributes.PackageDimensions.Length;
+                            args["Weight"] = itemadded.Attributes.PackageDimensions.Weight == null ? 0 : itemadded.Attributes.PackageDimensions.Weight;
+                            args["Width"] = itemadded.Attributes.PackageDimensions.Width == null ? 0 : itemadded.Attributes.PackageDimensions.Width;               
+                            // Image
+                            args["UrlImage"] = itemadded.Image.ImageUrl;
+                            console.log("args",args);
+                            userData.addItemToCar(args).then(function success(result) {
+                                refreshCar(result);
+                            }, function error(error) {
+                                console.log(error);
+                            });
+                        } else {
+                            $scope.showShoppingCar();
+                        }
+                    }
+                });
             };
             var refreshCar = function (result) {
                 $scope.showCarItems = false;

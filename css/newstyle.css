@@ -1666,7 +1666,9 @@ text-align: center;
 .navbar.navbar-fixed-top.change .usuariotop-right .link a {
   color: #000;
 }
-
+.navbar.navbar-fixed-top.change .giftcards-right .navbar-giftcards a {
+  color: #000;
+}
 .boxitRusia2018-top {
   background: #ba2e2f;
   width: 100%;
