@@ -1,0 +1,173 @@
+<div ng-controller="rusiaDetailController" class="ng-scope">
+    <div class="store-itemdetail-top" id="store-itemdetail-top"></div>
+    <div class="store-itemdetail-topbar container-fluid">
+        <div class="row boxitBarItemDetail">
+            
+                <div class="col-md-2 carAvatar">
+                    <div class="Avatar"></div>
+                    <span class="Name ng-binding">Hola {{UserName}}</span>                
+                </div>
+                <div class="col-md-2 carAvatar">
+                    <div class="store-favoritos-button">
+                        <a class="misFavoritos" ui-sref="misFavoritos" href="#/misFavoritos">Mis Favoritos</a>
+                    </div> 
+                </div>
+
+            <div class="store-itemdetail-cart">
+                <a class="cart cart_anchor" ui-sref="carrito"> 
+                    <span id="cartNumber">{{carNumber}}</span>Cart 
+                </a>
+            </div>
+        </div>
+    </div>
+    	<div class="store-breadcrumb">
+		<ul>
+			<li>
+				<a ui-sref="boxitStore">boxitStore</a>
+			</li>
+			<li class="separator">
+				<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+			</li>
+			<li>
+				<span>{{titulo}}</span>
+			</li>
+		</ul>
+	</div>
+    <div class="store-itemdetail">
+        <div class="loadmain" ng-show="loadMain">
+            <div class="col-lg-12">
+                <div id="cssload-pgloading">
+                    <div class="cssload-loadingwrap">
+                        <ul class="cssload-bokeh">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="store-itemdetail-inner" ng-show="showMain">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="col col-xs-12 col-sm-4">
+                        <div class="itemdetail-image">
+                            <img id="item-image" class="img-responsive" title="{{titulo}}" src="{{imgUrl}}">
+                        </div>
+                    </div>
+                    <div class="col col-xs-12 col-sm-4">
+                        <div class="itemdetail-title">
+                            <h1><span>{{titulo}}</span></h1>
+                        </div>
+
+                        <div class="atributos">
+                            <div class="atributos-inner">
+                                <div class="atributos-first">
+                                    <div class="showcombination ng-hide" ng-show="showCombination">
+                                        <select class="form-control" style="height: 44px">
+                                            <option value="0">{{color}} - {{size}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="showcombination ng-hide" ng-show="showVariationsArray">
+                                        <select class="form-control" style="height: 44px" ng-options="item.VariationAttributes.VariationAttribute[0].Value + ' - ' + item.VariationAttributes.VariationAttribute[1].Value for item in variations" ng-model="variation" ng-change="refreshItem()">
+                                            <option value="">Selecciona</option>
+                                        </select>
+                                    </div>
+                                    <div class="showcombination" ng-show="showVariationsObject">
+                                        <select class="form-control" style="height: 44px" ng-options="item.VariationAttributes.VariationAttribute.Value for item in variations" ng-model="variation" ng-change="refreshItem()">
+                                            <option value="">Selecciona</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="atributos-second">
+                                    <div class="atributos-second-item showcolor ng-hide" ng-show="ShowColor">
+                                        <div class="atributos-detail">
+                                            <span class="atributos-key">Color: </span>
+                                            <span class="atributos-value">{{color}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="atributos-second-item showsize ng-hide" ng-show="showZise">
+                                        <div class="atributos-detail">
+                                            <span class="atributos-key">Talla: </span>
+                                            <span class="atributos-value">{{size}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="atributos-second-item showfeature ng-hide" ng-show="showFeature">
+                                        <div class="atributos-detail">
+                                            <span class="atributos-key">{{featureName}}: </span>
+                                            <span class="atributos-value">{{featureValue}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="description-conteiner">
+                            <div class="description-title">Descripcion:</div>                            
+                            <div class="description-text"><p>{{texto}}</p></div>
+                        </div>
+
+                    </div>
+                    <div class="col col-xs-12 col-sm-4">
+                        
+                        <div class="col-price">
+    
+                            <div class="itemdetail-price">
+                                <div class="price-box">
+                                    <span class="price-container">
+                                        <span class="price">{{itemPrice}}</span>
+                                    </span>                                    
+                                </div>
+                            </div>
+                            <div class="product_attribute_sku">                                
+                                <div class="value" itemprop="sku"><strong class="type">Código </strong>{{itemCode}}</div>
+                                <div class="value" itemprop="sku"><strong class="type">Peso </strong>{{peso}} lbs.</div>
+                            </div>
+        
+                            <div class="addtocart">
+                                <div class="box-tocart">
+                                    <div class="fieldset">
+                                        <div class="field qty">
+                                            <div class="product-qty">
+                                                <label class="label" for="qty"><span>Cantidad</span></label>
+                                                <div class="control custom-qty">
+                                                    <input type="number" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" ng-model="cantidad" ng-change="refreshTotal()">
+                                                    <div class="btn-plus">	
+                                                        <button type="button" class="increase items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;">
+                                                            <i class="fa fa-caret-up"></i>
+                                                        </button>
+                                                        <button type="button" class="reduced items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) & qty > 1 ) result.value--;return false;">
+                                                            <i class="fa fa-caret-down"></i>
+                                                        </button>
+                                                    </div>					
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actions add-to-cart">
+                                            <span class="input-group-btn" uib-tooltip="{{tooltip}}"
+                                                tooltip-trigger="click" tooltip-placement="top">
+                                                <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-button" data-goimage="item-image" ng-click="addToCar()" ng-disabled="disabledAdd" disabled="disabled">
+                                                    <span>Añadir</span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="container">
+                <div class="row">        
+                    <div class="col-lg-12">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>

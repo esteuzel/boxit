@@ -104,7 +104,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             controller: ""
 
         }
-	).state('contactanos', {
+	    ).state('contactanos', {
 	        url: "/contactanos",
 	        templateUrl: "views/contactanos.html?v=${new Date().getTime()}",
 	        controller: ""
@@ -302,14 +302,23 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             controller: "myWishList"
         }        
         ).state('rusia2018', {
-        url: "/rusia2018",
-        templateUrl: "views/rusia2018.html",
-        controller: "rusia2018Controller"
+            url: "/rusia2018",
+            templateUrl: "views/rusia2018.html",
+            controller: "rusia2018Controller"
         }    
+        ).state('rusiaDetail', {
+            url: '/rusiaDetail/:itemId',
+            reloadOnSearch : false,
+            templateUrl: 'views/rusiaDetail.html',
+            params: {
+                itemId: ""
+            },                
+            controller: 'rusiaDetailController'
+        }
         ).state('giftcards', {
-        url: "/giftcards",
-        templateUrl: "views/giftcards.html",
-        controller: "giftcardsController"
+            url: "/giftcards",
+            templateUrl: "views/giftcards.html",
+            controller: "giftcardsController"
         }
 
         );

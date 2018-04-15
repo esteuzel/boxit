@@ -1,0 +1,48 @@
+{
+  "Item": [
+    {
+      "ItemId": "rusia201801-S",
+      "VariationAttributes": {
+        "VariationAttribute": [
+          {
+            "Name": "Size",
+            "Value": "Small"
+          }
+        ]
+      }
+    },
+    {
+      "ItemId": "rusia201801-L",
+      "VariationAttributes": {
+        "VariationAttribute": [
+          {
+            "Name": "Size",
+            "Value": "Large"
+          }
+        ]
+      }
+    },  
+    {
+      "ItemId": "rusia201801-XL",
+      "VariationAttributes": {
+        "VariationAttribute": [
+          {
+            "Name": "Size",
+            "Value": "XL"
+          }
+        ]
+      }
+    },    
+    {
+      "ItemId": "rusia201801-XXL",
+      "VariationAttributes": {
+        "VariationAttribute": [
+          {
+            "Name": "Size",
+            "Value": "XXL"
+          }
+        ]
+      }
+    }
+  ]
+}

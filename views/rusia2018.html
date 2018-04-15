@@ -75,7 +75,7 @@
         <div class="col-sm-3 col-noppading" ng-repeat="item in Items">
             <div class="product-item">
                 <div class="product-item-info">
-                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                    <a ui-sref="rusiaDetail({itemId: item.ItemId})" class="product-item-photo">				
                     <span class="product-image-container">
                         <span class="product-image-wrapper">
                             <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.ImageUrl}}" alt="{{item.Title}}">
@@ -84,7 +84,7 @@
                     </a>
                     <div class="product-item-details">
                         <strong class="product-item-name">
-                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Title}}</a>
+                            <a title="Lord Benedict Handy" ui-sref="rusiaDetail({itemId: item.ItemId})" class="product-item-link">{{item.Title}}</a>
                         </strong>
                         <span>{{item.SubTitle}}</span>
                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
