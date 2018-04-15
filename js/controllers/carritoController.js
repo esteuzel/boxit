@@ -147,10 +147,14 @@ angular
                     }
                     //console.log('carItems',$scope.carItems);
                 };
-            $scope.modifyCar = function (op, carItemId, cantidad) {
+            $scope.modifyCar = function (op, item) {
+                itemId = item.ItemId;
+                carItemId = item.CartItemId
+                cantidad = item.Quantity;
                     var args = {};
                     args["IdCliente"] = userData.getData().IdCliente;
                     args["CartItemId"] = carItemId;
+                    args["ItemId"] = itemId;
                     if (op == 0) {
                         args["Quantity"] = (parseInt(cantidad) - 1).toString();
                     } else {
@@ -167,7 +171,7 @@ angular
                             'Content-Type': 'application/json'
                         }
                     }).then(function success(result) {
-                        $scope.$parent.subTotal = result.data.Data.Cart.CartItems.SubTotal.FormattedPrice;
+                        //$scope.$parent.subTotal = result.data.Data.Cart.CartItems.SubTotal.FormattedPrice;
                         refreshCar(result);
                     }, function error(result) {
                         console.log(result);

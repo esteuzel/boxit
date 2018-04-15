@@ -72,14 +72,14 @@
                 <td class="a-center cart_qty">
                     <div class="cart-qty">
                             
-                    <button class="btn22 btn-update" ng-click="modifyCar(0, item.CartItemId, item.Quantity)"><span class="minus">-</span></button>
+                    <button class="btn22 btn-update" ng-click="modifyCar(0, item)"><span class="minus">-</span></button>
                         <input type="text" readonly="readonly" value="{{item.Quantity}}" class="input-text qty" size="2">
-                    <button class="btn22 btn-update" ng-click="modifyCar(1, item.CartItemId, item.Quantity)"><span class="plus">+</span></button>
+                    <button class="btn22 btn-update" ng-click="modifyCar(1, item)"><span class="plus">+</span></button>
                     </div>
                 </td>
                 <td class="a-center td-delete">
                     <div class="cart-remove">
-                        <a title="Eliminar" class="btn-remove2" ng-click="modifyCar(2, item.CartItemId, item.Quantity)">Eliminar</a>
+                        <a title="Eliminar" class="btn-remove2" ng-click="modifyCar(2, item)">Eliminar</a>
                     </div>
                 </td>
                 <td class="a-center notranslate">

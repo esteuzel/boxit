@@ -97,16 +97,18 @@
                         <div class="product-item-actions">
                             <div class="actions-primary actions add-to-cart">
                                 <div class="actions add-to-cart">
-                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item.ItemId,'default')">
-                                        <span>Añadir al carrito</span>
-                                    </button>
+                                    <div class="botonwhatsapp">
+                                        <a class="wpurl" href="{{wpurl}}" title="Pedir por Whatsapp" target="_blank" ng-click="goToWhatsapp(wpurl,item.Title)"><span>Pedir por Whatsapp</span></a>
+                                    </div>
                                 </div>
                             </div>
+                            <!--
                             <div class="actions-secondary">
                                 <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
                                     <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
                                 </a>
                             </div>
+                        -->
                         </div>
                     </div>
                 </div>

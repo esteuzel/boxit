@@ -26,6 +26,8 @@ angular
                 id = 0;
             }
 
+            
+
             var getItemsRusia2018 = function (item) {
                 oldItems = [];
                 var newItem = {
@@ -117,6 +119,31 @@ angular
             $scope.closeModal = function () {
                 $localStorage.modalIns.close();
             };
+
+            $scope.wpurl = 'https://api.whatsapp.com/send?phone=50761461022&text=Quiero%20informacion%20de:%20';
+
+            $scope.goToWhatsapp = function (url,title){
+                console.log('goToWhatsapp');
+                $window.open(url+title);
+            }
+            $scope.pedirPorWhatsapp = function(item){
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'views/pedirPorWhatsapp.html',
+                    //controller: 'modalLoginController',
+                    size: 'md',
+                    resolve: {
+                        mensaje: function () {
+                            var mensaje = {};
+                            mensaje.titulo = "Inicio de sesion";
+                            mensaje.texto = "respuesta";
+                            mensaje.estilo = "alerta";
+                            return mensaje;
+                        }
+                    }
+
+                }); 
+            }
             $scope.addToCar = function (id,cat) {
 
                 if (userObj != undefined) {
