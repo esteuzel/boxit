@@ -600,7 +600,48 @@ angular
                     console.log('ItemsElectronics',$scope.ItemsElectronics)
                 }, function error(result) {
                 });
+                /*
+                añadir en el boxit store, categoría de  belleza y salud, ropa y  juguetes-juegos. así como actualmente está electronics y baby que están bien
+                */
+               var searchParams = {};
+               searchParams["SearchIndex"] = 'Beauty';
+               userData.getDefaultSearch(searchParams).then(function success(result) {
+                $scope.ItemsBeautyUno= {};
+                $scope.ItemsBeautyDos= {};
+                $scope.ItemsBeautyTres= {};
+                $scope.ItemsBeautyUno[0] = result[0];
+                $scope.ItemsBeautyUno[1] = result[1];
+                $scope.ItemsBeautyUno[2] = result[2];
+                $scope.ItemsBeautyUno[3] = result[3];
+                $scope.ItemsBeautyDos[0] = result[4];
+                $scope.ItemsBeautyDos[1] = result[5];
+                $scope.ItemsBeautyDos[2] = result[6];
+                $scope.ItemsBeautyDos[3] = result[7];
+                $scope.ItemsBeautyTres[0] = result[8];
+                $scope.ItemsBeautyTres[1] = result[9];
+                console.log('ItemsBeauty',$scope.ItemsBeauty)
+               }, function error(result) {
+               });
 
+               var searchParams = {};
+               searchParams["SearchIndex"] = 'Toys';
+               userData.getDefaultSearch(searchParams).then(function success(result) {
+                $scope.ItemsToysUno= {};
+                $scope.ItemsToysDos= {};
+                $scope.ItemsToysTres= {};
+                $scope.ItemsToysUno[0] = result[0];
+                $scope.ItemsToysUno[1] = result[1];
+                $scope.ItemsToysUno[2] = result[2];
+                $scope.ItemsToysUno[3] = result[3];
+                $scope.ItemsToysDos[0] = result[4];
+                $scope.ItemsToysDos[1] = result[5];
+                $scope.ItemsToysDos[2] = result[6];
+                $scope.ItemsToysDos[3] = result[7];
+                $scope.ItemsToysTres[0] = result[8];
+                $scope.ItemsToysTres[1] = result[9];
+                console.log('ItemsToys',$scope.ItemsToys)
+               }, function error(result) {
+               });
 
             };
 
@@ -709,5 +750,10 @@ angular
                     });
                 });
             }
-
+            $scope.$on("$destroy", function handler() {
+                $('.navbar').removeClass('white');
+            });
+            
+                $('.navbar').addClass('white');
+            
         }]);

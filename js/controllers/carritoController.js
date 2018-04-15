@@ -96,7 +96,7 @@ angular
                     $scope.showCarItems = false;
                     $scope.showLoginMessage = false;
                     $scope.loading = true;
-                    console.log("Data.Cart",result.data.Data.Cart);
+                    $scope.mostrarBoxitShoppingCart = false;
                     if (result.data.Data.Cart != undefined) {
                         if (result.data.Data.Cart.CartItems != undefined || result.data.Data.Cart.CartItems != null) {
                             if (null !== result.data.Data.Cart.CartItems) {
@@ -129,8 +129,10 @@ angular
                             $scope.subTotal = 0;
                             $scope.showEmptyMessage = true;
                             $scope.loading = false;
+                            $scope.showCarItems = false;
                         }
                     } else {
+                        console.log("NO Data.Cart");
                         $scope.subTotal = 0;
                         $scope.carNumber = 0;
                         $scope.CartEmpty = true;

@@ -1811,7 +1811,7 @@ body {
 section.home {
   background-color: #424996; }
 .how-it-works {
-  min-height: 550px;
+  min-height: 450px;
   padding-top: 0px;
   background: #fff;
 }
@@ -2031,7 +2031,14 @@ color: #A82773;
 font-weight: normal;
 }
 .navbar.navbar-fixed-top.white #navbar ul li a:not(.btn), .navbar.navbar-fixed-top.white #navbar ul li .btn-secondary {
-  color: #888 ; }
+  color: #888 ; 
+}
+.boxitBar.white .carAvatar{
+  color: #000;
+}
+.boxitBar.white .cart {
+  background: url(../img/cart-black.png) center left no-repeat;
+}
 .registro, .iniciodesesion {   
   background-color: #16b5cc;
 }
@@ -2058,4 +2065,19 @@ font-weight: normal;
   background-color: #30BF39;
       color: #FFF;
   }
+.host-boxit-img {
+  max-width: 200px;
+}
+img.home-afiliados {
+  margin: 0 auto;
+}
+.cart-disclaimers {
+  margin-top: 40px;
+  padding: 10px;
+  float: left;
+  width: 50%;
+}
+.cart-disclaimers p{
+  font-size: 14px;
+  line-height: 20px;
 /*  end newhome */

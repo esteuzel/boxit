@@ -91,6 +91,13 @@ angular
 
             getCar();
 
+            $scope.wpurl = 'https://api.whatsapp.com/send?phone=50761461022&text=Quiero%20informacion%20de:%20';
+
+            $scope.goToWhatsapp = function (url,title){
+                console.log('goToWhatsapp');
+                $window.open(url+title);
+            }
+
             $scope.showShoppingCar = function () {
                 console.log('shoppingCarController showShoppingCar');
             $state.go('modalRusia');

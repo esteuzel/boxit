@@ -75,16 +75,16 @@
         <div class="col-sm-3 col-noppading" ng-repeat="item in Items">
             <div class="product-item">
                 <div class="product-item-info">
-                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                    		
                     <span class="product-image-container">
                         <span class="product-image-wrapper">
                             <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.ImageUrl}}" alt="{{item.Title}}">
                         </span>
                     </span>
-                    </a>
+                   
                     <div class="product-item-details">
                         <strong class="product-item-name">
-                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Title}}</a>
+                            <a title="Lord Benedict Handy" class="product-item-link">{{item.Title}}</a>
                         </strong>
                         <span>{{item.SubTitle}}</span>
                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
@@ -97,16 +97,12 @@
                         <div class="product-item-actions">
                             <div class="actions-primary actions add-to-cart">
                                 <div class="actions add-to-cart">
-                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item.ItemId,'default')">
-                                        <span>Añadir al carrito</span>
-                                    </button>
+                                    <div class="botonwhatsapp">
+                                        <a class="wpurl" href="{{wpurl}}" title="Pedir por Whatsapp" target="_blank" ng-click="goToWhatsapp(wpurl,item.Title)"><span>Pedir por Whatsapp</span></a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="actions-secondary">
-                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
-                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
-                                </a>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
