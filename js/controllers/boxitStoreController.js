@@ -34,7 +34,7 @@ angular
             }
             $scope.showProductsCategory = true;
             
-console.log('controller boxitStoreController');
+            console.log('controller boxitStoreController');
              //setInterval(getCar, 10000);
             var getCar = function () {
                
@@ -55,7 +55,7 @@ console.log('controller boxitStoreController');
                 $scope.currentPage = 1;
                 products = [];
                // console.log(this);
-                if (this.index != null || this.index != undefined) {
+                
 
                     searchProducts(this).then(function success(result) {
                         $scope.showCarMessage = false;
@@ -95,32 +95,7 @@ console.log('controller boxitStoreController');
                             $scope.showPagination = true
                             
                         }
-                    });
-                } else {
-                    $scope.loadMain = false;
-                    var modalInstance = $uibModal.open({
-                        animation: true,
-                        templateUrl: 'views/modalCambioClave.html',
-                        controller: 'modalCambioClaveController',
-                        size: 'sm',
-                        resolve: {
-                            mensaje: function () {
-                                var mensaje = {};
-                                mensaje.titulo = "Busqueda";
-                                mensaje.texto = "Por Favor seleccione una categoria.";
-                                mensaje.estilo = "alerta";
-                                return mensaje;
-                            }
-                        }
-
-                    });
-                    modalInstance.closed.then(function (someData) {
-                        
-                        $scope.loadMain = true;
-                        $scope.firstSearch();
-                         getCar();
-                    });
-                }
+                    });                
             };
             function searchProducts(self) {
                 //console.log($scope.subCategory.SubCategoryName);
