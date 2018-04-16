@@ -105,7 +105,7 @@ body {
   font-family: "Roboto", sans-serif; }
 
 h1 {
-  color: #a82773;
+  color: #333;
   font-weight: 600;
   letter-spacing: 0.15em;
   margin-top: 60px;
@@ -989,11 +989,27 @@ section.iniciodesesion {
 .SubTitle {
   font-size: 25px;    
   font-weight: bold;
-  color: #a82773;
+  color: #333;
 }
 .Formulary {
   max-width: 500px;
   margin: 0 auto;
+}
+.Formulary .Group {
+  color: #333;
+}
+.FieldContent span{
+  color: #606060;
+}
+.Button.WithBackground {
+  border: 2px solid #16b5cc;
+  color: #FFFFFF;
+  background-color: #16b5cc;
+}
+.homecreatucuenta {
+  background-color: #16b5cc;
+  color: #FFFFFF;
+
 }
 .customLabel.user-welcome {
   text-align: center;
