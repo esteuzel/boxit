@@ -119,8 +119,8 @@ angular
             $scope.closeModal = function () {
                 $localStorage.modalIns.close();
             };
-
-            $scope.wpurl = 'https://api.whatsapp.com/send?phone=50761461022&text=Quiero%20informacion%20de:%20';
+            
+            $scope.wpurl = 'https://api.whatsapp.com/send?phone=50763494559&text=Quiero%20informacion%20de:%20';
 
             $scope.goToWhatsapp = function (url,title){
                 console.log('goToWhatsapp');

@@ -642,7 +642,47 @@ angular
                 console.log('ItemsToys',$scope.ItemsToys)
                }, function error(result) {
                });
-
+               
+               var searchParams = {};
+               searchParams["SearchIndex"] = 'HealthPersonal-Care';
+               userData.getDefaultSearch(searchParams).then(function success(result) {
+               $scope.ItemsHealthPersonalCareUno= {};
+                   $scope.ItemsHealthPersonalCareDos= {};
+                   $scope.ItemsHealthPersonalCareTres= {};
+                   $scope.ItemsHealthPersonalCareUno[0] = result[0];
+                   $scope.ItemsHealthPersonalCareUno[1] = result[1];
+                   $scope.ItemsHealthPersonalCareUno[2] = result[2];
+                   $scope.ItemsHealthPersonalCareUno[3] = result[3];
+                   $scope.ItemsHealthPersonalCareDos[0] = result[4];
+                   $scope.ItemsHealthPersonalCareDos[1] = result[5];
+                   $scope.ItemsHealthPersonalCareDos[2] = result[6];
+                   $scope.ItemsHealthPersonalCareDos[3] = result[7];
+                   $scope.ItemsHealthPersonalCareTres[0] = result[8];
+                   $scope.ItemsHealthPersonalCareTres[1] = result[9];
+                   console.log('ItemsHealthPersonalCare',$scope.ItemsHealthPersonalCare)
+                }, function error(result) {
+                });
+                
+                var searchParams = {};
+                searchParams["SearchIndex"] = 'Fashion';
+                userData.getDefaultSearch(searchParams).then(function success(result) {
+                 $scope.ItemsFashionUno= {};
+                 $scope.ItemsFashionDos= {};
+                 $scope.ItemsFashionTres= {};
+                 $scope.ItemsFashionUno[0] = result[0];
+                 $scope.ItemsFashionUno[1] = result[1];
+                 $scope.ItemsFashionUno[2] = result[2];
+                 $scope.ItemsFashionUno[3] = result[3];
+                 $scope.ItemsFashionDos[0] = result[4];
+                 $scope.ItemsFashionDos[1] = result[5];
+                 $scope.ItemsFashionDos[2] = result[6];
+                 $scope.ItemsFashionDos[3] = result[7];
+                 $scope.ItemsFashionTres[0] = result[8];
+                 $scope.ItemsFashionTres[1] = result[9];
+                 console.log('ItemsFashion',$scope.ItemsFashion)
+                }, function error(result) {
+                });
+ 
             };
 
             if($scope.showProductsCategory){

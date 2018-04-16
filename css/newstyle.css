@@ -1050,6 +1050,7 @@ background: none;
 .store-list-category {
 margin-top: 60px;
 float: left;
+width: 100%;
 }
 .store-list-category-title {
   width: 100%;

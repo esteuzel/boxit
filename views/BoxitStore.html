@@ -261,14 +261,584 @@
             </a>
         </div>
     
-<script type="text/javascript">
-$(document).ready(function() {
-	$('a.carousel-control').on('click', function(event) {
-		console.log('carousel-control click');
-        event.preventDefault();
-    })
-});
-</script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('a.carousel-control').on('click', function(event) {
+                console.log('carousel-control click');
+                event.preventDefault();
+            })
+        });
+        </script>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div class="store-list-category" ng-show="showProductsCategory">
+        <div class="store-list-category-title">
+            <div class="store-list-category-title-inner">
+                <div class="store-list-category-title-text">
+                    <h2>Beauty</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="myCarouselBeauty" class="carousel slide " data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarouselBeauty" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarouselBeauty" data-slide-to="1"></li>
+                <li data-target="#myCarouselBeauty" data-slide-to="2"></li>
+            </ol>     
+            <div class="carousel-inner store-list">
+                <div class="item active">
+                    <div class="row-no">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBeautyUno">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Beauty" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Beauty" data-goimage="image-{{item.ItemId}}-Beauty" ng-click="addToCar(item,'Beauty')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="item">
+                    <div class="row">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBeautyDos">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Beauty" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Beauty" data-goimage="image-{{item.ItemId}}-Beauty" ng-click="addToCar(item,'Beauty')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBeautyTres">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Beauty" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Beauty" data-goimage="image-{{item.ItemId}}-Beauty" ng-click="addToCar(item,'Beauty')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            
+
+            </div>
+            <a class="left carousel-control" href="#myCarouselBeauty" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarouselBeauty" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('a.carousel-control').on('click', function(event) {
+                console.log('carousel-control click');
+                event.preventDefault();
+            })
+        });
+        </script>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    
+    <div class="store-list-category" ng-show="showProductsCategory">
+        <div class="store-list-category-title">
+            <div class="store-list-category-title-inner">
+                <div class="store-list-category-title-text">
+                    <h2>Toys</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="myCarouselToys" class="carousel slide " data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarouselToys" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarouselToys" data-slide-to="1"></li>
+                <li data-target="#myCarouselToys" data-slide-to="2"></li>
+            </ol>     
+            <div class="carousel-inner store-list">
+                <div class="item active">
+                    <div class="row-no">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsToysUno">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Toys" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Toys" data-goimage="image-{{item.ItemId}}-Toys" ng-click="addToCar(item,'Toys')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="item">
+                    <div class="row">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsToysDos">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Toys" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Toys" data-goimage="image-{{item.ItemId}}-Toys" ng-click="addToCar(item,'Toys')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsToysTres">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Toys" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Toys" data-goimage="image-{{item.ItemId}}-Toys" ng-click="addToCar(item,'Toys')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            
+
+            </div>
+            <a class="left carousel-control" href="#myCarouselToys" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarouselToys" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('a.carousel-control').on('click', function(event) {
+                console.log('carousel-control click');
+                event.preventDefault();
+            })
+        });
+        </script>
+    </div>
+
+
+
+
+
+
+    
+    <div class="store-list-category" ng-show="showProductsCategory">
+        <div class="store-list-category-title">
+            <div class="store-list-category-title-inner">
+                <div class="store-list-category-title-text">
+                    <h2>Fashion</h2>
+                </div>
+            </div>
+        </div>
+
+        <div id="myCarouselFashion" class="carousel slide " data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarouselFashion" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarouselFashion" data-slide-to="1"></li>
+                <li data-target="#myCarouselFashion" data-slide-to="2"></li>
+            </ol>     
+            <div class="carousel-inner store-list">
+                <div class="item active">
+                    <div class="row-no">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsFashionUno">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Fashion" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Fashion" data-goimage="image-{{item.ItemId}}-Fashion" ng-click="addToCar(item,'Fashion')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="item">
+                    <div class="row">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsFashionDos">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Fashion" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Fashion" data-goimage="image-{{item.ItemId}}-Fashion" ng-click="addToCar(item,'Fashion')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+        
+                        <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsFashionTres">
+                            <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-Fashion" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-primary actions add-to-cart">
+                                                <div class="actions add-to-cart">
+                                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" id="product-addtocart-{{item.ItemId}}-Fashion" data-goimage="image-{{item.ItemId}}-Fashion" ng-click="addToCar(item,'Fashion')">
+                                                        <span>Añadir al carrito</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            
+
+            </div>
+            <a class="left carousel-control" href="#myCarouselFashion" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarouselFashion" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('a.carousel-control').on('click', function(event) {
+                console.log('carousel-control click');
+                event.preventDefault();
+            })
+        });
+        </script>
+    </div>
+
+
+
+
+
+    
+
+
+
+
+
 
 
     <div class="store-list-category" ng-show="showProductsCategory">
@@ -320,6 +890,18 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 
