@@ -507,7 +507,7 @@ angular
 
                 $scope.cerrarModalThankyou = function () {
                     console.log("cerrarModalThankyou");                    
-                    $state.go('home');
+                    $state.go('boxitStore');
                     $window.location.reload();
                 };
 

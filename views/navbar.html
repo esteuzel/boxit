@@ -127,6 +127,15 @@ $(document).ready(function() {
 		}, 1000);
 		return false;        
 	});
+	how-it-works
+	$('a.quesboxit').on('click', function(event) {
+		event.preventDefault();
+		var target = $('#how-it-works');        
+		$('html,body').animate({
+			scrollTop: (target.offset().top - navbarAffixHeight + 1)
+		}, 1000);
+		return false;       
+		});
 	$('a.link-ubicaciones').on('click', function(event) {
 		//console.log('link-ubicaciones click');
 		setTimeout(goToHomeUbication, 200);		

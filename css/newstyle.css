@@ -349,7 +349,7 @@ footer{
 footer {
   background-color: #333;
   color: #fff;
-  padding: 90px 0 12px; }
+  padding: 50px 0 12px; }
   footer svg {
     margin-top: 48px;
     max-width: 60%; }
@@ -1323,7 +1323,7 @@ width: 100%;
   
   .add-to-cart button.button {
     width: 130px;
-      background-image: url(../img/newstyle/cart-list-black.png);
+      background-image: url(../img/newstyle/cart-list.png);
       background-position: 15px 50%;
       background-repeat: no-repeat;
       background-size: auto;
@@ -1340,7 +1340,7 @@ width: 100%;
       padding: 0;
       height: 35px;
       line-height: 35px;
-      color: #000;    
+      color: #fff;    
       display: inline-block;
       font-size: 14px;
       text-align: center;
