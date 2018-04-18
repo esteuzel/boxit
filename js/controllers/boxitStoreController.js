@@ -10,6 +10,7 @@ angular
             $scope.showPagination = false;
             $scope.showImage = true;
             $scope.showCar = false;
+            $scope.showStoreFirstTen = true;
             $scope.showCarMessage = false;
             $scope.showCarItems = false;
             $scope.showLoginMessage = false;
@@ -503,7 +504,7 @@ angular
                 
                 userData.getFirstSearch().then(function success(result) {
                     $scope.loadMain = false;
-                    $scope.Items = result;
+                    //$scope.Items = result;
                     $scope.showCar = true;
                     $scope.showImage = false;
                 }, function error(result) {

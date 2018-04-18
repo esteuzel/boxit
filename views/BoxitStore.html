@@ -51,7 +51,7 @@
 
 
 <div ng-show="showCar"> 
-    <div class="store-list">
+    <div class="store-list" ng-show="showStoreFirstTen">
         <div class="col-sm-3 col-noppading" ng-repeat="item in Items">
             <div class="product-item">
                 <div class="product-item-info">
@@ -905,19 +905,17 @@
 
 </div>
 
-<div ng-show="showCarMessage">
-<div class="col-lg-12">
-<h2 class="text-center">No hay Resultados</h2>
-</div>
-</div>
+    <div ng-show="showCarMessage">
+        <div class="col-lg-12">
+            <h2 class="text-center">No hay Resultados</h2>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-<div class="col-lg-4"></div>
+<div class="pagination">
 
 <div class="col-lg-5"><uib-pagination ng-change="pageChanged()" ng-model="currentPage" ng-show="showPagination" total-items="totalItems"></uib-pagination></div>
 
-<div class="col-lg-3"></div>
 </div>
 </div>
 
@@ -926,5 +924,6 @@
 
 
 
-</div></div>
+</div>
+</div>
 

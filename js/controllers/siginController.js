@@ -214,4 +214,27 @@ angular
                     }
                     );
                 };
+
+                
+                $scope.leerTerminosycondiciones = function () {
+                   console.log("leerTerminosycondiciones");
+                        //  ngToast.create("Password no coincide");
+
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/terminosycondiciones.html',
+                            size: 'lg',
+                            resolve: {
+                                mensaje: function () {
+                                    var mensaje = {};
+                                    mensaje.titulo = "Registro Usuario";
+                                    mensaje.texto = "Password no coincide";
+                                    mensaje.estilo = "alerta";
+                                    return mensaje;
+                                }
+                            }
+
+                        });
+                    
+                }
             }]);

@@ -397,7 +397,9 @@ footer {
     margin: 72px 0 0;
     text-align: center;
     text-transform: uppercase; }
-
+footer .enterate {
+  color: #fff;
+}
 html.touchevents .video-background {
   display: none; }
 
@@ -1321,7 +1323,7 @@ width: 100%;
   
   .add-to-cart button.button {
     width: 130px;
-      background-image: url(../img/newstyle/cart-list.png);
+      background-image: url(../img/newstyle/cart-list-black.png);
       background-position: 15px 50%;
       background-repeat: no-repeat;
       background-size: auto;
@@ -1338,7 +1340,7 @@ width: 100%;
       padding: 0;
       height: 35px;
       line-height: 35px;
-      color: #fff;    
+      color: #000;    
       display: inline-block;
       font-size: 14px;
       text-align: center;
@@ -2117,4 +2119,16 @@ img.home-afiliados {
 .cart-disclaimers p{
   font-size: 14px;
   line-height: 20px;
+}
+.registro-terminos-link a {
+  
+  color: #16b5cc;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pagination {
+  width: 100%;
+  clear: both;
+  text-align: center;
+}
 /*  end newhome */
