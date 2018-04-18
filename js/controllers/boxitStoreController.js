@@ -646,20 +646,24 @@ angular
                var searchParams = {};
                searchParams["SearchIndex"] = 'HealthPersonal-Care';
                userData.getDefaultSearch(searchParams).then(function success(result) {
-               $scope.ItemsHealthPersonalCareUno= {};
-                   $scope.ItemsHealthPersonalCareDos= {};
-                   $scope.ItemsHealthPersonalCareTres= {};
-                   $scope.ItemsHealthPersonalCareUno[0] = result[0];
-                   $scope.ItemsHealthPersonalCareUno[1] = result[1];
-                   $scope.ItemsHealthPersonalCareUno[2] = result[2];
-                   $scope.ItemsHealthPersonalCareUno[3] = result[3];
-                   $scope.ItemsHealthPersonalCareDos[0] = result[4];
-                   $scope.ItemsHealthPersonalCareDos[1] = result[5];
-                   $scope.ItemsHealthPersonalCareDos[2] = result[6];
-                   $scope.ItemsHealthPersonalCareDos[3] = result[7];
-                   $scope.ItemsHealthPersonalCareTres[0] = result[8];
-                   $scope.ItemsHealthPersonalCareTres[1] = result[9];
-                   console.log('ItemsHealthPersonalCare',$scope.ItemsHealthPersonalCare)
+                console.log('ItemsHealthPersonalCare result',result);
+                   if(result!=null & result!=undefined){
+                    $scope.ItemsHealthPersonalCareUno= {};
+                    $scope.ItemsHealthPersonalCareDos= {};
+                    $scope.ItemsHealthPersonalCareTres= {};
+                    $scope.ItemsHealthPersonalCareUno[0] = result[0];
+                    $scope.ItemsHealthPersonalCareUno[1] = result[1];
+                    $scope.ItemsHealthPersonalCareUno[2] = result[2];
+                    $scope.ItemsHealthPersonalCareUno[3] = result[3];
+                    $scope.ItemsHealthPersonalCareDos[0] = result[4];
+                    $scope.ItemsHealthPersonalCareDos[1] = result[5];
+                    $scope.ItemsHealthPersonalCareDos[2] = result[6];
+                    $scope.ItemsHealthPersonalCareDos[3] = result[7];
+                    $scope.ItemsHealthPersonalCareTres[0] = result[8];
+                    $scope.ItemsHealthPersonalCareTres[1] = result[9];
+                    console.log('ItemsHealthPersonalCare',$scope.ItemsHealthPersonalCare);
+                   }
+             
                 }, function error(result) {
                 });
                 
@@ -792,8 +796,11 @@ angular
             }
             $scope.$on("$destroy", function handler() {
                 $('.navbar').removeClass('white');
-            });
-            
+                $('.rusia2018-right').hide();
+                $('.giftcards-right').hide();
+            });            
                 $('.navbar').addClass('white');
-            
+                $('.rusia2018-right').show();
+                $('.giftcards-right').show();
+            console.log("show Rusia");
         }]);
