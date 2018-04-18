@@ -306,8 +306,22 @@ hr.tiny-line {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07); }
     .navbar.navbar-fixed-top.change .navbar-toggle.collapsed .icon-bar {
       background-color: #aaa; }
-  .navbar.navbar-fixed-top:not(.change) .navbar-brand svg path, .navbar.navbar-fixed-top:not(.change) .navbar-brand svg polygon, .navbar.navbar-fixed-top:not(.change) .navbar-brand svg rect {
-    fill: #fff; }
+
+
+
+  .navbar.navbar-fixed-top:not(.change) .navbar-brand svg path, 
+  .navbar.navbar-fixed-top:not(.change) .navbar-brand svg polygon, 
+  .navbar.navbar-fixed-top:not(.change) .navbar-brand svg rect {
+    fill: #fff; 
+  }
+  
+  .navbar.navbar-fixed-top:not(.change).white .navbar-brand svg path, 
+  .navbar.navbar-fixed-top:not(.change).white .navbar-brand svg polygon, 
+  .navbar.navbar-fixed-top:not(.change).white .navbar-brand svg rect {
+    fill: #3F525D;
+  }
+
+  
   .navbar.navbar-fixed-top .navbar-toggle {
     border: none;
     border-radius: 0;
@@ -978,7 +992,7 @@ section.iniciodesesion {
   height: 100px;
 }
 .boxitBar {
-  background: #fff;
+  background: #3F525D;
 }
 .navbar.navbar-fixed-top {
   height: 80px;
@@ -1021,6 +1035,7 @@ section.iniciodesesion {
 .boxitBar {
   margin-bottom: 20px;
   padding: 10px;
+  padding-top: 20px;
 }
 .store-search {
   width: 100%;
@@ -1829,7 +1844,7 @@ body {
   /*background: #424996;*/
 }
 section.home {
-  background-color: #424996; }
+  background-color: #3F525D; }
 .how-it-works {
   min-height: 450px;
   padding-top: 0px;
@@ -2028,7 +2043,9 @@ p {
 .logo-footer {
   max-width: 200px;
 }
-
+.navbar.navbar-fixed-top.white {
+  background: #fff;
+}
 .navbar.navbar-fixed-top.white .phones-right {
   top: -6px;
 }
@@ -2057,7 +2074,7 @@ font-weight: normal;
   color: #000;
 }
 .boxitBar.white .cart {
-  background: url(../img/cart-black.png) center left no-repeat;
+  background: url(../img/cart.png) center left no-repeat;
 }
 .registro, .iniciodesesion {   
   background-color: #16b5cc;

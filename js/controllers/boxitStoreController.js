@@ -645,8 +645,7 @@ angular
                
                var searchParams = {};
                searchParams["SearchIndex"] = 'HealthPersonal-Care';
-               userData.getDefaultSearch(searchParams).then(function success(result) {
-                console.log('ItemsHealthPersonalCare result',result);
+               userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
                     $scope.ItemsHealthPersonalCareUno= {};
                     $scope.ItemsHealthPersonalCareDos= {};
