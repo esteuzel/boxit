@@ -2073,7 +2073,7 @@ font-weight: normal;
   color: #888 ; 
 }
 .boxitBar.white .carAvatar{
-  color: #000;
+  color: #fff;
 }
 .boxitBar.white .cart {
   background: url(../img/cart.png) center left no-repeat;
