@@ -20,9 +20,9 @@
             </div>
         </div>
   
-        <div class="home-slide" style="background-image: url('img/newstyle/slides/slide-2.jpg');">
+      <!--  <div class="home-slide" style="background-image: url('img/newstyle/slides/slide-2.jpg');">
            
-        </div>
+        </div>-->
     
        <!-- <div class="home-slide" style="background-image: url('img/newstyle/slides/slide-3.jpg');">
             <div class="container">
@@ -69,7 +69,7 @@
         <div class="max-width-container">
             <div class="media-container"></div>
             <div class="content">
-                <h2>Qué es Boxit?</h2>
+                <h2>¿Qué es Boxit?</h2>
                 <span class="description">
                     <p>Boxit es una solución innovadora para que puedas realizar tus compras por internet de una forma más económica y conveniente. Al formar parte de la familia Boxit tendrás acceso a múltiples beneficios para tus compras de productos en tiendas en USA y tiendas locales.</p>
                     <p>Nuestra red de Lockers Inteligentes ubicados en diferentes puntos de la ciudad te dan una nueva experiencia de compra al retirar tus paquetes sin filas, a la hora que mejor te convenga y de forma automatizada.</p>
@@ -98,41 +98,37 @@
         </div>    
         <div class="row">
 
-            <div class="col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 home-step">
+            <div class="col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 home-step" >
                 <article>
                     <h2>1</h2>
                     <h3>Elige tu Compra</h3>
+                    <img class="img-responsive imgcenter " src="img/newstyle/home/compra.png" alt="Compra" width="300px" align="center">
                     <p>Usa nuestro BoxitStore para escoger los productos que deseas comprar o envíanos la información por whatsapp.</p>
                 </article>
-                
-               <figure class="img-responsive" style="background-image: url(img/newstyle/home/compra.png);">
-                </figure>
             </div>
             
             <div class="col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 home-step">
                 <article>
                     <h2>2</h2>
                     <h3>Paga</h3>
+                    <img class="img-responsive imgcenter" src="img/newstyle/home/elige.png" alt="Compra" width="300px" align="center">
                     <p>Ve al Boxit más cercano y haz el pago en EFECTIVO con la clave que te enviamos por correo.</p>
                 </article>
-                <figure style="background-image: url(img/newstyle/home/elige.png);">
-                </figure>
             </div>            
             <div class="col-md-4 col-md-offset-0 col-sm-10 col-sm-offset-1 home-step">
                 <article>
                     <h2>3</h2>
                     <h3>Retira</h3>
+                    <img class="img-responsive imgcenter" src="img/newstyle/home/retira.png" alt="Compra" width="300px" align="center">
                     <p>Cuando llega tu compra al Boxit de tu preferencia, te enviamos un correo con la clave de retiro. Puedes ir cuando más te convenga, 24/7. ¡Sencillo!</p>
                 </article>
-                <figure style="background-image: url(img/newstyle/home/retira.png);">
-                </figure>
             </div>    
         </div>
         <div class="row text-center">            
         </div>    
-        <div class="row cta-row">
+       <div class="row cta-row">
             <a ui-sref="registro" class="btn btn-celeste">Crea tu Cuenta</a>            
-        </div>    
+        </div>  
     </div>
 
     <div class="container-fluid text-center" id="ubication-box">
@@ -239,19 +235,19 @@
 
         <div class="container-fluid text-left" id="host-boxit">
             <div class="row align-v">
-                <div class="container">                    
+              <!-- <div class="container"> -->                  
                     <div class="row">
-                        <div class="col-md-9 col-sm-7">
+                        <div class="col-md-5 col-sm-12 col-md-offset-1">
                            <p><img class="host-boxit-img" src="img/newstyle/logo-boxit_Menu.png" alt="Boxit"></p>
                             <p id="host-cta">Ubica un Boxit en tu local</p>
                             <p><strong>¡Estás interesado/a en colocar un Boxit para tu local!</strong></p>
                 <p>Este es un gran paso para generar valor a tu negocio y tener una herramienta para tu comercio y  para tus clientes. Colocar un <strong>Boxit</strong> en tu local no solo te generará tráfico sino también es una plataforma abierta para potenciar tu comercio electrónico y automatizar las tareas de tu operación.</p>
-                            <div class="row cta-row cta-row-contactanos">
-                                <a ui-sref="contactanos" class="btn btn-celeste">Contactanos</a>
-                            </div>
+                 <a ui-sref="contactanos" class="btn btn-celeste">Contactanos</a>
+                            
                         </div>
+                       
                     </div>
-                </div>
+              <!--  </div>-->
             </div>
         </div>
     <script>
@@ -517,8 +513,8 @@ $(document).ready(function() {
 		pauseOnHover: false
 	});
 
-	setTimeout(function() {
+	/*setTimeout(function() {
 		$('#home-slider').slick('slickPlay');
-	}, 6000);
+	}, 6000);*/
 });
 </script>
