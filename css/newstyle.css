@@ -453,10 +453,10 @@ html.touchevents .video-background {
   #home-slider:before {
     content: '';
     display: block;
-    background: -moz-linear-gradient(top, rgba(166, 214, 223, 0) 0%, #a6d6df 100%);
-    background: -webkit-linear-gradient(top, rgba(166, 214, 223, 0) 0%, #a6d6df 100%);
-    background: linear-gradient(to bottom, rgba(166, 214, 223, 0) 0%, #a6d6df 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a6d6df', endColorstr='#a6d6df',GradientType=0 );
+    background: -moz-linear-gradient(top, rgba(166, 214, 223, 0) 0%, #333 100%);
+    background: -webkit-linear-gradient(top, rgba(166, 214, 223, 0) 0%, #333 100%);
+    background: linear-gradient(to bottom, rgba(166, 214, 223, 0) 0%, #333 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a6d6df', endColorstr='#333',GradientType=0 );
     position: absolute;
     bottom: 0;
     left: 0;
@@ -472,9 +472,9 @@ html.touchevents .video-background {
   z-index: 1006; }
   #home-main .home-step {
     margin-top: 36px;
-    text-align: center; }
+    text-align: center;    }
     #home-main .home-step article {
-      height: 280px; }
+      height: 480px; }
       #home-main .home-step article h2 {
         color: #16b5cc;
         font-size: 48px;
@@ -572,7 +572,7 @@ html.touchevents .video-background {
      background-color: #fff;
     background-image: url("../img/newstyle/home/Lockers-Inteligentes.jpg");
     background-position: left center;
-     height: 700px;
+     height: 750px;
   }
 
 #host-boxit {
@@ -580,7 +580,7 @@ html.touchevents .video-background {
   background-image: url("../img/newstyle/home/ubica-un-boxit-en-tu-local.jpg");
   background-position: right center;
   background-size: contain;
-  height: 400px; }
+  height: 500px; }
   #host-boxit #host-cta {
     /*text-transform: uppercase;*/
     color: #333;
@@ -2177,6 +2177,12 @@ img.home-afiliados {
 .store-itemdetail-cart {
 float: right;
 margin-right: 100px;
+}
+
+.imgcenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* end new */
