@@ -166,7 +166,7 @@
                         <div class="col-md-7 col-sm-7">
                             <div class="lockers-right">
                                 <h2>¿Qué son Lockers Inteligentes?</h2>
-                                <p>Nuestros Lockers Inteligentes son plataformas de autoservicio donde las personas retiran sus paquetes de forma automatizada sin necesidad de interacción humana. Con tecnología avanzada hemos integrado diversas funcionalidades a los Lockers para crear una experiencia grandiosa para el cliente.</p>
+                                <p>Nuestros Lockers Inteligentes son plataformas de autoservicio donde las personas retiran sus paquetes de forma automatizada sin necesidad de interacción humana. Con tecnología avanzada hemos integrado diversas funcionalidades para crear una experiencia grandiosa para el cliente.</p>
                                 <div class="lockers-beneficios">
                                  <div class="row" align="center" >
                                 <div class="col-md-6 col-md-offset-0 col-sm-10 col-sm-offset-1 ">
@@ -196,38 +196,11 @@
                                     <img class="img-responsive " src="img/newstyle/home/lockerinteligente1.png" alt="Afiliados" width="200px" height="auto">
                                     <article>
                                         <h3>Eficiencia</h3>
-                                        <p>Reduce tiempos de entrega. No mas entregas fallidas.</p>
+                                        <p>Reduce tiempos de entrega. No más entregas fallidas.</p>
                                     </article>
                                 </div>         
                              </div>
                          </div>
-                               <!-- <table class="table-responsive" align="center" style="padding-top: 0; ">
-                                    <tr>
-                                        <td>
-                                            <img class="img-responsive home-afiliados" src="img/newstyle/home/lockerinteligente1.png" alt="Afiliados" width="200px" height="auto">
-                                        </td>
-                                        <td>
-                                            <img class="img-responsive home-afiliados" src="img/newstyle/home/lockerinteligente2.png" alt="Afiliados"  width="200px" height="auto">
-                                        </td>                                       
-                                    </tr>
-                                    <tr>
-                                        <tr>
-                                        <td>
-                                            Conveniencia
-                                        </td>
-                                        <td>
-                                            Ahorro
-                                        </td>                                       
-                                    </tr>
-                                    <tr>
-                                         <td>
-                                            <img class="img-responsive home-afiliados" src="img/newstyle/home/lockerinteligente3.png" alt="Afiliados"  width="200px" height="auto">
-                                        </td>
-                                        <td>
-                                            <img class="img-responsive home-afiliados" src="img/newstyle/home/lockerinteligente4.png" alt="Afiliados"  width="200px" height="auto">
-                                        </td>
-                                    </tr>
-                                </table>-->
                             </div>
                         </div>
             </div>
@@ -516,5 +489,15 @@ $(document).ready(function() {
 	/*setTimeout(function() {
 		$('#home-slider').slick('slickPlay');
 	}, 6000);*/
+	
+    $('a.link-lockersinteligentes').on('click', function(event) {
+    setTimeout(goToHomelockersinteligentes, 200);       
+    /});
+    function goToHomelockersinteligentes(){
+        var target = $('#smartlocker-boxit');   
+        $('html,body').animate({
+            scrollTop: (target.offset().top - navbarAffixHeight + 1)
+        }, 1000);
+    }
 });
 </script>
