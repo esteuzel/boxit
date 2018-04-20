@@ -572,6 +572,10 @@ html.touchevents .video-background {
      background-color: #fff;
     background-image: url("../img/newstyle/home/Lockers-Inteligentes.jpg");
     background-position: left center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
      height: 750px;
   }
 
@@ -1912,7 +1916,7 @@ p {
   margin-top: 0;
 }
 .how-it-works .max-width-container .media-container {
-  background: url(../img/newstyle/boxit-quienes-somos-fondo.png) center center;
+  background: url(../img/newstyle/boxit-quienes-somos-fondo.jpg) center center;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -1926,7 +1930,7 @@ p {
   left: 45px;
   top: 37px;
   width: 553px;
-  height: 390px;
+  height: 450px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
