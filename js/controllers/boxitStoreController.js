@@ -566,23 +566,9 @@ angular
 
 
             var getProductsCategory = function () {
-
+ $scope.showProductsCategory = true;
                 
-            $scope.showProductsCategory = true;
-                var searchParams = {};
-                searchParams["SearchIndex"] = 'Baby';
-                userData.getDefaultSearch(searchParams).then(function success(result) {
-                    var mostrarSoloEstosCuatro = {};
-                    mostrarSoloEstosCuatro[0] = result[0];
-                    mostrarSoloEstosCuatro[1] = result[1];
-                    mostrarSoloEstosCuatro[2] = result[2];
-                    mostrarSoloEstosCuatro[3] = result[3];
-                    $scope.ItemsBaby = mostrarSoloEstosCuatro;
-                    console.log('ItemsBaby',$scope.ItemsBaby)
-                }, function error(result) {
-                });
-
-                var searchParams = {};
+             var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
                     $scope.ItemsElectronicsUno= {};
@@ -604,28 +590,28 @@ angular
                 /*
                 añadir en el boxit store, categoría de  belleza y salud, ropa y  juguetes-juegos. así como actualmente está electronics y baby que están bien
                 */
-               var searchParams = {};
-               searchParams["SearchIndex"] = 'Beauty';
+              /*var searchParams = {};
+               searchParams["SearchIndex"] = 'Handbags';
                userData.getDefaultSearch(searchParams).then(function success(result) {
-                $scope.ItemsBeautyUno= {};
-                $scope.ItemsBeautyDos= {};
-                $scope.ItemsBeautyTres= {};
-                $scope.ItemsBeautyUno[0] = result[0];
-                $scope.ItemsBeautyUno[1] = result[1];
-                $scope.ItemsBeautyUno[2] = result[2];
-                $scope.ItemsBeautyUno[3] = result[3];
-                $scope.ItemsBeautyDos[0] = result[4];
-                $scope.ItemsBeautyDos[1] = result[5];
-                $scope.ItemsBeautyDos[2] = result[6];
-                $scope.ItemsBeautyDos[3] = result[7];
-                $scope.ItemsBeautyTres[0] = result[8];
-                $scope.ItemsBeautyTres[1] = result[9];
-                console.log('ItemsBeauty',$scope.ItemsBeauty)
+                $scope.ItemsHandbagsUno= {};
+                $scope.ItemsHandbagsDos= {};
+                $scope.ItemsHandbagsTres= {};
+                $scope.ItemsHandbagsUno[0] = result[0];
+                $scope.ItemsHandbagsUno[1] = result[1];
+                $scope.ItemsHandbagsUno[2] = result[2];
+                $scope.ItemsHandbagsUno[3] = result[3];
+                $scope.ItemsHandbagsDos[0] = result[4];
+                $scope.ItemsHandbagsDos[1] = result[5];
+                $scope.ItemsHandbagsDos[2] = result[6];
+                $scope.ItemsHandbagsDos[3] = result[7];
+                $scope.ItemsHandbagsTres[0] = result[8];
+                $scope.ItemsHandbagsTres[1] = result[9];
+                console.log('ItemsHandbags',$scope.ItemsHandbags)
                }, function error(result) {
-               });
+               });*/
 
                var searchParams = {};
-               searchParams["SearchIndex"] = 'Toys';
+               searchParams["SearchIndex"] = "FashionWomen";
                userData.getDefaultSearch(searchParams).then(function success(result) {
                 $scope.ItemsToysUno= {};
                 $scope.ItemsToysDos= {};
@@ -644,49 +630,75 @@ angular
                }, function error(result) {
                });
                
-               var searchParams = {};
-               searchParams["SearchIndex"] = 'HealthPersonal-Care';
+              var searchParams = {};
+               searchParams["SearchIndex"] = 'FashionMen';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
-                    $scope.ItemsHealthPersonalCareUno= {};
-                    $scope.ItemsHealthPersonalCareDos= {};
-                    $scope.ItemsHealthPersonalCareTres= {};
-                    $scope.ItemsHealthPersonalCareUno[0] = result[0];
-                    $scope.ItemsHealthPersonalCareUno[1] = result[1];
-                    $scope.ItemsHealthPersonalCareUno[2] = result[2];
-                    $scope.ItemsHealthPersonalCareUno[3] = result[3];
-                    $scope.ItemsHealthPersonalCareDos[0] = result[4];
-                    $scope.ItemsHealthPersonalCareDos[1] = result[5];
-                    $scope.ItemsHealthPersonalCareDos[2] = result[6];
-                    $scope.ItemsHealthPersonalCareDos[3] = result[7];
-                    $scope.ItemsHealthPersonalCareTres[0] = result[8];
-                    $scope.ItemsHealthPersonalCareTres[1] = result[9];
-                    console.log('ItemsHealthPersonalCare',$scope.ItemsHealthPersonalCare);
+                    $scope.ItemsmenshoesUno= {};
+                    $scope.ItemsmenshoesDos= {};
+                    $scope.ItemsmenshoesTres= {};
+                    $scope.ItemsmenshoesUno[0] = result[0];
+                    $scope.ItemsmenshoesUno[1] = result[1];
+                    $scope.ItemsmenshoesUno[2] = result[2];
+                    $scope.ItemsmenshoesUno[3] = result[3];
+                    $scope.ItemsmenshoesDos[0] = result[4];
+                    $scope.ItemsmenshoesDos[1] = result[5];
+                    $scope.ItemsmenshoesDos[2] = result[6];
+                    $scope.ItemsmenshoesDos[3] = result[7];
+                    $scope.ItemsmenshoesTres[0] = result[8];
+                    $scope.ItemsmenshoesTres[1] = result[9];
+                    console.log('Itemsmenshoes',$scope.Itemsmenshoes);
+                   }
+             
+                }, function error(result) {
+                });
+
+               var searchParams = {};
+               searchParams["SearchIndex"] = 'Fashion';
+               userData.getDefaultSearch(searchParams).then(function success(result) {                
+                   if(result!=null & result!=undefined){
+                    $scope.ItemswhatchesUno= {};
+                    $scope.ItemswhatchesDos= {};
+                    $scope.ItemswhatchesTres= {};
+                    $scope.ItemswhatchesUno[0] = result[0];
+                    $scope.ItemswhatchesUno[1] = result[1];
+                    $scope.ItemswhatchesUno[2] = result[2];
+                    $scope.ItemswhatchesUno[3] = result[3];
+                    $scope.ItemswhatchesDos[0] = result[4];
+                    $scope.ItemswhatchesDos[1] = result[5];
+                    $scope.ItemswhatchesDos[2] = result[6];
+                    $scope.ItemswhatchesDos[3] = result[7];
+                    $scope.ItemswhatchesTres[0] = result[8];
+                    $scope.ItemswhatchesTres[1] = result[9];
+                    console.log('Itemswhatches',$scope.Itemswhatches);
+                   }
+             
+                }, function error(result) {
+                });
+
+                var searchParams = {};
+               searchParams["SearchIndex"] = 'FashionGirls';
+               userData.getDefaultSearch(searchParams).then(function success(result) {                
+                   if(result!=null & result!=undefined){
+                    $scope.ItemshandbagsUno= {};
+                    $scope.ItemshandbagsDos= {};
+                    $scope.ItemshandbagsTres= {};
+                    $scope.ItemshandbagsUno[0] = result[0];
+                    $scope.ItemshandbagsUno[1] = result[1];
+                    $scope.ItemshandbagsUno[2] = result[2];
+                    $scope.ItemshandbagsUno[3] = result[3];
+                    $scope.ItemshandbagsDos[0] = result[4];
+                    $scope.ItemshandbagsDos[1] = result[5];
+                    $scope.ItemshandbagsDos[2] = result[6];
+                    $scope.ItemshandbagsDos[3] = result[7];
+                    $scope.ItemshandbagsTres[0] = result[8];
+                    $scope.ItemshandbagsTres[1] = result[9];
+                    console.log('Itemshandbags',$scope.Itemshandbags);
                    }
              
                 }, function error(result) {
                 });
                 
-                var searchParams = {};
-                searchParams["SearchIndex"] = 'Fashion';
-                userData.getDefaultSearch(searchParams).then(function success(result) {
-                 $scope.ItemsFashionUno= {};
-                 $scope.ItemsFashionDos= {};
-                 $scope.ItemsFashionTres= {};
-                 $scope.ItemsFashionUno[0] = result[0];
-                 $scope.ItemsFashionUno[1] = result[1];
-                 $scope.ItemsFashionUno[2] = result[2];
-                 $scope.ItemsFashionUno[3] = result[3];
-                 $scope.ItemsFashionDos[0] = result[4];
-                 $scope.ItemsFashionDos[1] = result[5];
-                 $scope.ItemsFashionDos[2] = result[6];
-                 $scope.ItemsFashionDos[3] = result[7];
-                 $scope.ItemsFashionTres[0] = result[8];
-                 $scope.ItemsFashionTres[1] = result[9];
-                 console.log('ItemsFashion',$scope.ItemsFashion)
-                }, function error(result) {
-                });
- 
             };
 
             if($scope.showProductsCategory){
