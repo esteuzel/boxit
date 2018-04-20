@@ -49,7 +49,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         }).state('home', {
                 url: "/home",
                 cache: false,
-                templateUrl: "views/home.html?"+$.now(),
+                templateUrl: "views/home.html",
                 controller: "homeController"
             }
         ).state('devolucion', {
