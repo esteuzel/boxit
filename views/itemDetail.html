@@ -1,16 +1,18 @@
 <div ng-controller="itemDetailController" class="ng-scope">
     <div class="store-itemdetail-top" id="store-itemdetail-top"></div>
-    <div class="store-itemdetail-topbar container-fluid">
-        <div class="row boxitBarItemDetail">
-            
-                <div class="col-md-2 carAvatar">
+    <div class="store-itemdetail-topbar"></div>
+        <div class="row boxitBarItemDetail boxitBar white">      
+            <div class="col-md-2 carAvatar" ng-show="!UserName">
+                <div class="Avatar"></div>
+                <span class="Name"> Hola</span>
+            </div>      
+            <div class="col-md-2 carAvatar" ng-show="UserName">&nbsp;
                     <div class="Avatar"></div>
-                    <span class="Name ng-binding">Hola {{UserName}}</span>                
-                </div>
-                <div class="col-md-2 carAvatar">
+                    <span class="Name">Hola {{UserName}}</span>
+            
                     <div class="store-favoritos-button">
-                        <a class="misFavoritos" ui-sref="misFavoritos" href="#/misFavoritos">Mis Favoritos</a>
-                    </div> 
+                        <a class="misFavoritos" ui-sref="misFavoritos">Mis Favoritos</a>
+                    </div>
                 </div>
 
             <div class="store-itemdetail-cart">
@@ -19,7 +21,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    
     	<div class="store-breadcrumb">
 		<ul>
 			<li>

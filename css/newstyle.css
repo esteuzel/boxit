@@ -383,7 +383,7 @@ footer {
       padding: 12px;
       text-align: center; }
   footer #footer-social {
-    margin-top: 72px; }
+    margin-top: 20px; }
     footer #footer-social a {
       color: #fff;
       display: inline-block;
@@ -497,7 +497,7 @@ html.touchevents .video-background {
       padding: 0 30px; }
     #home-main .home-step figure {
       background-color: #fff;
-      height: 10vw; }
+      height: 20vw; }
 #home-map {
     background-color: #ddd;
     height: 35vw;
@@ -562,6 +562,18 @@ html.touchevents .video-background {
     text-transform: uppercase; }
   #about-box img {
     max-width: 80%; }
+
+  #smartlocker-boxit{
+    background-color: #fff;
+    background-size: contain;
+  }
+
+  #smartlocker-boxit-left{
+     background-color: #fff;
+    background-image: url("../img/newstyle/home/Lockers-Inteligentes.jpg");
+    background-position: left center;
+     height: 700px;
+  }
 
 #host-boxit {
   background-color: #fff;
@@ -800,7 +812,8 @@ html.touchevents .video-background {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%; }
+      width: 100%;
+       }
       footer #footer-nav .btn-store {
         margin-top: 16px;
         width: 100%; }
@@ -885,7 +898,7 @@ font-family: sans-serif;
 }
 
 .navbar.navbar-fixed-top.change .customLabelPhone {
-color: #A82773;
+color: #333;
 font-weight: normal;
 }
 .nav li.navbar-contactanos {
@@ -1173,7 +1186,7 @@ width: 100%;
 
 /*  store detail*/
 .store-itemdetail-topbar {
-  background-color: #A82773;
+  background-color: #3F525D;
 }
 .store-itemdetail-topbar .boxitBarItemDetail {  
   color: #fff;
@@ -1330,7 +1343,7 @@ width: 100%;
       float: left;
       display: block!important;
       border: 0 solid #dadada;
-      background-color: #1cb6cd;
+      background-color: #31b0d5;
       color: #fff;
       padding: 0 20px 0 40px;
       line-height: 40px;
@@ -1362,7 +1375,7 @@ width: 100%;
         color: #333;
     }
 .store-itemdetail-top {
-      background: #A82773;
+      background: #fff;
       width: 100%;
       height: 100px;
   }
@@ -1468,15 +1481,15 @@ section.carrito {
   border-collapse: collapse;
 }
 table#shopping-cart-table {
-  border: 1px solid #000;
+  border-bottom: 1px solid #5bc0de;
   font-size: 14px !important;
   width: 100%;  
 }
 
 .boxit-shopping-cart thead tr {
   font-size: 12px;
-  color: #000;
-  border: 1px solid #d6d6d6;
+  color: #333;
+  border-bottom: 1px solid #5bc0de;
 }
 .data-table td {
   vertical-align: middle;
@@ -1486,7 +1499,8 @@ table#shopping-cart-table {
   width: 140px;
 }
 .data-table td {
-  border: 1px solid #d6d6d6;
+ border: none;
+  /*border: 1px solid #d6d6d6;*/
   padding: 14px 15px;
 }
 .a-center, .page-print th.a-right {
@@ -2066,7 +2080,7 @@ p {
 .navbar.navbar-fixed-top.white #navbar ul li .btn-secondary {
         color: #888 ; }  
 .navbar.navbar-fixed-top.white .customLabelPhone {
-color: #A82773;
+color: #333;
 font-weight: normal;
 }
 .navbar.navbar-fixed-top.white #navbar ul li a:not(.btn), .navbar.navbar-fixed-top.white #navbar ul li .btn-secondary {
@@ -2132,3 +2146,37 @@ img.home-afiliados {
   text-align: center;
 }
 /*  end newhome */
+/*  new */
+#navbar ul li ul li:hover {
+    background-color: #5bc0de;
+}
+
+.btn-cuenta {
+  border: none;
+  border-radius: 4px;
+  box-shadow: none !important;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 5px 5px !important;
+  transition: all ease 0.75s;
+  background-color: #5bc0de;
+  padding-top : 5px;
+}
+
+#lockers-beneficios{
+  font-size: 8px;
+  padding-top : 0px;
+}
+.boxitStoreCarousel {
+  max-width: 970px;
+  margin: 0 auto;
+}
+.boxitStoreSlide .carousel-inner .item img {
+  margin: 0 auto;
+}
+.store-itemdetail-cart {
+float: right;
+margin-right: 100px;
+}
+
+/* end new */

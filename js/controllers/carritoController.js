@@ -510,7 +510,10 @@ angular
                     $state.go('boxitStore');
                     $window.location.reload();
                 };
-
+                $scope.$on("$destroy", function handler() {
+                    $('.navbar').removeClass('white');
+                });            
+                $('.navbar').addClass('white');
 
 
         }]);

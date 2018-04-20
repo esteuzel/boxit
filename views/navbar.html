@@ -12,18 +12,18 @@
 					<span class="icon-bar"></span>
 				  </button>
 				  <a class="navbar-brand" ui-sref="home">
-					<img src="img/newstyle/BoxitLogoNuevo.svg" class="svg" alt="Boxit">
+					<img src="img/newstyle/BoxitLogoNuevo.svg" class="svg" alt="Boxit"/>
 				  </a>
 				</div>
 				<div id="navbar">
 				  <ul class="nav navbar-nav navbar-middle">
 						<li><a ui-sref="home" class="link-compra">Compra</a></li>
-						<li class=""><a class="link-vende" ui-sref="vende">Vende</a></li>
+						<!--<li class=""><a class="link-vende" ui-sref="vende">Vende</a></li>-->
 					<li class="dropdown">
 					  <a class="dropdown-toggle link-empresarial" data-toggle="dropdown">Empresarial</a>
 					  <ul class="dropdown-menu">
 						<!--<li class="dropdown-item"><a ui-sref="empresarial-boxit-residencial" class="link-empresarial-residencial">Boxit Residencial</a></li>-->
-						<li class="dropdown-item"><a ui-sref="empresarial-boxit-tulocal" class="link-empresarial-tulocal">Boxit en tu local</a></li>
+						<li class="dropdown-item"><a ui-sref="home" class="link-boxitentulocal">Boxit en tu local</a></li>
 					  </ul>
 					</li>
 					
@@ -31,10 +31,10 @@
 							<a class="dropdown-toggle link-informacion" data-toggle="dropdown">Información</a>
 							<ul class="dropdown-menu">
 							<li class="dropdown-item"><a ui-sref="faq" class="link-informacion-faq">Preguntas Frecuentes</a></li>
-							<li class="dropdown-item"><a ui-sref="nosotros" class="link-informacion-nosotros">Nosotros</a></li>
+							<!--<li class="dropdown-item"><a ui-sref="nosotros" class="link-informacion-nosotros">Nosotros</a></li>-->
 							<li class="dropdown-item"><a ui-sref="home" class="link-ubicaciones">Nuestras Ubicaciones</a></li>
-							<li class="dropdown-item"><a ui-sref="blog" class="link-informacion-blog">Blog</a></li>
-							<li class="dropdown-item"><a ui-sref="prensa" class="link-informacion-prensa">Prensa</a></li>
+							<!--<li class="dropdown-item"><a ui-sref="blog" class="link-informacion-blog">Blog</a></li>-->
+							<!--<li class="dropdown-item"><a ui-sref="prensa" class="link-informacion-prensa">Prensa</a></li>-->
 							</ul>
 						</li>						
 					
@@ -72,15 +72,15 @@
 							<a ng-show="loged" ui-sref="home" ng-click="cerrarSesion()">Cerrar sesión</a>
 						</div>
 						<div class="link">
-							<a class="registrate" ng-show="!loged" ui-sref="registro">Regístrate</a>
-							<a ng-show="loged" ui-sref="iniciarSesion" ng-click="iniciarSesion()">Área Usuario</a>
+							<a class="btn-cuenta" ng-show="!loged" ui-sref="registro">Crea tu Cuenta</a>
+							<a class="btn-cuenta" ng-show="loged" ui-sref="iniciarSesion" ng-click="iniciarSesion()">Área Usuario</a>
 						</div>
 				  	</div>
 					<div class="giftcards-right">
 						<div class="navbar-giftcards"><a ui-sref="giftcards">Gift Cards</a></div>
 					</div>						  
 					<div class="rusia2018-right">
-						<div class="navbar-rusia2018"><a ui-sref="rusia2018"><img src="img/newstyle/mundialrusia2018.png"></a></div>
+						<div class="navbar-rusia2018"><a ui-sref="rusia2018"><img src="img/newstyle/mundialrusia2018.png"/></a></div>
 					</div>				
 				</div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
@@ -171,5 +171,32 @@ $(document).ready(function() {
 	$('a.link-empresarial-tulocal').on('click', function(event) {
 		setTimeout(goToTopBody, 200);		
 	});	
+
+	$('a.link-boxitentulocal').on('click', function(event) {
+		//console.log('link-ubicaciones click');
+		setTimeout(goToHomeBoxitentulocal, 200);		
+		//return false;        
+		});
+	function goToHomeBoxitentulocal(){
+		var target = $('#host-boxit');   
+		$('html,body').animate({
+			scrollTop: (target.offset().top - navbarAffixHeight + 1)
+		}, 1000);
+	}
+
+	$('a.link-lockersinteligentes').on('click', function(event) {
+		//console.log('link-ubicaciones click');
+		setTimeout(goToHomelockersinteligentes, 200);		
+		//return false;        
+		});
+
+		//setTimeout(goToHomelockersinteligentes, 200);	
+
+	function goToHomelockersinteligentes(){
+		var target = $('#smartlocker-boxit');   
+		$('html,body').animate({
+			scrollTop: (target.offset().top - navbarAffixHeight + 1)
+		}, 1000);
+	}
 });
 </script>
