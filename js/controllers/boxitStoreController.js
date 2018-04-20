@@ -11,6 +11,7 @@ angular
             $scope.showImage = true;
             $scope.showCar = false;
             $scope.showStoreFirstTen = true;
+            $scope.showStoreCarousel = true;
             $scope.showCarMessage = false;
             $scope.showCarItems = false;
             $scope.showLoginMessage = false;
@@ -22,7 +23,7 @@ angular
             $scope.showSubCategories = false;
             var userObj =  userData.getData();
             var id;
-            $scope.indexs = undefined;  //userData.getSearchIndex();
+            $scope.indexs = undefined;  //userData.getSearchIndex(); 
             if (userObj != undefined) {
                 $scope.UserName = userObj.UserName;
             } /*else {
@@ -50,6 +51,7 @@ angular
             $scope.doSearch = function () {
                 console.log('doSearch');
                 $scope.showProductsCategory = false;
+                $scope.showStoreCarousel = false;
                 console.log('showProductsCategory',$scope.showProductsCategory);
                 $scope.loadMain = true;
                 $scope.showCar = false;
@@ -501,7 +503,7 @@ angular
                 });
             };
             $scope.firstSearch = function () {
-                
+                $scope.showStoreCarousel = true;
                 userData.getFirstSearch().then(function success(result) {
                     $scope.loadMain = false;
                     //$scope.Items = result;
@@ -566,7 +568,7 @@ angular
 
 
             var getProductsCategory = function () {
- $scope.showProductsCategory = true;
+            $scope.showProductsCategory = true;
                 
              var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
