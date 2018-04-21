@@ -1,37 +1,66 @@
 <div class="boxitBar-top" id="boxitBar-top"></div>
 <div class="row boxitBar white">
+    <div class="only-descktop">
         <div class="col-md-2 carAvatar" ng-show="!UserName">
             <div class="Avatar"></div>
             <span class="Name"> Hola</span>
         </div>
-    <div class="col-md-2 carAvatar" ng-show="UserName">&nbsp;
-        <div class="Avatar"></div>
-        <span class="Name">Hola {{UserName}}</span>
-
-        <div class="store-favoritos-button">
-            <a class="misFavoritos" ui-sref="misFavoritos">Mis Favoritos</a>
+        <div class="col-md-2 carAvatar" ng-show="UserName">&nbsp;
+            <div class="Avatar"></div>
+            <span class="Name">Hola {{UserName}}</span>
+            <div class="store-favoritos-button">
+                <a class="misFavoritos" ui-sref="misFavoritos">Mis Favoritos</a>
+            </div>
+        </div>
+    
+        <div class="form-group col-md-2">
+            <select default="All" id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
+        </div>
+        <div class="form-group col-md-2" ng-show="showSubCategories">
+            <select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select>
+        </div>
+        <div class="store-search">
+            <div class="store-search-input col-md-3">
+                <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
+            </div>
+            <div class="store-search-button col-md-2">
+                <button class="btn btn-info" ng-click="doSearch()" type="button">Búsqueda</button>
+            </div>            
+            <div class="store-cart col-md-1">
+                <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>
+            </div>
         </div>
     </div>
-
-<div class="form-group col-md-2">
-    <select default="All" id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
-</div>
-<div class="form-group col-md-2" ng-show="showSubCategories">
-    <select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select>
-</div>
-<div class="store-search">
-    <div class="store-search-input col-md-3">
-        <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
+    <div class="only-mobile">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-6 boxit-store-avatar" ng-show="!UserName">
+                    <div class="user-photo"></div>
+                    <span class="user-name"><a  ui-sref="iniciarSesion">Inicia sesióon</a></span>
+                </div>
+                <div class="col-xs-6 boxit-store-avatar" ng-show="UserName">
+                    <div class="user-photo">{{UserPhoto}}</div>
+                    <span class="user-name">{{UserName}}</span>
+                </div>
+                <div class="col-xs-6 store-cart boxit-store-cart">
+                    <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 boxit-store-search">
+                    <div class="input-group">
+                        <input type="text" name="find" class="form-control" placeholder="Buscar..." ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button" ng-click="doSearch()">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="store-search-button col-md-2">
-        <button class="btn btn-info" ng-click="doSearch()" type="button">Búsqueda</button>
-    </div>
-    
-    <div class="store-cart col-md-1">
-        <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a></div>
-    </div>
 </div>
-
 
 <div class="boxitStoreSlide" ng-show="showStoreCarousel">
     <div class="container">

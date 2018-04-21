@@ -2103,6 +2103,14 @@ font-weight: normal;
 .boxitBar.white .cart {
   background: url(../img/cart.png) center left no-repeat;
 }
+.navbar.navbar-fixed-top.white .navbar-toggle.collapsed .icon-bar {
+  background-color: #3F525D;
+}
+
+
+
+
+
 .registro, .iniciodesesion {   
   background-color: #16b5cc;
 }
@@ -2196,4 +2204,73 @@ margin-right: 100px;
     margin-right: auto;
 }
 
+@media (max-width:768px){
+  .boxitBar-top {
+    background: #fff;
+    width: 100%;
+    height: 70px;
+  }
+  .boxitBar {
+    background: #3F525D;
+  }
+  .navbar.navbar-fixed-top {
+    height: 60px;
+  }
+  .navbar.navbar-fixed-top .navbar-brand img {
+    height: 60px;
+  }
+  .navbar.navbar-fixed-top.change .navbar-header .navbar-brand svg {
+    height: 50px;
+  }
+  .only-descktop {
+    display: none;
+  }
+  .navbar.navbar-fixed-top .navbar-header .navbar-toggle {
+    margin-top: 15px;
+  }
+  .navbar.navbar-fixed-top.change .navbar-header .navbar-toggle {
+    margin-top: 15px;
+  }
+  .navbar.navbar-fixed-top.change {
+    height: 70px;
+  }
+}
+@media (min-width:769px){
+  .only-mobile {
+    display: none;
+  }
+}
+.boxit-store-avatar {
+
+}
+.boxit-store-avatar .user-photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  background:#fff url(../img/newstyle/user-photo.png) no-repeat center center;
+  background-size: cover;
+  border: 4px solid #fff;
+
+}
+.boxit-store-avatar .user-name {
+  color: #fff;
+}
+.boxit-store-avatar .user-name a{
+  color: #fff;
+}
+.boxit-store-cart .cart {
+  float: right;
+}
+.boxit-store-search {
+  margin-top: 10px;
+}
+.boxit-store-search button {
+  padding: 9px !important;
+}
+.boxit-store-search input {
+  height: 35px;
+}
 /* end new */

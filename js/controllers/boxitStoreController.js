@@ -60,6 +60,7 @@ angular
                 $scope.currentPage = 1;
                 products = [];
                 $scope.totalItems = 0;
+                allProducts = [];
                // console.log(this);
 
                     searchProducts(this).then(function success(result) {
@@ -130,6 +131,7 @@ angular
                 var i;
                 for (i = 1; i < 6; i++) {
                     var defered = $q.defer();
+                    console.log("self.keyword ",self.keyword);
                     if (self.keyword != undefined) {
                         var searchParams = {};
                       //  console.log(self);
@@ -183,6 +185,7 @@ angular
             function callPages(params) {
                 var defered = $q.defer();
                 var promise = defered.promise;
+                console.log("params",params);
                 $http({
                     method: "POST",
                     url: userData.getHost() + "/amazon/amazongetkeywords",
@@ -195,7 +198,7 @@ angular
                          products[params["ItemPage"] - 1] =  result.data.Item;
                          if(result.data.Item){
                             angular.forEach(result.data.Item, function(value, key) {
-                                console.log("value" , value );
+                                //console.log("value" , value );
                                 if(value.ItemId){
                                     if(value.Image!=null){
                                         allProducts.push(value);
