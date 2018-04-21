@@ -584,7 +584,11 @@ html.touchevents .video-background {
   background-image: url("../img/newstyle/home/ubica-un-boxit-en-tu-local.jpg");
   background-position: right center;
   background-size: contain;
-  height: 500px; }
+  min-height: 420px; 
+  padding-left: 50px;}
+  #host-boxit .texto-largo {
+    font-size: 13px;
+  }
   #host-boxit #host-cta {
     /*text-transform: uppercase;*/
     color: #333;
@@ -676,7 +680,7 @@ html.touchevents .video-background {
     #pre-foot p {
       font-size: 24px; }
   #host-boxit {
-    height: 300px; }
+    height: 300px;padding-left: 50px; }
     #host-boxit p {
       font-size: 24px; }
       #host-boxit p img {
@@ -877,7 +881,7 @@ html.touchevents .video-background {
       max-width: 100%; }
   #host-boxit {
     background-position: bottom center;
-    height: 124vw; }
+    height: 100vw; }
     #host-boxit .align-v {
       top: 25%; }
     #host-boxit #host-cta {
@@ -2044,10 +2048,12 @@ p {
 
 @media (max-width:1200px){
   #host-boxit p {
-    font-size: 16px;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
   #host-boxit #host-cta {
     font-size: 20px;
+    margin-bottom: 10px;
   }
 }
 @media (max-width:992px){
