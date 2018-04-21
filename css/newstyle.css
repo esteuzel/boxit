@@ -1129,6 +1129,7 @@ width: 100%;
 .store-list .product-item {
   text-align: center;
   margin: 2px;
+  min-height: 400px;
 }
 .store-list .product-item-info {
   border: 1px solid #eee;  

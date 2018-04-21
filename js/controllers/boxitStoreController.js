@@ -3,6 +3,7 @@ angular
     .controller('boxitStoreController', ['$scope', '$http', '$q', '$anchorScroll', 'userData', '$uibModal', '$localStorage', '$window', '$location', '$interval', '$state',
         function ($scope, $http, $q, $anchorScroll, userData, $uibModal, $localStorage, $window, $location, $interval, $state) {
             var products = [];
+            var allProducts = [];
             var links = [];
             $scope.subCategories = [];
             $scope.checkout = false;
@@ -17,8 +18,9 @@ angular
             $scope.showLoginMessage = false;
             $scope.loading = true;
             $scope.loadMain = true;
-            $scope.totalItems = 50;
+            $scope.totalItems = 0;
             $scope.currentPage = 1;
+            $scope.itemsPerPage = 12;
             $scope.amazonLink = "";
             $scope.showSubCategories = false;
             var userObj =  userData.getData();
@@ -36,7 +38,7 @@ angular
             }
             $scope.showProductsCategory = true;
             
-            console.log('controller boxitStoreController');
+            //console.log('controller boxitStoreController');
              //setInterval(getCar, 10000);
             var getCar = function () {
                
@@ -52,18 +54,40 @@ angular
                 console.log('doSearch');
                 $scope.showProductsCategory = false;
                 $scope.showStoreCarousel = false;
-                console.log('showProductsCategory',$scope.showProductsCategory);
+                //console.log('showProductsCategory',$scope.showProductsCategory);
                 $scope.loadMain = true;
                 $scope.showCar = false;
                 $scope.currentPage = 1;
                 products = [];
+                $scope.totalItems = 0;
                // console.log(this);
-                
 
                     searchProducts(this).then(function success(result) {
                         $scope.showCarMessage = false;
                         $scope.showImage = false;
+                        products = [];
+                        $scope.totalItems = allProducts.length;
+                        if($scope.totalItems>$scope.itemsPerPage){
+                            $scope.showPagination = true;
+                        }else{
+                            $scope.showPagination = false
+                        }
+                        let j = 0;
+                        products[j] = [];
+                        for (i = 0; i < allProducts.length; i++) {                            
+                            if(i%$scope.itemsPerPage==0 & i>0){
+                                j++;
+                                products[j] = [];
+                            }
+                            if(allProducts[i]){
+                                products[j].push(allProducts[i]);
+                            }  
+                        }
                         $scope.Items = products[0];
+                        if(products[0].length==0){
+                            products[0] = undefined;
+                        }
+                                                             
                        // products.reverse();
                         if (products[0] == undefined) {
                             $scope.loadMain = false;
@@ -101,23 +125,7 @@ angular
                     });                
             };
             function searchProducts(self) {
-                //console.log($scope.subCategory.SubCategoryName);
-//                    var defered = $q.defer();
-//                    var promise = defered.promise;
-//                    var i = 1;
-//                    for (i = 1; i < 6; i++) {
-//                        var searchParams = {};
-//                        searchParams["Keywords"] = $scope.keyword;
-//                        searchParams["SearchIndex"] = $scope.index.attributes.SearchIndex;
-//                        searchParams["ItemPage"] = i;
-//                        callPages(searchParams).then(function success(result) {
-//                            products.push(result);
-//                            defered.resolve("success");
-//
-//                        });
-//                    }
-//                    return promise;
-
+                
                 var promises = [];
                 var i;
                 for (i = 1; i < 6; i++) {
@@ -131,38 +139,18 @@ angular
                             searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
 
                         }else{
-                            searchParams["SearchIndex"] = "All";                           
+                            searchParams["SearchIndex"] = "All";
                         }
                         searchParams["ItemPage"] = i;
                         var curIndex = i;
                         //console.log(curIndex);
                         defered.resolve(callPages(searchParams).then(function success(result) {
-
-                            if (result !== undefined && result !== null) {
-                               // console.log(curIndex);
-                               // products.push(result);
-                                //var test = [];
-                               // result;
-
-//                                result.forEach(
-//                                    function (item) {
-//
-//                                        console.log(item.ItemId);
-//
-//
-//                                    }
-//                                );
-
-                            }
-                        //    console.log(products);
-
+                            if (result !== undefined && result !== null) {}
                             //defered.resolve('success');
-
                         }, function error(result) {
                             console.log(result);
                             // defered.resolve('success');
                         }));
-
 
                         promises.push(defered.promise);
                     } else {
@@ -203,11 +191,18 @@ angular
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-
                       if (result !== undefined && result !== null){
-                       //   console.log(params["ItemPage"]);
-                       //   console.log(result.data.Item);
                          products[params["ItemPage"] - 1] =  result.data.Item;
+                         if(result.data.Item){
+                            angular.forEach(result.data.Item, function(value, key) {
+                                console.log("value" , value );
+                                if(value.ItemId){
+                                    if(value.Image!=null){
+                                        allProducts.push(value);
+                                    }
+                                }
+                            });
+                         }                         
                       }
                     defered.resolve(result.data.Item);
                 }, function error(result) {
@@ -562,8 +557,9 @@ angular
                     $scope.showSubCategories = false;
                 });
             };
-            
+            if (userObj != undefined) {
             getCar();
+            }
             
 
 
@@ -586,7 +582,7 @@ angular
                     $scope.ItemsElectronicsDos[3] = result[7];
                     $scope.ItemsElectronicsTres[0] = result[8];
                     $scope.ItemsElectronicsTres[1] = result[9];
-                    console.log('ItemsElectronics',$scope.ItemsElectronics)
+                    //console.log('ItemsElectronics',$scope.ItemsElectronics)
                 }, function error(result) {
                 });
                 /*
@@ -628,7 +624,7 @@ angular
                 $scope.ItemsToysDos[3] = result[7];
                 $scope.ItemsToysTres[0] = result[8];
                 $scope.ItemsToysTres[1] = result[9];
-                console.log('ItemsToys',$scope.ItemsToys)
+                //console.log('ItemsToys',$scope.ItemsToys)
                }, function error(result) {
                });
                
@@ -649,7 +645,7 @@ angular
                     $scope.ItemsmenshoesDos[3] = result[7];
                     $scope.ItemsmenshoesTres[0] = result[8];
                     $scope.ItemsmenshoesTres[1] = result[9];
-                    console.log('Itemsmenshoes',$scope.Itemsmenshoes);
+                    //console.log('Itemsmenshoes',$scope.Itemsmenshoes);
                    }
              
                 }, function error(result) {
@@ -672,7 +668,7 @@ angular
                     $scope.ItemswhatchesDos[3] = result[7];
                     $scope.ItemswhatchesTres[0] = result[8];
                     $scope.ItemswhatchesTres[1] = result[9];
-                    console.log('Itemswhatches',$scope.Itemswhatches);
+                    //console.log('Itemswhatches',$scope.Itemswhatches);
                    }
              
                 }, function error(result) {
@@ -695,7 +691,7 @@ angular
                     $scope.ItemshandbagsDos[3] = result[7];
                     $scope.ItemshandbagsTres[0] = result[8];
                     $scope.ItemshandbagsTres[1] = result[9];
-                    console.log('Itemshandbags',$scope.Itemshandbags);
+                    //console.log('Itemshandbags',$scope.Itemshandbags);
                    }
              
                 }, function error(result) {
@@ -708,7 +704,7 @@ angular
             }
 
             var refreshMyWishList = function (item) {
-                console.log('item',item.ItemId);
+                //console.log('item',item.ItemId);
             }
 
             function goToTopBody(){
@@ -719,11 +715,11 @@ angular
 
             $scope.addToWishList = function (item) {
                 if (userObj != undefined) {
-                    console.log('myWishList'+userObj.IdCliente);
+                    //console.log('myWishList'+userObj.IdCliente);
                     if(localStorage.getItem('myWishList'+userObj.IdCliente)=== null){
                         oldItems = [];                                       
                     }else{
-                        console.log('oldItems',oldItems);
+                        //console.log('oldItems',oldItems);
                         var oldItems = JSON.parse(localStorage.getItem('myWishList'+userObj.IdCliente)) || []; 
                     }
                     var newItem = {
@@ -816,5 +812,5 @@ angular
                 $('.navbar').addClass('white');
                 $('.rusia2018-right').show();
                 $('.giftcards-right').show();
-            console.log("show Rusia");
+            //console.log("show Rusia");
         }]);

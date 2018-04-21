@@ -116,7 +116,7 @@ angular.module('boxit')
                         user.UserPhone = result.data.Rows.attributes.UserPhone;
                         user.userMiamiAddress = factory.getMiamiAddress(user.IdCliente).then(function () {
                             $localStorage.userBoxIt = user;
-                            console.log(user.UserBirthdate);
+                            //console.log(user.UserBirthdate);
                             defered.resolve($localStorage.userBoxIt);
                         });
                     }
@@ -133,7 +133,7 @@ angular.module('boxit')
             factory.updateData = function (newUser) {
                 var defered = $q.defer();
                 var promise = defered.promise;
-                console.log(JSON.stringify(newUser));
+                //console.log(JSON.stringify(newUser));
                 $http({
                     method: "POST",
                     url: host + "/users/updateinfouserboxIt",
@@ -237,11 +237,11 @@ angular.module('boxit')
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    console.log(result.data);
+                    //console.log(result.data);
                     
                     $localStorage.searchIndex = result.data;
                 }, function error(result) {
-                    console.log(result.data);
+                    //console.log(result.data);
                 });
             };
             factory.getSearchIndex = function () {
@@ -261,10 +261,10 @@ angular.module('boxit')
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    console.log(result.data);
+                    //console.log(result.data);
                     defered.resolve(result.data.Rows.attributes.Message);
                 }, function error(result) {
-                    console.log(result);
+                    //console.log(result);
                     defered.reject(result.Data);
                 });
                 return promise;
@@ -377,10 +377,10 @@ angular.module('boxit')
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    console.log(result.data.Item);
+                    //console.log(result.data.Item);
                     defered.resolve(result.data.Item);
                 }, function error(result) {
-                    console.log(result);
+                    //console.log(result);
                     defered.reject(result.data);
                 });
                 return promise;
@@ -397,10 +397,10 @@ angular.module('boxit')
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    console.log(result.data.Item);
+                    //console.log(result.data.Item);
                     defered.resolve(result.data.Item);
                 }, function error(result) {
-                    console.log(result);
+                    //console.log(result);
                     defered.reject(result.data);
                 });
                 return promise;
