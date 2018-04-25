@@ -98,6 +98,49 @@
     </table>
 
 
+    <div id="cartitemsmobile" class="container-fluid data-table cart-table">
+            <div class="row" ng-repeat="item in carItems">
+                <div class="col-12">
+                    <img class="img-responsive" id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.Image.ImageUrl}}" alt="{{item.Title}}">
+                </div>
+                <div class="col-12">
+                    <h2 class="product-name">
+                        <a target="_blank" class="ng-binding">{{item.Title}}</a>
+                    </h2>
+                    <ul class="item-options">                                
+                        <li>        
+                            <em class="ng-binding">Peso: {{item.Weight}} lbs.</em>
+                        </li>   
+                        <li>        
+                            <em class="ng-binding">Valor Unitario: <span class="price currency_price ng-binding">{{item.Price.FormattedPrice}}</span></em>
+                        </li>
+                        <li>        
+                            <em class="ng-binding">Valor Total: <span class="price currency_price ng-binding">{{item.ItemTotal.FormattedPrice}}</span></em>
+                        </li>      
+                    </ul>
+                </div>
+                <div class="col-xs-7">
+                    <div class="a-center cart_qty">
+                        <div class="cart-qty">                                
+                            <button class="btn22 btn-update" ng-click="modifyCar(0, item)"><span class="minus">-</span></button>
+                            <input type="text" readonly="readonly" value="{{item.Quantity}}" class="input-text qty" size="2">
+                            <button class="btn22 btn-update" ng-click="modifyCar(1, item)"><span class="plus">+</span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <div class="a-center td-delete">
+                        <div class="cart-remove">
+                            <a title="Eliminar" class="btn-remove2" ng-click="modifyCar(2, item)">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12"><hr></div>
+               
+            </div>    
+        </div>
+
+
     <div class="cart-container">        
     <div class="cart-disclaimers">
            <p>Comisión y Transporte incluye el translado del paquete hasta Panamá. No incluye impuesto de aduana que pagan algunos paquetes.No incluye otros gastos de manejo especial si su paquete lo amerita. Si tu paquete debe pagar, puedes hacerlo en el momento de retiro.</p>

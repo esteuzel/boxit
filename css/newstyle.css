@@ -817,9 +817,9 @@ html.touchevents .video-background {
       margin-top: 16px;
       padding-left: 15px; }
     footer #footer-nav {
-      position: absolute;
+      /*position: absolute;
       top: 0;
-      left: 0;
+      left: 0;*/
       width: 100%;
        }
       footer #footer-nav .btn-store {
@@ -1527,7 +1527,7 @@ table#shopping-cart-table {
   margin: 0;
   max-width: 280px;
 }
-.data-table td h2.product-name a {
+.data-table h2.product-name a {
   color: #2f2f2f;
   text-transform: none;
   font-size: 14px;
@@ -1539,17 +1539,17 @@ table#shopping-cart-table {
   padding-left: 0 !important;
   font-size: 14px;
 }
-.data-table td .item-options em {
+.data-table .item-options em {
   color: #333;
 }
-.data-table td .item-options {
+.data-table .item-options {
   margin-bottom: 10px;
   margin-top: 5px;
   padding-left: 0 !important;
   font-size: 14px;
   list-style: none;
 }
-.data-table td .btn-remove2 {
+.data-table .btn-remove2 {
   background: url(../img/newstyle/delete.jpg) left center no-repeat;
   width: 31px;
   height: 35px;
@@ -1560,7 +1560,7 @@ table#shopping-cart-table {
   margin: 0 auto;
   cursor: pointer;
 }
-.data-table td .btn-remove2:hover {
+.data-table .btn-remove2:hover {
   background: url(../img/newstyle/delete.jpg) right center no-repeat;
 }
 .cart-table button.btn-update {
@@ -2272,5 +2272,44 @@ margin-right: 100px;
 }
 .boxit-store-search input {
   height: 35px;
+}
+
+#shopping-cart-table {
+  display: none;
+}
+@media (max-width:767px){
+  #carrito-box {
+    margin: 30px 0px 0 0px;
+  }
+  .cart-disclaimers {
+    width: 100%;
+  }
+  .boxit-shopping-cart .action-buttons .cart-actions {
+    text-align: center;
+    float: none;
+    margin-top: 10px;
+  }
+}
+@media (min-width:768px){
+  #shopping-cart-table {
+    display: block;
+  }
+}
+@media (min-width:768px){
+  #cartitemsmobile {
+    display: none;
+  }  
+}
+
+@media screen and (max-width: 991px){
+    footer ul {
+        text-align: center;
+    }
+  footer #footer-social {
+    text-align: center;
+  }
+  footer #footer-signup {
+    margin-top: 40px;
+  }
 }
 /* end new */
