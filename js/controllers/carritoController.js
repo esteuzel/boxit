@@ -389,7 +389,7 @@ angular
                                         animation: true,
                                         templateUrl: 'views/checkoutmessage.html',
                                         controller: 'carritoController',
-                                        size: 'lg',
+                                        size: 'checkoutmessage',
                                         resolve: {
                                             mensaje: function () {
                                                 var mensaje = {};
@@ -507,13 +507,13 @@ angular
 
                 $scope.cerrarModalThankyou = function () {
                     console.log("cerrarModalThankyou");                    
-                    $state.go('boxitStore');
-                    $window.location.reload();
+                    $state.go('boxitStore').then(function(){
+                        $window.location.reload();
+                    });
                 };
                 $scope.$on("$destroy", function handler() {
                     $('.navbar').removeClass('white');
                 });            
-                $('.navbar').addClass('white');
-
-
+                $('.navbar').addClass('white');                
+                
         }]);

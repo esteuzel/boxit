@@ -31,7 +31,18 @@ $(document).ready(function() {
 		$('#navbar').toggleClass('nav-open');
 		$(this).toggleClass('collapsed');
 	});
-
+	
+	$('.navbarlink').click(function() {
+		$('#navbar').toggleClass('nav-open');
+		$(this).toggleClass('collapsed');
+		goTopPage();
+	});
+	function goTopPage(){
+		var target = $('body');
+		$('html,body').animate({
+			scrollTop: (target.offset().top - 1)
+		}, 1000);
+	}
 	// MOVE STORE BTN TO RIGHT NAV IF < 992
 	var winWidth = $(window).width();
 

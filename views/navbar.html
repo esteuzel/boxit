@@ -17,29 +17,29 @@
 				</div>
 				<div id="navbar">
 				  <ul class="nav navbar-nav navbar-middle">
-						<li><a ui-sref="home" class="link-compra">Compra</a></li>
+						<li><a ui-sref="home" class="link-compra navbarlink">Compra</a></li>
 						<!--<li class=""><a class="link-vende" ui-sref="vende">Vende</a></li>-->
 					<li class="dropdown">
 					  <a class="dropdown-toggle link-empresarial" data-toggle="dropdown">Empresarial</a>
 					  <ul class="dropdown-menu">
 						<!--<li class="dropdown-item"><a ui-sref="empresarial-boxit-residencial" class="link-empresarial-residencial">Boxit Residencial</a></li>-->
-						<li class="dropdown-item"><a ui-sref="home" class="link-boxitentulocal">Boxit en tu local</a></li>
+						<li class="dropdown-item"><a ui-sref="home" class="link-boxitentulocal navbarlink">Boxit en tu local</a></li>
 					  </ul>
 					</li>
 					
 					<li class="dropdown">
 							<a class="dropdown-toggle link-informacion" data-toggle="dropdown">Información</a>
 							<ul class="dropdown-menu">
-							<li class="dropdown-item"><a ui-sref="faq" class="link-informacion-faq">Preguntas Frecuentes</a></li>
+							<li class="dropdown-item"><a ui-sref="faq" class="link-informacion-faq navbarlink">Preguntas Frecuentes</a></li>
 							<!--<li class="dropdown-item"><a ui-sref="nosotros" class="link-informacion-nosotros">Nosotros</a></li>-->
-							<li class="dropdown-item"><a ui-sref="home" class="link-ubicaciones">Nuestras Ubicaciones</a></li>
+							<li class="dropdown-item"><a ui-sref="home" class="link-ubicaciones navbarlink">Nuestras Ubicaciones</a></li>
 							<!--<li class="dropdown-item"><a ui-sref="blog" class="link-informacion-blog">Blog</a></li>-->
 							<!--<li class="dropdown-item"><a ui-sref="prensa" class="link-informacion-prensa">Prensa</a></li>-->
 							</ul>
 						</li>						
 					
-					<li class="navbar-contactanos"><a ui-sref="contactanos">Contacto</a></li>
-					<li><a class="btn btn-store" ui-sref="boxitStore"><span><span>bo</span>xit</span>Store</a></li>
+					<li class="navbar-contactanos"><a ui-sref="contactanos navbarlink">Contacto</a></li>
+					<li><a class="btn btn-store navbarlink" ui-sref="boxitStore"><span><span>bo</span>xit</span>Store</a></li>
 					
 				  </ul>		
 
@@ -68,18 +68,18 @@
 				 	  
 				  	<div class="usuariotop-right">
 						<div class="link">
-							<a ng-show="!loged" ui-sref="iniciarSesion">Inicia sesión</a>
-							<a ng-show="loged" ui-sref="home" ng-click="cerrarSesion()">Cerrar sesión</a>
+							<a ng-show="!loged" ui-sref="iniciarSesion" class="navbarlink">Inicia sesión</a>
+							<a ng-show="loged" ui-sref="home" ng-click="cerrarSesion()" class="navbarlink">Cerrar sesión</a>
 						</div>
 						<div class="link">
-							<a class="btn-cuenta" ng-show="!loged" ui-sref="registro">Crea tu Cuenta</a>
-							<a class="btn-cuenta" ng-show="loged" ui-sref="iniciarSesion" ng-click="iniciarSesion()">Área Usuario</a>
+							<a class="btn-cuenta navbarlink" ng-show="!loged" ui-sref="registro">Crea tu Cuenta</a>
+							<a class="btn-cuenta navbarlink" ng-show="loged" ui-sref="iniciarSesion" ng-click="iniciarSesion()">Área Usuario</a>
 						</div>
 				  	</div>
 					<div class="giftcards-right">
-						<div class="navbar-giftcards"><a ui-sref="giftcards">Gift Cards</a></div>
+						<div class="navbar-giftcards navbarlink"><a ui-sref="giftcards">Gift Cards</a></div>
 					</div>						  
-					<div class="rusia2018-right">
+					<div class="rusia2018-right navbarlink">
 						<div class="navbar-rusia2018"><a ui-sref="rusia2018"><img src="img/newstyle/mundialrusia2018.png"/></a></div>
 					</div>				
 				</div><!--/.nav-collapse -->
