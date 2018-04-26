@@ -946,7 +946,7 @@ display: block;
   color: #333;
 }
 
-#iniciodesesion-box {
+#iniciodesesion-box,#confirmacion-box {
   margin: 30px 30px 0 30px;
   background: #fff;
 }

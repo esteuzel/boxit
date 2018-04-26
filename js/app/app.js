@@ -34,10 +34,10 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             url: '/cerrarSesion',
             templateUrl: 'views/cerrarSesion.html?v=${new Date().getTime()}',
             controller: 'cerrarSesionController'
-        }).state('recovery', {
+        /*}).state('recovery', {
             url: '/recovery/:hash',
             templateUrl: "views/recuperarPassForm.html?v=${new Date().getTime()}",
-            controller: 'passwordController'
+            controller: 'passwordController'*/
         }).state('activar', {
             url: '/activar/:hash',
             templateUrl: "views/activar.html?v=${new Date().getTime()}",
@@ -145,7 +145,15 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 templateUrl: "views/IniciarSesion.html?v=${new Date().getTime()}",
                 controller: "loginController"
 
-            }        
+            }
+        ).state('confirmacion', {
+            url: "/confirmacion/:hash",
+            templateUrl: "views/recuperarPassForm.html?v=${new Date().getTime()}",
+            params: {
+                hash: ""
+            },
+            controller: "passwordController"
+        }    
         ).state('pagoservicio', {
                 url: "/pagoservicio",
                 templateUrl: "views/Pagoservicio.html?v=${new Date().getTime()}",
