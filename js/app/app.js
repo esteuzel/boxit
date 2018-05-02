@@ -330,8 +330,16 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         }
 
         );
-    }]);
+    }]).run(run);
     
+        run.$inject = ['$rootScope', '$location', '$window'];
+            function run($rootScope, $location, $window) {         
+                // track pageview on state change
+                $rootScope.$on('$locationChangeStart', function (event) {
+                $window.ga('send', 'pageview', $location.path());
+                console.log("pageview",$location.path());
+            });
+        }
   /* boxit.run(function($rootScope, $templateCache) {
    $rootScope.$on('$viewContentLoaded', function() {
       $templateCache.removeAll();
