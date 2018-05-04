@@ -13,10 +13,10 @@ angular
                     'Content-Type': 'application/json'
                 }
             }).then(function success(result) {
-                
+                console.log("result",result);
                 if(Object.keys(result.data.Rows).length==1){
-               
-                    var a=result.data.Rows;
+                    var a = [];
+                    a.push(result.data.Rows);
                     $scope.trakings = a;
                   //  alert(Object.value(result.data.Rows));
                   /* $.each(a, function (index, value) {

@@ -21,13 +21,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="row">
 <div class="col-lg-1"></div>
 
-<div class="col-lg-4">
+<div class="col-lg-11">
 <h4 class="customLabel">Tracking de Paquetes</h4>
-
-<div ng-repeat="traking in trakings"><br />
-<span style="font-weight:bold">Paquete : </span><span>{{traking.attributes.Paquete}}</span><br />
-<span style="font-weight:bold">Numero Traking: </span><span>{{traking.attributes.NumeroTracking}}</span><br />
-<span style="font-weight:bold">Estado: </span><span>{{traking.attributes.Estatus}}</span></div>
-</div>
+	<table class="trakingdepaquetes">
+		<tr>
+			<th>Paquete</th>
+			<th>Numero Traking</th>
+			<th>Estado</th>
+		</tr>
+		<tr ng-repeat="traking in trakings">
+			<td>{{traking.attributes.Paquete}}</td>
+			<td>{{traking.attributes.NumeroTracking}}</td>
+			<td>{{traking.attributes.Estatus}}</td>
+		</tr>
+	</table>
 </div>
 </html>

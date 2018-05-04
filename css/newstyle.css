@@ -2339,3 +2339,22 @@ margin-right: 100px;
   width: 350px;
 }
 /* end new */
+span.requerido {
+  color: #a82773;
+}
+table.trakingdepaquetes {
+  width: 100%;
+}
+table.trakingdepaquetes th{
+  padding: 5px;
+}
+table.trakingdepaquetes td{
+  padding: 5px;
+}
+.ng-valid {
+  /*border: thin solid #090;*/
+}
+.ng-invalid {
+  border: thin solid #990000;
+  color: #990000;
+}
