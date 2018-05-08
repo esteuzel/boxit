@@ -39,7 +39,7 @@ angular
                     'ImageUrl': "img/rusia2018/mundial-rusia-2018-new-balance-roja-camiseta-hombre-local.jpg",
                     'Title': "CAMISETA HOMBRE LOCAL",
                     'SubTitle': "Talles S L XL 2XL",
-                    'FormattedPrice': "$89.95",
+                    'FormattedPrice': "$67.96",
                     'AmountPrice': 8995,
                     'peso': 1
                 };
@@ -49,7 +49,7 @@ angular
                     'ImageUrl': "img/rusia2018/mundial-rusia-2018-new-balance-blanca-camiseta-hombre-visitante.jpg",
                     'Title': "CAMISETA HOMBRE VISITANTE",
                     'SubTitle': "Talles S L XL 2XL",
-                    'FormattedPrice': "$89.95",
+                    'FormattedPrice': "$67.96",
                     'AmountPrice': 8995,
                     'peso': 1
                 };
@@ -59,7 +59,7 @@ angular
                     'ImageUrl': "img/rusia2018/mundial-rusia-2018-camiseta-roja-new-balance-mujer.jpg",
                     'Title': "CAMISETA DAMA VISITANTE",
                     'SubTitle': "Talles S M L XL 2XL",
-                    'FormattedPrice': "$89.95",
+                    'FormattedPrice': "$67.96",
                     'AmountPrice': 8995,
                     'peso': 1
                 };   
