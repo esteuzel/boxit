@@ -22,7 +22,7 @@ angular
                     $scope.popup1 = {
                         opened: false
                     };
-                    $scope.UserBirthdate = new Date();
+                    $scope.UserBirthdate = '';//new Date();
                 };
                 $scope.today();
                 $scope.format = 'dd/MM/yyyy';
