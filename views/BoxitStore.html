@@ -73,7 +73,6 @@
                         <li data-target="#boxitStoreCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#boxitStoreCarousel" data-slide-to="1"></li>
                         <li data-target="#boxitStoreCarousel" data-slide-to="2"></li>
-			<li data-target="#boxitStoreCarousel" data-slide-to="3"></li>
                     </ol>
                   
                     <!-- Wrapper for slides -->
@@ -88,11 +87,7 @@
                     
                         <div class="item">
                             <img src="./img/boxitstoreslide/3.jpg" alt="New York">
-                        </div>
-			    
-			<div class="item">
-                            <img src="./img/boxitstoreslide/4.jpg" alt="New York">
-                        </div>
+                        </div>			
                     </div>
                   
                     <!-- Left and right controls -->
@@ -185,7 +180,61 @@
             </div>
         </div>
 
-        <div id="myCarousel" class="carousel slide " data-ride="carousel">
+        <div id="boxitStoreElectronicsCarousel" class="carousel slide carousel-store-show-mobile" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li ng-repeat="item in ItemsElectronicsAll track by $index" data-target="#boxitStoreElectronicsCarousel" data-slide-to="{{$index}}" ng-class="{'active': $index==0}" ></li>
+            </ol>  
+            <div class="carousel-inner store-list">
+                <!-- ngRepeat: item in ItemsElectronicsAll -->
+                <div ng-repeat="item in ItemsElectronicsAll track by $index" ng-class="{'active': $index==0}" class="item">
+                    
+                        <div class="product-item">
+                                <div class="product-item-info">
+                                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">              
+                                    <span class="product-image-container">
+                                        <span class="product-image-wrapper">
+                                            <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                        </span>
+                                    </span>
+                                    </a>
+                                    <div class="product-item-details">
+                                        <strong class="product-item-name">
+                                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                        </strong>
+                                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                            <span class="price-container price-final_price tax weee">
+                                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                    <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="product-item-actions">
+                                            <div class="actions-secondary">
+                                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#boxitStoreElectronicsCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#boxitStoreElectronicsCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+
+
+
+        <div id="myCarousel" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -375,7 +424,57 @@
             </div>
         </div>
 
-        <div id="myCarouselToys" class="carousel slide " data-ride="carousel">
+            <div id="boxitStoreToysCarouselMobile" class="carousel slide carousel-store-show-mobile" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li ng-repeat="item in ItemsToysAll track by $index" data-target="#boxitStoreToysCarouselMobile" data-slide-to="{{$index}}" ng-class="{'active': $index==0}" ></li>
+                </ol>  
+                <div class="carousel-inner store-list">
+                    <!-- ngRepeat: item in ItemsToysAll -->
+                    <div ng-repeat="item in ItemsToysAll track by $index" ng-class="{'active': $index==0}" class="item">
+                        
+                            <div class="product-item">
+                                    <div class="product-item-info">
+                                        <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">              
+                                        <span class="product-image-container">
+                                            <span class="product-image-wrapper">
+                                                <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                            </span>
+                                        </span>
+                                        </a>
+                                        <div class="product-item-details">
+                                            <strong class="product-item-name">
+                                                <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                            </strong>
+                                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                                <span class="price-container price-final_price tax weee">
+                                                    <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                        <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="product-item-actions">
+                                                <div class="actions-secondary">
+                                                    <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                        <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#boxitStoreToysCarouselMobile" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#boxitStoreToysCarouselMobile" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            
+        <div id="myCarouselToys" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarouselToys" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarouselToys" data-slide-to="1"></li>
@@ -565,7 +664,59 @@
             </div>
         </div>
 
-        <div id="myCarouselmenshoes" class="carousel slide " data-ride="carousel">
+        <div id="boxitStoreMenshoesCarouselMobile" class="carousel slide carousel-store-show-mobile" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li ng-repeat="item in ItemsmenshoesAll track by $index" data-target="#boxitStoreMenshoesCarouselMobile" data-slide-to="{{$index}}" ng-class="{'active': $index==0}" ></li>
+                </ol>  
+                <div class="carousel-inner store-list">
+                    <!-- ngRepeat: item in ItemsToysAll -->
+                    <div ng-repeat="item in ItemsmenshoesAll track by $index" ng-class="{'active': $index==0}" class="item">
+                        
+                            <div class="product-item">
+                                    <div class="product-item-info">
+                                        <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">              
+                                        <span class="product-image-container">
+                                            <span class="product-image-wrapper">
+                                                <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                            </span>
+                                        </span>
+                                        </a>
+                                        <div class="product-item-details">
+                                            <strong class="product-item-name">
+                                                <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                            </strong>
+                                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                                <span class="price-container price-final_price tax weee">
+                                                    <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                        <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="product-item-actions">
+                                                <div class="actions-secondary">
+                                                    <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                        <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#boxitStoreMenshoesCarouselMobile" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#boxitStoreMenshoesCarouselMobile" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+
+
+        <div id="myCarouselmenshoes" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarouselmenshoes" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarouselmenshoes" data-slide-to="1"></li>
@@ -762,7 +913,57 @@
             </div>
         </div>
 
-        <div id="myCarouselwhatches" class="carousel slide " data-ride="carousel">
+        <div id="boxitStoreWhatchesCarouselMobile" class="carousel slide carousel-store-show-mobile" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li ng-repeat="item in ItemswhatchesAll track by $index" data-target="#boxitStoreWhatchesCarouselMobile" data-slide-to="{{$index}}" ng-class="{'active': $index==0}" ></li>
+                </ol>  
+                <div class="carousel-inner store-list">
+                    <!-- ngRepeat: item in ItemsToysAll -->
+                    <div ng-repeat="item in ItemswhatchesAll track by $index" ng-class="{'active': $index==0}" class="item">
+                        
+                            <div class="product-item">
+                                    <div class="product-item-info">
+                                        <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">              
+                                        <span class="product-image-container">
+                                            <span class="product-image-wrapper">
+                                                <img id="image-{{item.ItemId}}-elect" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                            </span>
+                                        </span>
+                                        </a>
+                                        <div class="product-item-details">
+                                            <strong class="product-item-name">
+                                                <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                            </strong>
+                                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                                <span class="price-container price-final_price tax weee">
+                                                    <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                                        <span class="price">{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}</span>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                            <div class="product-item-actions">
+                                                <div class="actions-secondary">
+                                                    <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                                        <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
+                <a class="left carousel-control" href="#boxitStoreWhatchesCarouselMobile" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#boxitStoreWhatchesCarouselMobile" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+        <div id="myCarouselwhatches" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarouselwhatches" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarouselwhatches" data-slide-to="1"></li>

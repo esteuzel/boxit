@@ -2361,3 +2361,35 @@ table.trakingdepaquetes td{
   border: thin solid #990000;
   color: #990000;
 }
+.carousel-store-hidden-mobile {
+  display: block;
+}
+.carousel {
+  width: 100%;
+}
+.carousel-store-show-mobile {
+  display: none;
+}
+@media (max-width:767px){
+  .carousel-store-hidden-mobile {
+    display: none;
+  }
+  .carousel-store-show-mobile {
+    display: block;
+    float: left;
+    
+  }
+  .carousel-control.right {
+    bottom: auto;
+    top: 5px;  
+  }
+  .carousel-control.left {
+    bottom: auto;
+    top: 5px;  
+  }
+  .store-list-category-title-text {
+    width: 100%;
+    text-align: center;
+  }
+}
+

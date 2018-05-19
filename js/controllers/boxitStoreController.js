@@ -572,6 +572,7 @@ angular
              var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
+                    $scope.ItemsElectronicsAll= result;
                     $scope.ItemsElectronicsUno= {};
                     $scope.ItemsElectronicsDos= {};
                     $scope.ItemsElectronicsTres= {};
@@ -614,6 +615,7 @@ angular
                var searchParams = {};
                searchParams["SearchIndex"] = "FashionWomen";
                userData.getDefaultSearch(searchParams).then(function success(result) {
+                $scope.ItemsToysAll = result;
                 $scope.ItemsToysUno= {};
                 $scope.ItemsToysDos= {};
                 $scope.ItemsToysTres= {};
@@ -635,6 +637,7 @@ angular
                searchParams["SearchIndex"] = 'FashionMen';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
+                    $scope.ItemsmenshoesAll= result;
                     $scope.ItemsmenshoesUno= {};
                     $scope.ItemsmenshoesDos= {};
                     $scope.ItemsmenshoesTres= {};
@@ -658,6 +661,7 @@ angular
                searchParams["SearchIndex"] = 'Fashion';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
+                    $scope.ItemswhatchesAll= result;
                     $scope.ItemswhatchesUno= {};
                     $scope.ItemswhatchesDos= {};
                     $scope.ItemswhatchesTres= {};
@@ -681,6 +685,7 @@ angular
                searchParams["SearchIndex"] = 'FashionGirls';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
+                    $scope.ItemshandbagsAll= result;
                     $scope.ItemshandbagsUno= {};
                     $scope.ItemshandbagsDos= {};
                     $scope.ItemshandbagsTres= {};
