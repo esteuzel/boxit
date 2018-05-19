@@ -2393,3 +2393,19 @@ table.trakingdepaquetes td{
   }
 }
 
+
+
+@media screen and (max-width: 991px) { 
+  .navbar-right-inner {
+    background: #fff;
+    padding: 120px 15px 0;
+    width: 300px;
+    float: right;
+    height: 100% !important;
+  }
+  .navbar.navbar-fixed-top #navbar {
+    padding: 0;
+    width: 600px;
+    background: none;
+  }
+}

@@ -81,5 +81,30 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script><!--End of Tawk.to Script-->
 <script src="js/libs.min.js"></script>
-<script src="js/main.js"></script></body>
+<script src="js/main.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.4/jquery.touchSwipe.min.js"></script> 
+
+<script>
+	
+$(document).ready(function() { 			  
+         $(".swipe-area").swipe({
+              swipeStatus:function(event, phase, direction, distance, duration, fingers)
+                  {
+                      if (phase=="move" && direction =="right") {
+						$('#navbar').toggleClass('nav-open');
+						$('.navbar-toggle').toggleClass('collapsed');
+						//console.log("right");
+                           return false;
+                      }
+                      if (phase=="move" && direction =="left") {
+						//$('#navbar').toggleClass('nav-open');
+						//console.log("left");
+                           return false;
+                      }
+                  }
+          }); 
+      });
+</script>
+</body>
 </html>
