@@ -27,11 +27,12 @@ $(document).ready(function() {
 	}
 
 	// NAV TOGGLE
+	/*
 	$('.navbar-toggle').click(function() {
 		$('#navbar').toggleClass('nav-open');
 		$(this).toggleClass('collapsed');
 	});
-	
+	*/
 	$('.navbarlink').click(function() {
 		$('#navbar').toggleClass('nav-open');
 		$(this).toggleClass('collapsed');
@@ -85,3 +86,8 @@ $(document).ready(function() {
 	    }, 'xml');
 	});
 });
+function navbartoggle(){
+	$('#navbar').toggleClass('nav-open');
+	$('.navbar-toggle').toggleClass('collapsed');
+	console.log('.nav-open');
+}
