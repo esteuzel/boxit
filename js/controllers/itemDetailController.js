@@ -22,6 +22,7 @@ angular
                 userId = 0;
             }
             $scope.showEmptyMessage = false;
+            $scope.cantidad = 0;
 
             userData.getItemDetails($stateParams.itemId).then(function success(item) {
                 console.log('item',item);
@@ -58,6 +59,7 @@ angular
                 $scope.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
                 $scope.cantidad = 1;
                 var amount = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.Amount;
+                $scope.amount = amount;
                 console.log('userNotLogged',$scope.userNotLogged);
                 console.log(amount == 0);
                 console.log($scope.itemPrice == 0);
@@ -274,7 +276,31 @@ angular
             }
 
             $scope.refreshTotal = function () {
-                $scope.total = numeral((item.Item.Offers.Offer.OfferListing.Price.Amount * $scope.cantidad) / 100).format('$0,0.00');
+                console.log("refreshTotal");                
+                $scope.total = numeral(($scope.amount * $scope.cantidad) / 100).format('$0,0.00');
+                console.log("total",$scope.total);
+            };
+
+            $scope.sumTotal = function () {
+                var result = document.getElementById('qty'); 
+                var qty = result.value; 
+                if( !isNaN( qty )) {
+                    result.value++; 
+                    qty++;
+                    $scope.cantidad = qty;
+                    $scope.refreshTotal();
+                }
+            };
+
+            $scope.restTotal = function () {
+                var result = document.getElementById('qty'); 
+                var qty = result.value; 
+                if(qty > 1) {
+                    result.value--; 
+                    qty--;
+                    $scope.cantidad = qty;
+                    $scope.refreshTotal();
+                }
             };
             
             $scope.showShoppingCar = function () {

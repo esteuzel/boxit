@@ -119,7 +119,7 @@
                             <div class="itemdetail-price">
                                 <div class="price-box">
                                     <span class="price-container">
-                                        <span class="price">{{itemPrice}}</span>
+                                        <span class="price">{{total}}</span>
                                     </span>                                    
                                 </div>
                             </div>
@@ -137,10 +137,12 @@
                                                 <div class="control custom-qty">
                                                     <input type="number" name="qty" id="qty" maxlength="12" value="1" title="Qty" class="input-text qty" ng-model="cantidad" ng-change="refreshTotal()">
                                                     <div class="btn-plus">	
-                                                        <button type="button" class="increase items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;">
+                                                        <button type="button" class="increase items" 
+                                                        ng-click="sumTotal()"
+                                                        >
                                                             <i class="fa fa-caret-up"></i>
                                                         </button>
-                                                        <button type="button" class="reduced items" onclick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) & qty > 1 ) result.value--;return false;">
+                                                        <button type="button" class="reduced items" ng-click="restTotal()">
                                                             <i class="fa fa-caret-down"></i>
                                                         </button>
                                                     </div>					
