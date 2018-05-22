@@ -95,6 +95,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<select class="form-control" ng-model="descPlataforma" ng-options="plataforma.attributes.Address +     ' - ' +     plataforma.attributes.DescPlataforma for plataforma in plataformas"><option value="">Selecciona tu Boxit m&aacute;s cercano</option> </select>
 
 				</div>
+
+				<div id="td_otraopcion">
+					<p><br></p>
+						
+					<div class="FieldContent"><span>Codigo Promoción</span></div>
+					<textarea class="form-control" cols="20" id="input_otraopcion" ng-model="Otro_CEnteraste" rows="2"></textarea>
+				</div>
+
 			</div>
 
 			<div class="Group" ng-show="true">				
@@ -123,12 +131,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						
 
 						<div class="FieldContent"><span>¿Cómo te enteraste de Boxit?</span></div>
-						<select class="form-control" id="select_CEnteraste" name="" ng-model="CEnteraste" onchange="validar_opcion_centeraste();"><option value="">Seleccione una opci&oacute;n</option><option value="1">Instagram</option><option value="2">Facebook</option><option value="3">Me Tope con el Locker</option><option value="4">Un Amigo</option><option value="7">Codigo Promoción</option><option value="6">Otro</option> </select>
+						<select class="form-control" id="select_CEnteraste" name="" ng-model="CEnteraste" onchange="validar_opcion_centeraste();"><option value="">Seleccione una opci&oacute;n</option><option value="1">Instagram</option><option value="2">Facebook</option><option value="3">Me Tope con el Locker</option><option value="4">Un Amigo</option><option value="6">Otro</option> </select>
 
-						<div id="td_otraopcion" style="display:none;">
-								<div class="FieldContent"><span>Descripci&oacute;n:&nbsp;</span></div>
-								<textarea class="form-control" cols="20" id="input_otraopcion" ng-model="Otro_CEnteraste" rows="2"></textarea>
-						</div>
+						
 
 						<div><p><br></p></div>
 						
