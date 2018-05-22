@@ -100,7 +100,10 @@ angular
                     args["UserEmail"] = $scope.useremail;
                     args["UserPassword"] = $scope.password;
                     args["UserGender"] = $scope.UserGender;
-                    args["UserBirthdate"] = moment($scope.UserBirthdate).format('YYYY/MM/DD');
+                    //console.log("$scope.UserBirthdate",$scope.UserBirthdate);
+                    if($scope.UserBirthdate != ""){
+                        args["UserBirthdate"] = moment($scope.UserBirthdate).format('YYYY/MM/DD');
+                    }
                     args["IdPlataforma"] = $scope.descPlataforma != null ?
                             $scope.descPlataforma.attributes.IdPlataforma : null;
                     args["Phone"] = $scope.Phone 
