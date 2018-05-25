@@ -114,7 +114,8 @@ angular.module('boxit')
                         user.IdPlataforma = result.data.Rows.attributes.IdPlataforma;
                         user.UserEmail = result.data.Rows.attributes.UserEmail;
                         user.UserPhone = result.data.Rows.attributes.UserPhone;
-                        user.userMiamiAddress = factory.getMiamiAddress(user.IdCliente).then(function () {
+                        user.IdTipoPlan = result.data.Rows.attributes.IdTipoPlan;
+                        user.userMiamiAddress = factory.getMiamiAddress(user.IdCliente).then(function () {                            
                             $localStorage.userBoxIt = user;
                             //console.log(user.UserBirthdate);
                             defered.resolve($localStorage.userBoxIt);

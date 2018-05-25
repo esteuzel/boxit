@@ -2416,3 +2416,42 @@ section.registro .Formulary {
 section.registro h1{
 margin-top: 30px;
 }
+
+.tarifaplan {
+  margin-top: 20px;
+}
+.tarifaplan .tarifa {  
+  border: 1px solid #16b5cc;
+  padding: 10px;
+}
+.tarifa-left {
+  padding-left: 0px;
+}
+.tarifa-right {
+  padding-right: 0px;
+}
+.tarifa-titulo {
+  font-weight: 600;
+  font-size: 14px;
+}
+.tarifa-row {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.tarifaselected {
+  background: #8ee1eca8;
+}
+@media (min-width: 768px){
+  .areausuario-centro {
+    margin: 0 auto;
+    float: none;
+    }
+}
+@media (max-width: 767px){
+  .areausuario-centro {
+    float: left;
+    }
+    .areausuario-centro .pull-right {
+      float: left!important;
+    }
+}

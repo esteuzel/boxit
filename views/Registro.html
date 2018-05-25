@@ -55,7 +55,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 				<div class="Description">Los campos marcados <span class="requerido">*</span> son obligatorios</div>
 
-				<div class="Description">Por favor completa la informaci&oacute;n para iniciar sesi&oacute;n.</div>
+				
 
 				<div class="Fields">
 
@@ -69,7 +69,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					<input class="form-control" ng-model="Phone" placeholder="Ingrese su teléfono" type="text" />				
 					
 
-				<div class="Description">Agrega tu correo electrónico y contraseña para ingresar en tu cuenta </div>
+					
 
 				<div class="Fields">
 					<div class="FieldContent"><span>Correo Electrónico</span> <span class="requerido">*</span></div>
@@ -90,19 +90,56 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<div class="FieldContent"><span>Respuesta de seguridad</span></div>
 						<select id="" name=""><option value=""></option> </select>
 					</div>
-					<div class="Description">Selecciona el boxit de tu preferencia donde recibirás tus paquetes.</div>
+					
 					<div class="FieldContent"><span>Boxit</span> <span class="requerido">*</span></div>
-					<select class="form-control" ng-model="descPlataforma" ng-options="plataforma.attributes.Address +     ' - ' +     plataforma.attributes.DescPlataforma for plataforma in plataformas"><option value="">Selecciona tu Boxit m&aacute;s cercano</option> </select>
+					<select ng-change="showBoxitAddress();" class="form-control" ng-model="plataforma" ng-options="plataforma.attributes.Address +     ' - ' +     plataforma.attributes.DescPlataforma for plataforma in plataformas"><option value="">Selecciona tu Boxit m&aacute;s cercano</option> </select>
+					<br>
+					
+					<div ng-show="showBxitAddress">						
+						<textarea class="form-control" cols="20" id="input_otraopcion" ng-model="boxitAddress" rows="2"></textarea>
+					</div>	
+
 
 				</div>
-
-				<div id="td_otraopcion">
-					<p><br></p>
-						
+				
+					<br>						
 					<div class="FieldContent"><span>Codigo Promoción</span></div>
-					<textarea class="form-control" cols="20" id="input_otraopcion" ng-model="Otro_CEnteraste" rows="2"></textarea>
-				</div>
+					<input class="form-control" id="CodPromo" ng-model="CodPromo" placeholder="Ingresa Codigo Promoción" type="text" />
+					
+			</div>
 
+			
+			<div class="tarifaplan">
+				<div class="container-fluid">		
+					<div class="row">
+						<div class="col-xs-6 tarifa-left">
+							<div class="tarifa tarifaselected">
+								<label class="radio-inline tarifa-titulo">
+									<input ng-model="IdTipoPlan" type="radio" name="IdTipoPlan" id="IdTipoPlan1" value="2" checked="checked"> Tarifa Premium
+								</label>
+								<p class="tarifa-row">Traemos tu compra de 3 a 5 días</p>
+								<p class="tarifa-row">Libra en 4.5$</p>
+								<p class="tarifa-row">Cargos por paquete<br>1$ de Seguro y 2$ Manejo</p>
+							</div>
+						</div>
+						<div class="col-xs-6 tarifa-right">
+							<div class="tarifa">
+								<label class="radio-inline tarifa-titulo cancheck">
+									<input ng-model="IdTipoPlan" type="radio" name="IdTipoPlan" id="IdTipoPlan2" value="1"> Tarifa Básica
+								</label>
+								<p class="tarifa-row">Traemos tu compra de 5 a 7 días</p>
+								<p class="tarifa-row">Libra en 4.5$</p>
+								<p class="tarifa-row">Sin cargos por paquete<br><br></p>
+							</div>
+						</div>
+					</div>
+					<input type="hidden" name="IdTipoPlan" id="IdTipoPlan">
+					<div class="row">
+						<div class="col-xs-12">
+								<p class="tarifa-row"><br>Tarifa Boxit Store Si nosotros compramos por ti, Libra en 3$, se cobra comisión + transporte</p>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="Group" ng-show="true">				
@@ -132,7 +169,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 						<div class="FieldContent"><span>¿Cómo te enteraste de Boxit?</span></div>
 						<select class="form-control" id="select_CEnteraste" name="" ng-model="CEnteraste" onchange="validar_opcion_centeraste();"><option value="">Seleccione una opci&oacute;n</option><option value="1">Instagram</option><option value="2">Facebook</option><option value="3">Me Tope con el Locker</option><option value="4">Un Amigo</option><option value="6">Otro</option> </select>
-
+						
+						<div id="td_otraopcion" style="display:none;">
+							<div class="FieldContent"><span>Descripci&oacute;n:&nbsp;</span></div>
+							<textarea class="form-control" cols="20" id="input_otraopcion" ng-model="Otro_CEnteraste" rows="2"></textarea>
+						</div>				
 						
 
 						<div><p><br></p></div>
@@ -248,5 +289,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</div>
 </section>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".tarifa-titulo").on('click', function(event) {			
+			$(".tarifa").removeClass("tarifaselected");
+			$(".tarifa-titulo").addClass( "cancheck" );
+			$( this ).removeClass("cancheck");			
+			$( this ).parent().addClass( "tarifaselected" );
+			//console.log("$this.parent()",$( this ).parent());
+		});
+	});
+</script>
 </body>
 </html>

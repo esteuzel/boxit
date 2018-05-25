@@ -7,12 +7,15 @@
 angular.module('boxit')
         .controller('inicioController', ['$scope', '$http', '$q', 'userData',
             function ($scope, $http, $q, userData) {
-
+                $scope.ShowUserAddress = false;
+                $scope.ShowDefaultAddressPremium = false;
+                $scope.ShowDefaultAddressBasica = false;
+                $scope.userPlanName = "";
               
                 var init = function () {
 
                     var user = userData.getData();
-		    $scope.nombre = user.userMiamiAddress.nombre;
+		            $scope.nombre = user.userMiamiAddress.nombre;
                     $scope.apellido = user.userMiamiAddress.apellido;
                     $scope.address1 = user.userMiamiAddress.address1;
                     $scope.address2 = user.userMiamiAddress.address2;
@@ -26,6 +29,25 @@ angular.module('boxit')
                     $scope.boxit = 0;
                     $scope.entregado = 0;
                     $scope.total = 0;
+
+                    $scope.IdCliente = user.IdCliente;
+                    $scope.username = user.UserName;
+                    $scope.lastname = user.UserLastName;
+                    $scope.UserBirthdate = user.UserBirthdate;
+                    $scope.UserGender = user.UserGender;
+                    $scope.UserPhone = user.UserPhone;
+                    $scope.UserEmail = user.UserEmail;
+                    $scope.IdTipoPlan = user.IdTipoPlan;
+                    $scope.IdPlataforma = user.IdPlataforma;
+                    
+                    //console.log("$scope.username",$scope.username);
+                    //$scope.IdTipoPlan = 1;
+                    $scope.userPlanName = $scope.IdTipoPlan == 1 ? "Basico" : "Premium";
+                    $scope.ShowUserAddress = true;
+                    $scope.ShowDefaultAddressPremium = $scope.IdTipoPlan == 1;
+                    $scope.ShowDefaultAddressBasica = $scope.IdTipoPlan == 2;
+                    console.log("user",user);
+                    getPlataforma();
                     /*getTracking().then(function success(result) {                  
                         $scope.total = result.length; 
                         //console.log (result);                      
@@ -97,5 +119,32 @@ angular.module('boxit')
                     return promise;
                 };
                 init();
+
+
+
+                function getPlataforma(){
+                    $scope.plataformas = [];
+                    $http({
+                        method: "POST",
+                        url: userData.getHost() + "/users/getplataformas",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(function success(results) {
+                        //alert(JSON.stringify(results.data));
+                        $scope.plataformas = results.data;
+                        for (var i = 0; i < $scope.plataformas.length; i++) {
+                            var plataforma = $scope.plataformas[i];
+                            if (plataforma.attributes.IdPlataforma === userData.getData().IdPlataforma) {
+                                $scope.descPlataforma = plataforma;
+                                $scope.NamePlataforma = plataforma.attributes.Address + ' - ' + plataforma.attributes.DescPlataforma;
+                                //{"attributes":{"IdPlataforma":"3","DescPlataforma":"011","Address":"CIUDAD DEL SABER (BOXIT PLAZA)","Direccion":"PTY1468"}}
+                                break;
+                            }
+                        }
+                    }, function error(results) {
+                        console.log(results.data);
+                    });
+                }
 
             }]);

@@ -5,7 +5,7 @@ angular
         .module('boxit')
         .controller('siginController', [ '$scope', '$http', '$window', 'userData', '$interval', '$uibModal',
             function ($scope, $http, $window, userData, $interval, $uibModal) {
-              
+                $scope.IdTipoPlan = 2;
                 $scope.Categ = [
                     {name:"Intrumentos Musicales",id:"1", checked:"false"},
                     {name:"Moda Femenina",id:"2", checked:"false"},
@@ -33,6 +33,7 @@ angular
                     minDate: new Date(1915, 1, 1),
                     startingDay: 1
                 };
+                $scope.allBoxitAddress = [];
                 $scope.plataformas = [];
                 $http({
                     method: "POST",
@@ -42,6 +43,9 @@ angular
                     }
                 }).then(function success(results) {
                     $scope.plataformas = results.data;
+                    for (var i = 0; i < $scope.plataformas.length; i++) {
+                        $scope.allBoxitAddress[$scope.plataformas[i].attributes.IdPlataforma] = $scope.plataformas[i].attributes.Direccion_Fisica;
+                    }
                 }, function error(results) {
                     console.log(results.data);
                 });
@@ -119,6 +123,9 @@ angular
                     }else{
                        args["Otra_Categoria"]=$scope.Otra_Categoria;
                     }
+                    args["IdTipoPlan"]=$scope.IdTipoPlan;
+                    args["CodPromo"]=$scope.CodPromo;  
+                    //console.log("args",args);  return false;      
                        var respuesta = "";
                      $http({
                         method: "POST",
@@ -239,5 +246,20 @@ angular
 
                         });
                     
+                }
+                $scope.showBoxitAddress = function () {                    
+                    if($scope.plataforma != null){
+                        if($scope.plataforma.attributes.IdPlataforma>0){
+                            $scope.boxitAddress = $scope.allBoxitAddress[$scope.plataforma.attributes.IdPlataforma];
+                        }
+                    }else{
+                        $scope.boxitAddress = "";
+                    }
+                    if($scope.boxitAddress){
+                        $scope.showBxitAddress=true;
+                    }else{
+                        $scope.showBxitAddress=false;
+                    }
+                    console.log("$scope.boxitAddress",$scope.boxitAddress);
                 }
             }]);
