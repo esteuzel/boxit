@@ -362,8 +362,9 @@ angular
                             args["Quantity"] = item.Quantity;
                             //precio de la unidad
                             args["Amount"] = item.Price.FormattedPrice;
-                            // console.log(args);
-
+                            // id del producto
+                            args["ItemId"] = item.ItemId;
+                            console.log(args);
                             detail["PurchaseOrderDetail"] = args;
                             details.push("detail", detail);
                         }

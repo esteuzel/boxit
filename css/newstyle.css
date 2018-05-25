@@ -2455,3 +2455,8 @@ margin-top: 30px;
       float: left!important;
     }
 }
+
+.weight-bold {
+  font-weight: 500;
+  color: red;
+}

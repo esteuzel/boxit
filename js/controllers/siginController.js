@@ -45,6 +45,9 @@ angular
                     $scope.plataformas = results.data;
                     for (var i = 0; i < $scope.plataformas.length; i++) {
                         $scope.allBoxitAddress[$scope.plataformas[i].attributes.IdPlataforma] = $scope.plataformas[i].attributes.Direccion_Fisica;
+                        console.log("$scope.allBoxitAddress",$scope.allBoxitAddress);
+                        console.log("$scope.plataformas[i].attributes",$scope.plataformas[i].attributes);
+                        
                     }
                 }, function error(results) {
                     console.log(results.data);
@@ -125,7 +128,7 @@ angular
                     }
                     args["IdTipoPlan"]=$scope.IdTipoPlan;
                     args["CodPromo"]=$scope.CodPromo;  
-                    //console.log("args",args);  return false;      
+                    console.log("args",args);  return false;      
                        var respuesta = "";
                      $http({
                         method: "POST",
@@ -247,7 +250,8 @@ angular
                         });
                     
                 }
-                $scope.showBoxitAddress = function () {                    
+                $scope.showBoxitAddress = function () {           
+                    console.log("$scope.boxitAddress",$scope.plataforma.attributes.IdPlataforma);         
                     if($scope.plataforma != null){
                         if($scope.plataforma.attributes.IdPlataforma>0){
                             $scope.boxitAddress = $scope.allBoxitAddress[$scope.plataforma.attributes.IdPlataforma];

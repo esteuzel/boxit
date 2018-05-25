@@ -65,7 +65,7 @@
                     </h2>
                     <ul class="item-options">                                
                         <li>        
-                            <em>Peso: {{item.Weight}} lbs.</em>
+                            <em><span ng-class="{'weight-bold' : item.Weight == 0 }">Peso: {{item.Weight}} lbs.</span></em>
                         </li>        
                     </ul>
                 </td>
@@ -109,7 +109,7 @@
                     </h2>
                     <ul class="item-options">                                
                         <li>        
-                            <em class="ng-binding">Peso: {{item.Weight}} lbs.</em>
+                            <em class="ng-bindingaa" ><span ng-class="{'weight-bold' : item.Weight == 0 }">Peso: {{item.Weight}} lbs.</span></em>
                         </li>   
                         <li>        
                             <em class="ng-binding">Valor Unitario: <span class="price currency_price ng-binding">{{item.Price.FormattedPrice}}</span></em>
@@ -144,7 +144,7 @@
     <div class="cart-container">        
     <div class="cart-disclaimers">
            <p>Comisión y Transporte incluye el translado del paquete hasta Panamá. No incluye impuesto de aduana que pagan algunos paquetes.No incluye otros gastos de manejo especial si su paquete lo amerita. Si tu paquete debe pagar, puedes hacerlo en el momento de retiro.</p>
-
+           <p>Al comprar un producto con Peso Unitario igual a 0,  el costo de la comisión no incluirá el transporte a Panamá, este cargo se cobrará al llegar el paquete al Boxit, según su peso</p>
              <p>Mas información <a ui-sref="faq" class="link-informacion-faq">Aqui</a>.</p>
     </div>
                     <div class="cart-summary">
