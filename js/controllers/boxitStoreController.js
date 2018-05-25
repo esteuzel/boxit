@@ -197,14 +197,23 @@ angular
                       if (result !== undefined && result !== null){
                          products[params["ItemPage"] - 1] =  result.data.Item;
                          if(result.data.Item){
-                            angular.forEach(result.data.Item, function(value, key) {
-                                //console.log("value" , value );
+                            if(result.data.Item.length>1){
+                                angular.forEach(result.data.Item, function(value, key) {
+                                    //console.log("value" , value );
+                                    if(value.ItemId){
+                                        if(value.Image!=null){
+                                            allProducts.push(value);
+                                        }
+                                    }
+                                });
+                            }else{
+                                value = result.data.Item;
                                 if(value.ItemId){
                                     if(value.Image!=null){
                                         allProducts.push(value);
                                     }
                                 }
-                            });
+                            }
                          }                         
                       }
                     defered.resolve(result.data.Item);
