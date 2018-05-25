@@ -249,7 +249,7 @@ angular
                     var defered = $q.defer();
                     var promise = defered.promise;
                     userData.getItemDetails(id).then(function success(result) {
-                        defered.resolve(result.Item.PageUrl);
+                        defered.resolve(result.Item);
                     }, function error(result) {
                         defered.reject(result);
                     });
@@ -263,8 +263,7 @@ angular
                         var defered = $q.defer();
                         var items = $scope.carItems[i];
                         defered.resolve(getItemLink(items.ItemId).then(function success(result) {
-                            links.push(result);
-
+                            links[result.ItemId] = result.PageUrl;
 
                         }, function error(result) {
                             console.log(result);
@@ -357,7 +356,7 @@ angular
                             //descripcion del producto
                             args["Package"] = item.Title;
                             //link al producto en amazon
-                            args["Link"] =links[i];
+                            args["Link"] =links[item.ItemId];
                             //cantidad de unidades
                             args["Quantity"] = item.Quantity;
                             //precio de la unidad
