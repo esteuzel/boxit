@@ -33,7 +33,12 @@ angular
                    $scope.imgUrl = item.Item.Image.ImageUrl;
                    $scope.itemPrice = item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
                    amount = item.Item.Offers.Offer.OfferListing.Price.Amount;
-                   $scope.peso = item.Item.Attributes.PackageDimensions.Weight == null ? 0 : Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                   if(item.Item.Attributes.PackageDimensions != null){
+                    $scope.peso = item.Item.Attributes.PackageDimensions.Weight == null ? 0 : Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                   }else{
+                    $scope.peso = 0;
+                   }
+                   
                    setItemData(item);
                    setItemVariation(item);
                }
@@ -73,7 +78,12 @@ angular
                 $scope.total = numeral(( amount * $scope.cantidad) / 100).format('$0,0.00');
                 $scope.showMain = true;
                 $scope.loadMain = false;
-                $scope.peso = item.Item.Attributes.PackageDimensions.Weight == null ? 0 : Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                
+                if(item.Item.Attributes.PackageDimensions != null){
+                    $scope.peso = item.Item.Attributes.PackageDimensions.Weight == null ? 0 : Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                   }else{
+                    $scope.peso = 0;
+                   }
                 getCar();
             }
 
@@ -206,10 +216,12 @@ angular
                     args["OfferListingId"] = "";
                     args["Price"] = currentItemObject.Item.Offers.Offer.OfferListing.Price.Amount / 100;
                     // PackageDimensions 
+                    if(currentItemObject.Item.Attributes.PackageDimensions != null){
                     args["Height"] = currentItemObject.Item.Attributes.PackageDimensions.Height == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Height;
                     args["Length"] = currentItemObject.Item.Attributes.PackageDimensions.Length == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Length;
                     args["Weight"] = currentItemObject.Item.Attributes.PackageDimensions.Weight == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Weight;
-                    args["Width"] = currentItemObject.Item.Attributes.PackageDimensions.Width == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Width;               
+                    args["Width"] = currentItemObject.Item.Attributes.PackageDimensions.Width == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Width; 
+                    }              
                     // Image
                     args["UrlImage"] = currentItemObject.Item.Image.ImageUrl;
                     console.log("args",args);
