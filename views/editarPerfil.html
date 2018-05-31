@@ -110,7 +110,7 @@
             <div class="container-fluid">		
                 <div class="row">
                     <div class="col-xs-6 tarifa-left">
-                        <div class="tarifa" ng-class="IdTipoPlan == 2 ? tarifaselected : ''">
+                        <div class="tarifa" ng-class="{'tarifaselected': IdTipoPlan==2}">
                             <label class="radio-inline tarifa-titulo">
                                 <input ng-model="IdTipoPlan" type="radio" name="IdTipoPlan" id="IdTipoPlan1" value="2"> Tarifa Premium
                             </label>
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     <div class="col-xs-6 tarifa-right">
-                        <div class="tarifa" ng-class="IdTipoPlan == 1 ? tarifaselected : ''">
+                        <div class="tarifa" ng-class="{'tarifaselected': IdTipoPlan==1}">
                             <label class="radio-inline tarifa-titulo cancheck">
                                 <input ng-model="IdTipoPlan" type="radio" name="IdTipoPlan" id="IdTipoPlan2" value="1"> Tarifa Básica
                             </label>
