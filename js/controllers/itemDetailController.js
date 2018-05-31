@@ -31,8 +31,11 @@ angular
                    $scope.titulo = item.Item.Attributes.Title;
                    $scope.texto = getDescription(item).trim();
                    $scope.imgUrl = item.Item.Image.ImageUrl;
-                   $scope.itemPrice = item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
-                   amount = item.Item.Offers.Offer.OfferListing.Price.Amount;
+                   //$scope.itemPrice = item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
+                   //amount = item.Item.Offers.Offer.OfferListing.Price.Amount;
+                   $scope.itemPrice = item.Item.OfferSummary.ListPrice.FormattedPrice;
+                   amount = item.Item.OfferSummary.ListPrice.Amount;
+                   
                    if(item.Item.Attributes.PackageDimensions != null){
                     $scope.peso = item.Item.Attributes.PackageDimensions.Weight == null ? 0 : Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
                    }else{
@@ -60,10 +63,13 @@ angular
                 $scope.userNotLogged = usrObj === undefined;
                 $scope.titulo = item.Item.Attributes.Title;
                 $scope.texto = getDescription(item).trim();
-                $scope.imgUrl = item.Item.Image.ImageUrl;
-                $scope.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
+                $scope.imgUrl = item.Item.Image.ImageUrl;                
                 $scope.cantidad = 1;
-                var amount = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.Amount;
+                $scope.itemPrice = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.FormattedPrice;
+                //$scope.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
+                var amount = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.Amount;
+                //var amount = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.Amount;
+                
                 $scope.amount = amount;
                 console.log('userNotLogged',$scope.userNotLogged);
                 console.log(amount == 0);
@@ -214,7 +220,10 @@ angular
                     args["IdCliente"] = userData.getData().IdCliente;                    
                     args["ItemId"] = currentItemObject.Item.ItemId;
                     args["OfferListingId"] = "";
-                    args["Price"] = currentItemObject.Item.Offers.Offer.OfferListing.Price.Amount / 100;
+                    //args["Price"] = currentItemObject.Item.Offers.Offer.OfferListing.Price.Amount / 100;
+                    args["Price"] = currentItemObject.Item.Item.OfferSummary.ListPrice.Amount / 100;
+                    
+                    
                     // PackageDimensions 
                     if(currentItemObject.Item.Attributes.PackageDimensions != null){
                     args["Height"] = currentItemObject.Item.Attributes.PackageDimensions.Height == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Height;

@@ -206,6 +206,14 @@ angular
                                     //console.log("value" , value );
                                     if(value.ItemId){
                                         if(value.Image!=null){
+
+                                            
+                                            if(value.Offers.Offer!=null){
+                                            value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                            }
+                                            if(value.OfferSummary!=null){
+                                            value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                                            }
                                             allProducts.push(value);
                                         }
                                     }
@@ -411,8 +419,8 @@ angular
                     args["ItemId"] = itemadded.ItemId;
                     args["OfferListingId"] = "";
                     args["Quantity"] = "1";
-                    args["Price"] = itemadded.Offers.Offer.OfferListing.Price.Amount / 100;
-
+                    //args["Price"] = itemadded.Offers.Offer.OfferListing.Price.Amount / 100;
+                    args["Price"] = itemadded.OfferSummary.ListPrice.Amount / 100;                     
                     // PackageDimensions 
                     args["Height"] = itemadded.Attributes.PackageDimensions.Height;
                     args["Length"] = itemadded.Attributes.PackageDimensions.Length;
@@ -781,7 +789,8 @@ angular
                         'ItemId': item.ItemId,
                         'ImageUrl': item.Image.ImageUrl,
                         'Title': item.Attributes.Title,
-                        'FormattedPrice': item.Offers.Offer.OfferListing.Price.FormattedPrice
+                        //'FormattedPrice': item.Offers.Offer.OfferListing.Price.FormattedPrice
+                        'FormattedPrice': item.OfferSummary.ListPrice.FormattedPrice
                     };
                     let duplicados = false;
                     for (let index = 0; index < oldItems.length; index++) {
