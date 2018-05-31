@@ -2460,3 +2460,8 @@ margin-top: 30px;
   font-weight: 500;
   color: red;
 }
+@media (max-width: 991px){
+  .iniciosesion {
+    color: #000!important;
+  }
+}
