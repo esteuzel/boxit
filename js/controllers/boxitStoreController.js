@@ -204,19 +204,10 @@ angular
                             if(result.data.Item.length>1){
                                 angular.forEach(result.data.Item, function(value, key) {
                                     //console.log("value" , value );
-                                    if(value.ItemId){
-                                        if(value.Image!=null){
-
-                                            
-                                            if(value.Offers.Offer!=null){
-                                            value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
-                                            }
-                                            if(value.OfferSummary!=null){
-                                            value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
-                                            }
-                                            allProducts.push(value);
-                                        }
-                                    }
+                                    let newValue = checkItemData(value);
+                                    if(newValue!=null){
+                                        allProducts.push(value);
+                                    }                                    
                                 });
                             }else{
                                 value = result.data.Item;
@@ -233,6 +224,18 @@ angular
                     defered.reject(result.data);
                 });
                 return promise;
+            }
+
+            function checkItemData(value){                
+                if(!value.ItemId || value.ItemId==null){ return null; }
+                if(!value.Image || value.Image==null){ return null; }                                                              
+                if(value.Offers.Offer!=null){
+                    value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                }
+                if(value.OfferSummary!=null){
+                    value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                }                    
+                return value;
             }
 
             $scope.pageChanged = function () {

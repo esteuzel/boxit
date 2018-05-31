@@ -1,288 +1,575 @@
-<!DOCTYPE html>
-<html ng-app="boxit">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Boxit</title>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/responsive.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="css/userStyle.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="css/Style.css">
-        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-        <script src="js/Rotators.js"></script>
-        <script src="js/numeral.min.js" type="text/javascript"></script>
-        <script src="js/moment.js" type="text/javascript"></script>
-        <script src="js/js.js"></script>
-        <script src="js/dependencias/angular.js"></script>
-        <script src="js/dependencias/angular-animate.min.js"></script>
-        <script src="js/dependencias/angular-sanitize.min.js"></script>
-        <script src="js/dependencias/ngToast.min.js"></script>
-        <script src="js/dependencias/ui-bootstrap-tpls-1.3.2.min.js"></script>
-        <script src="js/dependencias/angular-ui-router.min.js"></script>
-        <script src="js/dependencias/ngStorage.js"></script>
-        <script src="js/dependencias/angular-md5.js" type="text/javascript"></script>
-        <script src="js/dependencias/ofi.browser.js" type="text/javascript"></script>
-        <script src="js/dependencias/fitie.js" type="text/javascript"></script>
-        <script src="js/app/app.js"></script>
-        <script src="js/services/userService.js" type="text/javascript"></script>
-        <script src="js/controllers/activarController.js" type="text/javascript"></script>
-        <script src="js/controllers/anunciarPaqueteController.js" type="text/javascript"></script>
-        <script src="js/controllers/cerrarSesionController.js" type="text/javascript"></script>
-        <script src="js/controllers/detallesDelArticuloController.js" type="text/javascript"></script>
-        <script src="js/controllers/editarPerfilController.js" type="text/javascript"></script>
-        <script src="js/controllers/indexController.js" type="text/javascript"></script>
-        <script src="js/controllers/inicioController.js" type="text/javascript"></script>
-        <script src="js/controllers/loginController.js" type="text/javascript"></script>
-        <script src="js/controllers/modalCambioClaveController.js" type="text/javascript"></script>
-        <script src="js/controllers/modalDetallesArticuloController.js" type="text/javascript"></script>
-        <script src="js/controllers/modificarContrasenaController.js" type="text/javascript"></script>
-        <script src="js/controllers/passwordController.js" type="text/javascript"></script>
-        <script src="js/controllers/seleccionarBoxitController.js" type="text/javascript"></script>
-        <script src="js/controllers/shoppingCarController.js" type="text/javascript"></script>
-        <script src="js/controllers/siginController.js" type="text/javascript"></script>
-        <script src="js/controllers/trakingDePaquetesController.js" type="text/javascript"></script>
-        <script src="js/controllers/userMenuController.js" type="text/javascript"></script>
-        <script src="js/controllers/modalShoppingCarController.js" type="text/javascript"></script>
-        <script src="js/controllers/modalPopUpController.js" type="text/javascript"></script>
-        <script src="js/controllers/anularController.js" type="text/javascript"></script>
-        <script src="js/controllers/homeController.js" type="text/javascript"></script>
-    </head>
-    <body ng-controller="indexController">
-        <header class="desktop">
-            <div class="Language">
-                <!--                        <div class="SelectLanguage">
-                                            <div class="Text">Español (ESP)</div>
-                                            <div class="Arrow"></div>
-                                            <div class="Languages">
-                                                <div class="Language Selected" id="ESP" >Español (ESP)</div>
-                                                <div class="Language" id="ING">Ingles (ING)</div>
-                                                <div class="Language" id="FRA">Frances (FRA)</div>
-                                            </div>
-                                        </div>-->
-            </div>
-            <div class="row">
-                <div class="col-md-offset-1 col-md-1">
-                    <div class="Logo">
-                        <a ui-sref="home">
-                            <img src="../img/logo-boxit_Menu.png" alt="Boxit" title="Boxit">
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-4 Menu">
-
-                    <ul>
-                        <li>
-                            <a ui-sref="home">INICIO</a>
-                        </li>
-                        <li>
-                            <a href="#">SERVICIOS</a>
-                            <div class="SubMenu">
-                                <div class="SubMenuContainer">
-                                    <div class="Arrow">
-                                        <div></div>
-                                    </div>
-                                    <ul>
-                                        <li><a ui-sref="nosotros">¿Qué es Boxit?</a></li>
-                                        <li><a ui-sref="retiro">Retiro de paquete</a></li>
-                                        <li><a ui-sref="devolucion">Devolución de compra</a></li>
-                                        <li><a ui-sref="enviar">Enviar un paquete</a></li>
-                                        <li><a ui-sref="pagoservicio">Paga tus servicios</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <a ui-sref="precios">PRECIOS</a>
-                        </li>
-                        <li>
-                            <a ui-sref="FAQ">PREGUNTAS FRECUENTES</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-1"> 
-                    <div class="">
-                        <a ui-sref="boxitStore">
-                            <img class="img-responsive img-rounded center-block"
-                                 style="
-                                 object-fit: contain;"
-                                 src="img/BoxitStore-2.png" alt="Boxit" title="Boxit"/>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="UserAccountOptions" ng-show="!loged">
-                        <!--                        <a ui-sref="iniciarSesion"> 
-                                                    <div class="Button">INICIA SESIÓN</div>
-                                                </a>-->
-
-                        <!--                        <button type="button" class="btn btn-default">INICIA SESIÓN</button>
-                                                <a ui-sref="registro">
-                                                    <div class="Button WithBackground">REGÍSTRATE</div>
-                                                </a>-->
-                        <a ui-sref="iniciarSesion" class="btn btn-default sesionButton " role="button">INICIA SESIÓN</a>
-                        <a ui-sref="registro" class="btn btn-default userAreaButton " role="button">REGÍSTRATE</a>
-
-                    </div>
-                    <div class="UserAccountOptions" ng-show="loged">
-                        <!--                        <a href="#" ng-click="cerrarSesion()"> 
-                                                    <div class="Button">CERRAR SESIÓN</div>
-                                                </a>
-                                                <a ui-sref="iniciarSesion">
-                                                    <div class="Button WithBackground">AREA DE USUARIO</div>
-                                                </a>-->
-                        <a href="#" ng-click="cerrarSesion()" class="btn btn-default sesionButton" role="button">CERRAR SESIÓN</a>
-                        <a ui-sref="iniciarSesion" class="btn btn-default userAreaButton" role="button">AREA DE USUARIO</a>
-
-                    </div>
-
-                </div>
-                <div class="col-md-2">
-                    <ul class="list-inline">
-                        <li><a  href="https://www.facebook.com/MyboxitOnline/" target="_blank"><img src="img/icono-facebook.png" alt=""></a></li>
-                        <li><a href="https://twitter.com/MyboxitOnline/" target="_blank"><img src="img/icono-twitter.png" alt=""></a></li>
-                        <li><a href="https://www.instagram.com/MyboxitOnline/" target="_blank"><img src="img/icono-instagram.png" alt=""></a></li>
-                    </ul>
-
-
-                </div>
-            </div>
-
-
-
-
-        </header>
-        <div class="Mobile">
-            <div class="Top">
-                <div class="Menu">
-                    <img src="../img/IconMenuBurger.svg" alt="Cart" title="Cart">
-                </div>
-                <div class="Organization">
-                    <a href="./">
-                        <img src="../img/logo-boxit_XIT_blanco.png" alt="Boxit" title="Boxit">
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="MobileMenu">
-            <div class="Menu">
-                <div class="Header">
-                    <div class="Close">X</div>
-                </div>
-                <div class="Groups">
-                    <div class="Group">
-                        <div class="Header " ng-click ="desplegarMenu()">
-                            SERVICIOS
-                        </div>
-                        <div class="Options desplegable closeMmenu">
-                            <div class="Option">
-                                <a ui-sref="nosotros">¿Qué es Boxit?</a>
-                            </div>
-                            <div class="Option">
-                                <a ui-sref="retiro">Retiro de paquete</a>
-                            </div>
-                            <div class="Option">
-                                <a ui-sref="devolucion">Devolución de compra</a>
-                            </div>
-                            <div class="Option">
-                                <a ui-sref="enviar">Enviar un paquete</a>
-                            </div>
-                            <div class="Option">
-                                <a ui-sref="pagoservicio">Paga tus servicios</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Group">
-                        <div class="Header closeMmenu">
-                            <a ui-sref="precios">PRECIOS</a>
-                        </div>
-                    </div>
-                    <div class="Group">
-                        <div class="Header closeMmenu">
-                            <a ui-sref="FAQ">PREGUNTAS FRECUENTES</a>
-                        </div>
-                    </div>
-                    <div class="Group">
-                        <div class="Header closeMmenu">
-                            <a ui-sref="boxitStore">MY BOXIT STORE AMAZON</a>
-                        </div>
-                    </div>
-                    <div class="Group">
-                        <div class="Header" ng-click ="desplegarUsu()">
-                            DATOS DE USUARIO
-                        </div>
-                        <div class="Options desplegableUsu closeMmenu">
-                            <div class="Option">
-                                <a ui-sref="iniciarSesion">Iniciar sesión</a>
-                            </div>
-                            <div class="Option">
-                                <a ui-sref="registro">Registrarse</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="Overlay"></div>
-        </div>
-        <div class="desktop">
-            <br/>
-            <br/>
-        </div>
-        <!--AQUI ES DONDE COMIENZA EL BODY-->
-        <div ui-view></div>
-        <!--AQUI COMIENZA EL FOOTER-->
-        <div class="Socials Content">
-            <div class="SocialsContainer ContentContainer MaxWidth">
-                <div class="Title">
-                    <img src="img/Slogan.png" alt="">
-                </div>
-                <div class="SocialLinks">
-                    <ul>
-                        <li><a href="https://www.facebook.com/MyboxitOnline/" target="_blank"><img src="img/icono-facebook.png" alt=""></a></li>
-                        <li><a href="https://twitter.com/MyboxitOnline/" target="_blank"><img src="img/icono-twitter.png" alt=""></a></li>
-                        <li><a href="https://www.instagram.com/MyboxitOnline/" target="_blank"><img src="img/icono-instagram.png" alt=""></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="BottomMenu MaxWidth">
-            <div class="Menu">
-                <ul>
-                    <li>
-                        <div class="SubMenu">
-                            <div class="SubMenuContainer">
-                                <div class="Arrow">
-                                    <div></div>
-                                </div>
-                                <ul>
-                                    <li><a href="Nosotros.html">¿Qué es Boxit?</a></li>
-                                    <li><a href="Retiro.html">Retiro de paquete</a></li>
-                                    <li><a href="Devolucion.html">Devolución de compra</a></li>
-                                    <li><a href="Enviar.html">Enviar un paquete</a></li>
-                                    <li><a href="Pagoservicio.html">Paga tus servicios</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <a href="#">SERVICIOS</a>
-                    </li>
-                    <li><a href="Precios.html">PRECIOS</a></li>
-                    <li><a href="BoxitStore.html">MY BOXIT STORE AMAZON</a></li>
-                </ul>
-            </div>
-            <div class="Logo">
-                <img src="img/logo-boxit_Menu.png" alt="">
-            </div>
-        </div>
-        <footer class="Content">
-            <div class="ContentContainer MaxWidth">
-                <div class="Copyright">
-                    © 2016 Boxit | Todos los derechos reservados
-                </div>
-            </div>
-        </footer>
-           <script>
-            objectFitImages();
-            $(function () { objectFitImages(); });
-        </script>
-    </body>
+<!DOCTYPE html>
+
+<html ng-app="boxit">
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Boxit</title>
+
+        <link rel="stylesheet" href="css/normalize.css">
+
+        <link rel="stylesheet" href="css/responsive.css">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <link href="css/userStyle.css" rel="stylesheet" type="text/css"/>
+
+        <link rel="stylesheet" href="css/Style.css">
+
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+
+        <script src="js/Rotators.js"></script>
+
+        <script src="js/numeral.min.js" type="text/javascript"></script>
+
+        <script src="js/moment.js" type="text/javascript"></script>
+
+        <script src="js/js.js"></script>
+
+        <script src="js/dependencias/angular.js"></script>
+
+        <script src="js/dependencias/angular-animate.min.js"></script>
+
+        <script src="js/dependencias/angular-sanitize.min.js"></script>
+
+        <script src="js/dependencias/ngToast.min.js"></script>
+
+        <script src="js/dependencias/ui-bootstrap-tpls-1.3.2.min.js"></script>
+
+        <script src="js/dependencias/angular-ui-router.min.js"></script>
+
+        <script src="js/dependencias/ngStorage.js"></script>
+
+        <script src="js/dependencias/angular-md5.js" type="text/javascript"></script>
+
+        <script src="js/dependencias/ofi.browser.js" type="text/javascript"></script>
+
+        <script src="js/dependencias/fitie.js" type="text/javascript"></script>
+
+        <script src="js/app/app.js"></script>
+
+        <script src="js/services/userService.js" type="text/javascript"></script>
+
+        <script src="js/controllers/activarController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/anunciarPaqueteController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/cerrarSesionController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/detallesDelArticuloController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/editarPerfilController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/indexController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/inicioController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/loginController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/modalCambioClaveController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/modalDetallesArticuloController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/modificarContrasenaController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/passwordController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/seleccionarBoxitController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/shoppingCarController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/siginController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/trakingDePaquetesController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/userMenuController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/modalShoppingCarController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/modalPopUpController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/anularController.js" type="text/javascript"></script>
+
+        <script src="js/controllers/homeController.js" type="text/javascript"></script>
+
+    </head>
+
+    <body ng-controller="indexController">
+
+        <header class="desktop">
+
+            <div class="Language">
+
+                <!--                        <div class="SelectLanguage">
+
+                                            <div class="Text">Español (ESP)</div>
+
+                                            <div class="Arrow"></div>
+
+                                            <div class="Languages">
+
+                                                <div class="Language Selected" id="ESP" >Español (ESP)</div>
+
+                                                <div class="Language" id="ING">Ingles (ING)</div>
+
+                                                <div class="Language" id="FRA">Frances (FRA)</div>
+
+                                            </div>
+
+                                        </div>-->
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-offset-1 col-md-1">
+
+                    <div class="Logo">
+
+                        <a ui-sref="home">
+
+                            <img src="../img/logo-boxit_Menu.png" alt="Boxit" title="Boxit">
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 Menu">
+
+
+
+                    <ul>
+
+                        <li>
+
+                            <a ui-sref="home">INICIO</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="#">SERVICIOS</a>
+
+                            <div class="SubMenu">
+
+                                <div class="SubMenuContainer">
+
+                                    <div class="Arrow">
+
+                                        <div></div>
+
+                                    </div>
+
+                                    <ul>
+
+                                        <li><a ui-sref="nosotros">¿Qué es Boxit?</a></li>
+
+                                        <li><a ui-sref="retiro">Retiro de paquete</a></li>
+
+                                        <li><a ui-sref="devolucion">Devolución de compra</a></li>
+
+                                        <li><a ui-sref="enviar">Enviar un paquete</a></li>
+
+                                        <li><a ui-sref="pagoservicio">Paga tus servicios</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </li>
+
+                        <li>
+
+                            <a ui-sref="precios">PRECIOS</a>
+
+                        </li>
+
+                        <li>
+
+                            <a ui-sref="faq">PREGUNTAS FRECUENTES</a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-md-1"> 
+
+                    <div class="">
+
+                        <a ui-sref="boxitStore">
+
+                            <img class="img-responsive img-rounded center-block"
+
+                                 style="
+
+                                 object-fit: contain;"
+
+                                 src="img/BoxitStore-2.png" alt="Boxit" title="Boxit"/>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <div class="UserAccountOptions" ng-show="!loged">
+
+                        <!--                        <a ui-sref="iniciarSesion"> 
+
+                                                    <div class="Button">INICIA SESIÓN</div>
+
+                                                </a>-->
+
+
+
+                        <!--                        <button type="button" class="btn btn-default">INICIA SESIÓN</button>
+
+                                                <a ui-sref="registro">
+
+                                                    <div class="Button WithBackground">REGÍSTRATE</div>
+
+                                                </a>-->
+
+                        <a ui-sref="iniciarSesion" class="btn btn-default sesionButton " role="button">INICIA SESIÓN</a>
+
+                        <a ui-sref="registro" class="btn btn-default userAreaButton " role="button">REGÍSTRATE</a>
+
+
+
+                    </div>
+
+                    <div class="UserAccountOptions" ng-show="loged">
+
+                        <!--                        <a href="#" ng-click="cerrarSesion()"> 
+
+                                                    <div class="Button">CERRAR SESIÓN</div>
+
+                                                </a>
+
+                                                <a ui-sref="iniciarSesion">
+
+                                                    <div class="Button WithBackground">AREA DE USUARIO</div>
+
+                                                </a>-->
+
+                        <a href="#" ng-click="cerrarSesion()" class="btn btn-default sesionButton" role="button">CERRAR SESIÓN</a>
+
+                        <a ui-sref="iniciarSesion" class="btn btn-default userAreaButton" role="button">AREA DE USUARIO</a>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-2">
+
+                    <ul class="list-inline">
+
+                        <li><a  href="https://www.facebook.com/MyboxitOnline/" target="_blank"><img src="img/icono-facebook.png" alt=""></a></li>
+
+                        <li><a href="https://twitter.com/MyboxitOnline/" target="_blank"><img src="img/icono-twitter.png" alt=""></a></li>
+
+                        <li><a href="https://www.instagram.com/MyboxitOnline/" target="_blank"><img src="img/icono-instagram.png" alt=""></a></li>
+
+                    </ul>
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+        </header>
+
+        <div class="Mobile">
+
+            <div class="Top">
+
+                <div class="Menu">
+
+                    <img src="../img/IconMenuBurger.svg" alt="Cart" title="Cart">
+
+                </div>
+
+                <div class="Organization">
+
+                    <a href="./">
+
+                        <img src="../img/logo-boxit_XIT_blanco.png" alt="Boxit" title="Boxit">
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="MobileMenu">
+
+            <div class="Menu">
+
+                <div class="Header">
+
+                    <div class="Close">X</div>
+
+                </div>
+
+                <div class="Groups">
+
+                    <div class="Group">
+
+                        <div class="Header " ng-click ="desplegarMenu()">
+
+                            SERVICIOS
+
+                        </div>
+
+                        <div class="Options desplegable closeMmenu">
+
+                            <div class="Option">
+
+                                <a ui-sref="nosotros">¿Qué es Boxit?</a>
+
+                            </div>
+
+                            <div class="Option">
+
+                                <a ui-sref="retiro">Retiro de paquete</a>
+
+                            </div>
+
+                            <div class="Option">
+
+                                <a ui-sref="devolucion">Devolución de compra</a>
+
+                            </div>
+
+                            <div class="Option">
+
+                                <a ui-sref="enviar">Enviar un paquete</a>
+
+                            </div>
+
+                            <div class="Option">
+
+                                <a ui-sref="pagoservicio">Paga tus servicios</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="Group">
+
+                        <div class="Header closeMmenu">
+
+                            <a ui-sref="precios">PRECIOS</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="Group">
+
+                        <div class="Header closeMmenu">
+
+                            <a ui-sref="faq">PREGUNTAS FRECUENTES</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="Group">
+
+                        <div class="Header closeMmenu">
+
+                            <a ui-sref="boxitStore">MY BOXIT STORE AMAZON</a>
+
+                        </div>
+
+                    </div>
+
+                    <div class="Group">
+
+                        <div class="Header" ng-click ="desplegarUsu()">
+
+                            DATOS DE USUARIO
+
+                        </div>
+
+                        <div class="Options desplegableUsu closeMmenu">
+
+                            <div class="Option">
+
+                                <a ui-sref="iniciarSesion">Iniciar sesión</a>
+
+                            </div>
+
+                            <div class="Option">
+
+                                <a ui-sref="registro">Registrarse</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="Overlay"></div>
+
+        </div>
+
+        <div class="desktop">
+
+            <br/>
+
+            <br/>
+
+        </div>
+
+        <!--AQUI ES DONDE COMIENZA EL BODY-->
+
+        <div ui-view></div>
+
+        <!--AQUI COMIENZA EL FOOTER-->
+
+        <div class="Socials Content">
+
+            <div class="SocialsContainer ContentContainer MaxWidth">
+
+                <div class="Title">
+
+                    <img src="img/Slogan.png" alt="">
+
+                </div>
+
+                <div class="SocialLinks">
+
+                    <ul>
+
+                        <li><a href="https://www.facebook.com/MyboxitOnline/" target="_blank"><img src="img/icono-facebook.png" alt=""></a></li>
+
+                        <li><a href="https://twitter.com/MyboxitOnline/" target="_blank"><img src="img/icono-twitter.png" alt=""></a></li>
+
+                        <li><a href="https://www.instagram.com/MyboxitOnline/" target="_blank"><img src="img/icono-instagram.png" alt=""></a></li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="BottomMenu MaxWidth">
+
+            <div class="Menu">
+
+                <ul>
+
+                    <li>
+
+                        <div class="SubMenu">
+
+                            <div class="SubMenuContainer">
+
+                                <div class="Arrow">
+
+                                    <div></div>
+
+                                </div>
+
+                                <ul>
+
+                                    <li><a href="Nosotros.html">¿Qué es Boxit?</a></li>
+
+                                    <li><a href="Retiro.html">Retiro de paquete</a></li>
+
+                                    <li><a href="Devolucion.html">Devolución de compra</a></li>
+
+                                    <li><a href="Enviar.html">Enviar un paquete</a></li>
+
+                                    <li><a href="Pagoservicio.html">Paga tus servicios</a></li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                        <a href="#">SERVICIOS</a>
+
+                    </li>
+
+                    <li><a href="Precios.html">PRECIOS</a></li>
+
+                    <li><a href="BoxitStore.html">MY BOXIT STORE AMAZON</a></li>
+
+                </ul>
+
+            </div>
+
+            <div class="Logo">
+
+                <img src="img/logo-boxit_Menu.png" alt="">
+
+            </div>
+
+        </div>
+
+        <footer class="Content">
+
+            <div class="ContentContainer MaxWidth">
+
+                <div class="Copyright">
+
+                    © 2016 Boxit | Todos los derechos reservados
+
+                </div>
+
+            </div>
+
+        </footer>
+
+           <script>
+
+            objectFitImages();
+
+            $(function () { objectFitImages(); });
+
+        </script>
+
+    </body>
+
 </html>
