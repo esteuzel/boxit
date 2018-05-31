@@ -23,9 +23,10 @@ angular
             $scope.itemsPerPage = 12;
             $scope.amazonLink = "";
             $scope.showSubCategories = false;
+            $scope.labusquedanoarrojoresultados=false;
             var userObj =  userData.getData();
             var id;
-            $scope.indexs = undefined;  //userData.getSearchIndex(); 
+            $scope.indexs = userData.getSearchIndex(); 
             if (userObj != undefined) {
                 $scope.UserName = userObj.UserName;
             } /*else {
@@ -43,7 +44,7 @@ angular
             var getCar = function () {
                
                 userData.getShoppingCar(id).then(function success(result) {
-                    console.log(result);
+                    //console.log(result);
                     refreshCar(result);
                     return result;
                 }, function error(result) {
@@ -88,11 +89,12 @@ angular
                         if(products[0].length==0){
                             products[0] = undefined;
                         }
-                                                             
+                        $scope.labusquedanoarrojoresultados=false;                
                        // products.reverse();
                         if (products[0] == undefined) {
                             $scope.loadMain = false;
                             $scope.showCar = false;
+                            $scope.labusquedanoarrojoresultados=true;
                             var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
@@ -131,8 +133,10 @@ angular
                 var i;
                 for (i = 1; i < 6; i++) {
                     var defered = $q.defer();
-                    console.log("self.keyword ",self.keyword);
+                   // console.log("self.keyword ",self.keyword);
+                    
                     if (self.keyword != undefined) {
+                        localStorage.setItem("keyword",self.keyword);
                         var searchParams = {};
                       //  console.log(self);
                         searchParams["Keywords"] = self.keyword;
@@ -185,7 +189,7 @@ angular
             function callPages(params) {
                 var defered = $q.defer();
                 var promise = defered.promise;
-                console.log("params",params);
+                //console.log("params",params);
                 $http({
                     method: "POST",
                     url: userData.getHost() + "/amazon/amazongetkeywords",
@@ -230,13 +234,13 @@ angular
             };
             $scope.initIndex = function () {
                 
-               // if ($scope.indexs == undefined) {
+                if ($scope.indexs == undefined) {
                     console.log("realizando busqueda");
                     userData.setSearchIndex();
                     $interval(function () {
                         $scope.indexs = userData.getSearchIndex();
-                }, 1500);
-                //}
+                    }, 1500);
+                }
              //  $scope.index= $scope.indexs[0];
 
             };
@@ -511,6 +515,35 @@ angular
             };
             $scope.firstSearch = function () {
                 $scope.showStoreCarousel = true;
+                
+                let atributoSearchIndexSelected = localStorage.getItem("atributoSearchIndexSelected");
+                console.log("atributoSearchIndexSelected",atributoSearchIndexSelected);
+                
+            if(atributoSearchIndexSelected!=null && $scope.labusquedanoarrojoresultados==false){
+                                
+                let keyword = localStorage.getItem("keyword");
+                console.log("self.keyword ",$scope.keyword);
+
+                if(keyword!=null){
+                    $scope.keyword = keyword;
+                }
+                if($scope.indexs==undefined){
+                    $scope.indexs = userData.getSearchIndex();
+                }
+                //console.log("$scope.indexs",$scope.indexs);
+
+                angular.forEach($scope.indexs, function(value, key) {
+                    //console.log("value" , value );
+                    if(value.attributes.SearchIndex == atributoSearchIndexSelected){
+                        $scope.index = value;
+                    }
+                });          
+                
+                $scope.loadMain = false;
+                $scope.showCar = true;
+                $scope.showImage = false;
+                $scope.doSearch();
+            }else{
                 userData.getFirstSearch().then(function success(result) {
                     $scope.loadMain = false;
                     //$scope.Items = result;
@@ -518,6 +551,7 @@ angular
                     $scope.showImage = false;
                 }, function error(result) {
                 });
+            }         
                 
             };
             $scope.clearShoppingCar = function () {
@@ -560,6 +594,10 @@ angular
             }
 
             $scope.setSubCategories = function () {
+                console.log("this.index",this.index);
+                console.log("setSubCategories",this.index.attributes.SearchIndex);
+                localStorage.setItem("atributoSearchIndexSelected",this.index.attributes.SearchIndex);
+            
                 getSubCategories(this.index.attributes.SearchIndex).then(function success(result) {
                    
                     $scope.subCategories = result.data;
