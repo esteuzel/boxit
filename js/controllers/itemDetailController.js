@@ -228,7 +228,11 @@ angular
                     if(currentItemObject.Item.Attributes.PackageDimensions != null){
                     args["Height"] = currentItemObject.Item.Attributes.PackageDimensions.Height == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Height;
                     args["Length"] = currentItemObject.Item.Attributes.PackageDimensions.Length == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Length;
-                    args["Weight"] = currentItemObject.Item.Attributes.PackageDimensions.Weight == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Weight;
+                    if(currentItemObject.Item.Attributes.PackageDimensions != null){
+                        args["Weight"] = currentItemObject.Item.Attributes.PackageDimensions.Weight == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Weight;
+                    }else{
+                        args["Weight"] = 0;
+                    }
                     args["Width"] = currentItemObject.Item.Attributes.PackageDimensions.Width == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Width; 
                     }              
                     // Image

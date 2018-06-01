@@ -427,7 +427,11 @@ angular
                     // PackageDimensions 
                     args["Height"] = itemadded.Attributes.PackageDimensions.Height;
                     args["Length"] = itemadded.Attributes.PackageDimensions.Length;
-                    args["Weight"] = itemadded.Attributes.PackageDimensions.Weight;
+                    if(itemadded.Attributes.PackageDimensions != null){
+                        args["Weight"] = itemadded.Attributes.PackageDimensions.Weight;
+                    }else{
+                        args["Weight"] = 0;
+                    }
                     args["Width"] = itemadded.Attributes.PackageDimensions.Width;
 
                     // Image

@@ -58,7 +58,11 @@ angular
                         //console.log('item',item);
                         if (item != undefined) {
                             //return item;
-                            value.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                            if(item.Item.Attributes.PackageDimensions != null){
+                                value.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                            }else{
+                                value.Weight = 0;
+                            }
                             value.Image = [];
                             value.Image.ImageUrl = item.Item.Image.ImageUrl;
                             value.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
@@ -78,7 +82,11 @@ angular
                     if (item != undefined) {
                             //return item;
                             newItem = cartItem;
-                            newItem.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                            if(item.Item.Attributes.PackageDimensions != null){
+                                newItem.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
+                            }else{
+                                newItem.Weight = 0;
+                            }
                             newItem.Image = [];
                             newItem.Image.ImageUrl = item.Item.Image.ImageUrl;
                             newItem.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
