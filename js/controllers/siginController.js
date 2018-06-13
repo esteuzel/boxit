@@ -111,8 +111,8 @@ angular
                     if($scope.UserBirthdate != ""){
                         args["UserBirthdate"] = moment($scope.UserBirthdate).format('YYYY/MM/DD');
                     }
-                    args["IdPlataforma"] = $scope.descPlataforma != null ?
-                            $scope.descPlataforma.attributes.IdPlataforma : null;
+                    args["IdPlataforma"] = $scope.plataforma != null ?
+                            $scope.plataforma.attributes.IdPlataforma : null;
                     args["Phone"] = $scope.Phone 
                     args["CEnteraste"] = $scope.CEnteraste;
                     if($scope.Otro_CEnteraste== undefined ){
@@ -128,7 +128,7 @@ angular
                     }
                     args["IdTipoPlan"]=$scope.IdTipoPlan;
                     args["CodPromo"]=$scope.CodPromo;  
-                    console.log("args",args);  return false;      
+                    console.log("args",args);  
                        var respuesta = "";
                      $http({
                         method: "POST",
