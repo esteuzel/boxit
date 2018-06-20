@@ -1,6 +1,6 @@
 angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'angular-md5'])
-    .config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
-
+    .config(['$urlRouterProvider', '$stateProvider', '$locationProvider',function ($urlRouterProvider, $stateProvider, $locationProvider) {        
+        $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/home');
         $stateProvider.state('userMenu', {
             url: '/userInterface',
