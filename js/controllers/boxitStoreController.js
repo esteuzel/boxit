@@ -1,10 +1,11 @@
 angular
     .module('boxit')
-    .controller('boxitStoreController', ['$scope', '$http', '$q', '$anchorScroll', 'userData', '$uibModal', '$localStorage', '$window', '$location', '$interval', '$state',
-        function ($scope, $http, $q, $anchorScroll, userData, $uibModal, $localStorage, $window, $location, $interval, $state) {
+    .controller('boxitStoreController', ['$scope', '$stateParams', '$http', '$q', '$anchorScroll', 'userData', '$uibModal', '$localStorage', '$window', '$location', '$interval', '$state',
+        function ($scope, $stateParams, $http, $q, $anchorScroll, userData, $uibModal, $localStorage, $window, $location, $interval, $state) {
             var products = [];
             var allProducts = [];
             var links = [];
+            console.log('$stateParams.serchdata',$stateParams.serchdata);
             $scope.subCategories = [];
             $scope.checkout = false;
             $scope.shopping = true;
@@ -51,7 +52,7 @@ angular
                     console.log(result);
                 });
             };
-            $scope.doSearch = function () {
+            $scope.doSearch = function () {                
                 console.log('doSearch');
                 $scope.showProductsCategory = false;
                 $scope.showStoreCarousel = false;
@@ -159,9 +160,21 @@ angular
                         }));
 
                         promises.push(defered.promise);
+
+                        $location.path('/boxitStore/'+searchParams["SearchIndex"]+','+searchParams["Keywords"]);
+                        console.log('$location.path(',$location.path());
+                        console.log();
+
                     } else {
 
                         var searchParams = {};
+/*
+                        if (self.index != null || self.index != undefined)
+                        {
+                            searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
+                        }else{
+                            searchParams["SearchIndex"] = "All";
+                        }*/
                         searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
                         searchParams["ItemPage"] = i;
                         var IdCliente = 1;
@@ -233,7 +246,9 @@ angular
                     value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
                 }
                 if(value.OfferSummary!=null){
-                    value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                    if(value.OfferSummary.ListPrice!=null){
+                        value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                    }
                 }                    
                 return value;
             }
@@ -531,13 +546,19 @@ angular
             $scope.firstSearch = function () {
                 $scope.showStoreCarousel = true;
                 
-                let atributoSearchIndexSelected = localStorage.getItem("atributoSearchIndexSelected");
+                //let atributoSearchIndexSelected = localStorage.getItem("atributoSearchIndexSelected");
+                let vars = $stateParams.serchdata.split(',');
+                console.log('vars[0]',vars[0]);
+                console.log('vars[0]',typeof vars[0]);
+                let atributoSearchIndexSelected = vars[0];
                 console.log("atributoSearchIndexSelected",atributoSearchIndexSelected);
                 
-            if(atributoSearchIndexSelected!=null && $scope.labusquedanoarrojoresultados==false){
+            if(atributoSearchIndexSelected!='' && atributoSearchIndexSelected!=null && $scope.labusquedanoarrojoresultados==false){
                                 
-                let keyword = localStorage.getItem("keyword");
+                //let keyword = localStorage.getItem("keyword");
+                let keyword = vars[1];
                 console.log("self.keyword ",$scope.keyword);
+                console.log("keyword ",keyword);
 
                 if(keyword!=null){
                     $scope.keyword = keyword;
@@ -559,13 +580,13 @@ angular
                 $scope.showImage = false;
                 $scope.doSearch();
             }else{
-                userData.getFirstSearch().then(function success(result) {
+                //userData.getFirstSearch().then(function success(result) {
                     $scope.loadMain = false;
                     //$scope.Items = result;
                     $scope.showCar = true;
                     $scope.showImage = false;
-                }, function error(result) {
-                });
+                //}, function error(result) {
+                //});
             }         
                 
             };
@@ -883,5 +904,5 @@ angular
                 $('.navbar').addClass('white');
                 $('.rusia2018-right').show();
                 $('.giftcards-right').show();
-            //console.log("show Rusia");
+            //console.log("show Rusia");            
         }]);

@@ -181,11 +181,21 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 templateUrl: "views/BoxitStoreOld.html?"+$.now(),
                 controller: "shoppingCarController"
             }
-        ).state('boxitStore', {
+        /*).state('boxitStore', {
                 url: "/boxitStore",
                 templateUrl: "views/BoxitStore.html?"+$.now(),
                 controller: "boxitStoreController"
-            }
+            }*/
+        ).state('boxitStore', {
+            url: '/boxitStore/:serchdata',
+            reloadOnSearch : false,
+            templateUrl: "views/BoxitStore.html?"+$.now(),
+            params: {
+                serchdata: ""
+            },                
+            controller: 'boxitStoreController'
+        }
+
         ).state('carrito', {
                 url: "/carrito",
                 templateUrl: "views/Carrito.html?"+$.now(),

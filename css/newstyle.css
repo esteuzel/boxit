@@ -1869,11 +1869,11 @@ box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
 .store-breadcrumb ul li.separator{
 
 }
-
-/*  newhome  violet : #424996 celeeste 79BAC9 botones 4ABFEE*/
-body {
-  /*background: #424996;*/
+.store-breadcrumb ul li a {
+  cursor: pointer;
 }
+/*  newhome  violet : #424996 celeeste 79BAC9 botones 4ABFEE*/
+
 section.home {
   background-color: #3F525D; }
 .how-it-works {

@@ -372,5 +372,9 @@ angular
                 $('.navbar').removeClass('white');
             });            
             $('.navbar').addClass('white');
+
+            $scope.doTheBack = function() {
+                window.history.back();
+              };//ng-click="doTheBack()"
         
         }]);
