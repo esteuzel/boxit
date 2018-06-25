@@ -20,11 +20,11 @@
 
         <div class="form-group">
 
-            <select  id='select_boxit_user' onchange='info_boxit_seleccionado()' class="form-control" ng-options="plataforma.attributes.Address + ' - ' + plataforma.attributes.DescPlataforma for plataforma in plataformas" ng-model = "descPlataforma"  ng-selected="default">
+            <select  ng-change='showBoxitAddress();' class="form-control" ng-options="plataforma.attributes.Address + ' - ' + plataforma.attributes.DescPlataforma for plataforma in plataformas" ng-model = "descPlataforma"  ng-selected="default">
                 <!--<option value="">Selecciona tu Boxit más cercano</option>-->
-            </select>
+            </select>            
             <br/>
-            <div class="FieldContent"><textarea class="form-control" id="info_boxit_sel"  rows="2"></textarea></div>
+            <div class="FieldContent"><textarea class="form-control" id="info_boxit_sel"  rows="2" ng-model="boxitAddress"></textarea></div>
         </div>
         <br>
 
