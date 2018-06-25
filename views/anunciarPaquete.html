@@ -1,34 +1,98 @@
-<script src="../js/controllers/anunciarPaqueteController.js" type="text/javascript"></script>
-<link href="../css/userStyle.css" rel="stylesheet" type="text/css"/>
-<toast></toast>
-<div class="row">
-    <div class ="col-sm-2"></div>
-    <div class="col-sm-6">
-        <h3 class="customLabel">Anunciar Paquete</h3>
-        <hr>
-        <h4 class="customLabel">Por favor completa los siguientes campos</h4>
-        <hr>
-        <div class="form-group">
-            <label class="customLabel">  Numero Tracking:</label>
-            <input type="text" class="form-control" ng-model="TrackingNumber"  placeholder="coloque su número de tracking">
-        </div>
-        <div class="form-group">
-            <label class="customLabel">Tienda*:</label>
-            <input type="text" class="form-control" ng-model="Shop" placeholder="coloque su tienda">
-        </div>
-        <div class="form-group">
-            <label class="customLabel"> Costo: </label>
-            <input type="text" class="form-control" ng-model="Value" placeholder="coloque el costo">
-        </div>
-        <div class="form-group">
-            <label class="customLabel"> Descripcion:</label>
-            <textarea   class="form-control" rows="5" ng-model="Description" placeholder="coloque la descripción"></textarea>
-        </div>
-        <div>
-            <div class="Submit">
-                <!--<input type="submit"  value="REGISTRARME">-->
-                <button class="Button WithBackground" ng-click="anunciar()">Anunciar Paquete</button>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="../js/controllers/anunciarPaqueteController.js" type="text/javascript"></script>
+
+<link href="../css/userStyle.css" rel="stylesheet" type="text/css"/>
+
+<toast></toast>
+
+<div class="row">
+
+    <div class ="col-sm-2"></div>
+
+    <div class="col-sm-6">
+
+        <h3 class="customLabel">Anunciar Paquete</h3>
+
+        <hr>
+
+        <h4 class="customLabel">Por favor completa los siguientes campos</h4>
+
+        <hr>
+
+        <div class="form-group">
+
+            <label class="customLabel">  Numero Tracking:</label>
+
+            <input type="text" class="form-control" ng-model="TrackingNumber"  placeholder="coloque su número de tracking">
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="customLabel">Tienda*:</label>
+
+            <input type="text" class="form-control" ng-model="Shop" placeholder="coloque su tienda">
+
+        </div>
+
+        <div class="form-group">
+
+            <label class="customLabel"> Costo: </label>
+
+            <input type="text" class="form-control" ng-model="Value" placeholder="coloque el costo">
+
+        </div>
+
+        <div class="">
+            <label for="birth" class="customLabel">Fecha estimada de llegada a Miami del producto:</label>
+        </div>
+
+        <div class="input-group">
+            
+               
+                
+                    <input style="border: 2px solid #cdcdcd;float: left" uib-datepicker-popup="{{format}}" 
+                        class ="form-control" ng-model="arraivalDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats">      
+        
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                
+            
+
+            
+
+                      
+
+        </div>       
+
+        <div class="form-group">
+
+            <label for="birth" class="customLabel">Categoría:</label>
+
+            <select default="" id="select_categories" class="form-control" ng-model="category" ng-options="category.attributes.SearchIndex for category in categories"> </select>
+        </div>
+
+        <div class="form-group">
+
+            <label class="customLabel"> Descripcion:</label>
+
+            <textarea   class="form-control" rows="5" ng-model="Description" placeholder="coloque la descripción"></textarea>
+
+        </div>
+
+        <div>
+
+            <div class="Submit">
+
+                <!--<input type="submit"  value="REGISTRARME">-->
+
+                <button class="Button WithBackground" ng-click="anunciar()">Anunciar Paquete</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
