@@ -42,10 +42,22 @@ angular.module('boxit')
                     
                     //console.log("$scope.username",$scope.username);
                     //$scope.IdTipoPlan = 1;
-                    $scope.userPlanName = $scope.IdTipoPlan == 1 ? "Basico" : "Premium";
+                    switch ($scope.IdTipoPlan) {
+                        case 1: $scope.userPlanName = "Basico";                            
+                            break;
+                        case 3: $scope.userPlanName = "Basico";                            
+                            break;
+                        case 2: $scope.userPlanName = "Premium";                            
+                            break;
+                        case 4: $scope.userPlanName = "Premium";                            
+                            break;                    
+                        default: $scope.userPlanName = "Basico";
+                            break;
+                    }
+                    //$scope.userPlanName = $scope.IdTipoPlan == 1 ? "Basico" : "Premium";
                     $scope.ShowUserAddress = true;
-                    $scope.ShowDefaultAddressPremium = $scope.IdTipoPlan == 1;
-                    $scope.ShowDefaultAddressBasica = $scope.IdTipoPlan == 2;
+                    //$scope.ShowDefaultAddressPremium = $scope.IdTipoPlan == 1;
+                    //$scope.ShowDefaultAddressBasica = $scope.IdTipoPlan == 2;
                     console.log("user",user);
                     getPlataforma();
                     /*getTracking().then(function success(result) {                  

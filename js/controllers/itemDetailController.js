@@ -33,7 +33,7 @@ angular
                    $scope.imgUrl = item.Item.Image.ImageUrl;
                    //$scope.itemPrice = item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
                    //amount = item.Item.Offers.Offer.OfferListing.Price.Amount;
-                   $scope.itemPrice = item.Item.OfferSummary.ListPrice.FormattedPrice;
+                   $scope.itemPrice = getItemPrice(item.Item);//item.Item.OfferSummary.ListPrice.FormattedPrice;
                    amount = item.Item.OfferSummary.ListPrice.Amount;
                    
                    if(item.Item.Attributes.PackageDimensions != null){
@@ -65,7 +65,8 @@ angular
                 $scope.texto = getDescription(item).trim();
                 $scope.imgUrl = item.Item.Image.ImageUrl;                
                 $scope.cantidad = 1;
-                $scope.itemPrice = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.FormattedPrice;
+                //$scope.itemPrice = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.FormattedPrice;
+                $scope.itemPrice = getItemPrice(item.Item);
                 //$scope.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
                 var amount = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.Amount;
                 //var amount = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.Amount;
@@ -144,12 +145,14 @@ angular
                 if ($scope.variations == null || $scope.variations == undefined) {
                     $scope.variations = result.Item;
                 }
-                console.log($scope.variations);
-                if ($scope.variations[0].VariationAttributes.VariationAttribute instanceof Array) {
-                    $scope.showVariationsArray = true;
-                }else{
-                    $scope.showVariationsObject = true;
-                    console.log($scope.variations);
+                console.log('$scope.variations',$scope.variations);
+                if ($scope.variations instanceof Array) {
+                    if ($scope.variations[0].VariationAttributes.VariationAttribute instanceof Array) {
+                        $scope.showVariationsArray = true;
+                    }else{
+                        $scope.showVariationsObject = true;
+                        console.log($scope.variations);
+                    }
                 }
                 if ($scope.variation != null && $scope.variation != undefined) {
                     if ($scope.variation.VariationAttributes.VariationAttribute instanceof Array) {
@@ -376,5 +379,25 @@ angular
             $scope.doTheBack = function() {
                 window.history.back();
               };//ng-click="doTheBack()"
-        
+            
+            function getItemPrice(value){
+                if(value.Offers.Offer!=null){
+                    if(value.Offers.Offer.OfferListing!=null){
+                        if(value.Offers.Offer.OfferListing.Price!=null){
+                            if(value.Offers.Offer.OfferListing.Price.FormattedPrice!=null){
+                                return value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                            }
+                        }
+                    }
+                }
+                if(value.OfferSummary!=null){
+                    if(value.OfferSummary.ListPrice!=null){
+                        if(value.OfferSummary.ListPrice.FormattedPrice!=null){
+                            return value.OfferSummary.ListPrice.FormattedPrice;
+                        }
+                    }
+                }                    
+                return 0;
+            }
+
         }]);

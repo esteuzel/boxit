@@ -219,15 +219,14 @@ angular
                                     //console.log("value" , value );
                                     let newValue = checkItemData(value);
                                     if(newValue!=null){
-                                        allProducts.push(value);
+                                        allProducts.push(newValue);
                                     }                                    
                                 });
                             }else{
                                 value = result.data.Item;
-                                if(value.ItemId){
-                                    if(value.Image!=null){
-                                        allProducts.push(value);
-                                    }
+                                let newValue = checkItemData(value);
+                                if(newValue!=null){
+                                    allProducts.push(newValue);
                                 }
                             }
                          }                         
