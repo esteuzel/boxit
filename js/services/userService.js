@@ -410,5 +410,39 @@ angular.module('boxit')
             factory.getHost = function () {
                 return host;
             };
+            factory.getTopSellerProducts = function (args) {
+                // $localStorage.searchIndex = null
+                 $http({
+                     method: "POST",
+                     url: host + "/amazon/amazongettopsellerproducts",
+                     data: args,
+                     headers: {
+                         'Content-Type': 'application/json'
+                     }
+                 }).then(function success(result) {
+                    defered.resolve(result);
+                    console.log(result.data);                     
+                 }, function error(result) {
+                     //console.log(result.data);
+                     defered.resolve(result);
+                 });
+            };
+            factory.getNewReleaseProducts = function (args) {
+                // $localStorage.searchIndex = null
+                 $http({
+                     method: "POST",
+                     url: host + "/amazon/amazongetnewreleaseproducts",
+                     data: args,
+                     headers: {
+                         'Content-Type': 'application/json'
+                     }
+                 }).then(function success(result) {
+                    defered.resolve(result);
+                    console.log(result.data);                     
+                 }, function error(result) {
+                    defered.resolve(result);
+                     //console.log(result.data);
+                 });
+            };
             return factory;
         });

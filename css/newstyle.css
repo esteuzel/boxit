@@ -2465,3 +2465,39 @@ margin-top: 30px;
     color: #000!important;
   }
 }
+
+.boxitStoreCategories {
+
+}
+.boxitStoreCategories ul.top-categories {
+  padding-left: 0;
+}
+.boxitStoreCategories ul.top-categories li a{
+  cursor: pointer;
+}
+.boxitStoreCategories ul.top-categories li ul.sub-categories li a{
+  cursor: pointer;
+}
+
+.boxitStoreCategories ul {
+  list-style: none;
+}
+.boxitStoreCategories ul > li > a {
+  position: relative;
+  display: block;
+  padding: 4px 10px;
+  margin-top: 4px;
+  background-color: #eee;
+  text-decoration: none;
+}
+.boxitStoreCategories ul li a:hover {
+  background: #0693a8;
+  color: #fff;
+}
+.boxitStoreCategories ul li ul {
+padding-left: 10px;
+}
+
+.boxitStoreCategories ul li ul li a {
+  background-color: #f7f7f7;
+}

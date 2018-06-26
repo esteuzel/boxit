@@ -1,7 +1,7 @@
 <div ng-controller="itemDetailController" class="ng-scope">
     <div class="store-itemdetail-top" id="store-itemdetail-top"></div>
     <div class="store-itemdetail-topbar"></div>
-        <div class="row boxitBarItemDetail boxitBar white">      
+    <div class="row boxitBarItemDetail boxitBar white">      
             <div class="col-md-2 carAvatar" ng-show="!UserName">
                 <div class="Avatar"></div>
                 <span class="Name"> Hola</span>
@@ -20,9 +20,9 @@
                     <span id="cartNumber">{{carNumber}}</span>Cart 
                 </a>
             </div>
-        </div>
+    </div>
     
-    	<div class="store-breadcrumb">
+    <div class="store-breadcrumb">
 		<ul>
 			<li>
 				<a ng-click="doTheBack()">boxitStore</a>
@@ -172,6 +172,55 @@
                     </div>
                 </div>
             </div>
+
+
         </div>    
+    </div>
+</div>
+
+
+       
+<div class="store-list container">
+    <div class="row"  ng-if="mostrarSimilaritiesProducts">
+        <h1>Productos similares</h1>
+        <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in similaritiesProducts">
+            <div class="product-item">
+                <div class="product-item-info">
+                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                    <span class="product-image-container">
+                        <span class="product-image-wrapper">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                        </span>
+                    </span>
+                    </a>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                        </strong>
+                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                            <span class="price-container price-final_price tax weee">
+                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="product-item-actions">
+                            <!--<div class="actions-primary actions add-to-cart">
+                                <div class="actions add-to-cart">
+                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item,'default')">
+                                        <span>Añadir al carrito</span>
+                                    </button>
+                                </div>
+                            </div>-->
+                            <div class="actions-secondary">
+                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

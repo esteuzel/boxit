@@ -3,7 +3,7 @@ angular
     .controller('boxitStoreController', ['$scope', '$stateParams', '$http', '$q', '$anchorScroll', 'userData', '$uibModal', '$localStorage', '$window', '$location', '$interval', '$state',
         function ($scope, $stateParams, $http, $q, $anchorScroll, userData, $uibModal, $localStorage, $window, $location, $interval, $state) {
             var products = [];
-            var allProducts = [];
+            var allProducts = [];            
             var links = [];
             console.log('$stateParams.serchdata',$stateParams.serchdata);
             $scope.subCategories = [];
@@ -25,6 +25,13 @@ angular
             $scope.amazonLink = "";
             $scope.showSubCategories = false;
             $scope.labusquedanoarrojoresultados=false;
+            $scope.topCategory = "";
+            $scope.showLeftCategories = false;
+            $scope.categoriesList = [];
+            $scope.subcategoryProducts = [];
+
+
+            console.log("$scope.categoriesList",$scope.categoriesList);
             var userObj =  userData.getData();
             var id;
             $scope.indexs = userData.getSearchIndex(); 
@@ -161,7 +168,7 @@ angular
 
                         promises.push(defered.promise);
 
-                        $location.path('/boxitStore/'+searchParams["SearchIndex"]+','+searchParams["Keywords"]);
+                        $location.path('/boxitStore/'+searchParams["SearchIndex"]+',,'+searchParams["Keywords"]);
                         console.log('$location.path(',$location.path());
                         console.log();
 
@@ -903,5 +910,185 @@ angular
                 $('.navbar').addClass('white');
                 $('.rusia2018-right').show();
                 $('.giftcards-right').show();
-            //console.log("show Rusia");            
+            //console.log("show Rusia"); 
+
+            function obtenerSubcategorias(category) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: userData.getHost() + "/amazon/amazongetcategories",
+                    data: {
+                        "SearchIndex": category
+                    },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
+            }
+
+            $scope.mostrarSubcategorias = function (topCategory) {
+                $scope.topCategory = topCategory;
+                console.log("topCategory",$scope.topCategory);
+                categoryClick(topCategory);
+                obtenerSubcategorias(topCategory).then(function success(result) {  
+                    $scope.showSubCategoriAs = topCategory;                 
+                    $scope.subCategoriAs = result.data;
+                    console.log('$scope.showSubCategoriAs',$scope.showSubCategoriAs);
+                }, function error(result) {
+                    console.log(result);
+                    $scope.showSubCategoriAs = false;
+                });
+            };
+
+            function categoryClick(category){
+                angular.forEach($scope.indexs, function(value, key) {
+                    console.log("value" , value );
+                    if(value.attributes.SearchIndex == category){
+                        $scope.index = value;
+                    }
+                });
+                $scope.setSubCategories();
+            }
+
+            function subCategoryClick(subCategory){
+                angular.forEach($scope.subCategories, function(value, key) {
+                    console.log("value" , value );
+                    if(value.SubCategoryId == subCategory){
+                        $scope.subCategory = value;
+                    }
+                });
+                                
+                //showProductsSubcategory();
+            }
+            $scope.mostrarProductos = function (subCategory) {
+                localStorage.setItem('subCategorySelected',subCategory);
+                let subCategorySelected = localStorage.getItem('subCategorySelected');
+                console.log('subCategorySelected',subCategorySelected);
+                subCategoryClick(subCategory);
+                console.log('mostrarProductos subCategory',subCategory);
+                $scope.subcategoryProducts = [];
+                getTopSellerProducts(subCategory).then(function success(result) {                      
+                    console.log('getTopSellerProducts',result);
+                    angular.forEach(result.data.Item, function(value, key) {
+                        console.log("value" , value );
+                        $scope.subcategoryProducts.push(value);
+                    });
+                    //$scope.Items = $scope.subcategoryProducts;
+                    
+                }, function error(result) {
+                    console.log(result);
+                });
+
+                getNewReleaseProducts(subCategory).then(function success(result) {                      
+                    console.log('getNewReleaseProducts',result);
+                    angular.forEach(result.data.Item, function(value, key) {
+                        console.log("value" , value );
+                        $scope.subcategoryProducts.push(value);
+                    });
+                    //$scope.Items = $scope.subcategoryProducts;
+                    
+                }, function error(result) {
+                    console.log(result);
+                });
+
+                //getTopSellerProducts
+                $scope.showProductsCategory = false;
+                $scope.showStoreCarousel = false;
+            }
+
+            function getTopSellerProducts(BrowseNodeId) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: userData.getHost() + "/amazon/amazongettopsellerproducts",
+                    data: {
+                        "BrowseNodeId": BrowseNodeId
+                    },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
+            }
+
+            function getNewReleaseProducts(BrowseNodeId) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: userData.getHost() + "/amazon/amazongetnewreleaseproducts",
+                    data: {
+                        "BrowseNodeId": BrowseNodeId
+                    },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
+            }
+            
+            
+            //getNewReleaseProducts
+
+            $scope.showLeftCategories = true;
+            obtenerCategoriesList();
+            console.log($scope.categoriesList);
+            function obtenerCategoriesList(){            
+            $scope.categoriesList.push("All");
+            $scope.categoriesList.push("Appliances");
+            $scope.categoriesList.push("MobileApps");
+            $scope.categoriesList.push("ArtsAndCrafts");
+            $scope.categoriesList.push("Automotive");
+            $scope.categoriesList.push("Baby");
+            $scope.categoriesList.push("Beauty");
+            $scope.categoriesList.push("Books");
+            $scope.categoriesList.push("Music");
+            $scope.categoriesList.push("Wireless");
+            $scope.categoriesList.push("Fashion");
+            $scope.categoriesList.push("FashionBaby");
+            $scope.categoriesList.push("FashionBoys");
+            $scope.categoriesList.push("FashionGirls");
+            $scope.categoriesList.push("FashionMen");
+            $scope.categoriesList.push("FashionWomen");
+            $scope.categoriesList.push("Collectibles");
+            $scope.categoriesList.push("PCHardware");
+            $scope.categoriesList.push("MP3Downloads");
+            $scope.categoriesList.push("Electronics");
+            $scope.categoriesList.push("GiftCards");
+            $scope.categoriesList.push("Grocery");
+            $scope.categoriesList.push("HealthPersonal-Care");
+            $scope.categoriesList.push("HomeGarden");
+            $scope.categoriesList.push("Industrial");
+            $scope.categoriesList.push("KindleStore");
+            $scope.categoriesList.push("Luggage");
+            $scope.categoriesList.push("Magazines");
+            $scope.categoriesList.push("Movies");
+            $scope.categoriesList.push("MusicalInstruments");
+            $scope.categoriesList.push("OfficeProducts");
+            $scope.categoriesList.push("LawnAndGarden");
+            $scope.categoriesList.push("PetSupplies");
+            $scope.categoriesList.push("Software");
+            $scope.categoriesList.push("SportingGoods");
+            $scope.categoriesList.push("Tools");
+            $scope.categoriesList.push("Toys");
+            $scope.categoriesList.push("VideoGames");
+            $scope.categoriesList.push("Wine");
+            }
+            
+
         }]);

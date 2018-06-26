@@ -67,8 +67,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 					<div class="FieldContent"><span>Tel&eacute;fono</span> <span class="requerido">* Formato: +5070000000 </span></div>
 					<input class="form-control" ng-model="Phone" placeholder="Ingrese su teléfono" type="phone" 
-					pattern="[+]+[0-9]{10,}" />				
+					pattern="[+]+[0-9]{10,}" />	
 					
+					<div class="FieldContent"><span>Fecha de nacimiento</span></div>
+					<div class="input-group">
+						<input type="text" class="form-control" alt-input-formats="altInputFormats" close-text="Close" datepicker-options="dateOptions" is-open="popup1.opened" ng-model="UserBirthdate" readonly="readonly" uib-datepicker-popup="{{format}}" required/> 
+	
+						<span class="input-group-btn">
+							<button class="btn btn-info btn-calendar" ng-click="open()" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+						</span>
+					</div>
+				</div>
 
 					
 
@@ -154,14 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 					<div class="Fields">
 
-						<div class="FieldContent"><span>Fecha de nacimiento</span></div>
-						<div class="input-group">
-							<input type="text" class="form-control" alt-input-formats="altInputFormats" close-text="Close" datepicker-options="dateOptions" is-open="popup1.opened" ng-model="UserBirthdate" readonly="readonly" uib-datepicker-popup="{{format}}" /> 
-	
-							<span class="input-group-btn">
-								<button class="btn btn-info btn-calendar" ng-click="open()" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
-							</span>
-						</div>
+						
 	
 						<div class="FieldContent"><span>G&eacute;nero</span></div>
 						<select class="form-control" id="" name="" ng-model="UserGender"><option value="">Seleccione una opci&oacute;n</option><option value="H">Masculino</option><option value="M">Femenino</option> </select>

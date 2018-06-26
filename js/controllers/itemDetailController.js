@@ -25,7 +25,7 @@ angular
             $scope.cantidad = 0;
 
             userData.getItemDetails($stateParams.itemId).then(function success(item) {
-                console.log('item',item);
+                //console.log('item',item);
                if (item != undefined) {
                 $scope.itemSelected = item.Item;
                    $scope.titulo = item.Item.Attributes.Title;
@@ -58,7 +58,7 @@ angular
             function setItemData(item) {
                 currentIdItem = item.Item.ItemId;
                 currentItemObject = item;
-                console.log('setItemData currentItemObject',currentItemObject);
+                //console.log('setItemData currentItemObject',currentItemObject);
                 $scope.itemCode = currentIdItem;
                 $scope.userNotLogged = usrObj === undefined;
                 $scope.titulo = item.Item.Attributes.Title;
@@ -72,10 +72,10 @@ angular
                 //var amount = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.Amount;
                 
                 $scope.amount = amount;
-                console.log('userNotLogged',$scope.userNotLogged);
-                console.log(amount == 0);
-                console.log($scope.itemPrice == 0);
-                console.log(($scope.itemPrice == 0 || amount == 0 || $scope.userNotLogged));
+                //console.log('userNotLogged',$scope.userNotLogged);
+                //console.log(amount == 0);
+                //console.log($scope.itemPrice == 0);
+                //console.log(($scope.itemPrice == 0 || amount == 0 || $scope.userNotLogged));
                 $scope.disabledAdd = ($scope.itemPrice == 0 || amount == 0 || $scope.userNotLogged);
                 if($scope.disabledAdd){
                     $scope.tooltip = "Por favor iniciar sesion para añadir articulos"
@@ -399,5 +399,45 @@ angular
                 }                    
                 return 0;
             }
+
+            showSimilaritiesProducts();
+
+            function showSimilaritiesProducts(){
+                $scope.mostrarSimilaritiesProducts = true;
+                $scope.similaritiesProducts=[];
+                getAmazonGetSimilarities($stateParams.itemId).then(function success(result) {                      
+                        console.log('getAmazonGetSimilarities',result);
+                        angular.forEach(result.data.Item, function(value, key) {
+                            //console.log("value" , value );
+                            $scope.similaritiesProducts.push(value);
+                        });
+                        //$scope.Items = $scope.subcategoryProducts;
+                        console.log('$scope.similaritiesProducts',$scope.similaritiesProducts);
+                        
+                }, function error(result) {
+                        console.log(result);
+                });                 
+            }
+
+            function getAmazonGetSimilarities(ItemId) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: userData.getHost() + "/amazon/amazongetsimilarities",
+                    data: {
+                        "ItemId": ItemId
+                    },
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
+            }
+
 
         }]);
