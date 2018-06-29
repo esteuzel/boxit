@@ -74,9 +74,9 @@
             <div class="col-sm-12">
                 <ul class="top-categories">
                     <li ng-repeat="category in categoriesList">
-                        <a ng-click="mostrarSubcategorias(category)">{{category}}</a>
+                        <a ng-click="mostrarSubcategorias(category.value)">{{category.text}}</a>
                         
-                        <ul id="subcats{{category}}" class="sub-categories" ng-if="showSubCategoriAs === category">
+                        <ul id="subcats{{category.value}}" class="sub-categories" ng-if="showSubCategoriAs === category.value">
                             
                             <li ng-repeat="subCategoria in subCategoriAs">
                                 <a ng-click="mostrarProductos(subCategoria.SubCategoryId)">{{subCategoria.SubCategoryName}}</a>
@@ -140,10 +140,62 @@
                  
             </div>
 
+            
 
+            <div class="store-list" ng-if="showTopSellerProducts">
+                <div class="store-list-category-title">
+                    <div class="store-list-category-title-text">
+                        <h2>Productos más vendidos</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsTopSellerProducts">
+                    <div class="product-item">
+                        <div class="product-item-info">
+                            <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                            <span class="product-image-container">
+                                <span class="product-image-wrapper">
+                                    <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                                </span>
+                            </span>
+                            </a>
+                            <div class="product-item-details">
+                                <strong class="product-item-name">
+                                    <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                                </strong>
+                                <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                                    <span class="price-container price-final_price tax weee">
+                                        <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                            <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="product-item-actions">
+                                    <!--<div class="actions-primary actions add-to-cart">
+                                        <div class="actions add-to-cart">
+                                            <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item,'default')">
+                                                <span>Añadir al carrito</span>
+                                            </button>
+                                        </div>
+                                    </div>-->
+                                    <div class="actions-secondary">
+                                        <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                            <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <div class="store-list">
-                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in subcategoryProducts">
+            <div class="store-list" ng-if="showNewReleaseProducts">
+                <div class="store-list-category-title">
+                    <div class="store-list-category-title-text">
+                        <h2>Nuevos Productos</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsNewReleaseProducts">
                     <div class="product-item">
                         <div class="product-item-info">
                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
@@ -192,14 +244,55 @@
 
 
 
+<div class="serachresultdata" ng-show="showCar">
+    <div class="store-list" ng-show="showStoreFirstTen">
+        <div class="col-sm-4 col-md-3 col-noppading" ng-repeat="item in Items">
+            <div class="product-item">
+                <div class="product-item-info">
+                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
+                    <span class="product-image-container">
+                        <span class="product-image-wrapper">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
+                        </span>
+                    </span>
+                    </a>
+                    <div class="product-item-details">
+                        <strong class="product-item-name">
+                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
+                        </strong>
+                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
+                            <span class="price-container price-final_price tax weee">
+                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
+                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="product-item-actions">
+                            <!--<div class="actions-primary actions add-to-cart">
+                                <div class="actions add-to-cart">
+                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item,'default')">
+                                        <span>Añadir al carrito</span>
+                                    </button>
+                                </div>
+                            </div>-->
+                            <div class="actions-secondary">
+                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
+                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
-
-
-
-
-
+    <div class="pagination">
+        <div class="col-lg-12">
+            <uib-pagination ng-change="pageChanged()" ng-model="currentPage" ng-show="showPagination" total-items="totalItems" items-per-page="itemsPerPage"></uib-pagination>
+        </div>    
+    </div>
+</div>
 
 
 
@@ -743,67 +836,14 @@
 
 <div class="BoxitStoreContainer container" ng-init="firstSearch()">
     <div class="row">
-        <div ng-show="loadMain" style="margin-bottom: 20%">
-            <div class="col-lg-12">
-                <div id="cssload-pgloading">
-                    <div class="cssload-loadingwrap">
-                        <ul class="cssload-bokeh">
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
 
 
 
 
 <div ng-show="showCar"> 
-    <div class="store-list" ng-show="showStoreFirstTen">
-        <div class="col-sm-4 col-md-3 col-noppading" ng-repeat="item in Items">
-            <div class="product-item">
-                <div class="product-item-info">
-                    <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">				
-                    <span class="product-image-container">
-                        <span class="product-image-wrapper">
-                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive-no" src="{{item.Image.ImageUrl}}" alt="{{item.Attributes.Title}}">
-                        </span>
-                    </span>
-                    </a>
-                    <div class="product-item-details">
-                        <strong class="product-item-name">
-                            <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
-                        </strong>
-                        <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
-                            <span class="price-container price-final_price tax weee">
-                                <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
-                                </span>
-                            </span>
-                        </div>
-                        <div class="product-item-actions">
-                            <!--<div class="actions-primary actions add-to-cart">
-                                <div class="actions add-to-cart">
-                                    <button type="button" title="Add to Cart" class="action primary tocart button btn-cart" data-goimage="image-{{item.ItemId}}-default" id="product-addtocart-{{item.ItemId}}-default" ng-click="addToCar(item,'default')">
-                                        <span>Añadir al carrito</span>
-                                    </button>
-                                </div>
-                            </div>-->
-                            <div class="actions-secondary">
-                                <a ng-click="addToWishList(item)" class="action towishlist" title="Agregar a Favoritos">
-                                    <span class="add_to_wish_list-{{item.ItemId}}">Agregar a Favoritos</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
     
 
@@ -1082,7 +1122,7 @@
 
 
 
-<div class="store-list-category" ng-show="showProductsCategory">
+    <div class="store-list-category" ng-show="showProductsCategory">
         <div class="store-list-category-title">
             <div class="store-list-category-title-inner">
                 <div class="store-list-category-title-text">
@@ -1325,11 +1365,7 @@
     </div>
 </div>
 
-<div class="pagination" ng-show="showCar">
 
-<div class="col-lg-5"><uib-pagination ng-change="pageChanged()" ng-model="currentPage" ng-show="showPagination" total-items="totalItems" items-per-page="itemsPerPage"></uib-pagination></div>
-
-</div>
 </div>
 
 
@@ -1340,3 +1376,20 @@
 </div>
 </div>
 
+
+
+
+    <div class="spinnerLoadMain" ng-show="loadMain">
+        <div class="col-lg-12">
+            <div id="cssload-pgloading">
+                <div class="cssload-loadingwrap">
+                    <ul class="cssload-bokeh">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>

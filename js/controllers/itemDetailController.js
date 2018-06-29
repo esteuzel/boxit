@@ -411,6 +411,22 @@ angular
                             //console.log("value" , value );
                             $scope.similaritiesProducts.push(value);
                         });
+                        $scope.similaritiesProductsUno= {};
+                        $scope.similaritiesProductsDos= {};
+                        $scope.similaritiesProductsTres= {};
+                        $scope.similaritiesProductsUno[0] = $scope.similaritiesProducts[0];
+                        $scope.similaritiesProductsUno[1] = $scope.similaritiesProducts[1];
+                        $scope.similaritiesProductsUno[2] = $scope.similaritiesProducts[2];
+                        $scope.similaritiesProductsUno[3] = $scope.similaritiesProducts[3];
+                        $scope.similaritiesProductsDos[0] = $scope.similaritiesProducts[4];
+                        $scope.similaritiesProductsDos[1] = $scope.similaritiesProducts[5];
+                        $scope.similaritiesProductsDos[2] = $scope.similaritiesProducts[6];
+                        $scope.similaritiesProductsDos[3] = $scope.similaritiesProducts[7];
+                        $scope.similaritiesProductsTres[0] = $scope.similaritiesProducts[8];
+                        $scope.similaritiesProductsTres[1] = $scope.similaritiesProducts[9];
+                        $scope.similaritiesProductsTres[2] = $scope.similaritiesProducts[5];
+                        $scope.similaritiesProductsTres[3] = $scope.similaritiesProducts[6];
+                        
                         //$scope.Items = $scope.subcategoryProducts;
                         console.log('$scope.similaritiesProducts',$scope.similaritiesProducts);
                         

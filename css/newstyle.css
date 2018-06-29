@@ -2501,3 +2501,9 @@ padding-left: 10px;
 .boxitStoreCategories ul li ul li a {
   background-color: #f7f7f7;
 }
+.spinnerLoadMain {
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  z-index: 9999;
+}

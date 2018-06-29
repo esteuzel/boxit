@@ -29,7 +29,8 @@ angular.module('boxit')
                 $scope.format = 'dd/MM/yyyy';
 
                 //$scope.categories = userData.getCategories(); 
-                $scope.categories = userData.getSearchIndex();
+                $scope.categoriesList = [];
+                obtenerCategoriesList();
                 console.log('$scope.categories',$scope.categories);                
 
                 $scope.anunciar = function () {
@@ -238,6 +239,50 @@ angular.module('boxit')
 
                 $scope.today();
 
+                
+                
+                function obtenerCategoriesList(){            
+                $scope.categoriesList.push({"value":"All","text":"Todas las Categorías"});
+                $scope.categoriesList.push({"value":"Appliances","text":"Appliances"});
+                $scope.categoriesList.push({"value":"MobileApps","text":"MobileApps"});
+                $scope.categoriesList.push({"value":"ArtsAndCrafts","text":"Arts And Crafts"});
+                $scope.categoriesList.push({"value":"Automotive","text":"Automotive"});
+                $scope.categoriesList.push({"value":"Baby","text":"Baby"});
+                $scope.categoriesList.push({"value":"Beauty","text":"Beauty"});
+                $scope.categoriesList.push({"value":"Books","text":"Books"});
+                $scope.categoriesList.push({"value":"Music","text":"Music"});
+                $scope.categoriesList.push({"value":"Wireless","text":"Wireless"});
+                $scope.categoriesList.push({"value":"Fashion","text":"Fashion"});
+                $scope.categoriesList.push({"value":"FashionBaby","text":"Fashion Baby"});
+                $scope.categoriesList.push({"value":"FashionBoys","text":"Fashion Boys"});
+                $scope.categoriesList.push({"value":"FashionGirls","text":"Fashion Girls"});
+                $scope.categoriesList.push({"value":"FashionMen","text":"Fashion Men"});
+                $scope.categoriesList.push({"value":"FashionWomen","text":"Fashion Women"});
+                $scope.categoriesList.push({"value":"Collectibles","text":"Collectibles"});
+                $scope.categoriesList.push({"value":"PCHardware","text":"PC Hardware"});
+                $scope.categoriesList.push({"value":"MP3Downloads","text":"MP3 Downloads"});
+                $scope.categoriesList.push({"value":"Electronics","text":"Electronics"});
+                $scope.categoriesList.push({"value":"GiftCards","text":"Gift Cards"});
+                $scope.categoriesList.push({"value":"Grocery","text":"Grocery"});
+                $scope.categoriesList.push({"value":"HealthPersonal-Care","text":"Health Personal-Care"});
+                $scope.categoriesList.push({"value":"HomeGarden","text":"Home Garden"});
+                $scope.categoriesList.push({"value":"Industrial","text":"Industrial"});
+                $scope.categoriesList.push({"value":"KindleStore","text":"Kindle Store"});
+                $scope.categoriesList.push({"value":"Luggage","text":"Luggage"});
+                $scope.categoriesList.push({"value":"Magazines","text":"Magazines"});
+                $scope.categoriesList.push({"value":"Movies","text":"Movies"});
+                $scope.categoriesList.push({"value":"MusicalInstruments","text":"Musical Instruments"});
+                $scope.categoriesList.push({"value":"OfficeProducts","text":"Office Products"});
+                $scope.categoriesList.push({"value":"LawnAndGarden","text":"Lawn And Garden"});
+                $scope.categoriesList.push({"value":"PetSupplies","text":"Pet Supplies"});
+                $scope.categoriesList.push({"value":"Software","text":"Software"});
+                $scope.categoriesList.push({"value":"SportingGoods","text":"Sporting Goods"});
+                $scope.categoriesList.push({"value":"Tools","text":"Tools"});
+                $scope.categoriesList.push({"value":"Toys","text":"Toys"});
+                $scope.categoriesList.push({"value":"VideoGames","text":"Video Games"});
+                $scope.categoriesList.push({"value":"Wine","text":"Wine"});
+                console.log('categoriesList',$scope.categoriesList);
+                }
             }]);
 
 
