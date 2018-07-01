@@ -1098,18 +1098,48 @@ angular
                     let i = 0;
                     angular.forEach(datos, function(value, key) {
                         value.text = $scope.categoriesListEs[i].texto;
+                        let subcats = value.subcategorias;
+
+                        subcatIndex = 0;
+
+                        angular.forEach(subcats, function(v) {
+                            //console.log('v',v);
+                            value.subcategorias[subcatIndex].textoEs = $scope.subCategoriesEs[v.SubCategoryId];
+                            subcatIndex++;
+                        });
+
                         $scope.categoriesList.push(value);
                         i++;
+                        //console.log('value',value);
                     });
                 });                
             }  
             function obtenerCategoriesListEs(){
                 $scope.categoriesListEs = [];
+                $scope.subCategoriesEs = [];
+
+                $http.get('subcategorias_es.csv').then(function(datos) {
+                    $scope.subCategoriesEs = csvToArray(datos.data);
+                    //console.log('$scope.subCategoriesEs',$scope.subCategoriesEs);                    
+                }); 
+                
                 $http.get('categorias-es.json').then(function(response) {
                     $scope.categoriesListEs = response.data.categoriases;    
-                    console.log(' $scope.categoriesListEs', $scope.categoriesListEs);   
+                    //console.log(' $scope.categoriesListEs', $scope.categoriesListEs);   
                     obtenerCategoriesListFromJson();
                 });                 
-            }            
+            }
+            
+            function csvToArray(csvString) {
+                var lines = csvString.split('\n');
+                var row = [];
+                lines.forEach(function (v){
+                    var line = v.split(',');                    
+                    row[line[0]] = line[2];
+                    //console.log("v",v);
+                });
+                return row;
+                //console.log("row",row);                
+            }
 
         }]);
