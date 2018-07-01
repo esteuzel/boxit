@@ -2478,7 +2478,9 @@ margin-top: 30px;
 .boxitStoreCategories ul.top-categories li ul.sub-categories li a{
   cursor: pointer;
 }
-
+ul.top-categories li.active a{
+color: #3F525D;
+}
 .boxitStoreCategories ul {
   list-style: none;
 }

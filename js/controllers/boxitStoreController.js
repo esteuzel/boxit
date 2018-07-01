@@ -915,7 +915,25 @@ angular
                 $('.giftcards-right').show();
             //console.log("show Rusia"); 
 
-            function obtenerSubcategorias(category) {
+            
+
+            //guardarSubcategorias();
+            function guardarSubcategorias(){
+                let categorias = [];
+                let subcategorias = [];
+                angular.forEach($scope.categoriesList, function(value, key) {
+                    if(value.value == $scope.topCategory){
+                        value.subcategorias = [];
+                        categorias.push(value);
+                    }
+                });
+                angular.forEach($scope.subCategoriAs, function(value, key) {                    
+                    categorias[0].subcategorias.push(value);
+                });                
+                console.log(JSON.stringify(categorias));
+            }
+
+            function obtenerSubcategorias_OLD(category) {
                 var defered = $q.defer();
                 var promise = defered.promise;
                 $http({
@@ -935,30 +953,33 @@ angular
                 return promise;
             }
 
-            $scope.mostrarSubcategorias = function (topCategory) {
+            function obtenerSubcategorias(catIndex) {
+                console.log('$scope.categoriesList',$scope.categoriesList[catIndex].subcategorias);
+                return $scope.categoriesList[catIndex].subcategorias;
+
+            }
+            
+            $scope.mostrarSubcategorias = function (topCategory,catIndex) {
                 $scope.topCategory = topCategory;
                 if($scope.topCategoryLastSelected == topCategory){
-                    console.log('repetida',$scope.topCategoryLastSelected);
                     $scope.showSubCategoriAs = 0;
                     $scope.topCategoryLastSelected = 0;
                 }else{
-                    $scope.topCategoryLastSelected = topCategory;           
-                    console.log("topCategory",$scope.topCategory);
+                    $scope.topCategoryLastSelected = topCategory;    
                     categoryClick(topCategory);
-                    obtenerSubcategorias(topCategory).then(function success(result) {  
+                    $scope.subCategoriAs = obtenerSubcategorias(catIndex);
+                    //obtenerSubcategorias(catIndex).then(function success(result) {  
                         $scope.showSubCategoriAs = topCategory;
-                        $scope.subCategoriAs = result.data;
-                        console.log('$scope.showSubCategoriAs',$scope.showSubCategoriAs);
-                    }, function error(result) {
-                        console.log(result);
-                        $scope.showSubCategoriAs = false;
-                    });
+                        //$scope.subCategoriAs = result.data;                        
+                    //}, function error(result) {
+                        //console.log(result);
+                        //$scope.showSubCategoriAs = false;
+                    //});
                 }
             };
 
             function categoryClick(category){
                 angular.forEach($scope.indexs, function(value, key) {
-                    //console.log("value" , value );
                     if(value.attributes.SearchIndex == category){
                         $scope.index = value;
                     }
@@ -973,10 +994,12 @@ angular
                         $scope.subCategory = value;
                     }
                 });
-                                
+                
                 //showProductsSubcategory();
             }
             $scope.mostrarProductos = function (subCategory) {
+                $scope.showTopSellerProducts = false;  
+                $scope.showNewReleaseProducts = false;  
                 localStorage.setItem('subCategorySelected',subCategory);
                 let subCategorySelected = localStorage.getItem('subCategorySelected');
                 console.log('subCategorySelected',subCategorySelected);
@@ -985,13 +1008,16 @@ angular
                 $scope.itemsTopSellerProducts = [];
                 $scope.loadMain = true;
                 goToTopBody();
+
                 getTopSellerProducts(subCategory).then(function success(result) {                      
                     console.log('getTopSellerProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
                         console.log("value" , value );
                         $scope.itemsTopSellerProducts.push(value);
                     });
-                    $scope.showTopSellerProducts = true;
+                    if($scope.itemsTopSellerProducts.length){
+                        $scope.showTopSellerProducts = true;
+                    }                    
                     $scope.loadMain = false;
                     //$scope.Items = $scope.subcategoryProducts;
                     
@@ -1006,8 +1032,9 @@ angular
                         console.log("value" , value );
                         $scope.itemsNewReleaseProducts.push(value);
                     });
-                    $scope.showNewReleaseProducts = true;
-                    //$scope.Items = $scope.subcategoryProducts;
+                    if($scope.itemsTopSellerProducts.length){
+                        $scope.showNewReleaseProducts = true;
+                    }
                     
                 }, function error(result) {
                     console.log(result);
@@ -1061,50 +1088,28 @@ angular
             
             //getNewReleaseProducts
 
+            //obtener listado de categorias
             $scope.showLeftCategories = true;
-            obtenerCategoriesList();
-            console.log($scope.categoriesList);
-            function obtenerCategoriesList(){            
-            $scope.categoriesList.push({"value":"All","text":"Todas las Categorías"});
-            $scope.categoriesList.push({"value":"Appliances","text":"Appliances"});
-            $scope.categoriesList.push({"value":"MobileApps","text":"MobileApps"});
-            $scope.categoriesList.push({"value":"ArtsAndCrafts","text":"Arts And Crafts"});
-            $scope.categoriesList.push({"value":"Automotive","text":"Automotive"});
-            $scope.categoriesList.push({"value":"Baby","text":"Baby"});
-            $scope.categoriesList.push({"value":"Beauty","text":"Beauty"});
-            $scope.categoriesList.push({"value":"Books","text":"Books"});
-            $scope.categoriesList.push({"value":"Music","text":"Music"});
-            $scope.categoriesList.push({"value":"Wireless","text":"Wireless"});
-            $scope.categoriesList.push({"value":"Fashion","text":"Fashion"});
-            $scope.categoriesList.push({"value":"FashionBaby","text":"Fashion Baby"});
-            $scope.categoriesList.push({"value":"FashionBoys","text":"Fashion Boys"});
-            $scope.categoriesList.push({"value":"FashionGirls","text":"Fashion Girls"});
-            $scope.categoriesList.push({"value":"FashionMen","text":"Fashion Men"});
-            $scope.categoriesList.push({"value":"FashionWomen","text":"Fashion Women"});
-            $scope.categoriesList.push({"value":"Collectibles","text":"Collectibles"});
-            $scope.categoriesList.push({"value":"PCHardware","text":"PC Hardware"});
-            $scope.categoriesList.push({"value":"MP3Downloads","text":"MP3 Downloads"});
-            $scope.categoriesList.push({"value":"Electronics","text":"Electronics"});
-            $scope.categoriesList.push({"value":"GiftCards","text":"Gift Cards"});
-            $scope.categoriesList.push({"value":"Grocery","text":"Grocery"});
-            $scope.categoriesList.push({"value":"HealthPersonal-Care","text":"Health Personal-Care"});
-            $scope.categoriesList.push({"value":"HomeGarden","text":"Home Garden"});
-            $scope.categoriesList.push({"value":"Industrial","text":"Industrial"});
-            $scope.categoriesList.push({"value":"KindleStore","text":"Kindle Store"});
-            $scope.categoriesList.push({"value":"Luggage","text":"Luggage"});
-            $scope.categoriesList.push({"value":"Magazines","text":"Magazines"});
-            $scope.categoriesList.push({"value":"Movies","text":"Movies"});
-            $scope.categoriesList.push({"value":"MusicalInstruments","text":"Musical Instruments"});
-            $scope.categoriesList.push({"value":"OfficeProducts","text":"Office Products"});
-            $scope.categoriesList.push({"value":"LawnAndGarden","text":"Lawn And Garden"});
-            $scope.categoriesList.push({"value":"PetSupplies","text":"Pet Supplies"});
-            $scope.categoriesList.push({"value":"Software","text":"Software"});
-            $scope.categoriesList.push({"value":"SportingGoods","text":"Sporting Goods"});
-            $scope.categoriesList.push({"value":"Tools","text":"Tools"});
-            $scope.categoriesList.push({"value":"Toys","text":"Toys"});
-            $scope.categoriesList.push({"value":"VideoGames","text":"Video Games"});
-            $scope.categoriesList.push({"value":"Wine","text":"Wine"});
-            }
+            obtenerCategoriesListEs();            
             
+            function obtenerCategoriesListFromJson(){
+                return $http.get('categorias-subcategorias.json').then(function(response) {
+                    let datos = response.data.categorias;
+                    let i = 0;
+                    angular.forEach(datos, function(value, key) {
+                        value.text = $scope.categoriesListEs[i].texto;
+                        $scope.categoriesList.push(value);
+                        i++;
+                    });
+                });                
+            }  
+            function obtenerCategoriesListEs(){
+                $scope.categoriesListEs = [];
+                $http.get('categorias-es.json').then(function(response) {
+                    $scope.categoriesListEs = response.data.categoriases;    
+                    console.log(' $scope.categoriesListEs', $scope.categoriesListEs);   
+                    obtenerCategoriesListFromJson();
+                });                 
+            }            
 
         }]);

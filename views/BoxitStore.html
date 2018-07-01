@@ -73,8 +73,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <ul class="top-categories">
-                    <li ng-repeat="category in categoriesList">
-                        <a ng-click="mostrarSubcategorias(category.value)">{{category.text}}</a>
+
+                        
+
+                    <li ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
+                        <a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>
                         
                         <ul id="subcats{{category.value}}" class="sub-categories" ng-if="showSubCategoriAs === category.value">
                             
