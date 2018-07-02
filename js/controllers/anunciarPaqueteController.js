@@ -241,8 +241,12 @@ angular.module('boxit')
 
                 
                 
-                function obtenerCategoriesList(){            
-                $scope.categoriesList.push({"value":"All","text":"Todas las Categorías"});
+                function obtenerCategoriesList(){
+                    $scope.categoriesList = [];
+                    $http.get('categorias-es.json').then(function(response) {
+                        $scope.categoriesList = response.data.categoriases;
+                    });   
+                /*$scope.categoriesList.push({"value":"All","text":"Todas las Categorías"});
                 $scope.categoriesList.push({"value":"Appliances","text":"Appliances"});
                 $scope.categoriesList.push({"value":"MobileApps","text":"MobileApps"});
                 $scope.categoriesList.push({"value":"ArtsAndCrafts","text":"Arts And Crafts"});
@@ -280,7 +284,7 @@ angular.module('boxit')
                 $scope.categoriesList.push({"value":"Tools","text":"Tools"});
                 $scope.categoriesList.push({"value":"Toys","text":"Toys"});
                 $scope.categoriesList.push({"value":"VideoGames","text":"Video Games"});
-                $scope.categoriesList.push({"value":"Wine","text":"Wine"});
+                $scope.categoriesList.push({"value":"Wine","text":"Wine"});*/
                 console.log('categoriesList',$scope.categoriesList);
                 }
             }]);
