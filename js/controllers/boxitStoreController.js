@@ -997,7 +997,8 @@ angular
                 
                 //showProductsSubcategory();
             }
-            $scope.mostrarProductos = function (subCategory) {
+            $scope.mostrarProductos = function (subCategory,subCategoryTexto) {
+                $scope.keyword = "";
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;  
                 localStorage.setItem('subCategorySelected',subCategory);
@@ -1015,10 +1016,20 @@ angular
                         console.log("value" , value );
                         $scope.itemsTopSellerProducts.push(value);
                     });
-                    if($scope.itemsTopSellerProducts.length){
+                    console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
+                    if($scope.itemsTopSellerProducts.length>0){
                         $scope.showTopSellerProducts = true;
-                    }                    
-                    $scope.loadMain = false;
+                        $scope.loadMain = false;
+                    }else{
+                        getSearchEmptySubcategoryProducts(subCategory,subCategoryTexto).then(function success(result) {
+                            angular.forEach(result.data.Item, function(value) {
+                                //console.log("value" , value );
+                                $scope.itemsTopSellerProducts.push(value);
+                            });
+                        });
+
+                    }
+                    
                     //$scope.Items = $scope.subcategoryProducts;
                     
                 }, function error(result) {
@@ -1083,6 +1094,11 @@ angular
                     defered.reject(result);
                 });
                 return promise;
+            }
+
+            function getSearchEmptySubcategoryProducts(BrowseNodeId,subCategoryTexto){
+                $scope.keyword = subCategoryTexto;
+                $scope.doSearch();
             }
             
             

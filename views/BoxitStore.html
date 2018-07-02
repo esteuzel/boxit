@@ -82,7 +82,7 @@
                         <ul id="subcats{{category.value}}" class="sub-categories" ng-if="showSubCategoriAs === category.value">
                             
                             <li ng-repeat="subCategoria in subCategoriAs">
-                                <a ng-click="mostrarProductos(subCategoria.SubCategoryId)">{{subCategoria.textoEs}}</a>
+                                <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs)">{{subCategoria.textoEs}}</a>
                             </li>
                         </ul>
                     </li>
