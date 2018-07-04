@@ -2228,9 +2228,7 @@ margin-right: 100px;
   .navbar.navbar-fixed-top.change .navbar-header .navbar-brand svg {
     height: 50px;
   }
-  .only-descktop {
-    display: none;
-  }
+  
   .navbar.navbar-fixed-top .navbar-header .navbar-toggle {
     margin-top: 15px;
   }
@@ -2241,14 +2239,20 @@ margin-right: 100px;
     height: 70px;
   }
 }
-@media (min-width:769px){
+@media (max-width:991px){
+  .only-descktop {
+  display: none;
+  }
+}
+@media (min-width:992px){
   .only-mobile {
     display: none;
   }
+  .boxit-store-avatar {
+    margin-top: 5px;
+  }
 }
-.boxit-store-avatar {
 
-}
 .boxit-store-avatar .user-photo {
   width: 30px;
   height: 30px;
@@ -2480,15 +2484,18 @@ margin-top: 30px;
   cursor: pointer;
 }
 ul.top-categories li.active a{
-color: #3F525D;
-border-left: 2px solid #3F525D;
+  color: #3F525D;
+  border-left: 2px solid #3F525D;
+  background: #fff;
 }
 ul.top-categories li.active ul li a {
   border-left: none;
   }
 .boxitStoreCategories ul {
   list-style: none;
+  min-width: 200px;
 }
+
 .boxitStoreCategories ul > li > a {
   position: relative;
   display: block;
@@ -2498,21 +2505,74 @@ ul.top-categories li.active ul li a {
   text-decoration: none;
 }
 .boxitStoreCategories ul li a:hover {
-  background: #adb7bd;
+  background-color: #adb7bd;
   color: #fff;
   border-left: 2px solid #3F525D;
 }
-.boxitStoreCategories ul li ul {
-padding-left: 10px;
+.boxitStoreCategories ul li ul.sub-categories {
+  position: absolute;
+  left: 200px;
+  display: none;  
+  padding-left: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-left: -2px;
+  left: 200px;
+  margin-top: -30px;
+  min-width: 300px;
+  border: 1px solid #3F525D;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #fff;
+  background: #f7f7f7;
+  color: #000;
+
+}
+.boxitStoreCategories ul li ul.sub-categories li {
+  background: #f7f7f7;
+
+}
+.boxitStoreCategories ul li ul.sub-categories li a {
+  background-color: #f7f7f7;
+
+}
+.boxitStoreCategories ul li ul.sub-categories li a:hover {
+  background-color: #adb7bd;
+  color: #fff;
+  border-left: 2px solid #3F525D;
 }
 
+.boxitStoreCategories ul.top-categories li:hover {
+  
+}
+.boxitStoreCategories ul.top-categories li:hover ul.sub-categories {
+  display: block;
+}
 .boxitStoreCategories ul li ul li a {
   background-color: #fff;
   border-bottom: 1px solid #f7f7f7;
+}
+.only-descktop .boxitStoreCategories .link-categorias {
+  background: #fff;
+  color: #3F525D;
+  padding: 8px 15px !important;
 }
 .spinnerLoadMain {
   position: absolute;
   top: 45%;
   left: 55%;
   z-index: 9999;
+}
+#select_categories {
+  display: none;
+}
+.sub-categories-mobile {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.boxitStoreCategoriesMobile {
+  margin-top: 10px;
+}
+.boxitStoreCategoriesMobile ul.top-categories li.active a {
+  border-left: none;
 }

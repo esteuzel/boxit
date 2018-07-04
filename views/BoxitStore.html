@@ -1,18 +1,27 @@
 <div class="boxitBar-top" id="boxitBar-top"></div>
 <div class="row boxitBar white">
+
+
     <div class="only-descktop">
-        <div class="col-md-2 carAvatar" ng-show="!UserName">
-            <div class="Avatar"></div>
-            <span class="Name"> Hola</span>
-        </div>
-        <div class="col-md-2 carAvatar" ng-show="UserName">&nbsp;
-            <div class="Avatar"></div>
-            <span class="Name">Hola {{UserName}}</span>
-            <div class="store-favoritos-button">
-                <a class="misFavoritos" ui-sref="misFavoritos">Mis Favoritos</a>
-            </div>
-        </div>
-    
+        
+            <div class="dropdown col-md-2 boxitStoreCategories">
+                <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">Categorías</a>
+
+                <ul class="top-categories dropdown-menu">
+                    <li class="dropdown-item" ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
+                        <a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>
+                        <ul id="subcats{{category.value}}" class="sub-categories"><!--ng-if="showSubCategoriAs === category.value"-->   
+                            <li ng-repeat="subCategoria in category.subcategorias">
+                                <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs,category.value)">{{subCategoria.textoEs}}</a>
+                            </li>
+                        </ul>
+                    </li>                    
+                </ul>
+
+            </div>				
+
+
+
         <div class="form-group col-md-2">
             <select default="All" id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
         </div>
@@ -30,7 +39,19 @@
                 <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>
             </div>
         </div>
+
+        <div class="col-xs-2 boxit-store-avatar" ng-show="!UserName">
+                    <div class="user-photo"></div>
+                    <span class="user-name"><a  ui-sref="iniciarSesion">Inicia sesión</a></span>
+                </div>
+                <div class="col-xs-2 boxit-store-avatar" ng-show="UserName">
+                    <div class="user-photo">{{UserPhoto}}</div>
+                    <span class="user-name">{{UserName}}</span>
+                </div>
+
     </div>
+
+
     <div class="only-mobile">
         <div class="container-fluid">
             <div class="row">
@@ -58,6 +79,28 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="dropdown col-md-2 boxitStoreCategories boxitStoreCategoriesMobile">
+                    <button id="buttonShowCategories" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            Categorías
+                    </button>
+                    
+                    <div class="collapse" id="collapseExample">
+                                    <ul class="top-categories">
+                                        <li ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
+                                            <a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>
+                                            <ul id="subcats{{category.value}}" class="sub-categories-mobile" ng-if="showSubCategoriAs === category.value">                            
+                                                <li ng-repeat="subCategoria in subCategoriAs">
+                                                    <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs)">{{subCategoria.textoEs}}</a>
+                                                </li>
+                                            </ul>
+                                        </li>                                        
+                                    </ul>
+                    </div>
+
+                </div>	
+            </div>	
+
         </div>
     </div>
 </div>
@@ -66,21 +109,36 @@
 
 <div class="BoxitStoreContainer container" ng-init="firstSearch()">
     <div class="row">
-        <div class="col-md-3">
-
+        <div class="col-12">
+<!--
 <div class="boxitStoreCategories" ng-show="showLeftCategories">
     <div class="container222222">
         <div class="row">
             <div class="col-sm-12">
                 <ul class="top-categories">
-
-                        
-
                     <li ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
                         <a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>
-                        
-                        <ul id="subcats{{category.value}}" class="sub-categories" ng-if="showSubCategoriAs === category.value">
-                            
+                        <ul id="subcats{{category.value}}" class="sub-categories" ng-if="showSubCategoriAs === category.value">                            
+                            <li ng-repeat="subCategoria in subCategoriAs">
+                                <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs)">{{subCategoria.textoEs}}</a>
+                            </li>
+                        </ul>
+                    </li>                    
+                </ul>
+            </div>
+        </div>
+    </div>    
+</div>
+-->
+<!--
+<div class="boxitStoreCategories" ng-show="showLeftCategories">
+    <div class="container222222">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="top-categories">
+                    <li ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
+                        <a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>
+                        <ul id="subcats{{category.value}}" class="sub-categories" ng-if="showSubCategoriAs === category.value">                            
                             <li ng-repeat="subCategoria in subCategoriAs">
                                 <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs)">{{subCategoria.textoEs}}</a>
                             </li>
@@ -95,7 +153,7 @@
 
         </div>
         <div class="col-md-9">
-
+-->
 
 
             <div class="boxitStoreSlide" ng-show="showStoreCarousel">
@@ -151,6 +209,7 @@
                         <h2>Productos más vendidos</h2>
                     </div>
                 </div>
+                <div style="clear: both;"></div>
                 <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsTopSellerProducts">
                     <div class="product-item">
                         <div class="product-item-info">
@@ -198,6 +257,7 @@
                         <h2>Nuevos Productos</h2>
                     </div>
                 </div>
+                <div style="clear: both;"></div>
                 <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsNewReleaseProducts">
                     <div class="product-item">
                         <div class="product-item-info">

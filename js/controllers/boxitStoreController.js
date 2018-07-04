@@ -984,7 +984,7 @@ angular
                         $scope.index = value;
                     }
                 });
-                $scope.setSubCategories();
+                //$scope.setSubCategories();
             }
 
             function subCategoryClick(subCategory){
@@ -997,7 +997,13 @@ angular
                 
                 //showProductsSubcategory();
             }
-            $scope.mostrarProductos = function (subCategory,subCategoryTexto) {
+            $scope.mostrarProductos = function (subCategory,subCategoryTexto,categoryValue) {
+                console.log('categoryValue',categoryValue);
+                var element = document.getElementById("buttonShowCategories");
+                $(element).click();
+                
+                console.log('element',element);
+                categoryClick(categoryValue);
                 $scope.keyword = "";
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;  
