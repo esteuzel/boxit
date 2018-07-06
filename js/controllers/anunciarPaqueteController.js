@@ -35,9 +35,9 @@ angular.module('boxit')
                 //console.log('$scope.categories',$scope.categories);                
 
                 $scope.anunciar = function () {
-                    console.log(' $scope.category', $scope.category);
+                    console.log(' $scope.category', $scope.category);                                       
                     
-                    var user = userData.getData();
+                    var user = userData.getData();                    
 
                     $http({
 
@@ -55,11 +55,11 @@ angular.module('boxit')
 
                             "Value": $scope.Value,
 
-                            "arraivalDate": $scope.arraivalDate,
+                            "DateofArrival": moment($scope.arraivalDate).format('DD/MM/YYYY'),
 
-                            "category": $scope.category,
+                            "Category": $scope.category,
 
-                            Description: $scope.Description
+                            "Description": $scope.Description
 
                         },
 
