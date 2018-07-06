@@ -248,17 +248,28 @@ angular
                 return promise;
             }
 
-            function checkItemData(value){                
+            function checkItemData(value){
+                value.Price_FormattedPrice = 0;
                 if(!value.ItemId || value.ItemId==null){ return null; }
-                if(!value.Image || value.Image==null){ return null; }                                                              
-                if(value.Offers.Offer!=null){
-                    value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                if(!value.Image || value.Image==null){ return null; }  
+                if(value.Offers!=null){                                                           
+                    if(value.Offers.Offer!=null){
+                        if(value.Offers.Offer.OfferListing!=null){
+                            if(value.Offers.Offer.OfferListing.Price!=null){
+                                value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
+                            }
+                        }
+                    }
                 }
                 if(value.OfferSummary!=null){
                     if(value.OfferSummary.ListPrice!=null){
                         value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                        console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
                     }
-                }                    
+                }
+                console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
+                       
                 return value;
             }
 
@@ -668,17 +679,17 @@ angular
                     $scope.ItemsElectronicsUno= {};
                     $scope.ItemsElectronicsDos= {};
                     $scope.ItemsElectronicsTres= {};
-                    $scope.ItemsElectronicsUno[0] = result[0];
-                    $scope.ItemsElectronicsUno[1] = result[1];
-                    $scope.ItemsElectronicsUno[2] = result[2];
-                    $scope.ItemsElectronicsUno[3] = result[3];
-                    $scope.ItemsElectronicsDos[0] = result[4];
-                    $scope.ItemsElectronicsDos[1] = result[5];
-                    $scope.ItemsElectronicsDos[2] = result[6];
-                    $scope.ItemsElectronicsDos[3] = result[7];
-                    $scope.ItemsElectronicsTres[0] = result[8];
-                    $scope.ItemsElectronicsTres[1] = result[9];
-                    //console.log('ItemsElectronics',$scope.ItemsElectronics)
+                    $scope.ItemsElectronicsUno[0] = checkItemData(result[0]);
+                    $scope.ItemsElectronicsUno[1] = checkItemData(result[1]);
+                    $scope.ItemsElectronicsUno[2] = checkItemData(result[2]);
+                    $scope.ItemsElectronicsUno[3] = checkItemData(result[3]);
+                    $scope.ItemsElectronicsDos[0] = checkItemData(result[4]);
+                    $scope.ItemsElectronicsDos[1] = checkItemData(result[5]);
+                    $scope.ItemsElectronicsDos[2] = checkItemData(result[6]);
+                    $scope.ItemsElectronicsDos[3] = checkItemData(result[7]);
+                    $scope.ItemsElectronicsTres[0] = checkItemData(result[8]);
+                    $scope.ItemsElectronicsTres[1] = checkItemData(result[9]);
+                    console.log('ItemsElectronics',$scope.ItemsElectronicsAll)
                 }, function error(result) {
                 });
                 /*
@@ -711,16 +722,16 @@ angular
                 $scope.ItemsToysUno= {};
                 $scope.ItemsToysDos= {};
                 $scope.ItemsToysTres= {};
-                $scope.ItemsToysUno[0] = result[0];
-                $scope.ItemsToysUno[1] = result[1];
-                $scope.ItemsToysUno[2] = result[2];
-                $scope.ItemsToysUno[3] = result[3];
-                $scope.ItemsToysDos[0] = result[4];
-                $scope.ItemsToysDos[1] = result[5];
-                $scope.ItemsToysDos[2] = result[6];
-                $scope.ItemsToysDos[3] = result[7];
-                $scope.ItemsToysTres[0] = result[8];
-                $scope.ItemsToysTres[1] = result[9];
+                $scope.ItemsToysUno[0] = checkItemData(result[0]);
+                $scope.ItemsToysUno[1] = checkItemData(result[1]);
+                $scope.ItemsToysUno[2] = checkItemData(result[2]);
+                $scope.ItemsToysUno[3] = checkItemData(result[3]);
+                $scope.ItemsToysDos[0] = checkItemData(result[4]);
+                $scope.ItemsToysDos[1] = checkItemData(result[5]);
+                $scope.ItemsToysDos[2] = checkItemData(result[6]);
+                $scope.ItemsToysDos[3] = checkItemData(result[7]);
+                $scope.ItemsToysTres[0] = checkItemData(result[8]);
+                $scope.ItemsToysTres[1] = checkItemData(result[9]);
                 //console.log('ItemsToys',$scope.ItemsToys)
                }, function error(result) {
                });
@@ -733,16 +744,16 @@ angular
                     $scope.ItemsmenshoesUno= {};
                     $scope.ItemsmenshoesDos= {};
                     $scope.ItemsmenshoesTres= {};
-                    $scope.ItemsmenshoesUno[0] = result[0];
-                    $scope.ItemsmenshoesUno[1] = result[1];
-                    $scope.ItemsmenshoesUno[2] = result[2];
-                    $scope.ItemsmenshoesUno[3] = result[3];
-                    $scope.ItemsmenshoesDos[0] = result[4];
-                    $scope.ItemsmenshoesDos[1] = result[5];
-                    $scope.ItemsmenshoesDos[2] = result[6];
-                    $scope.ItemsmenshoesDos[3] = result[7];
-                    $scope.ItemsmenshoesTres[0] = result[8];
-                    $scope.ItemsmenshoesTres[1] = result[9];
+                    $scope.ItemsmenshoesUno[0] = checkItemData(result[0]);
+                    $scope.ItemsmenshoesUno[1] = checkItemData(result[1]);
+                    $scope.ItemsmenshoesUno[2] = checkItemData(result[2]);
+                    $scope.ItemsmenshoesUno[3] = checkItemData(result[3]);
+                    $scope.ItemsmenshoesDos[0] = checkItemData(result[4]);
+                    $scope.ItemsmenshoesDos[1] = checkItemData(result[5]);
+                    $scope.ItemsmenshoesDos[2] = checkItemData(result[6]);
+                    $scope.ItemsmenshoesDos[3] = checkItemData(result[7]);
+                    $scope.ItemsmenshoesTres[0] = checkItemData(result[8]);
+                    $scope.ItemsmenshoesTres[1] = checkItemData(result[9]);
                     //console.log('Itemsmenshoes',$scope.Itemsmenshoes);
                    }
              
@@ -757,16 +768,16 @@ angular
                     $scope.ItemswhatchesUno= {};
                     $scope.ItemswhatchesDos= {};
                     $scope.ItemswhatchesTres= {};
-                    $scope.ItemswhatchesUno[0] = result[0];
-                    $scope.ItemswhatchesUno[1] = result[1];
-                    $scope.ItemswhatchesUno[2] = result[2];
-                    $scope.ItemswhatchesUno[3] = result[3];
-                    $scope.ItemswhatchesDos[0] = result[4];
-                    $scope.ItemswhatchesDos[1] = result[5];
-                    $scope.ItemswhatchesDos[2] = result[6];
-                    $scope.ItemswhatchesDos[3] = result[7];
-                    $scope.ItemswhatchesTres[0] = result[8];
-                    $scope.ItemswhatchesTres[1] = result[9];
+                    $scope.ItemswhatchesUno[0] = checkItemData(result[0]);
+                    $scope.ItemswhatchesUno[1] = checkItemData(result[1]);
+                    $scope.ItemswhatchesUno[2] = checkItemData(result[2]);
+                    $scope.ItemswhatchesUno[3] = checkItemData(result[3]);
+                    $scope.ItemswhatchesDos[0] = checkItemData(result[4]);
+                    $scope.ItemswhatchesDos[1] = checkItemData(result[5]);
+                    $scope.ItemswhatchesDos[2] = checkItemData(result[6]);
+                    $scope.ItemswhatchesDos[3] = checkItemData(result[7]);
+                    $scope.ItemswhatchesTres[0] = checkItemData(result[8]);
+                    $scope.ItemswhatchesTres[1] = checkItemData(result[9]);
                     //console.log('Itemswhatches',$scope.Itemswhatches);
                    }
              
@@ -781,16 +792,16 @@ angular
                     $scope.ItemshandbagsUno= {};
                     $scope.ItemshandbagsDos= {};
                     $scope.ItemshandbagsTres= {};
-                    $scope.ItemshandbagsUno[0] = result[0];
-                    $scope.ItemshandbagsUno[1] = result[1];
-                    $scope.ItemshandbagsUno[2] = result[2];
-                    $scope.ItemshandbagsUno[3] = result[3];
-                    $scope.ItemshandbagsDos[0] = result[4];
-                    $scope.ItemshandbagsDos[1] = result[5];
-                    $scope.ItemshandbagsDos[2] = result[6];
-                    $scope.ItemshandbagsDos[3] = result[7];
-                    $scope.ItemshandbagsTres[0] = result[8];
-                    $scope.ItemshandbagsTres[1] = result[9];
+                    $scope.ItemshandbagsUno[0] = checkItemData(result[0]);
+                    $scope.ItemshandbagsUno[1] = checkItemData(result[1]);
+                    $scope.ItemshandbagsUno[2] = checkItemData(result[2]);
+                    $scope.ItemshandbagsUno[3] = checkItemData(result[3]);
+                    $scope.ItemshandbagsDos[0] = checkItemData(result[4]);
+                    $scope.ItemshandbagsDos[1] = checkItemData(result[5]);
+                    $scope.ItemshandbagsDos[2] = checkItemData(result[6]);
+                    $scope.ItemshandbagsDos[3] = checkItemData(result[7]);
+                    $scope.ItemshandbagsTres[0] = checkItemData(result[8]);
+                    $scope.ItemshandbagsTres[1] = checkItemData(result[9]);
                     //console.log('Itemshandbags',$scope.Itemshandbags);
                    }
              
@@ -1030,7 +1041,8 @@ angular
                         getSearchEmptySubcategoryProducts(subCategory,subCategoryTexto).then(function success(result) {
                             angular.forEach(result.data.Item, function(value) {
                                 //console.log("value" , value );
-                                $scope.itemsTopSellerProducts.push(value);
+                                let newValue = checkItemData(value);
+                                $scope.itemsTopSellerProducts.push(newValue);
                             });
                         });
 
@@ -1047,7 +1059,8 @@ angular
                     console.log('getNewReleaseProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
                         console.log("value" , value );
-                        $scope.itemsNewReleaseProducts.push(value);
+                        let newValue = checkItemData(value);
+                        $scope.itemsNewReleaseProducts.push(newValue);
                     });
                     if($scope.itemsTopSellerProducts.length){
                         $scope.showNewReleaseProducts = true;
@@ -1147,7 +1160,7 @@ angular
                 
                 $http.get('categorias-es.json').then(function(response) {
                     $scope.categoriesListEs = response.data.categoriases;    
-                    //console.log(' $scope.categoriesListEs', $scope.categoriesListEs);   
+                    //console.log(' $scope.categoriesListEs', $scope.categoriesListEs);    
                     obtenerCategoriesListFromJson();
                 });                 
             }
