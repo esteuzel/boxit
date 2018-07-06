@@ -252,6 +252,12 @@ angular
                 value.Price_FormattedPrice = 0;
                 if(!value.ItemId || value.ItemId==null){ return null; }
                 if(!value.Image || value.Image==null){ return null; }  
+                if(value.OfferSummary!=null){
+                    if(value.OfferSummary.ListPrice!=null){
+                        value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                        console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
+                    }
+                }
                 if(value.Offers!=null){                                                           
                     if(value.Offers.Offer!=null){
                         if(value.Offers.Offer.OfferListing!=null){
@@ -261,13 +267,7 @@ angular
                             }
                         }
                     }
-                }
-                if(value.OfferSummary!=null){
-                    if(value.OfferSummary.ListPrice!=null){
-                        value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
-                        console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
-                    }
-                }
+                }                
                 console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
                        
                 return value;
