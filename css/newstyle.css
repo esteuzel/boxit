@@ -2470,11 +2470,10 @@ margin-top: 30px;
   }
 }
 
-.boxitStoreCategories {
 
-}
 .boxitStoreCategories ul.top-categories {
   padding-left: 0;
+  margin-top: 12px;
 }
 .boxitStoreCategories ul.top-categories li a{
   color: #3F525D;
@@ -2504,30 +2503,38 @@ ul.top-categories li.active ul li a {
   border-bottom: 1px solid #adb7bd;
   text-decoration: none;
 }
-.boxitStoreCategories ul li a:hover {
+.boxitStoreCategories ul > li > a:hover {
   background-color: #adb7bd;
   color: #fff;
   border-left: 2px solid #3F525D;
 }
 .boxitStoreCategories ul li ul.sub-categories {
+  width: calc(100% * 3);
+  height: 609px;
   position: absolute;
-  left: 200px;
+  top: 30px;
+  left: calc(100% + 2px);
   display: none;  
   padding-left: 0;
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-left: -2px;
-  left: 200px;
+  margin-left: -2px;  
   margin-top: -30px;
   min-width: 300px;
-  border: 1px solid #3F525D;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border: 1px solid #b7bcbe;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   background: #fff;
   background: #f7f7f7;
-  color: #000;
-
+  color: #000;    
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+.boxitStoreCategories .dropdown-menu {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
 .boxitStoreCategories ul li ul.sub-categories li {
   background: #f7f7f7;
 
@@ -2556,6 +2563,33 @@ ul.top-categories li.active ul li a {
   background: #fff;
   color: #3F525D;
   padding: 8px 15px !important;
+}
+.only-descktop .boxitStoreCategories ul.top-categories li span {
+  background-color: #fff;
+  color: #3F525D;
+  display: block;
+  padding: 1px 10px;
+  cursor: context-menu;
+}
+.only-descktop .boxitStoreCategories ul.top-categories li {
+  background-color: #fff;
+  border-bottom: 1px solid #f7f7f7;
+  color: #3F525D;
+}
+
+.boxitStoreCategories ul li span:hover {
+  background-color: #adb7bd;
+  color: #fff;
+  border-left: 2px solid #3F525D;
+}
+.only-descktop .boxitStoreCategories {
+  float: right;
+}
+/*#subcatsElectronics { display: block}*/
+.subcategorias-columna {
+  width: 50%;
+  float:left;
+  padding: 5px 10px;
 }
 .spinnerLoadMain {
   position: absolute;
@@ -2618,4 +2652,7 @@ ul.top-categories li.active ul li a {
   font-size: smaller;
   background: orange;
   width: 0;
+}
+.BoxitStoreContainer {
+  margin-top: 20px;
 }

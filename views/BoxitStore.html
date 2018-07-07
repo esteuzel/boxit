@@ -4,25 +4,30 @@
 
     <div class="only-descktop">
         
-            <div class="dropdown col-md-2 boxitStoreCategories">
+        <div class="col-md-3">
+            <div class="dropdown  boxitStoreCategories">
                 <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">Categorías</a>
 
                 <ul class="top-categories dropdown-menu">
                     <li class="dropdown-item" ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
-                        <a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>
-                        <ul id="subcats{{category.value}}" class="sub-categories"><!--ng-if="showSubCategoriAs === category.value"-->   
-                            <li ng-repeat="subCategoria in category.subcategorias">
+                        <!--<a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>-->
+                        <span>{{category.text}}</span>
+                        <ul id="subcats{{category.value}}" class="sub-categories"><!--ng-if="showSubCategoriAs === category.value"-->  
+                            <div class="subcategorias-columna" ng-repeat="subCategoria in category.subcategorias">
+                                    <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs,category.value,category.text)">{{subCategoria.textoEs}}</a>
+                            </div> 
+                            <!--<li ng-repeat="subCategoria in category.subcategorias">
                                 <a ng-click="mostrarProductos(subCategoria.SubCategoryId,subCategoria.textoEs,category.value)">{{subCategoria.textoEs}}</a>
-                            </li>
+                            </li>-->
                         </ul>
                     </li>                    
                 </ul>
 
             </div>				
+        </div>
 
 
-
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-1">
             <select default="All" id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index" ng-options="index.attributes.SearchIndex for index in indexs"> </select>
         </div>
         <div class="form-group col-md-2" ng-show="showSubCategories">
@@ -107,7 +112,25 @@
 
 
 
-
+    <div class="store-breadcrumb" ng-show="!showStoreCarousel">
+		<ul>
+			<li>
+				<span>boxitStore</span>
+			</li>
+			<li class="separator">
+				<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+			</li>
+			<li>
+				<span>{{categoryTexto}}</span>
+            </li>
+            <li class="separator">
+				<span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+			</li>
+			<li>
+				<span>{{subCategoryTexto}}</span>
+			</li>
+		</ul>
+	</div>
 
 
 <div class="boxitStoreSlide" ng-show="showStoreCarousel">
@@ -178,7 +201,7 @@
                                 <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                     <span class="price-container price-final_price tax weee">
                                         <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                            <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                            <span class="price">{{item.priceToShow}}</span>
                                         </span>
                                     </span>
                                 </div>
@@ -226,7 +249,7 @@
                                 <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                     <span class="price-container price-final_price tax weee">
                                         <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                            <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                            <span class="price">{{item.priceToShow}}</span>
                                         </span>
                                     </span>
                                 </div>
@@ -277,7 +300,7 @@
                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                             <span class="price-container price-final_price tax weee">
                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                    <span class="price">{{item.priceToShow}}</span>
                                 </span>
                             </span>
                         </div>
@@ -361,7 +384,7 @@
                                                     <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                         <span class="price-container price-final_price tax weee">
                                                             <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                <span class="price">{{item.priceToShow}}</span>
                                                             </span>
                                                         </span>
                                                     </div>
@@ -418,7 +441,7 @@
                                                     <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                         <span class="price-container price-final_price tax weee">
                                                             <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                <span class="price">{{item.priceToShow}}</span>
                                                             </span>
                                                         </span>
                                                     </div>
@@ -465,7 +488,7 @@
                                                     <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                         <span class="price-container price-final_price tax weee">
                                                             <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                <span class="price">{{item.priceToShow}}</span>
                                                             </span>
                                                         </span>
                                                     </div>
@@ -511,7 +534,7 @@
                                                     <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                         <span class="price-container price-final_price tax weee">
                                                             <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                <span class="price">{{item.priceToShow}}</span>
                                                             </span>
                                                         </span>
                                                     </div>
@@ -606,7 +629,7 @@
                                                             <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                                 <span class="price-container price-final_price tax weee">
                                                                     <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                        <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                        <span class="price">{{item.priceToShow}}</span>
                                                                     </span>
                                                                 </span>
                                                             </div>
@@ -659,7 +682,7 @@
                                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                             <span class="price-container price-final_price tax weee">
                                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                    <span class="price">{{item.priceToShow}}</span>
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -706,7 +729,7 @@
                                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                             <span class="price-container price-final_price tax weee">
                                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                    <span class="price">{{item.priceToShow}}</span>
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -752,7 +775,7 @@
                                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                             <span class="price-container price-final_price tax weee">
                                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                                    <span class="price">{{item.priceToShow}}</span>
                                                                 </span>
                                                             </span>
                                                         </div>
@@ -920,7 +943,7 @@
                                             <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                 <span class="price-container price-final_price tax weee">
                                                     <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                        <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                        <span class="price">{{item.priceToShow}}</span>
                                                     </span>
                                                 </span>
                                             </div>
@@ -975,7 +998,7 @@
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                    <span class="price">{{item.priceToShow}}</span>
                                                 </span>
                                             </span>
                                         </div>
@@ -1022,7 +1045,7 @@
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                    <span class="price">{{item.priceToShow}}</span>
                                                 </span>
                                             </span>
                                         </div>
@@ -1068,7 +1091,7 @@
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                    <span class="price">{{item.priceToShow}}</span>
                                                 </span>
                                             </span>
                                         </div>
@@ -1169,7 +1192,7 @@
                                             <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                 <span class="price-container price-final_price tax weee">
                                                     <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                        <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                        <span class="price">{{item.priceToShow}}</span>
                                                     </span>
                                                 </span>
                                             </div>
@@ -1222,7 +1245,7 @@
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                    <span class="price">{{item.priceToShow}}</span>
                                                 </span>
                                             </span>
                                         </div>
@@ -1269,7 +1292,7 @@
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                    <span class="price">{{item.priceToShow}}</span>
                                                 </span>
                                             </span>
                                         </div>
@@ -1315,7 +1338,7 @@
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
-                                                    <span class="price">{{item.ListPrice_FormattedPrice}}</span>
+                                                    <span class="price">{{item.priceToShow}}</span>
                                                 </span>
                                             </span>
                                         </div>

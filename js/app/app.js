@@ -277,7 +277,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                         templateUrl: 'views/terminosycondiciones.html',
                         size: 'lg',
                     }).result.finally(function () {
-                        
+                        $state.go('home');
                     });
                 }]
             }
@@ -296,7 +296,11 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 });
             }]
         }
-
+        ).state('subirArchivo', {
+            url: '/subirArchivo',
+            templateUrl: 'views/subirArchivo.html?v=${new Date().getTime()}',
+            controller: 'subirArchivoController'
+        }
 /*
         ).state('modalLoginNew', {
                 url: '/modalLoginNew',

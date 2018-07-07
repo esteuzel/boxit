@@ -254,7 +254,7 @@ angular
                 if(!value.Image || value.Image==null){ return null; }  
                 if(value.OfferSummary!=null){
                     if(value.OfferSummary.ListPrice!=null){
-                        value.ListPrice_FormattedPrice=value.OfferSummary.ListPrice.FormattedPrice;
+                        value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
                         console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
                     }
                 }
@@ -262,14 +262,16 @@ angular
                     if(value.Offers.Offer!=null){
                         if(value.Offers.Offer.OfferListing!=null){
                             if(value.Offers.Offer.OfferListing.Price!=null){
-                                value.Price_FormattedPrice=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                
                                 console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
                             }
                         }
                     }
-                }                
-                console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
-                       
+                }
+                if(value.priceToShow=="Too low to display"){
+                    console.log("value.priceToShow",value.Price_FormattedPrice);
+                    value.priceToShow="";
+                }             
                 return value;
             }
 
@@ -675,6 +677,12 @@ angular
              var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
+                if(result!=null & result!=undefined){
+                let i = 0;
+                angular.forEach(result, function(value) {
+                    result[i] = checkItemData(value);
+                    i++;
+                });
                     $scope.ItemsElectronicsAll= result;
                     $scope.ItemsElectronicsUno= {};
                     $scope.ItemsElectronicsDos= {};
@@ -689,7 +697,8 @@ angular
                     $scope.ItemsElectronicsDos[3] = checkItemData(result[7]);
                     $scope.ItemsElectronicsTres[0] = checkItemData(result[8]);
                     $scope.ItemsElectronicsTres[1] = checkItemData(result[9]);
-                    console.log('ItemsElectronics',$scope.ItemsElectronicsAll)
+                    console.log('ItemsElectronics',$scope.ItemsElectronicsAll);
+                }
                 }, function error(result) {
                 });
                 /*
@@ -718,6 +727,12 @@ angular
                var searchParams = {};
                searchParams["SearchIndex"] = "FashionWomen";
                userData.getDefaultSearch(searchParams).then(function success(result) {
+                if(result!=null & result!=undefined){
+                let i = 0;
+                angular.forEach(result, function(value) {
+                    result[i] = checkItemData(value);
+                    i++;
+                });
                 $scope.ItemsToysAll = result;
                 $scope.ItemsToysUno= {};
                 $scope.ItemsToysDos= {};
@@ -732,6 +747,7 @@ angular
                 $scope.ItemsToysDos[3] = checkItemData(result[7]);
                 $scope.ItemsToysTres[0] = checkItemData(result[8]);
                 $scope.ItemsToysTres[1] = checkItemData(result[9]);
+                }
                 //console.log('ItemsToys',$scope.ItemsToys)
                }, function error(result) {
                });
@@ -740,6 +756,11 @@ angular
                searchParams["SearchIndex"] = 'FashionMen';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
+                    let i = 0;
+                    angular.forEach(result, function(value) {
+                        result[i] = checkItemData(value);
+                        i++;
+                    });
                     $scope.ItemsmenshoesAll= result;
                     $scope.ItemsmenshoesUno= {};
                     $scope.ItemsmenshoesDos= {};
@@ -764,6 +785,11 @@ angular
                searchParams["SearchIndex"] = 'Fashion';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
+                    let i = 0;
+                    angular.forEach(result, function(value) {
+                        result[i] = checkItemData(value);
+                        i++;
+                    });
                     $scope.ItemswhatchesAll= result;
                     $scope.ItemswhatchesUno= {};
                     $scope.ItemswhatchesDos= {};
@@ -778,7 +804,7 @@ angular
                     $scope.ItemswhatchesDos[3] = checkItemData(result[7]);
                     $scope.ItemswhatchesTres[0] = checkItemData(result[8]);
                     $scope.ItemswhatchesTres[1] = checkItemData(result[9]);
-                    //console.log('Itemswhatches',$scope.Itemswhatches);
+                    //console.log('ItemswhatchesAll',$scope.ItemswhatchesAll);
                    }
              
                 }, function error(result) {
@@ -788,6 +814,11 @@ angular
                searchParams["SearchIndex"] = 'FashionGirls';
                userData.getDefaultSearch(searchParams).then(function success(result) {                
                    if(result!=null & result!=undefined){
+                    let i = 0;
+                    angular.forEach(result, function(value) {
+                        result[i] = checkItemData(value);
+                        i++;
+                    });
                     $scope.ItemshandbagsAll= result;
                     $scope.ItemshandbagsUno= {};
                     $scope.ItemshandbagsDos= {};
@@ -1008,8 +1039,12 @@ angular
                 
                 //showProductsSubcategory();
             }
-            $scope.mostrarProductos = function (subCategory,subCategoryTexto,categoryValue) {
+            $scope.mostrarProductos = function (subCategory,subCategoryTexto,categoryValue,categoryTexto) {
+                $scope.subCategoryTexto = subCategoryTexto;
+                $scope.categoryTexto = categoryTexto;
                 console.log('categoryValue',categoryValue);
+                console.log('$scope.subCategoryTexto',$scope.subCategoryTexto);
+                console.log('$scope.categoryTexto',$scope.categoryTexto);
                 var element = document.getElementById("buttonShowCategories");
                 $(element).click();
                 
@@ -1030,10 +1065,10 @@ angular
                 getTopSellerProducts(subCategory).then(function success(result) {                      
                     console.log('getTopSellerProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
-                        console.log("value" , value );
+                        //console.log("value" , value );
                         $scope.itemsTopSellerProducts.push(value);
                     });
-                    console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
+                    //console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
                     if($scope.itemsTopSellerProducts.length>0){
                         $scope.showTopSellerProducts = true;
                         $scope.loadMain = false;
@@ -1058,7 +1093,7 @@ angular
                 getNewReleaseProducts(subCategory).then(function success(result) {                      
                     console.log('getNewReleaseProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
-                        console.log("value" , value );
+                        //console.log("value" , value );
                         let newValue = checkItemData(value);
                         $scope.itemsNewReleaseProducts.push(newValue);
                     });
