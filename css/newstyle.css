@@ -648,7 +648,7 @@ html.touchevents .video-background {
     .navbar.navbar-fixed-top #navbar ul li a:not(.btn) {
       font-size: 12px;
       letter-spacing: 0.05em;
-      padding: 10px 10px; }
+      padding: 15px 5px; }
     .navbar.navbar-fixed-top #navbar .navbar-middle {
       left: 42%; }
     /*.navbar.navbar-fixed-top #navbar .navbar-nav > li > .dropdown-menu {
@@ -2575,4 +2575,17 @@ ul.top-categories li.active ul li a {
 }
 .boxitStoreCategoriesMobile ul.top-categories li.active a {
   border-left: none;
+}
+
+.btn-boxitstore span {
+  display: none;  
+  
+}
+.btn-boxitstore {
+  float: right;
+  margin-right: 10px;
+  position: relative;
+  width: 80px;
+  height: 50px;
+  background-image: url("../img/newstyle/botonboxitstore.png");
 }
