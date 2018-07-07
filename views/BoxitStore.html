@@ -33,7 +33,7 @@
                 <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
             </div>
             <div class="store-search-button col-md-2">
-                <button class="btn btn-info" ng-click="doSearch()" type="button">Búsqueda</button>
+                <button class="btn btn-info" ng-click="doSearch()" type="button"><i class="fa fa-search"></i></button>
             </div>            
             <div class="store-cart col-md-1">
                 <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>

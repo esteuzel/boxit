@@ -1056,7 +1056,7 @@ section.iniciodesesion {
 
 /*  store list*/
 .boxitBar {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   padding: 10px;
   padding-top: 20px;
 }
@@ -1214,7 +1214,7 @@ width: 100%;
   cursor: pointer;
 }
 .store-itemdetail {
-  min-height: 500px;
+  min-height: 400px;
   position: relative;
   top: 0;  
   padding-top: 40px;
@@ -2589,3 +2589,7 @@ ul.top-categories li.active ul li a {
   height: 50px;
   background-image: url("../img/newstyle/botonboxitstore.png");
 }
+
+.store-list-category-similares {
+  margin-top: 10px;
+  }

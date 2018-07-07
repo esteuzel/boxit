@@ -346,7 +346,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             function run($rootScope, $location, $window) {         
                 // track pageview on state change
                 $rootScope.$on('$locationChangeStart', function (event) {
-                $window.ga('send', 'pageview', $location.path());
+                //$window.ga('send', 'pageview', $location.path());
                 console.log("pageview",$location.path());
             });
         }
