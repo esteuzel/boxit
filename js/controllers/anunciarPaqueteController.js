@@ -10,9 +10,9 @@
 
 angular.module('boxit')
 
-        .controller('anunciarPaqueteController', ['$scope', '$http', 'ngToast', 'userData', '$uibModal',
+        .controller('anunciarPaqueteController', ['$scope','Upload', '$timeout', '$http', 'ngToast', 'userData', '$uibModal',
 
-            function ($scope, $http, ngToast, userData,$uibModal) {
+            function ($scope, Upload, $timeout, $http, ngToast, userData,$uibModal) {
 
                 $scope.TrackingNumber = "";
 
@@ -36,7 +36,7 @@ angular.module('boxit')
 
                 $scope.anunciar = function () {
                     console.log(' $scope.category', $scope.category);                                       
-                    
+                    console.log(' $scope.f', $scope.f);
                     var user = userData.getData();                    
 
                     $http({
@@ -59,9 +59,13 @@ angular.module('boxit')
 
                             "Category": $scope.category,
 
-                            "Description": $scope.Description
+                            "Description": $scope.Description,
+
+                            "file": $scope.f
 
                         },
+
+                        file: $scope.f,
 
                         headers: {
 
@@ -249,6 +253,30 @@ angular.module('boxit')
                         $scope.categoriesListEs = response.data.categoriases;    
                         console.log(' $scope.categoriesListEs', $scope.categoriesListEs);
                     });                 
+                }
+
+                $scope.uploadFiles = function(file, errFiles) {
+                    $scope.f = file;
+                    $scope.errFile = errFiles && errFiles[0];
+                    if (file) {
+                        file.upload = Upload.upload({
+                            url: 'http://162.243.14.131:8080/upload',
+                            data: {file: file}
+                        });
+            
+                        file.upload.then(function (response) {
+                            $timeout(function () {
+                                file.result = response.data;
+                                console.log(' $scope.f', $scope.f);
+                            });
+                        }, function (response) {
+                            if (response.status > 0)
+                                $scope.errorMsg = response.status + ': ' + response.data;
+                        }, function (evt) {
+                            file.progress = Math.min(100, parseInt(100.0 * 
+                                                     evt.loaded / evt.total));
+                        });
+                    }   
                 }
 
             }]);

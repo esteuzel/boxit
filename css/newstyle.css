@@ -2592,4 +2592,30 @@ ul.top-categories li.active ul li a {
 
 .store-list-category-similares {
   margin-top: 10px;
-  }
+}
+
+.anunciarPaquete {}
+
+.anunciarPaquete .thumb {
+  width: 24px;
+  height: 24px;
+  float: none;
+  position: relative;
+  top: 7px;
+}
+
+.anunciarPaquete form .progress {
+  line-height: 15px;
+}
+
+.anunciarPaquete .progress {
+  display: inline-block;
+  width: 100px;
+  border: 3px groove #CCC;
+}
+
+.anunciarPaquete .progress div {
+  font-size: smaller;
+  background: orange;
+  width: 0;
+}
