@@ -2680,3 +2680,39 @@ ul.top-categories li.active ul li a {
   padding-top: 8px!important;
   padding-bottom: 9px!important;
 }
+.tarjetas {
+  margin-top: 16px;
+}
+.tarjeta {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+}
+.tarjeta:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.tarjeta-container {
+  padding: 8px 16px;
+  width: 100%;
+  clear: both
+}
+.tarjeta-1 {
+  border-top: 2px solid #16b5cc;
+}
+.numeroTracking {
+  width: 50%;
+  float: left;
+}
+.precio {
+  width: 50%;
+  float: left;
+  text-align: right;
+}
+.precio-1 {
+  color: #16b5cc;
+}
+.estado {
+  padding: 12px 0;
+  width: 100%;
+  float: left;
+}

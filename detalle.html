@@ -200,12 +200,647 @@ $(document).ready(function() {
 
 
 
-titulo
-numeor
-estado
 
 
 
+
+
+
+
+
+<div class="row ng-scope">
+
+		<div class="col-xs-12">
+	
+		<h1 class="customLabel user-welcome ng-binding"> Bienvenido Alexandra  </h1>
+	
+		</div>
+	
+	</div>
+
+
+
+
+
+
+
+
+<div class="row ng-scope" style="margin-left: 5%;">   
+
+		<div class="col-sm-2">
+	
+			<ul class="nav nav-pills nav-stacked">
+	
+				<li role="presentation" ng-class="{'active': menu1}" ng-click="active(1)" class=""><a ui-sref="userMenu.inicio" href="/userInterface/inicio">Inicio</a></li>
+	
+				<li role="presentation" ng-class="{'active': menu2}" ng-click="active(2)"><a ui-sref="userMenu.editarPerfil" href="/userInterface/editarPerfil">Editar Perfil</a></li>
+	
+				<li role="presentation" ng-class="{'active': menu3}" ng-click="active(3)"><a ui-sref="userMenu.modificarContrasena" href="/userInterface/modificarContrasena">Modificar Contraseña</a></li>
+	
+				<li role="presentation" ng-class="{'active': menu4}" ng-click="active(4)"><a ui-sref="userMenu.seleccionarBoxIt" href="/userInterface/seleccionarBoxIt">Seleccionar Boxit</a></li>
+	
+				<li role="presentation" ng-class="{'active': menu5}" ng-click="active(5)"><a ui-sref="userMenu.anunciarPaquete" href="/userInterface/anunciarPaquete">Anunciar Paquete</a></li>
+	
+				<li role="presentation" ng-class="{'active': menu6}" ng-click="active(6)" class="active"><a ui-sref="userMenu.trakingDePaquetes" href="/userInterface/trakingDePaquetes"> Historial de Compras</a></li>
+	
+				<li role="presentation" ng-class="{'active': menu7}" ng-click="active(7)"><a ui-sref="userMenu.cerrarSesion" href="/userInterface/cerrarSesion">Cerrar Sesion</a></li>
+	
+			</ul>
+	
+		</div>
+	
+		<div class="col-sm-10">
+	
+			<!-- uiView:  --><div style="margin-bottom: 10%" ui-view="" class="ng-scope">
+	
+		<title class="ng-scope"></title>
+	<!--Begin AutoPilot -->
+	<script type="text/javascript" class="ng-scope">(function(o){var b="https://api.autopilothq.com/anywhere/",t="cb7780893cf5421d9959efe45ff50119761aaf4c5b404556b3591ff3195936d8",a=window.AutopilotAnywhere={_runQueue:[],run:function(){this._runQueue.push(arguments);}},c=encodeURIComponent,s="SCRIPT",d=document,l=d.getElementsByTagName(s)[0],p="t="+c(d.title||"")+"&u="+c(d.location.href||"")+"&r="+c(d.referrer||""),j="text/javascript",z,y;if(!window.Autopilot) window.Autopilot=a;if(o.app) p="devmode=true&"+p;z=function(src,asy){var e=d.createElement(s);e.src=src;e.type=j;e.async=asy;l.parentNode.insertBefore(e,l);};y=function(){z(b+t+'?'+p,true);};if(window.attachEvent){window.attachEvent("onload",y);}else{window.addEventListener("load",y,false);}})({});</script>
+	<!--End AutoPilot -->
+	<!-- Google Tag Manager -->
+	<script class="ng-scope">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WPBXCP9');</script>
+	<!-- End Google Tag Manager -->
+	
+	
+	<!-- Google Tag Manager (noscript) -->
+	<noscript class="ng-scope"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WPBXCP9"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	<link href="../css/userStyle.css" rel="stylesheet" type="text/css" class="ng-scope">
+	
+	
+	<div class="trakingdepaquetes ng-scope">
+		<div class="row">	
+			<h4 class="customLabel">Tracking de Paquetes</h4>
+
+
+			<!-- ngRepeat: traking in trakings -->
+
+
+			<div class="col-sm-12 col-md-6 col-lg-4 ng-scope" 
+			ng-repeat="traking in trakings">
+				<div class="tarjeta tarjeta-1">
+					<div class="tarjeta-container">
+						<div class="numeroTracking">Numero: 10900</div>
+						<div class="precio">$ 9.90</div>
+						<div class="estado">Estado: <b>Orden Nueva</b></div>
+						<div class="detalle">Paquete:  ** Adidas Women's Essentials Linear Full Zip Fleece Hoodie, Black/White, Small ** Asvivid Women's Summer Halter Dress Round Neck Sleeveless Floral Print Casual Straps Sundress Medium Green ** Sandisk Ultra 128Gb Micro Sdxc Uhs-I Card With Adapter -? 100Mb/S U1 A1 - Sdsquar-128G-Gn6Ma ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black ** A|X Armani Exchange Women's Flip Flops Wedge Sandal, Bianco, 5 Medium Us</div>
+					</div>
+					<div style="clear: both"></div>
+				</div>			
+			</div>
+
+
+			<!-- end ngRepeat: traking in trakings -->
+			
+			
+			<div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10839</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10839</p>
+				<p class="ng-binding">Paquete:  ** Amazonbasics Stapler With 1000 Staples - Black</p>
+				<p class="ng-binding">Precio: 9.56</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10841</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10841</p>
+				<p class="ng-binding">Paquete:  ** Apple Iphone 6S 16Gb - Gsm Unlocked - Rose Gold (Certified Refurbished)</p>
+				<p class="ng-binding">Precio: 231.25</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 799</p>
+				<p class="ng-binding">Estatus: Orden Pagada</p>
+				<p class="ng-binding">NumeroTracking: 799</p>
+				<p class="ng-binding">Paquete:  ** Bs-Mall(Tm) Premium 14 Pcs Synthetic Foundation Powder Concealers Eye Shadows Silver Black Makeup Brush Sets(Rose Golden)</p>
+				<p class="ng-binding">Precio: 5.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10805</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10805</p>
+				<p class="ng-binding">Paquete:  ** Dvfb</p>
+				<p class="ng-binding">Precio: 68.50</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 804</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 804</p>
+				<p class="ng-binding">Paquete:  ** Dvfd</p>
+				<p class="ng-binding">Precio: 12.85</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10851</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10851</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10852</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10852</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10853</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10853</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10854</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10854</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10856</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10856</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10858</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10858</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black</p>
+				<p class="ng-binding">Precio: 57.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10855</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10855</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black ** Kindle Paperwhite E-Reader - Black, 6" High-Resolution Display (300 Ppi) With Built-In Light, Wi-Fi - Includes Special Offers</p>
+				<p class="ng-binding">Precio: 266.46</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10857</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10857</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black ** Sperry Top-Sider Men's A/O 2-Eye Chambray Boat Shoe, Tan/Chocolate, 11 Medium Us</p>
+				<p class="ng-binding">Precio: 211.68</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10846</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10846</p>
+				<p class="ng-binding">Paquete:  ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - White</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10847</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10847</p>
+				<p class="ng-binding">Paquete:  ** Echo Spot - Black</p>
+				<p class="ng-binding">Precio: 144.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10881</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10881</p>
+				<p class="ng-binding">Paquete:  ** Echo Spot - Black</p>
+				<p class="ng-binding">Precio: 144.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 805</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 805</p>
+				<p class="ng-binding">Paquete:  ** Fdfb</p>
+				<p class="ng-binding">Precio: 10.75</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10808</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10808</p>
+				<p class="ng-binding">Paquete:  ** Ffv V</p>
+				<p class="ng-binding">Precio: 17.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10849</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10849</p>
+				<p class="ng-binding">Paquete:  ** Fire 7 Tablet With Alexa, 7" Display, 8 Gb, Black - With Special Offers</p>
+				<p class="ng-binding">Precio: 63.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10860</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10860</p>
+				<p class="ng-binding">Paquete:  ** Fire 7 Tablet With Alexa, 7" Display, 8 Gb, Black - With Special Offers</p>
+				<p class="ng-binding">Precio: 57.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10850</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10850</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv Stick With Alexa Voice Remote | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10864</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10864</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv Stick With Alexa Voice Remote | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10867</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10867</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv Stick With Alexa Voice Remote | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10878</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10878</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv Stick With Alexa Voice Remote | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 47.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10848</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10848</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv With 4K Ultra Hd And Alexa Voice Remote (Pendant Design) | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 78.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10859</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10859</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv With 4K Ultra Hd And Alexa Voice Remote (Pendant Design) | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 78.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10870</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10870</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv With 4K Ultra Hd And Alexa Voice Remote (Pendant Design) | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 78.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10844</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10844</p>
+				<p class="ng-binding">Paquete:  ** Fire Tv With 4K Ultra Hd And Alexa Voice Remote (Pendant Design) | Streaming Media Player ** Bs-Mall(Tm) Premium 14 Pcs Synthetic Foundation Powder Concealers Eye Shadows Silver Black Makeup Brush Sets(Rose Golden)</p>
+				<p class="ng-binding">Precio: 93.53</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10871</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10871</p>
+				<p class="ng-binding">Paquete:  ** Frye Women's Ivy Mule Sneaker, White, 10 M Us</p>
+				<p class="ng-binding">Precio: 195.38</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10866</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10866</p>
+				<p class="ng-binding">Paquete:  ** G-Shock Dw5600E-1V Men's Black Resin Sport Watch</p>
+				<p class="ng-binding">Precio: 46.28</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 803</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 803</p>
+				<p class="ng-binding">Paquete:  ** Hbi</p>
+				<p class="ng-binding">Precio: 19.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10804</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10804</p>
+				<p class="ng-binding">Paquete:  ** Jhvjvj</p>
+				<p class="ng-binding">Precio: 13.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10861</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10861</p>
+				<p class="ng-binding">Paquete:  ** Kindle Paperwhite E-Reader - Black, 6" High-Resolution Display (300 Ppi) With Built-In Light, Wi-Fi - Includes Special Offers</p>
+				<p class="ng-binding">Precio: 131.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10863</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10863</p>
+				<p class="ng-binding">Paquete:  ** Kindle Paperwhite E-Reader - Black, 6" High-Resolution Display (300 Ppi) With Built-In Light, Wi-Fi - Includes Special Offers</p>
+				<p class="ng-binding">Precio: 131.49</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10845</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10845</p>
+				<p class="ng-binding">Paquete:  ** Kindle Paperwhite E-Reader - Black, 6" High-Resolution Display (300 Ppi) With Built-In Light, Wi-Fi - Includes Special Offers ** Fire Tv With 4K Ultra Hd And Alexa Voice Remote (Pendant Design) | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 207.98</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 801</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 801</p>
+				<p class="ng-binding">Paquete:  ** Laptop 2</p>
+				<p class="ng-binding">Precio: 27.70</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10843</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10843</p>
+				<p class="ng-binding">Paquete:  ** Love To Dream Swaddle Up Original, Gray, Small, 6.5-13 Lbs. ** Fire Tv With 4K Ultra Hd And Alexa Voice Remote (Pendant Design) | Streaming Media Player</p>
+				<p class="ng-binding">Precio: 147.97</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10840</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10840</p>
+				<p class="ng-binding">Paquete:  ** Native Jefferson Slip-On Sneaker,Regatta Blue,9 M Us Toddler</p>
+				<p class="ng-binding">Precio: 27.92</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10880</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10880</p>
+				<p class="ng-binding">Paquete:  ** Omega Men's 31132403001001 Analog Display Mechanical Hand Wind Brown Watch</p>
+				<p class="ng-binding">Precio: 4,554.17</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10862</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10862</p>
+				<p class="ng-binding">Paquete:  ** Original Penguin Men's Beckett Sneaker, Navy/White/Pink/Retro, 11.0 M Us</p>
+				<p class="ng-binding">Precio: 63.98</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10869</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10869</p>
+				<p class="ng-binding">Paquete:  ** Original Penguin Men's Beckett Sneaker, Navy/White/Pink/Retro, 11.0 M Us</p>
+				<p class="ng-binding">Precio: 63.98</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10876</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10876</p>
+				<p class="ng-binding">Paquete:  ** Original Penguin Men's Beckett Sneaker, Navy/White/Pink/Retro, 11.0 M Us</p>
+				<p class="ng-binding">Precio: 63.98</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10877</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10877</p>
+				<p class="ng-binding">Paquete:  ** Original Penguin Men's Beckett Sneaker, Navy/White/Pink/Retro, 11.0 M Us</p>
+				<p class="ng-binding">Precio: 63.98</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10868</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10868</p>
+				<p class="ng-binding">Paquete:  ** Samsung 64Gb 100Mb/S (U3) Microsdxc Evo Select Memory Card With Adapter (Mb-Me64Ga/Am)</p>
+				<p class="ng-binding">Precio: 26.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10872</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10872</p>
+				<p class="ng-binding">Paquete:  ** Samsung 64Gb 100Mb/S (U3) Microsdxc Evo Select Memory Card With Adapter (Mb-Me64Ga/Am)</p>
+				<p class="ng-binding">Precio: 26.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10873</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10873</p>
+				<p class="ng-binding">Paquete:  ** Samsung 64Gb 100Mb/S (U3) Microsdxc Evo Select Memory Card With Adapter (Mb-Me64Ga/Am)</p>
+				<p class="ng-binding">Precio: 26.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10874</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10874</p>
+				<p class="ng-binding">Paquete:  ** Samsung 64Gb 100Mb/S (U3) Microsdxc Evo Select Memory Card With Adapter (Mb-Me64Ga/Am)</p>
+				<p class="ng-binding">Precio: 26.99</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10803</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10803</p>
+				<p class="ng-binding">Paquete:  ** Sdvfdv</p>
+				<p class="ng-binding">Precio: 10.75</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10879</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10879</p>
+				<p class="ng-binding">Paquete:  ** Seychelles Women's Plateau Ballet Flat, Black, 7.5 M Us</p>
+				<p class="ng-binding">Precio: 113.50</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10875</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10875</p>
+				<p class="ng-binding">Paquete:  ** Soludos Women's Ibiza Embroidered Smkg Slipper Platform, Midnight Blue, 11 Regular Us</p>
+				<p class="ng-binding">Precio: 90.25</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10865</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10865</p>
+				<p class="ng-binding">Paquete:  ** Sperry Top-Sider Women's Crest Creeper Cvo Sneaker, White, 8.5 Medium Us</p>
+				<p class="ng-binding">Precio: 71.45</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10882</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10882</p>
+				<p class="ng-binding">Paquete:  ** Sperry Top-Sider Women's Crest Creeper Cvo Sneaker, White, 8.5 Medium Us</p>
+				<p class="ng-binding">Precio: 71.45</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10889</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10889</p>
+				<p class="ng-binding">Paquete:  ** Sperry Top-Sider Women's Crest Vibe Creeper Linen Sneaker, Rose, 10 Medium Us</p>
+				<p class="ng-binding">Precio: 185.40</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 802</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 802</p>
+				<p class="ng-binding">Paquete:  ** Taza</p>
+				<p class="ng-binding">Precio: 180.80</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 10802</p>
+				<p class="ng-binding">Estatus: Orden Nueva</p>
+				<p class="ng-binding">NumeroTracking: 10802</p>
+				<p class="ng-binding">Paquete:  ** Vassoul Mascarilla Removedora De Puntos Negros, Mascarilla Que Se Desprende Con CarbÓN Activado Para La Limpieza Profunda De Los Poros, Para Acné, MarrÓN</p>
+				<p class="ng-binding">Precio: 12.52</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 597</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: SDVSFVFR</p>
+				<p class="ng-binding">Paquete: Celular</p>
+				<p class="ng-binding">Precio: 3.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 1964</p>
+				<p class="ng-binding">Estatus: Miami Prueba</p>
+				<p class="ng-binding">NumeroTracking: PRUEBA PRUEBA PRUEBA</p>
+				<p class="ng-binding">Paquete: Equipos Electronicos/ Accesorios Electronicos</p>
+				<p class="ng-binding">Precio: 7.50</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 596</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: DGBNGHMJMN</p>
+				<p class="ng-binding">Paquete: Laptop</p>
+				<p class="ng-binding">Precio: 3.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 747</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: carga manual</p>
+				<p class="ng-binding">Paquete: Mercancia</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 748</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: carga manual</p>
+				<p class="ng-binding">Paquete: Mercancia</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 746</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: CGJGKYUKYU</p>
+				<p class="ng-binding">Paquete: Mercancia</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4984</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: carga manual</p>
+				<p class="ng-binding">Paquete: Paquete De Prueba 2</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2630</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: pruenabfdbd</p>
+				<p class="ng-binding">Paquete: Paquete Leo Prueba</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4983</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: carga manual</p>
+				<p class="ng-binding">Paquete: Paquete Prueba</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2217</p>
+				<p class="ng-binding">Estatus: Onboxit</p>
+				<p class="ng-binding">NumeroTracking: carga manual</p>
+				<p class="ng-binding">Paquete: Paquete Prueba Consultoria</p>
+				<p class="ng-binding">Precio: 10.50</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2218</p>
+				<p class="ng-binding">Estatus: Onboxit</p>
+				<p class="ng-binding">NumeroTracking: carga manual</p>
+				<p class="ng-binding">Paquete: Paquete Prueba Consultoria 2</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 5547</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: Prueba</p>
+				<p class="ng-binding">Paquete: Prueba</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 315</p>
+				<p class="ng-binding">Estatus: Received Warehouse Mia / Recibido En Mia</p>
+				<p class="ng-binding">NumeroTracking: 1ZA225874F55</p>
+				<p class="ng-binding">Paquete: Prueba 1</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 5669</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: pruebapinpad1</p>
+				<p class="ng-binding">Paquete: Prueba 1</p>
+				<p class="ng-binding">Precio: 0.10</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2039</p>
+				<p class="ng-binding">Estatus: Received Warehouse Mia / Recibido En Mia</p>
+				<p class="ng-binding">NumeroTracking: PAN30DIC</p>
+				<p class="ng-binding">Paquete: Prueba De Compuro</p>
+				<p class="ng-binding">Precio: 7.50</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 5670</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: PRUEBAPINPAD2</p>
+				<p class="ng-binding">Paquete: Pruebapinpad2</p>
+				<p class="ng-binding">Precio: 0.01</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 5671</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: PRUEBAPINPAD3</p>
+				<p class="ng-binding">Paquete: Pruebapinpad3</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 5672</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: PRUEBAPINPAD4</p>
+				<p class="ng-binding">Paquete: Pruebapinpad4</p>
+				<p class="ng-binding">Precio: 1.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2550</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: PRUEBASISTEMAS</p>
+				<p class="ng-binding">Paquete: Pruebasistemas</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2551</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: PRUEBASISTEMAS2</p>
+				<p class="ng-binding">Paquete: Pruebasistemas2</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4564</p>
+				<p class="ng-binding">Estatus: Arrived</p>
+				<p class="ng-binding">NumeroTracking: Carga Manual</p>
+				<p class="ng-binding">Paquete: Regalia</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4562</p>
+				<p class="ng-binding">Estatus: Devuelto</p>
+				<p class="ng-binding">NumeroTracking: Carga Manual</p>
+				<p class="ng-binding">Paquete: Regalia</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4566</p>
+				<p class="ng-binding">Estatus: Devuelto</p>
+				<p class="ng-binding">NumeroTracking: Carga Manual</p>
+				<p class="ng-binding">Paquete: Regalia</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4563</p>
+				<p class="ng-binding">Estatus: Entregado</p>
+				<p class="ng-binding">NumeroTracking: Carga Manual</p>
+				<p class="ng-binding">Paquete: Regalia</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4565</p>
+				<p class="ng-binding">Estatus: Onboxit</p>
+				<p class="ng-binding">NumeroTracking: Carga Manual</p>
+				<p class="ng-binding">Paquete: Regalia</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 4561</p>
+				<p class="ng-binding">Estatus: Devuelto</p>
+				<p class="ng-binding">NumeroTracking: Carga Manual</p>
+				<p class="ng-binding">Paquete: Regalo</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 314</p>
+				<p class="ng-binding">Estatus: </p>
+				<p class="ng-binding">NumeroTracking: </p>
+				<p class="ng-binding">Paquete: Samsung Galaxy J7 Sm- J700H/Ds Gsm Factory Unlocked Smartphone-Android 5.1- 5.5" , Gold</p>
+				<p class="ng-binding">Precio: 0.00</p>			
+			</div><!-- end ngRepeat: traking in trakings --><div class="col-sm-12 col-md-6 col-lg-4 ng-scope" ng-repeat="traking in trakings">
+				<p class="ng-binding">Cod_Paquete: 2502</p>
+				<p class="ng-binding">Estatus: Received Warehouse Mia / Recibido En Mia</p>
+				<p class="ng-binding">NumeroTracking: TESTSISTEMAS</p>
+				<p class="ng-binding">Paquete: Testsistemas</p>
+				<p class="ng-binding">Precio: 7.50</p>			
+			</div><!-- end ngRepeat: traking in trakings -->
+		</div>
+	</div>
+	
+	
+	
+	
+	</div>
+	
+		</div>
+	
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cod_Paquete
+
+Estatus
+
+NumeroTracking
+
+Paquete
+" ** Adidas Women's Essentials Linear Full Zip Fleece Hoodie, Black/White, Small ** Asvivid Women's Summer Halter Dress Round Neck Sleeveless Floral Print Casual Straps Sundress Medium Green ** Sandisk Ultra 128Gb Micro Sdxc Uhs-I Card With Adapter -? 100Mb/S U1 A1 - Sdsquar-128G-Gn6Ma ** Echo Dot (2Nd Generation) - Smart Speaker With Alexa - Black ** A|X Armani Exchange Women's Flip Flops Wedge Sandal, Bianco, 5 Medium Us"
+
+Precio
+"0.00"
 
 
 
