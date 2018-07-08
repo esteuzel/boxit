@@ -35,9 +35,8 @@ angular.module('boxit')
                 //console.log('$scope.categories',$scope.categories);                
 
                 $scope.anunciar = function () {
-                    console.log(' $scope.category', $scope.category);                                       
-                    console.log(' $scope.f', $scope.f);
-                    var user = userData.getData();                    
+                    console.log(' $scope.category', $scope.category);
+                    var user = userData.getData();                     
 
                     $http({
 
@@ -59,13 +58,9 @@ angular.module('boxit')
 
                             "Category": $scope.category,
 
-                            "Description": $scope.Description,
-
-                            "file": $scope.f
+                            "Description": $scope.Description
 
                         },
-
-                        file: $scope.f,
 
                         headers: {
 
@@ -73,7 +68,7 @@ angular.module('boxit')
 
                         }
 
-                    }).then(function success(results) {
+                    }).then(function success(results) {                        
 
                         //  alert(JSON.stringify(JSON.stringify(results.data.Data.Rows.attributes.Message)));
 
@@ -139,9 +134,13 @@ angular.module('boxit')
 
                              }  
 
- 
-
-                                
+                            if(estilo == "exito"){
+                                let newName = user.IdCliente+'_'+$scope.TrackingNumber;
+                                let newFileQuinto = $scope.f;                    
+                                newFileQuinto = Upload.rename(newFileQuinto, newName+'_'+newFileQuinto.name) ;
+                                console.log(' newFileQuinto', newFileQuinto);
+                                $scope.uploadFiles(newFileQuinto,null,true);
+                            }
 
                                 
 
@@ -255,28 +254,33 @@ angular.module('boxit')
                     });                 
                 }
 
-                $scope.uploadFiles = function(file, errFiles) {
-                    $scope.f = file;
+                $scope.uploadFiles = function(file, errFiles, enviar=false) {
+                    $scope.f = file;                                       
                     $scope.errFile = errFiles && errFiles[0];
-                    if (file) {
-                        file.upload = Upload.upload({
-                            url: 'http://162.243.14.131:8080/upload',
-                            data: {file: file}
-                        });
-            
-                        file.upload.then(function (response) {
-                            $timeout(function () {
-                                file.result = response.data;
-                                console.log(' $scope.f', $scope.f);
+                    if($scope.errFile){ $scope.errFile.text = "Error"; }
+                    if(enviar){                    
+                        if (file) {
+                            file.upload = Upload.upload({
+                                url: 'http://200.62.34.16/SF.GrupoAuraIntegracionPrueba/UploadHandler.ashx',
+                                data: {file: file},
+                                file:file,
                             });
-                        }, function (response) {
-                            if (response.status > 0)
-                                $scope.errorMsg = response.status + ': ' + response.data;
-                        }, function (evt) {
-                            file.progress = Math.min(100, parseInt(100.0 * 
-                                                     evt.loaded / evt.total));
-                        });
-                    }   
+                
+                            file.upload.then(function (response) {
+                                $timeout(function () {
+                                    file.result = response.data;
+                                    console.log(' $scope.f', $scope.f);
+                                    console.log(' file', file);
+                                });
+                            }, function (response) {
+                                if (response.status > 0)
+                                    $scope.errorMsg = response.status + ': ' + response.data;
+                            }, function (evt) {
+                                file.progress = Math.min(100, parseInt(100.0 * 
+                                                        evt.loaded / evt.total));
+                            });
+                        }  
+                    } 
                 }
 
             }]);
