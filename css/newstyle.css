@@ -2598,7 +2598,7 @@ ul.top-categories li.active ul li a {
   z-index: 9999;
 }
 #select_categories {
-  display: none;
+  /*display: none;*/
 }
 .sub-categories-mobile {
   padding-left: 10px;
@@ -2664,4 +2664,19 @@ ul.top-categories li.active ul li a {
 }
 .BoxitStoreContainer {
   margin-top: 20px;
+}
+.resetCats {
+
+}
+.only-descktop .boxitStoreCategories ul.top-categories li.resetCats {
+  background-color: #fff;
+  border-bottom: none;
+  color: #3F525D;
+}
+.only-descktop .boxitStoreCategories ul.top-categories li.resetCats a{
+  border-bottom: none;
+}
+.searchblue {
+  padding-top: 8px!important;
+  padding-bottom: 9px!important;
 }

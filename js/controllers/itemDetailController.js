@@ -409,6 +409,12 @@ angular
                         console.log('getAmazonGetSimilarities',result);
                         angular.forEach(result.data.Item, function(value, key) {
                             //console.log("value" , value );
+                            value.ListPrice_FormattedPrice = getItemPrice(value);
+                            if(value.ListPrice_FormattedPrice>0){
+                                
+                            }else{
+                                value.ListPrice_FormattedPrice='';
+                            }
                             $scope.similaritiesProducts.push(value);
                         });
                         $scope.similaritiesProductsUno= {};

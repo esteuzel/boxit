@@ -9,6 +9,7 @@
                 <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">Categorías</a>
 
                 <ul class="top-categories dropdown-menu">
+                    <li class="resetCats"><a ng-click="resetearCategorias()">Todas</a></li>
                     <li class="dropdown-item" ng-repeat="category in categoriesList track by $index" ng-class="{'active': category.value==topCategory}">
                         <!--<a ng-click="mostrarSubcategorias(category.value,$index)">{{category.text}}</a>-->
                         <span>{{category.text}}</span>
@@ -34,11 +35,13 @@
             <select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories"> </select>
         </div>
         <div class="store-search">
-            <div class="store-search-input col-md-3">
-                <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
-            </div>
-            <div class="store-search-button col-md-2">
-                <button class="btn btn-info" ng-click="doSearch()" type="button"><i class="fa fa-search"></i></button>
+            <div class="store-search-input col-md-4">
+                <div class="input-group">
+                    <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text" /> 
+                    <span class="input-group-btn">
+                        <button class="btn btn-info searchblue" ng-click="doSearch()" type="button"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
             </div>            
             <div class="store-cart col-md-1">
                 <a class="cart cart_anchor" ui-sref="carrito"> <span id="cartNumber">{{carNumber}}</span>Cart </a>
@@ -112,7 +115,7 @@
 
 
 
-    <div class="store-breadcrumb" ng-show="!showStoreCarousel">
+    <div class="store-breadcrumb" ng-show="showStoreBreadceumbs">
 		<ul>
 			<li>
 				<span>boxitStore</span>

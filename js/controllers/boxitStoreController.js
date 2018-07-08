@@ -33,6 +33,7 @@ angular
             $scope.itemsNewReleaseProducts = [];
             $scope.showTopSellerProducts = false;
             $scope.showNewReleaseProducts = false;
+            $scope.showStoreBreadceumbs=false;
 
             console.log("$scope.categoriesList",$scope.categoriesList);
             var userObj =  userData.getData();
@@ -255,7 +256,7 @@ angular
                 if(value.OfferSummary!=null){
                     if(value.OfferSummary.ListPrice!=null){
                         value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
-                        console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
+                        //console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
                     }
                 }
                 if(value.Offers!=null){                                                           
@@ -263,13 +264,13 @@ angular
                         if(value.Offers.Offer.OfferListing!=null){
                             if(value.Offers.Offer.OfferListing.Price!=null){
                                 value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                
-                                console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
+                                //console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
                             }
                         }
                     }
                 }
                 if(value.priceToShow=="Too low to display"){
-                    console.log("value.priceToShow",value.Price_FormattedPrice);
+                    //console.log("value.priceToShow",value.Price_FormattedPrice);
                     value.priceToShow="";
                 }             
                 return value;
@@ -1040,6 +1041,7 @@ angular
                 //showProductsSubcategory();
             }
             $scope.mostrarProductos = function (subCategory,subCategoryTexto,categoryValue,categoryTexto) {
+                $scope.showStoreBreadceumbs=true;
                 $scope.subCategoryTexto = subCategoryTexto;
                 $scope.categoryTexto = categoryTexto;
                 console.log('categoryValue',categoryValue);
@@ -1066,7 +1068,8 @@ angular
                     console.log('getTopSellerProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
                         //console.log("value" , value );
-                        $scope.itemsTopSellerProducts.push(value);
+                        let newValue = checkItemData(value);
+                        $scope.itemsTopSellerProducts.push(newValue);
                     });
                     //console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
                     if($scope.itemsTopSellerProducts.length>0){
@@ -1210,6 +1213,20 @@ angular
                 });
                 return row;
                 //console.log("row",row);                
+            }
+
+            $scope.resetearCategorias = function(){
+                $scope.showStoreBreadceumbs=false;
+                //$scope.index = "All";
+                categoryClick("All");
+                //$scope.keyword = "";
+                $scope.subCategoryTexto = "";
+                $scope.categoryTexto = "";
+                $scope.showTopSellerProducts = false;  
+                $scope.showNewReleaseProducts = false;
+                if($scope.keyword!=""){
+                    $scope.doSearch();
+                }                
             }
 
         }]);
