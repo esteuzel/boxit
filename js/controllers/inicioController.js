@@ -34,7 +34,7 @@ angular.module('boxit')
                     $scope.username = user.UserName;
                     $scope.lastname = user.UserLastName;
                     $scope.UserBirthdate = user.UserBirthdate;
-                    $scope.UserGender = user.UserGender;
+                    $scope.UserGender = user.UserGender=='M'?'Masculino':'Femenino';
                     $scope.UserPhone = user.UserPhone;
                     $scope.UserEmail = user.UserEmail;
                     $scope.IdTipoPlan = user.IdTipoPlan;

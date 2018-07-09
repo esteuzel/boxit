@@ -171,11 +171,17 @@ angular
                         }));
 
                         promises.push(defered.promise);
+                        let coma = encodeURIComponent(",");
+                        let comillaSimple = encodeURIComponent("'");
+                        let barra = encodeURIComponent("/");
+                        let Keywords = searchParams["Keywords"];
+                        Keywords = Keywords.replace(",",coma);
+                        Keywords = Keywords.replace("'",comillaSimple);
+                        Keywords = Keywords.replace("/",barra);
 
-                        $location.path('/boxitStore/'+searchParams["SearchIndex"]+','+searchParams["Keywords"]);
-                        console.log('$location.path(',$location.path());
-                        console.log();
-
+                        $location.path('/boxitStore/'+searchParams["SearchIndex"]+','+Keywords);
+                        console.log('$location.path(',$location.path());                        
+                        
                     } else {
 
                         var searchParams = {};
@@ -579,7 +585,7 @@ angular
             if(atributoSearchIndexSelected!='' && atributoSearchIndexSelected!=null && $scope.labusquedanoarrojoresultados==false){
                                 
                 //let keyword = localStorage.getItem("keyword");
-                let keyword = vars[1];
+                let keyword = decodeURIComponent(vars[1]);
                 console.log("self.keyword ",$scope.keyword);
                 console.log("keyword ",keyword);
 

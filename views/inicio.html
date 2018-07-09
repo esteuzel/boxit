@@ -33,18 +33,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>--><!--    </div>-->
 
 <div class="col-sm-12 fondo areausuario-centro">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-9"><h1 class="customLabel user-welcome"> Bienvenido {{userName}} </h1></div>
 	
 	<div class="small-user-data">
 		<div class="row">
 			<div class="col-sm-3 customLabel">
-				<span class="pull-right">Nombres: </span>
+				<span class="pull-right">Nombre: </span>
 			</div>				
 			<div class="col-sm-7 form-group"><span>{{username}}</span>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-3 customLabel">
-				<span class="pull-right">Apellidos: </span>
+				<span class="pull-right">Apellido: </span>
 			</div>				
 			<div class="col-sm-7 form-group"><span>{{lastname}}</span>
 			</div>
@@ -87,7 +89,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</div>
 
 	<div id="UserAddress" ng-show="ShowUserAddress">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-9">
 		<h3 class="customLabel">Direccion Miami Plan {{userPlanName}}</h3>
+		</div>
+		<p><br></p>
 		<hr />
 		<div class="row">
 			<div class="col-sm-3 customLabel"><span class="pull-right">Full Name : </span></div>

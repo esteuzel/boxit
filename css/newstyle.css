@@ -1049,7 +1049,7 @@ section.iniciodesesion {
 
 }
 .customLabel.user-welcome {
-  text-align: center;
+  text-align: left;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -2680,9 +2680,46 @@ ul.top-categories li.active ul li a {
   padding-top: 8px!important;
   padding-bottom: 9px!important;
 }
+
 .tarjetas {
   margin-top: 16px;
 }
+.tarjeta {
+	border: 1px solid #496E9A;
+  margin-top: 16px;
+}
+.tarjeta-header {
+	border-bottom:1px solid #496E9A;
+  background: #DDE9F6;
+  padding: 10px;
+  width: 100%;
+  float: left;
+}
+.numeroTracking {
+  width: 50%;
+  float: left;
+}
+.estado {
+  width: 50%;
+  float: left;
+  text-align: right;
+}
+.tarjeta-body {
+  padding: 8px 16px;
+  width: 100%;
+  clear: both;
+  float: left;
+}
+.detalle {
+  width: 50%;
+  float: left;
+}
+.datos {
+  width: 50%;
+  float: left;
+  text-align: right;
+}
+/*
 .tarjeta {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -2716,3 +2753,4 @@ ul.top-categories li.active ul li a {
   width: 100%;
   float: left;
 }
+*/

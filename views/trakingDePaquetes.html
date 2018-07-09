@@ -24,12 +24,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div class="nnoorow">	
 		<h4 class="customLabel">Tracking de Paquetes</h4>
 			<div class="col-sm-12 col-md-12 col-lg-12 tarjetas" ng-repeat="traking in trakings">
-				<div class="tarjeta tarjeta-1">
-					<div class="tarjeta-container">
-						<div class="numeroTracking">Numero: <b>{{traking.attributes.NumeroTracking}}</b></div>
-						<div class="precio"><b>$ {{traking.attributes.Precio}}</b></div>
-						<div class="estado">Estado: <b>{{traking.attributes.Estatus}}</b></div>
-						<div class="detalle">Paquete: {{traking.attributes.Paquete}}</div>
+				<div class="tarjeta tarjeta-1">					
+					<div class="tarjeta-header">
+						<div class="numeroTracking"><b>Número de Tracking: </b>{{traking.attributes.NumeroTracking}}</div>
+						<div class="estado"><b>Estado:</b>{{traking.attributes.Estatus}}</div>
+					</div>
+					<div class="tarjeta-body">							
+						<div class="detalle ng-binding"><b>Descripción:</b>  {{traking.attributes.Paquete}} </div>
+						<div class="datos">
+							<div class="precio"><b>Valor: </b>${{traking.attributes.Precio}}</div>
+							<div class="precio"><b>Tienda: </b>{{traking.attributes.Tienda}}</div>
+							<div class="precio"><b>Fecha Estimada en Miami: </b>{{traking.attributes.Fecha}}</div>
+						</div>
 					</div>
 					<div style="clear: both"></div>
 				</div>			
@@ -39,5 +45,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div style="clear:both; width: 100%; height: 20px;"></div>
 <p><br></p>
 
-
+</body>
 </html>
