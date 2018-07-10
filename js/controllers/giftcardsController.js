@@ -32,32 +32,40 @@ angular
                     'ItemId': "B078J1RSSB",
                     'ImageUrl': "img/giftcards/gift-card-netflix.jpg",
                     'Title': "Netflix Gift Cards - E-mail Delivery",
-                    'SubTitle': "Sold and delivered by ACI Gift Cards, LLC., an Amazon company.",
-                    'FormattedPrice': "$29.95"
+                    'SubTitle': "1 Pantalla. 3 meses.",
+                    'FormattedPrice': "$29.97"
                 };
                 oldItems.push(newItem); 
                 var newItem = {
-                    'ItemId': "BOXIT",
-                    'ImageUrl': "img/giftcards/gift-card-boxit.jpg",
-                    'Title': "Boxit Gift Cards",
-                    'SubTitle': "Regala el envío gratuito a un amigo. Amazon Company.",
-                    'FormattedPrice': "$4.95"
+                    'ItemId': "B078J1RSSB",
+                    'ImageUrl': "img/giftcards/gift-card-netflix.jpg",
+                    'Title': "Netflix Gift Cards - E-mail Delivery",
+                    'SubTitle': "2 Pantallas. 3 meses.",
+                    'FormattedPrice': "$38.97"
                 };
                 oldItems.push(newItem); 
                 var newItem = {
-                    'ItemId': "B00FJ4CDGQ",
-                    'ImageUrl': "img/giftcards/gift-card-play-station.jpg",
-                    'Title': "1 Year Playstation Plus PSN Membership Card",
-                    'SubTitle': "Platformas : PlayStation 3, PlayStation 4, PlayStation Vita",
-                    'FormattedPrice': "$69.95"
+                    'ItemId': "B078J1RSSB",
+                    'ImageUrl': "img/giftcards/gift-card-netflix.jpg",
+                    'Title': "Netflix Gift Cards - E-mail Delivery",
+                    'SubTitle': "4 Pantallas. 3 meses.",
+                    'FormattedPrice': "$47.97"
                 };
-                oldItems.push(newItem);   
+                oldItems.push(newItem);                 
                 var newItem = {
                     'ItemId': "B00G3LBDDS",
                     'ImageUrl': "img/giftcards/gift-card-spotify-30.jpg",
                     'Title': "Spotify Gift Card",
-                    'SubTitle': "Ships from and sold by ACI Gift Cards LLC., an Amazon company.",
+                    'SubTitle': "1 Usuario. 3 meses.",
                     'FormattedPrice': "$30"
+                };   
+                oldItems.push(newItem); 
+                var newItem = {
+                    'ItemId': "B00G3LBDDS",
+                    'ImageUrl': "img/giftcards/gift-card-spotify-30.jpg",
+                    'Title': "Spotify Gift Card",
+                    'SubTitle': "5 Usuario. 2 meses.",
+                    'FormattedPrice': "$47.98"
                 };   
                 oldItems.push(newItem); 
                 console.log('oldItems',oldItems);
