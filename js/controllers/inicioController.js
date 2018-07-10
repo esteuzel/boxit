@@ -34,7 +34,7 @@ angular.module('boxit')
                     $scope.username = user.UserName;
                     $scope.lastname = user.UserLastName;
                     $scope.UserBirthdate = user.UserBirthdate;
-                    $scope.UserGender = user.UserGender=='M'?'Masculino':'Femenino';
+                    $scope.UserGender = user.UserGender=='M'?'Femenino':'Masculino';
                     $scope.UserPhone = user.UserPhone;
                     $scope.UserEmail = user.UserEmail;
                     $scope.IdTipoPlan = user.IdTipoPlan;
@@ -43,15 +43,15 @@ angular.module('boxit')
                     //console.log("$scope.username",$scope.username);
                     //$scope.IdTipoPlan = 1;
                     switch ($scope.IdTipoPlan) {
-                        case 1: $scope.userPlanName = "Basico";                            
+                        case 1: $scope.userPlanName = "Básico";                            
                             break;
-                        case 3: $scope.userPlanName = "Basico";                            
+                        case 3: $scope.userPlanName = "Básico";                            
                             break;
                         case 2: $scope.userPlanName = "Premium";                            
                             break;
                         case 4: $scope.userPlanName = "Premium";                            
-                            break;                    
-                        default: $scope.userPlanName = "Basico";
+                            break;                    s
+                        default: $scope.userPlanName = "Básico";
                             break;
                     }
                     //$scope.userPlanName = $scope.IdTipoPlan == 1 ? "Basico" : "Premium";

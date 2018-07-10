@@ -154,9 +154,9 @@ angular.module('boxit')
 
                                 var estilo = "alerta";
 
-                                if ("Cambio realizado con exito" === data) {
+                                if ("Cambio realizado con éxito" === data) {
 
-                                    estilo = "exito";
+                                    estilo = "éxito";
 
                                 }
 

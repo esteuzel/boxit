@@ -14,13 +14,13 @@
 
         <hr>
 
-        <h4 class="customLabel">Por favor completa los siguientes campos</h4>
+        <h5 class="customLabel">Se requiere un anuncio de paquete por cada número de tracking.</h5>
         <div class="Description">Los campos marcados <span class="requerido">*</span> son obligatorios</div>
         <hr>
 
         <div class="form-group">
 
-            <label class="customLabel">  Numero Tracking:</label>
+            <label class="customLabel">  Nímero Tracking:<font color="red"> *</font></label>
 
             <input type="text" class="form-control" ng-model="TrackingNumber"  placeholder="coloque su número de tracking">
 
@@ -28,7 +28,7 @@
 
         <div class="form-group">
 
-            <label class="customLabel">Tienda*:</label>
+            <label class="customLabel">Tienda donde compró: <font color="red"> *</font></label>
 
             <input type="text" class="form-control" ng-model="Shop" placeholder="coloque su tienda">
 
@@ -36,7 +36,7 @@
 
         <div class="form-group">
 
-            <label class="customLabel"> Costo: </label>
+            <label class="customLabel"> Valor de la Compra: <font color="red"> *</font> </label>
 
             <input type="text" class="form-control" ng-model="Value" placeholder="coloque el costo">
 
@@ -67,7 +67,7 @@
 
         <div class="form-group">
 
-            <label for="birth" class="customLabel">Categoría:</label>
+            <label for="birth" class="customLabel">Categoría:<font color="red"> *</font></label>
 
             <select default="" id="select_categories_es" class="form-control" ng-model="category"> 
                 <option ng-repeat="category in categoriesListEs" value="{{category.code}}">{{category.texto}}</option>
@@ -76,18 +76,18 @@
 
         <div class="form-group">
 
-            <label class="customLabel"> Descripcion:</label>
+            <label class="customLabel"> Comentarios: <font color="red"> *</font></label>
 
-            <textarea   class="form-control" rows="5" ng-model="Description" placeholder="coloque la descripción"></textarea>
+            <textarea   class="form-control" rows="5" ng-model="Description" placeholder="Ingrese la descripción de su compra"></textarea>
 
         </div>
 
         <div class="form-group">
             <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-pattern=".pdf,image/*"
                     accept=".pdf,image/*" ngf-max-height="2000" ngf-max-size="5MB" ngf-multiple="multiple" ng-multiple="true">
-                Select File</button>
+                Adjuntar Factura</button>
             <br><br>
-            Archivo: Debeser pdf o una imágen.
+            Factura: Debe ser pdf, jpg, png.
             <div style="font:smaller">{{f.name}} {{errFile.text}} 
                 <span class="progress" ng-show="f.progress >= 0">
                     <div style="width:{{f.progress}}%"  

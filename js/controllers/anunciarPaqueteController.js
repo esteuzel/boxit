@@ -28,6 +28,8 @@ angular.module('boxit')
 
                 $scope.format = 'dd/MM/yyyy';
 
+                $scope.filename = "";
+
                 //$scope.categories = userData.getCategories(); 
                 $scope.categoriesList = [];
                 $scope.categoriesListEs = [];
@@ -36,7 +38,9 @@ angular.module('boxit')
 
                 $scope.anunciar = function () {
                     console.log(' $scope.category', $scope.category);
-                    var user = userData.getData();                     
+                    var user = userData.getData();  
+                    $scope.filename = $scope.f.name;
+                    console.log(' $scope.filename', $scope.filename); 
 
                     $http({
 
@@ -58,7 +62,9 @@ angular.module('boxit')
 
                             "Category": $scope.category,
 
-                            "Description": $scope.Description
+                            "Description": $scope.Description,
+
+                            "FileName":  $scope.filename
 
                         },
 
@@ -100,7 +106,7 @@ angular.module('boxit')
 
                              }else if ("Value invalid format" === respuesta) {
 
-                                 respuesta = "El precio tiene un formato invalido";
+                                 respuesta = "El precio tiene un formato inválido";
 
                              }else if ("Quantity is required" === respuesta){
 
@@ -108,7 +114,7 @@ angular.module('boxit')
 
                              }else if ("Quantity invalid format" === respuesta){
 
-                                 respuesta = "La cantidad esta en un formato invalido";
+                                 respuesta = "La cantidad esta en un formato inválido";
 
                              }else if ("Description is required" === respuesta){
 
@@ -116,19 +122,19 @@ angular.module('boxit')
 
                              }else if ("TrackingNumber length is invalid" === respuesta){
 
-                                 respuesta = "La longitud del numero de tracking es invalido";
+                                 respuesta = "La longitud del número de tracking es inválido";
 
                              }else if ("Shop length is invalid" === respuesta){
 
-                                 respuesta = "La longitud de la tienda es invalida";
+                                 respuesta = "La longitud de la tienda es inválida";
 
                              }else if ("Description length is invalid" === respuesta) {
 
-                                 respuesta = "La longitud de la descripcion es invalida";
+                                 respuesta = "La longitud de la descripción es inválida";
 
                              }else if("Success" === respuesta) {
 
-                                 respuesta = "Alerta de Tracking generada con exito";
+                                 respuesta = "Alerta de Tracking generada con éxito";
 
                                  estilo = "exito";
 
@@ -202,6 +208,8 @@ angular.module('boxit')
 
                         $scope.Description = "";
 
+                        $scope.filename = "";
+
                     }, function error(results) {
 
                         console.log(results.data);
@@ -261,7 +269,7 @@ angular.module('boxit')
                     if(enviar){                    
                         if (file) {
                             file.upload = Upload.upload({
-                                url: 'http://200.62.34.16/SF.GrupoAuraIntegracionPrueba/UploadHandler.ashx',
+                                url: 'https://ws.myboxit.net:40151/UploadHandler.ashx',
                                 data: {file: file},
                                 file:file,
                             });

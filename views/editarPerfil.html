@@ -14,7 +14,7 @@
 
     <div class="col-sm-6">
 
-        <h3 class="customLabel">Informacion de Perfil</h3>
+        <h3 class="customLabel">Información de Perfil</h3>
 
         <hr>
 
@@ -50,7 +50,7 @@
 
         <div class="form-group">
 
-            <label for="phone" class="customLabel"> Telefono: </label>   
+            <label for="phone" class="customLabel"> Teléfono: </label>   
 
             <input type="text" class="form-control" id="phone"  placeholder="Ingrese su telefono" ng-model="UserPhone">
 
@@ -88,11 +88,11 @@
 
         <div class="form-group">
 
-            <label for="gender" class="customLabel">Genero:</label>
+            <label for="gender" class="customLabel">Género:</label>
 
             <select name="" class="form-control" id="gender" ng-model="UserGender">
 
-                <option value="">Seleccione un Genero</option>
+                <option value="">Seleccione un Género</option>
 
                 <option value="H">Masculino</option>
 
@@ -114,7 +114,7 @@
                             <label class="radio-inline tarifa-titulo">
                                 <input ng-model="IdTipoPlan" type="radio" name="IdTipoPlan" id="IdTipoPlan1" value="2"> Tarifa Premium
                             </label>
-                            <p class="tarifa-row">Traemos tu compra de 3 a 5 días</p>
+                            <p class="tarifa-row">Traemos tu compra de 3 a 5 días desde que llega a Miami.</p>
                             <p class="tarifa-row">Libra en 4.5$</p>
                             <p class="tarifa-row">Cargos por paquete<br>1$ de Seguro y 2$ Manejo</p>
                         </div>
@@ -124,20 +124,18 @@
                             <label class="radio-inline tarifa-titulo cancheck">
                                 <input ng-model="IdTipoPlan" type="radio" name="IdTipoPlan" id="IdTipoPlan2" value="1"> Tarifa Básica
                             </label>
-                            <p class="tarifa-row">Traemos tu compra de 5 a 7 días</p>
+                            <p class="tarifa-row">Traemos tu compra de 5 a 7 días desde que llega a Miami.</p>
                             <p class="tarifa-row">Libra en 4.5$</p>
                             <p class="tarifa-row">Sin cargos por paquete<br><br></p>
                         </div>
                     </div>
                 </div>
                 <input type="hidden" name="IdTipoPlan" id="IdTipoPlan">
-                <div class="row">
-                    <div class="col-xs-12">
-                            <p class="tarifa-row"><br>Tarifa Boxit Store Si nosotros compramos por ti, Libra en 3$, se cobra comisión + transporte</p>
-                    </div>
-                </div>
             </div>
         </div>
+  <br>
+
+        <br>
 
 
         <div>
@@ -146,7 +144,7 @@
 
                 <!--<input type="submit"  value="REGISTRARME">-->
 
-                <button class="Button WithBackground" ng-click="Update()">Modificar Perfil</button>
+                <button class="Button WithBackground" ng-click="Update()">Guardar Cambios</button>
 
             </div>
 
