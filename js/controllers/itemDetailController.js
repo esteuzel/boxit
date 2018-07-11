@@ -25,7 +25,7 @@ angular
             $scope.cantidad = 0;
 
             userData.getItemDetails($stateParams.itemId).then(function success(item) {
-                //console.log('item',item);
+            console.log('item',item);
                if (item != undefined) {
                 $scope.itemSelected = item.Item;
                    $scope.titulo = item.Item.Attributes.Title;
@@ -68,7 +68,7 @@ angular
                 //$scope.itemPrice = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.FormattedPrice;
                 $scope.itemPrice = getItemPrice(item.Item);
                 //$scope.itemPrice = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
-                var amount = item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.Amount;
+                var amount = getItemAmount(item.Item);//item.Item.OfferSummary.ListPrice == null ? 0 : item.Item.OfferSummary.ListPrice.Amount;
                 //var amount = item.Item.Offers.Offer == null ? 0 : item.Item.Offers.Offer.OfferListing.Price.Amount;
                 
                 $scope.amount = amount;
@@ -387,7 +387,8 @@ angular
                     if(value.Offers.Offer.OfferListing!=null){
                         if(value.Offers.Offer.OfferListing.Price!=null){
                             if(value.Offers.Offer.OfferListing.Price.FormattedPrice!=null){
-                                return value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                //return value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;
                             }
                         }
                     }
@@ -395,11 +396,49 @@ angular
                 if(value.OfferSummary!=null){
                     if(value.OfferSummary.ListPrice!=null){
                         if(value.OfferSummary.ListPrice.FormattedPrice!=null){
-                            return value.OfferSummary.ListPrice.FormattedPrice;
+                            //return value.OfferSummary.ListPrice.FormattedPrice;
+                            value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
                         }
                     }
-                }                    
-                return 0;
+                }
+                if(value.priceToShow=="Too low to display"){
+                    //console.log("value.priceToShow",value.Price_FormattedPrice);
+                    value.priceToShow=value.Attributes.ListPrice.FormattedPrice;
+                }             
+                         
+                return value.priceToShow;
+            }
+
+            function getItemAmount(value){
+                if(value.OfferSummary.ListPrice != null){
+                    if(value.OfferSummary.ListPrice.Amount != null){
+                        if(value.OfferSummary.ListPrice.Amount!="Too low to display"){
+                            return value.OfferSummary.ListPrice.Amount;
+                        }
+                    }
+                }
+
+                if(value.Offers.Offer!=null){
+                    if(value.Offers.Offer.OfferListing!=null){
+                        if(value.Offers.Offer.OfferListing.Price!=null){
+                            if(value.Offers.Offer.OfferListing.Price.Amount!=null){
+                                if(value.OfferSummary.ListPrice.Amount!="Too low to display"){
+                                    return value.Offers.Offer.OfferListing.Price.Amount;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if(value.Attributes != null){
+                    if(value.Attributes.ListPrice != null){
+                        if(value.Attributes.ListPrice.Amount != null){
+                            if(value.Attributes.ListPrice.Amount!="Too low to display"){
+                                return value.Attributes.ListPrice.Amount;
+                            }
+                        }                        
+                    }
+                }
             }
 
             showSimilaritiesProducts();
