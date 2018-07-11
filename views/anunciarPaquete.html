@@ -10,12 +10,13 @@
 
     <div class="col-sm-6">
 
-        <h3 class="customLabel">Anunciar Paquete</h3>
+        <h3 class="customLabel">Alertar Paquete</h3>
 
         <hr>
 
-        <h5 class="customLabel">Se requiere un anuncio de paquete por cada número de tracking.</h5>
-        <div class="Description">Los campos marcados <span class="requerido">*</span> son obligatorios</div>
+        <h5 class="customLabel">Alerta tus paquetes para evitar generar retrasos en Miami y el proceso aduanal en Panamá.</h5>
+         <h5 class="customLabel">Debes realizar una alerta por cada número de tracking.</h5>
+        <div class="Description">Los campos marcados <font color="red"> *</font> son obligatorios</div>
         <hr>
 
         <div class="form-group">
@@ -76,18 +77,18 @@
 
         <div class="form-group">
 
-            <label class="customLabel"> Comentarios: <font color="red"> *</font></label>
+            <label class="customLabel"> Descripción: <font color="red"> *</font></label>
 
-            <textarea   class="form-control" rows="5" ng-model="Description" placeholder="Ingrese la descripción de su compra"></textarea>
+            <textarea   class="form-control" rows="5" ng-model="Description" placeholder="Ingrese el contenido exacto de su compra"></textarea>
 
         </div>
-
+        <h5 class="customLabel">Debe adjuntar la factura de su compra:</h5>
         <div class="form-group">
             <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-pattern=".pdf,image/*"
                     accept=".pdf,image/*" ngf-max-height="2000" ngf-max-size="5MB" ngf-multiple="multiple" ng-multiple="true">
                 Adjuntar Factura</button>
             <br><br>
-            Factura: Debe ser pdf, jpg, png.
+            Factura: Formato de imagen (JPG, PNG o PDF)
             <div style="font:smaller">{{f.name}} {{errFile.text}} 
                 <span class="progress" ng-show="f.progress >= 0">
                     <div style="width:{{f.progress}}%"  
@@ -103,7 +104,7 @@
 
                 <!--<input type="submit"  value="REGISTRARME">-->
 
-                <button class="Button WithBackground" ng-click="anunciar()">Anunciar Paquete</button>
+                <button class="Button WithBackground" ng-click="anunciar()">Alertar Paquete</button>
 
             </div>
 

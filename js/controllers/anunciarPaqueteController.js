@@ -166,7 +166,7 @@ angular.module('boxit')
 
                                     var mensaje = {};
 
-                                    mensaje.titulo = "Anunciar paquete";
+                                    mensaje.titulo = "Alertar paquete";
 
                                     mensaje.texto = respuesta;
 
