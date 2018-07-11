@@ -231,12 +231,13 @@ angular
                     if(currentItemObject.Item.Attributes.PackageDimensions != null){
                     args["Height"] = currentItemObject.Item.Attributes.PackageDimensions.Height == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Height;
                     args["Length"] = currentItemObject.Item.Attributes.PackageDimensions.Length == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Length;
-                    if(currentItemObject.Item.Attributes.PackageDimensions != null){
-                        args["Weight"] = currentItemObject.Item.Attributes.PackageDimensions.Weight == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Weight;
+                    args["Width"] = currentItemObject.Item.Attributes.PackageDimensions.Width == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Width;
+                    args["Weight"] = currentItemObject.Item.Attributes.PackageDimensions.Weight == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Weight;
                     }else{
+                        args["Height"] = 0;
+                        args["Length"] = 0;
+                        args["Width"] = 0;
                         args["Weight"] = 0;
-                    }
-                    args["Width"] = currentItemObject.Item.Attributes.PackageDimensions.Width == null ? 0 : currentItemObject.Item.Attributes.PackageDimensions.Width; 
                     }              
                     // Image
                     args["UrlImage"] = currentItemObject.Item.Image.ImageUrl;
@@ -247,6 +248,7 @@ angular
                 } else {
                     args["Quantity"] = $scope.cantidad;
                 }
+                console.log('args', args);
                 userData.addItemToCar(args).then(function success(result) {
                     refreshCarNumber(result);
                     //$uibModalInstance.close();
