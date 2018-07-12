@@ -33,7 +33,7 @@ angular
             $scope.itemsNewReleaseProducts = [];
             $scope.showTopSellerProducts = false;
             $scope.showNewReleaseProducts = false;
-            $scope.showStoreBreadceumbs=false;
+            $scope.showStoreBreadcrumb=false;
 
             console.log("$scope.categoriesList",$scope.categoriesList);
             var userObj =  userData.getData();
@@ -679,9 +679,10 @@ angular
 
 
             var getProductsCategory = function () {
-            $scope.showProductsCategory = true;
+                $scope.showProductsCategory = true;
+                $scope.showProductsCategoryElectronics = false;
                 
-             var searchParams = {};
+                var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
                 if(result!=null & result!=undefined){
@@ -708,6 +709,7 @@ angular
                 }
                 }, function error(result) {
                 });
+                
                 /*
                 añadir en el boxit store, categoría de  belleza y salud, ropa y  juguetes-juegos. así como actualmente está electronics y baby que están bien
                 */
@@ -1047,7 +1049,7 @@ angular
                 //showProductsSubcategory();
             }
             $scope.mostrarProductos = function (subCategory,subCategoryTexto,categoryValue,categoryTexto) {
-                $scope.showStoreBreadceumbs=true;
+                $scope.showStoreBreadcrumb=true;
                 $scope.subCategoryTexto = subCategoryTexto;
                 $scope.categoryTexto = categoryTexto;
                 console.log('categoryValue',categoryValue);
@@ -1222,17 +1224,25 @@ angular
             }
 
             $scope.resetearCategorias = function(){
-                $scope.showStoreBreadceumbs=false;
-                //$scope.index = "All";
-                categoryClick("All");
-                //$scope.keyword = "";
+                $scope.showStoreBreadcrumb=false;
                 $scope.subCategoryTexto = "";
                 $scope.categoryTexto = "";
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;
-                if($scope.keyword!=""){
-                    $scope.doSearch();
-                }                
+                if($scope.keyword!=undefined || $scope.keyword!=null || $scope.keyword!="undefined" || $scope.keyword!='' || $scope.keyword!=' '){
+                    if($scope.keyword.length>0){
+                        categoryClick("All");
+                        $scope.doSearch();
+                    }else{
+                        $scope.index = "";
+                        $state.go('boxitStore');
+                        location.reload();
+                    }                    
+                }else{
+                    $scope.index = "";
+                    $state.go('boxitStore');
+                    location.reload();
+                }
             }
 
         }]);
