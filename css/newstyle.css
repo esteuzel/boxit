@@ -2632,7 +2632,14 @@ ul.top-categories li.active ul li a {
   text-transform: uppercase;
   transition: all ease 0.75s;
 }
-
+/*
+.btn-boxitstore-midtop {
+  background-image: url(../img/newstyle/botonboxitstoremidtop.png);
+}
+.btn-boxitstore-midbot {
+  background-image: url(../img/newstyle/botonboxitstoremidbot.png);
+}
+*/
 .store-list-category-similares {
   margin-top: 10px;
 }
@@ -2677,7 +2684,7 @@ ul.top-categories li.active ul li a {
   border-bottom: none;
 }
 .searchblue {
-  padding-top: 8px!important;
+  padding-top: 9px!important;
   padding-bottom: 8px!important;
 }
 
@@ -2719,6 +2726,7 @@ ul.top-categories li.active ul li a {
   float: left;
   text-align: right;
 }
+.p-l-0 {padding-left: 0;} .p-r-0 {padding-right: 0}
 /*
 .tarjeta {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -2754,3 +2762,49 @@ ul.top-categories li.active ul li a {
   float: left;
 }
 */
+
+@media(min-width:993px){
+  .usuariotopSearchBar .usuariotop-right {
+      margin-top: 0;
+  }
+  .boxitBar-top {
+      height: 30px;
+  }
+  .phones-right {
+      position: relative;
+      top: 0px;
+      right: 0px;
+  }
+  .navbar-phones-div {
+      margin-top: 4px;
+      margin-right: 10px;
+  }
+  .navbar-phones-div .customLabelPhone {
+      float: left;
+      margin-left: 10px;
+      color: #000;
+  }
+  .btn-boxitstore {          
+      width: 70px;
+      height: 45px;
+  }
+  .boxitBar {
+      padding-top: 10px;
+  }
+  .m-t-5 {
+      margin-top: 5px;
+  }
+  a.navbar-brand {
+      height: 30px;
+      padding: 5px 5px;
+      font-size: 16px;
+      line-height: 20px;
+  }
+  a.navbar-brand .svg {
+      height: 20px;
+  }
+  .boxit-store-avatar .user-name a.navbarlink {color: #000;}
+  .link-UserName {
+      cursor: pointer;
+  }
+}

@@ -682,6 +682,24 @@ angular
                 $scope.showProductsCategory = true;
                 $scope.showProductsCategoryElectronics = false;
                 
+                subCategory = 7147440011;//Women,Mujer
+                $scope.itemsTopSellerWomen = [];
+                $scope.showTopSellerWomen = false;
+                getTopSellerProducts(subCategory).then(function success(result) {                      
+                    console.log('getTopSellerProducts Women,Mujer',result);
+                    angular.forEach(result.data.Item, function(value, key) {
+                        //console.log("value" , value );
+                        let newValue = checkItemData(value);
+                        $scope.itemsTopSellerWomen.push(newValue);
+                    });
+                    if($scope.showTopSellerWomen.length>0){
+                        $scope.showTopSellerWomen = true;                        
+                    }                                                            
+                }, function error(result) {
+                    console.log(result);
+                });
+
+                /*
                 var searchParams = {};
                 searchParams["SearchIndex"] = 'Electronics';
                 userData.getDefaultSearch(searchParams).then(function success(result) {
@@ -708,30 +726,7 @@ angular
                     console.log('ItemsElectronics',$scope.ItemsElectronicsAll);
                 }
                 }, function error(result) {
-                });
-                
-                /*
-                añadir en el boxit store, categoría de  belleza y salud, ropa y  juguetes-juegos. así como actualmente está electronics y baby que están bien
-                */
-              /*var searchParams = {};
-               searchParams["SearchIndex"] = 'Handbags';
-               userData.getDefaultSearch(searchParams).then(function success(result) {
-                $scope.ItemsHandbagsUno= {};
-                $scope.ItemsHandbagsDos= {};
-                $scope.ItemsHandbagsTres= {};
-                $scope.ItemsHandbagsUno[0] = result[0];
-                $scope.ItemsHandbagsUno[1] = result[1];
-                $scope.ItemsHandbagsUno[2] = result[2];
-                $scope.ItemsHandbagsUno[3] = result[3];
-                $scope.ItemsHandbagsDos[0] = result[4];
-                $scope.ItemsHandbagsDos[1] = result[5];
-                $scope.ItemsHandbagsDos[2] = result[6];
-                $scope.ItemsHandbagsDos[3] = result[7];
-                $scope.ItemsHandbagsTres[0] = result[8];
-                $scope.ItemsHandbagsTres[1] = result[9];
-                console.log('ItemsHandbags',$scope.ItemsHandbags)
-               }, function error(result) {
-               });*/
+                });                
 
                var searchParams = {};
                searchParams["SearchIndex"] = "FashionWomen";
@@ -847,7 +842,7 @@ angular
              
                 }, function error(result) {
                 });
-                
+                */
             };
 
             if($scope.showProductsCategory){

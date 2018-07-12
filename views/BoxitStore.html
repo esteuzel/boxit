@@ -1,8 +1,35 @@
-<div class="boxitBar-top" id="boxitBar-top"></div>
+<style>
+    @media(min-width:993px){
+        nav.navbar.navbar-fixed-top {
+            display: none;
+        }
+    }
+</style>
+<div class="boxitBar-top" id="boxitBar-top">
+
+        <!--<a class="btn-boxitstore-midtop navbarlink" ui-sref="home"><span>home</span></a>-->
+
+        <a class="navbar-brand" ui-sref="home">
+                <img src="img/newstyle/BoxitLogoNuevo.svg" class="svg" alt="Boxit"/>
+              </a>
+
+    <div class="phones-right">	
+        <div class="navbar-phones">
+            <div class="navbar-phones-div">
+                <div class="customLabelPhone"><i class="fa fa-phone"></i> (507) 317-1014</div>
+                <div class="customLabelPhone"><i class="fa fa-whatsapp"></i> (507) 63494559</div>
+                <div class="customLabelPhone"><i class="fa fa-envelope"></i> hello@myboxit.com</div>
+            </div>
+        </div>
+    </div>	
+</div>
 <div class="row boxitBar white">
 
-    <div class="only-descktop">
-        <div class="col-md-3">
+    <div class="only-descktop container">
+        <div class="col-md-1">
+            <a class="btn-boxitstore navbarlink" ui-sref="boxitStore"><span>home</span></a>
+        </div>
+        <div class="col-md-2 p-r-0 m-t-5">
             <div class="dropdown  boxitStoreCategories">
                 <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">Categorías</a>
 
@@ -27,7 +54,7 @@
             </div>
         </div>
 
-        <div class="form-group col-md-1">
+        <div class="form-group hidden">
             <select default="All" id="select_categories" class="form-control" ng-change="setSubCategories()" ng-init="initIndex()" ng-model="index"
                 ng-options="index.attributes.SearchIndex for index in indexs"> </select>
         </div>
@@ -36,7 +63,7 @@
             </select>
         </div>
         <div class="store-search">
-            <div class="store-search-input col-md-4">
+            <div class="store-search-input col-md-4 p-l-0 m-t-5">
                 <div class="input-group">
                     <input class="form-control" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text"
                     />
@@ -47,21 +74,49 @@
                     </span>
                 </div>
             </div>
-            <div class="store-cart col-md-1">
+            <div class="store-cart col-md-2 m-t-5">
                 <a class="cart cart_anchor" ui-sref="carrito">
-                    <span id="cartNumber">{{carNumber}}</span>Cart </a>
+                    <span id="cartNumber">{{carNumber}}</span>Carrito </a>
             </div>
         </div>
 
-        <div class="col-xs-2 boxit-store-avatar" ng-show="!UserName">
-            <div class="user-photo"></div>
-            <span class="user-name">
-                <a ui-sref="iniciarSesion">Inicia sesión</a>
+        
+        <div class="col-md-3 boxit-store-avatar" ng-show="UserName">
+            <div class="user-photo">{{UserPhoto}}</div>
+            <span class="user-name dropdown">
+                    <a class="dropdown-toggle link-UserName" data-toggle="dropdown">{{UserName}}<span><i class="fa fa-chevron-down"></i></span></a>
+                    <ul class="dropdown-menu">                        
+                        <li class="dropdown-item">
+                            <a class="navbarlink" ng-show="loged" ui-sref="iniciarSesion" ng-click="iniciarSesion()">Área Usuario</a>
+                        </li>
+                        <li class="dropdown-item">
+                            <a ng-show="loged" ui-sref="home" ng-click="cerrarSesion()" class="navbarlink ">Cerrar sesión</a>
+                        </li>
+                    </ul>
+
             </span>
         </div>
-        <div class="col-xs-2 boxit-store-avatar" ng-show="UserName">
-            <div class="user-photo">{{UserPhoto}}</div>
-            <span class="user-name">{{UserName}}</span>
+
+
+
+
+
+
+
+
+
+
+        <div class="col-md-2 usuariotopSearchBar" ng-show="!loged">
+            <div class="usuariotop-right">
+                <div class="link">
+                    <a ng-show="!loged"  ui-sref="iniciarSesion" class="navbarlink iniciosesion">Inicia sesión</a>
+                    
+                </div>
+                <div class="link">
+                    <a class="btn-cuenta navbarlink" ng-show="!loged" ui-sref="registro">Crea tu Cuenta</a>
+                    
+                </div>
+            </div>
         </div>
 
     </div>
@@ -355,7 +410,7 @@
 
 
 
-
+<!--    Electrónica -->
 
             <div ng-show="showProductsCategoryElectronics">
                 <div class="store-list-category" ng-show="showProductsCategory">
@@ -593,6 +648,7 @@
             </div>
 
 
+<!--  Fin  Electrónica -->
 
 
 
@@ -601,8 +657,7 @@
 
 
 
-
-
+<!--    Mujer -->
 
             <div class="store-list-category" ng-show="showProductsCategory">
                 <div class="store-list-category-title">
@@ -833,7 +888,7 @@
                 </script>
             </div>
 
-
+<!--  Fin  Mujer -->
 
         </div>
         <!--ng-init="firstSearch()"-->
@@ -851,7 +906,7 @@
     <div class="row">
         <div ng-show="showCar">
 
-
+<!--    Hombre -->
             <div class="store-list-category" ng-show="showProductsCategory">
                 <div class="store-list-category-title">
                     <div class="store-list-category-title-inner">
@@ -1084,6 +1139,7 @@
             </div>
 
 
+<!--  Fin  Hombre -->
 
 
 
@@ -1099,8 +1155,7 @@
 
 
 
-
-
+<!--    Relojes -->
 
             <div class="store-list-category" ng-show="showProductsCategory">
                 <div class="store-list-category-title">
@@ -1332,7 +1387,7 @@
             </div>
 
 
-
+<!--  Fin  Relojes -->
 
 
 
