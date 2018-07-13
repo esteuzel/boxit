@@ -1061,7 +1061,7 @@ section.iniciodesesion {
   padding-top: 20px;
 }
 .store-search {
-  width: 100%;
+  /*width: 100%;*/
 }
 .boxitBar .carAvatar .Avatar {
   width: 40px;
@@ -2509,7 +2509,7 @@ ul.top-categories li.active ul li a {
   border-left: 2px solid #3F525D;
 }
 .boxitStoreCategories ul li ul.sub-categories {
-  width: calc(100% * 3);
+  width: 550px;
   height: 609px;
   position: absolute;
   top: 30px;
@@ -2583,7 +2583,7 @@ ul.top-categories li.active ul li a {
   border-left: 2px solid #3F525D;
 }
 .only-descktop .boxitStoreCategories {
-  float: right;
+  float: left;
 }
 /*#subcatsElectronics { display: block}*/
 .subcategorias-columna {
@@ -2768,18 +2768,18 @@ ul.top-categories li.active ul li a {
       margin-top: 0;
   }
   .boxitBar-top {
-      height: 30px;
+      height: 40px;
   }
-  .phones-right {
+  .boxitBar-top .phones-right {
       position: relative;
-      top: 0px;
+      top: 5px;
       right: 0px;
   }
-  .navbar-phones-div {
+  .boxitBar-top .navbar-phones-div {
       margin-top: 4px;
       margin-right: 10px;
   }
-  .navbar-phones-div .customLabelPhone {
+  .boxitBar-top .navbar-phones-div .customLabelPhone {
       float: left;
       margin-left: 10px;
       color: #000;
@@ -2787,6 +2787,7 @@ ul.top-categories li.active ul li a {
   .btn-boxitstore {          
       width: 70px;
       height: 45px;
+      margin-right: 0px;
   }
   .boxitBar {
       padding-top: 10px;
@@ -2794,17 +2795,56 @@ ul.top-categories li.active ul li a {
   .m-t-5 {
       margin-top: 5px;
   }
-  a.navbar-brand {
-      height: 30px;
+  .boxitBar-top a.navbar-brand {
+      height: 40px;
       padding: 5px 5px;
       font-size: 16px;
       line-height: 20px;
   }
-  a.navbar-brand .svg {
-      height: 20px;
+  .boxitBar-top a.navbar-brand .svg {
+      height: 30px;
   }
   .boxit-store-avatar .user-name a.navbarlink {color: #000;}
   .link-UserName {
       cursor: pointer;
   }
+  .boxitBar .store-search {
+    
+  }
+  .store-cart {
+    float: right;
+    margin-top: -5px;
+    margin-right: 30px;
+  }
+  .boxit-store-avatar {
+    float: right;
+    margin-top: 10px;
+  }
+  .boxitBar .cart {
+    padding-left: 0;
+  }
+  .carrito-texto {
+    height: 20px;
+  line-height: 20px;
+  margin-top: -5px;
+  }
+  .link-categorias {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 34px;
+  }
+  .doSearch {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border: none;
+  }
+  .searchblue {
+    height: 34px;
+
+  }
+  .link-categorias span {margin-left: 10px;}
+}
+.nopadding {
+  padding-left: 0px;
+  padding-right: 0px;
 }
