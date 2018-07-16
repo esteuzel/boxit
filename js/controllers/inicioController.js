@@ -23,7 +23,7 @@ angular.module('boxit')
                     $scope.state = user.userMiamiAddress.state;
                     $scope.zip = user.userMiamiAddress.zip;
                     $scope.country = user.userMiamiAddress.country;
-                    $scope.tel = user.userMiamiAddress.tel;
+                    $scope.tel = user.userMiamiAddress.tel;                    
                     $scope.miami = 0;
                     $scope.panama = 0;
                     $scope.boxit = 0;
@@ -39,26 +39,31 @@ angular.module('boxit')
                     $scope.UserEmail = user.UserEmail;
                     $scope.IdTipoPlan = user.IdTipoPlan;
                     $scope.IdPlataforma = user.IdPlataforma;
-                    
-                    //console.log("$scope.username",$scope.username);
+                    $scope.SaldoCliente = user.SaldoCliente;
+                    //console.log("user",user);
                     //$scope.IdTipoPlan = 1;
                     switch ($scope.IdTipoPlan) {
-                        case 1: $scope.userPlanName = "Básico";                            
+                        case 1: $scope.userPlanName = "Básico";
+                                $scope.ShowDefaultAddressBasica = true;
                             break;
-                        case 3: $scope.userPlanName = "Básico";                            
+                        case 3: $scope.userPlanName = "Básico"; 
+                                $scope.ShowDefaultAddressBasica = true;                           
                             break;
-                        case 2: $scope.userPlanName = "Premium";                            
+                        case 2: $scope.userPlanName = "Premium"; 
+                                $scope.ShowDefaultAddressPremium = true;                           
                             break;
-                        case 4: $scope.userPlanName = "Premium";                            
+                        case 4: $scope.userPlanName = "Premium";
+                                $scope.ShowDefaultAddressPremium = true;
                             break;                    s
                         default: $scope.userPlanName = "Básico";
+                                $scope.ShowDefaultAddressBasica = true;
                             break;
                     }
                     //$scope.userPlanName = $scope.IdTipoPlan == 1 ? "Basico" : "Premium";
-                    $scope.ShowUserAddress = true;
+                    //$scope.ShowUserAddress = true;
                     //$scope.ShowDefaultAddressPremium = $scope.IdTipoPlan == 1;
                     //$scope.ShowDefaultAddressBasica = $scope.IdTipoPlan == 2;
-                    console.log("user",user);
+                    //console.log("user",user);
                     getPlataforma();
                     /*getTracking().then(function success(result) {                  
                         $scope.total = result.length; 

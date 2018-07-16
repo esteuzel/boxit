@@ -84,11 +84,11 @@
         </div>
         <h5 class="customLabel">Debe adjuntar la factura de su compra:</h5>
         <div class="form-group">
-            <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-pattern=".pdf,image/*"
+            <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" ngf-pattern=".doc,.docx,.pdf,image/*"
                     accept=".pdf,image/*" ngf-max-height="2000" ngf-max-size="5MB" ngf-multiple="multiple" ng-multiple="true">
                 Adjuntar Factura</button>
             <br><br>
-            Factura: Formato de imagen (JPG, PNG o PDF)
+            Factura: Formato de imagen (JPG, PNG, DOC o PDF)
             <div style="font:smaller">{{f.name}} {{errFile.text}} 
                 <span class="progress" ng-show="f.progress >= 0">
                     <div style="width:{{f.progress}}%"  
