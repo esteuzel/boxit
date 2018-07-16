@@ -681,168 +681,184 @@ angular
             var getProductsCategory = function () {
                 $scope.showProductsCategory = true;
                 $scope.showProductsCategoryElectronics = false;
-                
-                subCategory = 7147440011;//Women,Mujer
-                $scope.itemsTopSellerWomen = [];
-                $scope.showTopSellerWomen = false;
-                getTopSellerProducts(subCategory).then(function success(result) {                      
-                    console.log('getTopSellerProducts Women,Mujer',result);
+
+                /*
+                11058281,Makeup,Maquillaje
+                196601011,Baby & Toddler Toys,Juguetes para Bebés y Niños
+                541966,Computers & Accessories,Computadoras y Accesorios
+                2811119011,Cell Phones & Accessories,Teléfonos Celulares y Accesorios
+                2619534011, PetSupplies, Mascotas
+                */
+
+                subCategory = 11058281;//Makeup,Maquillaje
+                $scope.itemsTopSellerMakeup = [];
+                $scope.showTopSellerMakeup = false;
+                getTopSellerProducts(subCategory).then(function success(result) {
                     angular.forEach(result.data.Item, function(value, key) {
-                        //console.log("value" , value );
                         let newValue = checkItemData(value);
-                        $scope.itemsTopSellerWomen.push(newValue);
+                        if(newValue!=null){
+                            $scope.itemsTopSellerMakeup.push(newValue);        
+                        }                                        
                     });
-                    if($scope.showTopSellerWomen.length>0){
-                        $scope.showTopSellerWomen = true;                        
+                    if($scope.itemsTopSellerMakeup.length>0){
+                        $scope.showTopSellerMakeup = true;
+                        console.log('getTopSellerProducts Makeup $scope.itemsTopSellerMakeup ',$scope.itemsTopSellerMakeup);
+                        $scope.ItemsMakeupAll = $scope.itemsTopSellerMakeup;
+                        $scope.ItemsMakeupUno= {};
+                        $scope.ItemsMakeupDos= {};
+                        $scope.ItemsMakeupTres= {};
+                        $x=0;
+                        angular.forEach($scope.ItemsMakeupAll, function(value, key) {
+                            if($x<4){
+                                $scope.ItemsMakeupUno[$x] = value;
+                            }else if($x<8){
+                                $scope.ItemsMakeupDos[$x] = value;
+                            }else{
+                                $scope.ItemsMakeupTres[$x] = value;
+                            }
+                            $x++;
+                        });                       
                     }                                                            
                 }, function error(result) {
                     console.log(result);
                 });
 
-                /*
-                var searchParams = {};
-                searchParams["SearchIndex"] = 'Electronics';
-                userData.getDefaultSearch(searchParams).then(function success(result) {
-                if(result!=null & result!=undefined){
-                let i = 0;
-                angular.forEach(result, function(value) {
-                    result[i] = checkItemData(value);
-                    i++;
-                });
-                    $scope.ItemsElectronicsAll= result;
-                    $scope.ItemsElectronicsUno= {};
-                    $scope.ItemsElectronicsDos= {};
-                    $scope.ItemsElectronicsTres= {};
-                    $scope.ItemsElectronicsUno[0] = checkItemData(result[0]);
-                    $scope.ItemsElectronicsUno[1] = checkItemData(result[1]);
-                    $scope.ItemsElectronicsUno[2] = checkItemData(result[2]);
-                    $scope.ItemsElectronicsUno[3] = checkItemData(result[3]);
-                    $scope.ItemsElectronicsDos[0] = checkItemData(result[4]);
-                    $scope.ItemsElectronicsDos[1] = checkItemData(result[5]);
-                    $scope.ItemsElectronicsDos[2] = checkItemData(result[6]);
-                    $scope.ItemsElectronicsDos[3] = checkItemData(result[7]);
-                    $scope.ItemsElectronicsTres[0] = checkItemData(result[8]);
-                    $scope.ItemsElectronicsTres[1] = checkItemData(result[9]);
-                    console.log('ItemsElectronics',$scope.ItemsElectronicsAll);
-                }
+                subCategory = 196601011;//Baby & Toddler Toys,Juguetes para Bebés y Niños
+                $scope.itemsTopSellerBaby = [];
+                $scope.showTopSellerBaby = false;
+                getTopSellerProducts(subCategory).then(function success(result) {
+                    angular.forEach(result.data.Item, function(value, key) {
+                        let newValue = checkItemData(value);
+                        if(newValue!=null){
+                            $scope.itemsTopSellerBaby.push(newValue);        
+                        }                                        
+                    });
+                    if($scope.itemsTopSellerBaby.length>0){
+                        $scope.showTopSellerBaby = true;
+                        console.log('getTopSellerProducts Baby $scope.itemsTopSellerBaby ',$scope.itemsTopSellerBaby);
+                        $scope.ItemsBabyAll = $scope.itemsTopSellerBaby;
+                        $scope.ItemsBabyUno= {};
+                        $scope.ItemsBabyDos= {};
+                        $scope.ItemsBabyTres= {};
+                        $x=0;
+                        angular.forEach($scope.ItemsBabyAll, function(value, key) {
+                            if($x<4){
+                                $scope.ItemsBabyUno[$x] = value;
+                            }else if($x<8){
+                                $scope.ItemsBabyDos[$x] = value;
+                            }else{
+                                $scope.ItemsBabyTres[$x] = value;
+                            }
+                            $x++;
+                        });                       
+                    }                                                            
                 }, function error(result) {
-                });                
-
-               var searchParams = {};
-               searchParams["SearchIndex"] = "FashionWomen";
-               userData.getDefaultSearch(searchParams).then(function success(result) {
-                if(result!=null & result!=undefined){
-                let i = 0;
-                angular.forEach(result, function(value) {
-                    result[i] = checkItemData(value);
-                    i++;
+                    console.log(result);
                 });
-                $scope.ItemsToysAll = result;
-                $scope.ItemsToysUno= {};
-                $scope.ItemsToysDos= {};
-                $scope.ItemsToysTres= {};
-                $scope.ItemsToysUno[0] = checkItemData(result[0]);
-                $scope.ItemsToysUno[1] = checkItemData(result[1]);
-                $scope.ItemsToysUno[2] = checkItemData(result[2]);
-                $scope.ItemsToysUno[3] = checkItemData(result[3]);
-                $scope.ItemsToysDos[0] = checkItemData(result[4]);
-                $scope.ItemsToysDos[1] = checkItemData(result[5]);
-                $scope.ItemsToysDos[2] = checkItemData(result[6]);
-                $scope.ItemsToysDos[3] = checkItemData(result[7]);
-                $scope.ItemsToysTres[0] = checkItemData(result[8]);
-                $scope.ItemsToysTres[1] = checkItemData(result[9]);
-                }
-                //console.log('ItemsToys',$scope.ItemsToys)
-               }, function error(result) {
-               });
+
+
+                subCategory = 541966;//Computers & Accessories,Computadoras y Accesorios
+                $scope.itemsTopSellerComputers = [];
+                $scope.showTopSellerComputers = false;
+                getTopSellerProducts(subCategory).then(function success(result) {
+                    angular.forEach(result.data.Item, function(value, key) {
+                        let newValue = checkItemData(value);
+                        if(newValue!=null){
+                            $scope.itemsTopSellerComputers.push(newValue);        
+                        }                                        
+                    });
+                    if($scope.itemsTopSellerComputers.length>0){
+                        $scope.showTopSellerComputers = true;
+                        console.log('getTopSellerProducts Computers $scope.itemsTopSellerComputers ',$scope.itemsTopSellerComputers);
+                        $scope.ItemsComputersAll = $scope.itemsTopSellerComputers;
+                        $scope.ItemsComputersUno= {};
+                        $scope.ItemsComputersDos= {};
+                        $scope.ItemsComputersTres= {};
+                        $x=0;
+                        angular.forEach($scope.ItemsComputersAll, function(value, key) {
+                            if($x<4){
+                                $scope.ItemsComputersUno[$x] = value;
+                            }else if($x<8){
+                                $scope.ItemsComputersDos[$x] = value;
+                            }else{
+                                $scope.ItemsComputersTres[$x] = value;
+                            }
+                            $x++;
+                        });                       
+                    }                                                            
+                }, function error(result) {
+                    console.log(result);
+                });
+
+
+                subCategory = 2811119011;//2811119011,CellPhones & Accessories,Teléfonos Celulares y Accesorios
+                $scope.itemsTopSellerCellPhones = [];
+                $scope.showTopSellerCellPhones = false;
+                getTopSellerProducts(subCategory).then(function success(result) {
+                    angular.forEach(result.data.Item, function(value, key) {
+                        let newValue = checkItemData(value);
+                        if(newValue!=null){
+                            $scope.itemsTopSellerCellPhones.push(newValue);        
+                        }                                        
+                    });
+                    if($scope.itemsTopSellerCellPhones.length>0){
+                        $scope.showTopSellerCellPhones = true;
+                        console.log('getTopSellerProducts CellPhones $scope.itemsTopSellerCellPhones ',$scope.itemsTopSellerCellPhones);
+                        $scope.ItemsCellPhonesAll = $scope.itemsTopSellerCellPhones;
+                        $scope.ItemsCellPhonesUno= {};
+                        $scope.ItemsCellPhonesDos= {};
+                        $scope.ItemsCellPhonesTres= {};
+                        $x=0;
+                        angular.forEach($scope.ItemsCellPhonesAll, function(value, key) {
+                            if($x<4){
+                                $scope.ItemsCellPhonesUno[$x] = value;
+                            }else if($x<8){
+                                $scope.ItemsCellPhonesDos[$x] = value;
+                            }else{
+                                $scope.ItemsCellPhonesTres[$x] = value;
+                            }
+                            $x++;
+                        });                       
+                    }                                                            
+                }, function error(result) {
+                    console.log(result);
+                });
+
+
+                subCategory = 2619534011;//PetSupplies, Mascotas
+                $scope.itemsTopSellerPetSupplies = [];
+                $scope.showTopSellerPetSupplies = false;
+                getTopSellerProducts(subCategory).then(function success(result) {
+                    angular.forEach(result.data.Item, function(value, key) {
+                        let newValue = checkItemData(value);
+                        if(newValue!=null){
+                            $scope.itemsTopSellerPetSupplies.push(newValue);        
+                        }                                        
+                    });
+                    if($scope.itemsTopSellerPetSupplies.length>0){
+                        $scope.showTopSellerPetSupplies = true;
+                        console.log('getTopSellerProducts PetSupplies $scope.itemsTopSellerPetSupplies ',$scope.itemsTopSellerPetSupplies);
+                        $scope.ItemsPetSuppliesAll = $scope.itemsTopSellerPetSupplies;
+                        $scope.ItemsPetSuppliesUno= {};
+                        $scope.ItemsPetSuppliesDos= {};
+                        $scope.ItemsPetSuppliesTres= {};
+                        $x=0;
+                        angular.forEach($scope.ItemsPetSuppliesAll, function(value, key) {
+                            if($x<4){
+                                $scope.ItemsPetSuppliesUno[$x] = value;
+                            }else if($x<8){
+                                $scope.ItemsPetSuppliesDos[$x] = value;
+                            }else{
+                                $scope.ItemsPetSuppliesTres[$x] = value;
+                            }
+                            $x++;
+                        });                       
+                    }                                                            
+                }, function error(result) {
+                    console.log(result);
+                });
+
                
-              var searchParams = {};
-               searchParams["SearchIndex"] = 'FashionMen';
-               userData.getDefaultSearch(searchParams).then(function success(result) {                
-                   if(result!=null & result!=undefined){
-                    let i = 0;
-                    angular.forEach(result, function(value) {
-                        result[i] = checkItemData(value);
-                        i++;
-                    });
-                    $scope.ItemsmenshoesAll= result;
-                    $scope.ItemsmenshoesUno= {};
-                    $scope.ItemsmenshoesDos= {};
-                    $scope.ItemsmenshoesTres= {};
-                    $scope.ItemsmenshoesUno[0] = checkItemData(result[0]);
-                    $scope.ItemsmenshoesUno[1] = checkItemData(result[1]);
-                    $scope.ItemsmenshoesUno[2] = checkItemData(result[2]);
-                    $scope.ItemsmenshoesUno[3] = checkItemData(result[3]);
-                    $scope.ItemsmenshoesDos[0] = checkItemData(result[4]);
-                    $scope.ItemsmenshoesDos[1] = checkItemData(result[5]);
-                    $scope.ItemsmenshoesDos[2] = checkItemData(result[6]);
-                    $scope.ItemsmenshoesDos[3] = checkItemData(result[7]);
-                    $scope.ItemsmenshoesTres[0] = checkItemData(result[8]);
-                    $scope.ItemsmenshoesTres[1] = checkItemData(result[9]);
-                    //console.log('Itemsmenshoes',$scope.Itemsmenshoes);
-                   }
-             
-                }, function error(result) {
-                });
-
-               var searchParams = {};
-               searchParams["SearchIndex"] = 'Fashion';
-               userData.getDefaultSearch(searchParams).then(function success(result) {                
-                   if(result!=null & result!=undefined){
-                    let i = 0;
-                    angular.forEach(result, function(value) {
-                        result[i] = checkItemData(value);
-                        i++;
-                    });
-                    $scope.ItemswhatchesAll= result;
-                    $scope.ItemswhatchesUno= {};
-                    $scope.ItemswhatchesDos= {};
-                    $scope.ItemswhatchesTres= {};
-                    $scope.ItemswhatchesUno[0] = checkItemData(result[0]);
-                    $scope.ItemswhatchesUno[1] = checkItemData(result[1]);
-                    $scope.ItemswhatchesUno[2] = checkItemData(result[2]);
-                    $scope.ItemswhatchesUno[3] = checkItemData(result[3]);
-                    $scope.ItemswhatchesDos[0] = checkItemData(result[4]);
-                    $scope.ItemswhatchesDos[1] = checkItemData(result[5]);
-                    $scope.ItemswhatchesDos[2] = checkItemData(result[6]);
-                    $scope.ItemswhatchesDos[3] = checkItemData(result[7]);
-                    $scope.ItemswhatchesTres[0] = checkItemData(result[8]);
-                    $scope.ItemswhatchesTres[1] = checkItemData(result[9]);
-                    //console.log('ItemswhatchesAll',$scope.ItemswhatchesAll);
-                   }
-             
-                }, function error(result) {
-                });
-
-                var searchParams = {};
-               searchParams["SearchIndex"] = 'FashionGirls';
-               userData.getDefaultSearch(searchParams).then(function success(result) {                
-                   if(result!=null & result!=undefined){
-                    let i = 0;
-                    angular.forEach(result, function(value) {
-                        result[i] = checkItemData(value);
-                        i++;
-                    });
-                    $scope.ItemshandbagsAll= result;
-                    $scope.ItemshandbagsUno= {};
-                    $scope.ItemshandbagsDos= {};
-                    $scope.ItemshandbagsTres= {};
-                    $scope.ItemshandbagsUno[0] = checkItemData(result[0]);
-                    $scope.ItemshandbagsUno[1] = checkItemData(result[1]);
-                    $scope.ItemshandbagsUno[2] = checkItemData(result[2]);
-                    $scope.ItemshandbagsUno[3] = checkItemData(result[3]);
-                    $scope.ItemshandbagsDos[0] = checkItemData(result[4]);
-                    $scope.ItemshandbagsDos[1] = checkItemData(result[5]);
-                    $scope.ItemshandbagsDos[2] = checkItemData(result[6]);
-                    $scope.ItemshandbagsDos[3] = checkItemData(result[7]);
-                    $scope.ItemshandbagsTres[0] = checkItemData(result[8]);
-                    $scope.ItemshandbagsTres[1] = checkItemData(result[9]);
-                    //console.log('Itemshandbags',$scope.Itemshandbags);
-                   }
-             
-                }, function error(result) {
-                });
-                */
             };
 
             if($scope.showProductsCategory){
