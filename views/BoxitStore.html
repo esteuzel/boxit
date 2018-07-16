@@ -11,7 +11,9 @@
         <a class="navbar-brand" ui-sref="home">
             <img src="img/newstyle/BoxitLogoNuevo.svg" class="svg" alt="Boxit"/>
         </a>
-
+        <div class="giftcards-center">
+            <div class="navbar-giftcards navbarlink"><a ui-sref="giftcards">Gift Cards</a></div>
+        </div>	
     <div class="phones-right">	
         <div class="navbar-phones">
             <div class="navbar-phones-div">
@@ -22,6 +24,7 @@
         </div>
     </div>	
 </div>
+<div class="separatetopfixed"></div>
 <div class="row boxitBar white">
 
     <div class="only-descktop container">
@@ -110,7 +113,7 @@
                     </div>
                 </div>
 
-                <div class="store-cart">
+                <div class="store-cart" ng-show="UserName">
                     <a class="cart cart_anchor" ui-sref="carrito">
                         <span id="cartNumber">{{carNumber}}</span>
                         <br>

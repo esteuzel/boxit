@@ -2793,6 +2793,17 @@ ul.top-categories li.active ul li a {
       padding-top: 10px;
       min-height: 65px;
   }
+  .boxitBar.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  .separatetopfixed {
+    height: 70px;
+    width: 100%;
+    display: none;
+  }
   .m-t-5 {
       margin-top: 5px;
   }
@@ -2844,6 +2855,18 @@ ul.top-categories li.active ul li a {
 
   }
   .link-categorias span {margin-left: 10px;}
+  .giftcards-center {    
+    margin-top: 10px;
+    float: left;
+    margin-left: 100px;
+    color: #000;
+    font-weight: bold;
+  }
+  .giftcards-center a {
+    color: #000;
+  }
+
+
 }
 .nopadding {
   padding-left: 0px;

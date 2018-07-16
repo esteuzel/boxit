@@ -24,6 +24,16 @@ $(document).ready(function() {
 		} else {
 			$('.navbar').removeClass('change');
 		}
+		if (scrollPos >= 40) {
+			$('.boxitBar').addClass('fixed');
+			$('.separatetopfixed').show();
+		} else {
+			$('.boxitBar').removeClass('fixed');
+			$('.separatetopfixed').hide();
+		}
+		
+
+
 	}
 
 	// NAV TOGGLE
