@@ -709,11 +709,11 @@ angular
                         $scope.ItemsMakeupTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsMakeupAll, function(value, key) {
-                            if($x<4){
+                            if($x<3){
                                 $scope.ItemsMakeupUno[$x] = value;
-                            }else if($x<8){
+                            }else if($x<6){
                                 $scope.ItemsMakeupDos[$x] = value;
-                            }else{
+                            }else if($x<9){
                                 $scope.ItemsMakeupTres[$x] = value;
                             }
                             $x++;
@@ -742,11 +742,11 @@ angular
                         $scope.ItemsBabyTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsBabyAll, function(value, key) {
-                            if($x<4){
+                            if($x<3){
                                 $scope.ItemsBabyUno[$x] = value;
-                            }else if($x<8){
+                            }else if($x<6){
                                 $scope.ItemsBabyDos[$x] = value;
-                            }else{
+                            }else if($x<9){
                                 $scope.ItemsBabyTres[$x] = value;
                             }
                             $x++;
@@ -776,11 +776,11 @@ angular
                         $scope.ItemsComputersTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsComputersAll, function(value, key) {
-                            if($x<4){
+                            if($x<3){
                                 $scope.ItemsComputersUno[$x] = value;
-                            }else if($x<8){
+                            }else if($x<6){
                                 $scope.ItemsComputersDos[$x] = value;
-                            }else{
+                            }else if($x<9){
                                 $scope.ItemsComputersTres[$x] = value;
                             }
                             $x++;
@@ -810,11 +810,11 @@ angular
                         $scope.ItemsCellPhonesTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsCellPhonesAll, function(value, key) {
-                            if($x<4){
+                            if($x<3){
                                 $scope.ItemsCellPhonesUno[$x] = value;
-                            }else if($x<8){
+                            }else if($x<6){
                                 $scope.ItemsCellPhonesDos[$x] = value;
-                            }else{
+                            }else if($x<9){
                                 $scope.ItemsCellPhonesTres[$x] = value;
                             }
                             $x++;
@@ -844,11 +844,11 @@ angular
                         $scope.ItemsPetSuppliesTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsPetSuppliesAll, function(value, key) {
-                            if($x<4){
+                            if($x<3){
                                 $scope.ItemsPetSuppliesUno[$x] = value;
-                            }else if($x<8){
+                            }else if($x<6){
                                 $scope.ItemsPetSuppliesDos[$x] = value;
-                            }else{
+                            }else if($x<9){
                                 $scope.ItemsPetSuppliesTres[$x] = value;
                             }
                             $x++;
