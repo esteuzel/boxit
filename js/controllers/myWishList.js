@@ -157,7 +157,14 @@ angular
                 console.log('myWishList'+userObj.IdCliente);
             }
 
-
+            $scope.$on("$destroy", function handler() {
+                $('.navbar').removeClass('white');
+                $('.rusia2018-right').hide();
+                $('.giftcards-right').hide();
+            });            
+                $('.navbar').addClass('white');
+                $('.rusia2018-right').show();
+                $('.giftcards-right').show();
 
 
         }]);

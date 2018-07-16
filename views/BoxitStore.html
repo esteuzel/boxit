@@ -85,7 +85,10 @@
                     <!--<div class="user-photo">{{UserPhoto}}</div>-->
                     <span class="user-name dropdown">
                             <a class="dropdown-toggle link-UserName" data-toggle="dropdown">{{UserName}}<span><i class="fa fa-chevron-down"></i></span></a>
-                            <ul class="dropdown-menu">                        
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item">
+                                    <a class="navbarlink" ng-show="loged" ui-sref="misFavoritos" >Mis favoritos</a>
+                                </li>
                                 <li class="dropdown-item">
                                     <a class="navbarlink" ng-show="loged" ui-sref="iniciarSesion" ng-click="iniciarSesion()">Área Usuario</a>
                                 </li>

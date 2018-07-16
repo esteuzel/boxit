@@ -2791,6 +2791,7 @@ ul.top-categories li.active ul li a {
   }
   .boxitBar {
       padding-top: 10px;
+      min-height: 65px;
   }
   .m-t-5 {
       margin-top: 5px;
