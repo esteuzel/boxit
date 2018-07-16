@@ -2872,3 +2872,6 @@ ul.top-categories li.active ul li a {
   padding-left: 0px;
   padding-right: 0px;
 }
+.boxitBar-top-separator {
+  height: 100px;
+}
