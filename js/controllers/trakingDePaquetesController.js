@@ -2,6 +2,57 @@ angular
     .module('boxit')
     .controller('trakingDePaquetesController', ['$scope', '$http', 'userData',
         function ($scope, $http, userData) {
+            $scope.showPaquetes = false;
+            $scope.showOrdenes = false;
+            $scope.showOrdenesPendientes = false;
+            $scope.showOrdenesPagadas = false;
+            $scope.showPaquetesProceso = false;
+            $scope.showPaquetesEntregados = false;
+            $scope.showPaquetesAlertado = false;
+
+            $scope.showTrakings = function (parametros) {
+                console.log("parametros: ",parametros);
+                $('.tarjetas').hide();
+                $scope.showPaquetes = false;
+                $scope.showOrdenes = false;
+                $scope.showOrdenesPendientes = false;
+                $scope.showOrdenesPagadas = false;
+                $scope.showPaquetesAlertado = false;
+                $scope.showPaquetesProceso = false;
+                $scope.showPaquetesEntregados = false;
+                let showThisClass = '';
+                switch (parametros) {
+                    case 'showPaquetes': case 'showPaquetesProceso':
+                        $scope.showPaquetes = true;
+                        $scope.showPaquetesProceso = true;   
+                        showThisClass = 'showPaquetesProceso';                     
+                        break;
+                    case 'showPaquetesEntregados': 
+                        $scope.showPaquetes = true;
+                        $scope.showPaquetesEntregados = true;  
+                        showThisClass = 'showPaquetesEntregados';                      
+                        break;
+                    case 'showPaquetesAlertado': 
+                        $scope.showPaquetes = true;
+                        $scope.showPaquetesAlertado = true;  
+                        showThisClass = 'showPaquetesAlertado';                      
+                        break;
+
+                    case 'showOrdenes': case 'showOrdenesPendientes':
+                        $scope.showOrdenes = true;
+                        $scope.showOrdenesPendientes = true;  
+                        showThisClass = 'showOrdenesPendientes';
+                        break;                        
+                    case 'showOrdenesPagadas': 
+                        $scope.showOrdenes = true;
+                        $scope.showOrdenesPagadas = true;  
+                        showThisClass = 'showOrdenesPagadas';                      
+                        break; 
+                    default:
+                        break;
+                }
+                $('.'+showThisClass).show();
+            }
             $http({
                 method: "POST",
                 url: userData.getHost() + "/users/gettracking",
@@ -14,10 +65,15 @@ angular
                 }
             }).then(function success(result) {
                 console.log("result",result);
-                if(Object.keys(result.data.Rows).length==1){
-                    var a = [];
-                    a.push(result.data.Rows);
-                    $scope.trakings = a;
+                var a = [];
+                if(Object.keys(result.data.Rows).length==1){                                        
+                    a.push(result.data.Rows);                   
+                    /*
+                    Alertado
+                    OnBoxIt
+                    Entregado
+                    En Tránsito
+                    Pagada
                   //  alert(Object.value(result.data.Rows));
                   /* $.each(a, function (index, value) {
                         alert( value.attributes);
@@ -26,8 +82,47 @@ angular
                         });
                     });*/
                 }else{
-                    $scope.trakings = result.data.Rows;
+                    a = result.data.Rows;
                 }
+                let b = [];
+                let statusClass = '';
+                $.each(a, function (index2, value) {                   
+                    console.log("value",value);
+                    let estado = value.attributes.Estatus;
+                    switch (estado) {
+                        case 'Alertado':
+                        statusClass = 'showPaquetesAlertado';                        
+                        break;
+                        case 'Entregado':
+                        statusClass = 'showPaquetesEntregados';                        
+                        break;
+                        case 'En Tránsito':
+                        statusClass = 'showPaquetesProceso';                        
+                        break;
+                        case 'OnBoxIt':
+                        statusClass = 'showOrdenesPendientes';                        
+                        break;
+                        case 'Pagada':
+                        statusClass = 'showOrdenesPagadas';                        
+                        break;
+                        default:
+                        statusClass = 'Error de estado';        
+                        break;
+                    }
+                    value.attributes.statusClass = statusClass;
+                    b.push(value);
+                });
+
+                $scope.trakings = b;
+                console.log("b",b);
+
+                
+
+
+
+
+
+
             }, function error(result) {
                 console.log(result);
             });

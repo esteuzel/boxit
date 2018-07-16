@@ -2692,11 +2692,13 @@ ul.top-categories li.active ul li a {
   margin-top: 16px;
 }
 .tarjeta {
-	border: 1px solid #496E9A;
+	border: 1px solid #DDE9F6;
   margin-top: 16px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .tarjeta-header {
-	border-bottom:1px solid #496E9A;
+/*	border-bottom:1px solid #496E9A;*/
   background: #DDE9F6;
   padding: 10px;
   width: 100%;
@@ -2716,6 +2718,9 @@ ul.top-categories li.active ul li a {
   width: 100%;
   clear: both;
   float: left;
+  border-bottom: 4px solid #496E9A;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 .detalle {
   width: 50%;
@@ -2874,4 +2879,39 @@ ul.top-categories li.active ul li a {
 }
 .boxitBar-top-separator {
   height: 100px;
+}
+
+.trakingdepaquetes .nav-pills > li.active > a, 
+.trakingdepaquetes .nav-pills > li.active > a:focus, 
+.trakingdepaquetes .nav-pills > li.active > a:hover {
+  color: #000;
+  background-color: #fff;
+  font-weight: bold;
+}
+.trakingdepaquetes .nav-pills > li > a, 
+.trakingdepaquetes .nav-pills > li > a:focus, 
+.trakingdepaquetes .nav-pills > li > a:hover {
+  color: #000;
+  background-color: #fff;
+}
+.trakingdepaquetes .nav-pills li {
+  list-style: none;
+}
+.trakingdepaquetes .subpill {
+  color: #000;
+  background-color: #fff;
+}
+
+.trakingdepaquetes .subpill > li.active > a, 
+.trakingdepaquetes .subpill > li.active > a:focus, 
+.trakingdepaquetes .subpill > li.active > a:hover {
+  color: #000;
+  background-color: #fff;
+  font-weight: bold;
+}
+.trakingdepaquetes .subpill > li > a, 
+.trakingdepaquetes .subpill > li > a:focus, 
+.trakingdepaquetes .subpill > li > a:hover {
+  color: #000;
+  background-color: #fff;
 }
