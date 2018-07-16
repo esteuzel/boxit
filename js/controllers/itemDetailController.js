@@ -224,8 +224,9 @@ angular
                     args["ItemId"] = currentItemObject.Item.ItemId;
                     args["OfferListingId"] = "";
                     //args["Price"] = currentItemObject.Item.Offers.Offer.OfferListing.Price.Amount / 100;
-                    args["Price"] = currentItemObject.Item.OfferSummary.ListPrice.Amount / 100;
-                    
+                    //args["Price"] = currentItemObject.Item.OfferSummary.ListPrice.Amount / 100;
+                    let itemAmount = getItemAmount(currentItemObject.Item);
+                    args["Price"] = itemAmount / 100;
                     
                     // PackageDimensions 
                     if(currentItemObject.Item.Attributes.PackageDimensions != null){
