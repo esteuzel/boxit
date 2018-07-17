@@ -43,16 +43,16 @@ angular.module('boxit')
                     //console.log("user",user);
                     //$scope.IdTipoPlan = 1;
                     switch ($scope.IdTipoPlan) {
-                        case 1: $scope.userPlanName = "Básico";
+                        case "1": $scope.userPlanName = "Básico";
                                 $scope.ShowDefaultAddressBasica = true;
                             break;
-                        case 3: $scope.userPlanName = "Básico"; 
-                                $scope.ShowDefaultAddressBasica = true;                           
+                        case "3": $scope.userPlanName = "Básico"; 
+                                $scope.ShowDefaultAddressBasica = true;                            
                             break;
-                        case 2: $scope.userPlanName = "Premium"; 
+                        case "2": $scope.userPlanName = "Premium"; 
                                 $scope.ShowDefaultAddressPremium = true;                           
                             break;
-                        case 4: $scope.userPlanName = "Premium";
+                        case "4": $scope.userPlanName = "Premium";
                                 $scope.ShowDefaultAddressPremium = true;
                             break;                    s
                         default: $scope.userPlanName = "Básico";
