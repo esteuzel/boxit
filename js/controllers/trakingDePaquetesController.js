@@ -2,6 +2,7 @@ angular
     .module('boxit')
     .controller('trakingDePaquetesController', ['$scope', '$http', 'userData',
         function ($scope, $http, userData) {
+            $scope.showAll = true;
             $scope.showPaquetes = false;
             $scope.showOrdenes = false;
             $scope.showOrdenesPendientes = false;
@@ -13,6 +14,7 @@ angular
             $scope.showTrakings = function (parametros) {
                 console.log("parametros: ",parametros);
                 $('.tarjetas').hide();
+                $scope.showAll = false;
                 $scope.showPaquetes = false;
                 $scope.showOrdenes = false;
                 $scope.showOrdenesPendientes = false;
@@ -49,6 +51,13 @@ angular
                         showThisClass = 'showOrdenesPagadas';                      
                         break; 
                     default:
+                        $scope.showAll = true;               
+                        $scope.showOrdenesPendientes = false;
+                        $scope.showOrdenesPagadas = false;
+                        $scope.showPaquetesAlertado = false;
+                        $scope.showPaquetesProceso = false;
+                        $scope.showPaquetesEntregados = false;
+                        showThisClass = 'tarjetas';
                         break;
                 }
                 $('.'+showThisClass).show();

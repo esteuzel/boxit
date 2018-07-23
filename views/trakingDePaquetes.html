@@ -22,15 +22,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="trakingdepaquetes">
 	<div class="nnoorow">	
-		<h4 class="customLabel">Tracking de Paquetes</h4>
-
-
-
+		
 
 
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<ul class="nav nav-pills">
-				<li ng-class="{'active' : showPaquetes}"><a href="#" ng-click="showTrakings('showPaquetes')">Paquetes</a>
+				<li class="tab-primary" ng-class="{'active' : showAll}"><a href="#" ng-click="showTrakings('showAll')">Historial</a>
+
+				</li>
+				<li  class="tab-secondary" ng-class="{'active' : showPaquetes}"><a href="#" ng-click="showTrakings('showPaquetes')">Paquetes</a>
 					<ul class="subpill">
 						<li ng-class="{'active' : showPaquetesAlertado}">
 							<a href="#" ng-click="showTrakings('showPaquetesAlertado')">Alertados</a>

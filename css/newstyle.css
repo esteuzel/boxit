@@ -2885,7 +2885,7 @@ ul.top-categories li.active ul li a {
 .trakingdepaquetes .nav-pills > li.active > a:focus, 
 .trakingdepaquetes .nav-pills > li.active > a:hover {
   color: #000;
-  background-color: #fff;
+  background-color: #DDE9F6;
   font-weight: bold;
 }
 .trakingdepaquetes .nav-pills > li > a, 
@@ -2914,4 +2914,12 @@ ul.top-categories li.active ul li a {
 .trakingdepaquetes .subpill > li > a:hover {
   color: #000;
   background-color: #fff;
+}
+
+.tab-primary.active a{
+  background: #DDE9F6;
+}
+
+.tab-secondary {
+
 }
