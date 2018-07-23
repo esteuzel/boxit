@@ -234,7 +234,7 @@ angular.module('boxit')
 
                     };
 
-                $scope.arraivalDate = new Date
+                //$scope.arraivalDate = new Date
 
                     //var oldUser = userData.getData();
 
@@ -244,7 +244,7 @@ angular.module('boxit')
 
                     console.log(moment(unformattedDate).format('DD/MM/YYYY'));
 
-                    $scope.arraivalDate = new Date(moment(unformattedDate)); 
+                    //$scope.arraivalDate = new Date(moment(unformattedDate)); 
                     console.log('$scope.arraivalDate',$scope.arraivalDate);
 
 
