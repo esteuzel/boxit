@@ -136,7 +136,20 @@ angular
                         } else {
                             $scope.loadMain = false;
                             $scope.showCar = true;
-                            $scope.showPagination = true
+                            $scope.showPagination = true;
+                            $scope.showStoreBreadcrumb=true;
+                            $scope.categoryTexto = $scope.index.attributes.SearchIndex;
+                            $scope.subCategoryTexto = $scope.keyword;
+                            console.log('$scope.categoriesListEs',$scope.categoriesListEs);
+
+                            angular.forEach($scope.categoriesListEs, function(value, key) {
+                                console.log('value',value);
+                                if(value.code==$scope.index.attributes.SearchIndex){
+                                    $scope.categoryTexto = value.texto;
+                                    console.log('$scope.categoryTexto',value.code);
+                                }
+                            });
+                            //{{index.attributes.SearchIndex}}
                             
                         }
                     });                
