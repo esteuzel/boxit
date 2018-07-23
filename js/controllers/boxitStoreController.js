@@ -257,6 +257,7 @@ angular
 
             function checkItemData(value){
                 value.Price_FormattedPrice = 0;
+                value.priceToShow="";
                 if(!value.ItemId || value.ItemId==null){ return null; }
                 if(!value.Image || value.Image==null){ return null; }  
                 if(value.OfferSummary!=null){
@@ -1084,11 +1085,15 @@ angular
                 goToTopBody();
 
                 getTopSellerProducts(subCategory).then(function success(result) {                      
-                    console.log('getTopSellerProducts',result);
+                    //console.log('getTopSellerProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
                         //console.log("value" , value );
                         let newValue = checkItemData(value);
-                        $scope.itemsTopSellerProducts.push(newValue);
+                        //console.log("newValue" , newValue );
+                        if(newValue.priceToShow!=''){
+                            //console.log("newValue.priceToShow" , newValue.priceToShow );
+                            $scope.itemsTopSellerProducts.push(newValue);
+                        }                        
                     });
                     //console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
                     if($scope.itemsTopSellerProducts.length>0){
@@ -1117,10 +1122,15 @@ angular
                     angular.forEach(result.data.Item, function(value, key) {
                         //console.log("value" , value );
                         let newValue = checkItemData(value);
-                        $scope.itemsNewReleaseProducts.push(newValue);
+                        console.log("newValue" , newValue );
+                        if(newValue!=null && newValue.priceToShow!=''){
+                            //console.log("newValue.priceToShow" , newValue.priceToShow );
+                            $scope.itemsNewReleaseProducts.push(newValue);
+                        }
                     });
-                    if($scope.itemsTopSellerProducts.length){
+                    if($scope.itemsNewReleaseProducts.length>0){
                         $scope.showNewReleaseProducts = true;
+                        $scope.loadMain = false;
                     }
                     
                 }, function error(result) {
