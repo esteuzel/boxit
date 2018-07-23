@@ -454,10 +454,10 @@ angular
                         angular.forEach(result.data.Item, function(value, key) {
                             //console.log("value" , value );
                             value = getSimilaritiesNewValue(value);
-                            if(value.priceToShow!=''){
+                            if(value!=null && value.priceToShow!=''){
                                 $scope.similaritiesProducts.push(value);
                             }else{
-                                value.priceToShow='';
+                                //value.priceToShow='';
                             }
                             //$scope.similaritiesProducts.push(value);
                         });

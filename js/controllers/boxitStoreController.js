@@ -34,6 +34,8 @@ angular
             $scope.showTopSellerProducts = false;
             $scope.showNewReleaseProducts = false;
             $scope.showStoreBreadcrumb=false;
+            $scope.showSearchTopNewProdctsEmpty = false;
+            $scope.preventCacheSearchKeyword = false;
 
             console.log("$scope.categoriesList",$scope.categoriesList);
             var userObj =  userData.getData();
@@ -179,8 +181,11 @@ angular
                         Keywords = Keywords.replace("'",comillaSimple);
                         Keywords = Keywords.replace("/",barra);
 
-                        $location.path('/boxitStore/'+searchParams["SearchIndex"]+','+Keywords);
-                        console.log('$location.path(',$location.path());                        
+                        if(!$scope.preventCacheSearchKeyword){
+                            $location.path('/boxitStore/'+searchParams["SearchIndex"]+','+Keywords);
+                            console.log('$location.path(',$location.path());  
+                        }
+                                              
                         
                     } else {
 
@@ -1090,7 +1095,7 @@ angular
                         //console.log("value" , value );
                         let newValue = checkItemData(value);
                         //console.log("newValue" , newValue );
-                        if(newValue.priceToShow!=''){
+                        if(newValue!=null && newValue.priceToShow!=''){
                             //console.log("newValue.priceToShow" , newValue.priceToShow );
                             $scope.itemsTopSellerProducts.push(newValue);
                         }                        
@@ -1100,14 +1105,7 @@ angular
                         $scope.showTopSellerProducts = true;
                         $scope.loadMain = false;
                     }else{
-                        getSearchEmptySubcategoryProducts(subCategory,subCategoryTexto).then(function success(result) {
-                            angular.forEach(result.data.Item, function(value) {
-                                //console.log("value" , value );
-                                let newValue = checkItemData(value);
-                                $scope.itemsTopSellerProducts.push(newValue);
-                            });
-                        });
-
+                        $scope.showSearchTopNewProdctsEmpty = true;
                     }
                     
                     //$scope.Items = $scope.subcategoryProducts;
@@ -1124,13 +1122,31 @@ angular
                         let newValue = checkItemData(value);
                         console.log("newValue" , newValue );
                         if(newValue!=null && newValue.priceToShow!=''){
-                            //console.log("newValue.priceToShow" , newValue.priceToShow );
+                            console.log("newValue.priceToShow" , newValue.priceToShow );
                             $scope.itemsNewReleaseProducts.push(newValue);
                         }
                     });
                     if($scope.itemsNewReleaseProducts.length>0){
                         $scope.showNewReleaseProducts = true;
                         $scope.loadMain = false;
+                        console.log("$scope.itemsNewReleaseProducts.length" , $scope.itemsNewReleaseProducts.length );
+                    }else{
+                        if($scope.showSearchTopNewProdctsEmpty){
+                            console.log("$scope.showSearchTopNewProdctsEmpty" , $scope.showSearchTopNewProdctsEmpty );
+                            
+                            getSearchEmptySubcategoryProducts(subCategoryTexto);
+                            $scope.preventCacheSearchKeyword = false;
+                            $scope.keyword = '';
+                            /*.then(function success(result) {
+                                $scope.preventCacheSearchKeyword = false;
+                                angular.forEach(result.data.Item, function(value) {
+                                    //console.log("value" , value );
+                                    let newValue = checkItemData(value);
+                                    $scope.itemsTopSellerProducts.push(newValue);
+                                });
+                                return true;
+                            });*/
+                        }
                     }
                     
                 }, function error(result) {
@@ -1181,10 +1197,12 @@ angular
                 });
                 return promise;
             }
-
-            function getSearchEmptySubcategoryProducts(BrowseNodeId,subCategoryTexto){
+            
+            function getSearchEmptySubcategoryProducts(subCategoryTexto){
                 $scope.keyword = subCategoryTexto;
+                $scope.preventCacheSearchKeyword = true;
                 $scope.doSearch();
+                return true;
             }
             
             
@@ -1250,7 +1268,7 @@ angular
                 $scope.categoryTexto = "";
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;
-                if($scope.keyword!=undefined || $scope.keyword!=null || $scope.keyword!="undefined" || $scope.keyword!='' || $scope.keyword!=' '){
+                if($scope.keyword!=undefined && $scope.keyword!=null && $scope.keyword!="undefined" && $scope.keyword!='' && $scope.keyword!=' '){
                     if($scope.keyword.length>0){
                         categoryClick("All");
                         $scope.doSearch();
