@@ -108,7 +108,9 @@ angular
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    defered.resolve(result.data.Item.Variations);
+                    if(result.data.Item.Variations != null && result.data.Item.Variations != undefined){
+                        defered.resolve(result.data.Item.Variations);
+                    }
                 },function error(result) {
                   defered.reject(result);
                 });
@@ -445,36 +447,39 @@ angular
             showSimilaritiesProducts();
 
             function showSimilaritiesProducts(){
-                $scope.mostrarSimilaritiesProducts = true;
+                
                 $scope.similaritiesProducts=[];
                 getAmazonGetSimilarities($stateParams.itemId).then(function success(result) {                      
                         console.log('getAmazonGetSimilarities',result);
                         angular.forEach(result.data.Item, function(value, key) {
                             //console.log("value" , value );
-                            value.ListPrice_FormattedPrice = getItemPrice(value);
-                            if(value.ListPrice_FormattedPrice>0){
-                                
+                            value = getSimilaritiesNewValue(value);
+                            if(value.priceToShow!=''){
+                                $scope.similaritiesProducts.push(value);
                             }else{
-                                value.ListPrice_FormattedPrice='';
+                                value.priceToShow='';
                             }
-                            $scope.similaritiesProducts.push(value);
+                            //$scope.similaritiesProducts.push(value);
                         });
-                        $scope.similaritiesProductsUno= {};
-                        $scope.similaritiesProductsDos= {};
-                        $scope.similaritiesProductsTres= {};
-                        $scope.similaritiesProductsUno[0] = $scope.similaritiesProducts[0];
-                        $scope.similaritiesProductsUno[1] = $scope.similaritiesProducts[1];
-                        $scope.similaritiesProductsUno[2] = $scope.similaritiesProducts[2];
-                        $scope.similaritiesProductsUno[3] = $scope.similaritiesProducts[3];
-                        $scope.similaritiesProductsDos[0] = $scope.similaritiesProducts[4];
-                        $scope.similaritiesProductsDos[1] = $scope.similaritiesProducts[5];
-                        $scope.similaritiesProductsDos[2] = $scope.similaritiesProducts[6];
-                        $scope.similaritiesProductsDos[3] = $scope.similaritiesProducts[7];
-                        $scope.similaritiesProductsTres[0] = $scope.similaritiesProducts[8];
-                        $scope.similaritiesProductsTres[1] = $scope.similaritiesProducts[9];
-                        $scope.similaritiesProductsTres[2] = $scope.similaritiesProducts[5];
-                        $scope.similaritiesProductsTres[3] = $scope.similaritiesProducts[6];
-                        
+                        if ($scope.similaritiesProducts.length != null && $scope.similaritiesProducts.length > 0) {
+                            $scope.mostrarSimilaritiesProducts = true;
+                            
+                            $scope.similaritiesProductsUno= {};
+                            $scope.similaritiesProductsDos= {};
+                            $scope.similaritiesProductsTres= {};
+                            $x=0;
+                            angular.forEach($scope.similaritiesProducts, function(value, key) {
+                                if($x<3){
+                                    $scope.similaritiesProductsUno[$x] = value;
+                                }else if($x<6){
+                                    $scope.similaritiesProductsDos[$x] = value;
+                                }else if($x<9){
+                                    $scope.similaritiesProductsTres[$x] = value;
+                                }
+                                $x++;
+                            }); 
+                        }
+
                         //$scope.Items = $scope.subcategoryProducts;
                         console.log('$scope.similaritiesProducts',$scope.similaritiesProducts);
                         
@@ -501,6 +506,33 @@ angular
                     defered.reject(result);
                 });
                 return promise;
+            }
+
+            function getSimilaritiesNewValue(value){
+                value.priceToShow = 0;
+                if(!value.ItemId || value.ItemId==null){ return null; }
+                if(!value.Image || value.Image==null){ return null; }  
+                if(value.OfferSummary!=null){
+                    if(value.OfferSummary.ListPrice!=null){
+                        value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+                        console.log("value.OfferSummary.ListPrice.FormattedPrice:",value.priceToShow);
+                    }
+                }
+                if(value.Offers!=null){                                                           
+                    if(value.Offers.Offer!=null){
+                        if(value.Offers.Offer.OfferListing!=null){
+                            if(value.Offers.Offer.OfferListing.Price!=null){
+                                value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                
+                                console.log("value.Offers.Offer.OfferListing.Price.FormattedPrice:",value.priceToShow);
+                            }
+                        }
+                    }
+                }
+                if(value.priceToShow=="Too low to display"){
+                    console.log("value.priceToShow",value.priceToShow);
+                    value.priceToShow="";
+                }             
+                return value;
             }
 
 
