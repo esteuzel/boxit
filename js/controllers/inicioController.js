@@ -31,6 +31,7 @@ angular.module('boxit')
                     $scope.total = 0;
 
                     $scope.IdCliente = user.IdCliente;
+                    $scope.IdClientePremium = parseInt(user.IdCliente)+400000;
                     $scope.username = user.UserName;
                     $scope.lastname = user.UserLastName;
                     $scope.UserBirthdate = user.UserBirthdate;

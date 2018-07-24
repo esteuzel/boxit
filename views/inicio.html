@@ -67,7 +67,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		</div>
 		<div class="row">
 			<div class="col-sm-3 customLabel">
-				<span class="pull-right"Fecha Nacimiento:"" </span>
+				<span class="pull-right">Fecha Nacimiento: </span>
 			</div>				
 			<div class="col-sm-7 form-group"><span>{{UserBirthdate}}</span>
 			</div>
@@ -150,10 +150,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	<div id="defaultAddressPremium" ng-show="ShowDefaultAddressPremium">
 		<h3 class="customLabel">Dirección Miami Plan Premium</h3>
+		<br>
+		<div class="Description">La siguiente dirección es la que debes utilizar para hacer pedidos por internet, el nombre y código PTY siempre deben incluirse. </div>
 		<hr />
 		<div class="row">
 			<div class="col-sm-3 customLabel"><span class="pull-right">Full Name : </span></div>
-			<div class="col-sm-7 form-group"><span>{{username}} {{lastname}} PTY{{IdCliente}}</span></div>
+			<div class="col-sm-7 form-group"><span>{{username}} {{lastname}} PTY{{IdClientePremium}}</span></div>
 		</div>
 
 		<div class="row">
@@ -163,7 +165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 		<div class="row">
 			<div class="col-sm-3 customLabel"><span class="pull-right">Address 2: </span></div>
-			<div class="col-sm-7 form-group"><span>PTY400657</span></div>
+			<div class="col-sm-7 form-group"><span>PTY{{IdClientePremium}}</span></div>
 		</div>
 
 		<div class="row">
@@ -199,6 +201,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	
 	<div id="defaultAddressBasica" ng-show="ShowDefaultAddressBasica">
 		<h3 class="customLabel">Dirección Miami Plan Básico</h3>
+		<br>
+		<div class="Description">La siguiente dirección es la que debes utilizar para hacer pedidos por internet, el nombre y código siempre deben incluirse. </div>
 		<hr />
 		<div class="row">
 			<div class="col-sm-3 customLabel"><span class="pull-right">Full Name : </span></div>

@@ -8,7 +8,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             controller: 'userMenuController'
         }).state('userMenu.inicio', {
             url: '/inicio',
-            templateUrl: 'views/inicio.html?v=${new Date().getTime()}',
+            templateUrl: 'views/inicio.html?v=1000',
             controller: 'inicioController'
         }).state('userMenu.editarPerfil', {
             url: '/editarPerfil',
@@ -24,7 +24,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             controller: 'seleccionarBoxitController'
         }).state('userMenu.anunciarPaquete', {
             url: '/anunciarPaquete',
-            templateUrl: 'views/anunciarPaquete.html?v=${new Date().getTime()}',
+            templateUrl: 'views/anunciarPaquete.html?v=1000',
             controller: 'anunciarPaqueteController'
         }).state('userMenu.trakingDePaquetes', {
             url: '/trakingDePaquetes',
