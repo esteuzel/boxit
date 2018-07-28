@@ -30,8 +30,9 @@ $(document).ready(function() {
 		} else {
 			$('.boxitBar').removeClass('fixed');
 			$('.separatetopfixed').hide();
+			
 		}
-		
+		//console.log('scrollPos',scrollPos);
 
 
 	}

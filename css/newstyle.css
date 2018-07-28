@@ -1135,7 +1135,7 @@ width: 100%;
   margin-right: 20px;
   padding: 0 10px;
   margin-top: 5px;
-  font-size: 36px;
+  font-size: 26px;
 }
 .store-list .col-noppading {
   padding: 10px;;
@@ -2896,10 +2896,21 @@ ul.top-categories li.active ul li a {
 }
 .trakingdepaquetes .nav-pills li {
   list-style: none;
+  display: inline;
 }
 .trakingdepaquetes .subpill {
   color: #000;
-  background-color: #fff;
+  background-color: #fff;  
+  list-style: none;
+  display: inline;
+  margin: 1rem;
+  float: left;
+}
+.trakingdepaquetes .subpill li {
+  list-style: none;
+  display: inline;
+  padding: 1rem;
+ float: left;
 }
 
 .trakingdepaquetes .subpill > li.active > a, 

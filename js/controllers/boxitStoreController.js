@@ -36,6 +36,7 @@ angular
             $scope.showStoreBreadcrumb=false;
             $scope.showSearchTopNewProdctsEmpty = false;
             $scope.preventCacheSearchKeyword = false;
+            $scope.searchButtonCatName = 'Categorías';
 
             console.log("$scope.categoriesList",$scope.categoriesList);
             var userObj =  userData.getData();
@@ -109,6 +110,10 @@ angular
                             $scope.loadMain = false;
                             $scope.showCar = false;
                             $scope.labusquedanoarrojoresultados=true;
+                            console.log('######## BUSQUEDA ##########');
+                            console.log('"La busqueda no arrojo resultados: "', $scope.keyword);
+
+                            /*
                             var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
@@ -125,14 +130,15 @@ angular
                                 }
 
                             });
-                            
-                        
+                            */
+                        /*
                             modalInstance.closed.then(function (someData) {
                                 $scope.loadMain = true;
                                 $scope.firstSearch();
                                 getCar();
                                 $scope.showProductsCategory = true;
                             });
+                            */
                         } else {
                             $scope.loadMain = false;
                             $scope.showCar = true;
@@ -140,13 +146,13 @@ angular
                             $scope.showStoreBreadcrumb=true;
                             $scope.categoryTexto = $scope.index.attributes.SearchIndex;
                             $scope.subCategoryTexto = $scope.keyword;
-                            console.log('$scope.categoriesListEs',$scope.categoriesListEs);
+                            //console.log('$scope.categoriesListEs',$scope.categoriesListEs);
 
                             angular.forEach($scope.categoriesListEs, function(value, key) {
-                                console.log('value',value);
+                                //console.log('value',value);
                                 if(value.code==$scope.index.attributes.SearchIndex){
                                     $scope.categoryTexto = value.texto;
-                                    console.log('$scope.categoryTexto',value.code);
+                                    //console.log('$scope.categoryTexto',value.code);
                                 }
                             });
                             //{{index.attributes.SearchIndex}}
@@ -1113,7 +1119,7 @@ angular
                             $scope.itemsTopSellerProducts.push(newValue);
                         }                        
                     });
-                    //console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
+                    console.log('$scope.itemsTopSellerProducts.length',$scope.itemsTopSellerProducts.length);
                     if($scope.itemsTopSellerProducts.length>0){
                         $scope.showTopSellerProducts = true;
                         $scope.loadMain = false;
@@ -1147,9 +1153,9 @@ angular
                         if($scope.showSearchTopNewProdctsEmpty){
                             console.log("$scope.showSearchTopNewProdctsEmpty" , $scope.showSearchTopNewProdctsEmpty );
                             
-                            getSearchEmptySubcategoryProducts(subCategoryTexto);
-                            $scope.preventCacheSearchKeyword = false;
-                            $scope.keyword = '';
+                            //getSearchEmptySubcategoryProducts(subCategoryTexto);
+                            //$scope.preventCacheSearchKeyword = false;
+                            //$scope.keyword = '';
                             /*.then(function success(result) {
                                 $scope.preventCacheSearchKeyword = false;
                                 angular.forEach(result.data.Item, function(value) {
@@ -1165,6 +1171,9 @@ angular
                 }, function error(result) {
                     console.log(result);
                 });
+
+
+                getSearchEmptySubcategoryProducts(subCategoryTexto);
 
                 //getTopSellerProducts
                 $scope.showProductsCategory = false;
@@ -1281,20 +1290,30 @@ angular
                 $scope.categoryTexto = "";
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;
+
+                $scope.index = "";
+                $scope.keyword = '';
+                console.log('$location.path(/boxitStore',$location.path());
+                $location.path('/boxitStore');
+/*
                 if($scope.keyword!=undefined && $scope.keyword!=null && $scope.keyword!="undefined" && $scope.keyword!='' && $scope.keyword!=' '){
                     if($scope.keyword.length>0){
                         categoryClick("All");
+                        $scope.keyword = '';
                         $scope.doSearch();
                     }else{
                         $scope.index = "";
+                        $scope.keyword = '';
                         $state.go('boxitStore');
                         location.reload();
                     }                    
                 }else{
                     $scope.index = "";
+                    $scope.keyword = '';
                     $state.go('boxitStore');
                     location.reload();
                 }
+                */
             }
 
         }]);

@@ -45,7 +45,7 @@
 
             <div class="store-search col-md-8 m-t-5">
                 <div class="dropdown  boxitStoreCategories">
-                    <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">Categorías<span><i class="fa fa-caret-down"></i></span></a>
+                    <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">{{subCategoryTexto ? subCategoryTexto : 'Categorías'}}<span><i class="fa fa-caret-down"></i></span></a>
                     
                     <ul class="top-categories dropdown-menu">
                         <li class="resetCats">
@@ -255,7 +255,7 @@
                     </div>
                 </div>
                 <div style="clear: both;"></div>
-                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsTopSellerProducts track by $index">
+                <div class="col-sm-6 col-md-3 col-noppading" ng-repeat="item in itemsTopSellerProducts track by $index">
                     <div class="product-item">
                         <div class="product-item-info">
                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -303,7 +303,7 @@
                     </div>
                 </div>
                 <div style="clear: both;"></div>
-                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsNewReleaseProducts track by $index">
+                <div class="col-sm-6 col-md-3 col-noppading" ng-repeat="item in itemsNewReleaseProducts track by $index">
                     <div class="product-item">
                         <div class="product-item-info">
                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
