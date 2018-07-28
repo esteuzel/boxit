@@ -113,7 +113,7 @@ angular
                             console.log('######## BUSQUEDA ##########');
                             console.log('"La busqueda no arrojo resultados: "', $scope.keyword);
 
-                            /*
+                            
                             var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
@@ -130,15 +130,15 @@ angular
                                 }
 
                             });
-                            */
-                        /*
+                            
+                        
                             modalInstance.closed.then(function (someData) {
                                 $scope.loadMain = true;
                                 $scope.firstSearch();
                                 getCar();
                                 $scope.showProductsCategory = true;
                             });
-                            */
+                            
                         } else {
                             $scope.loadMain = false;
                             $scope.showCar = true;
@@ -734,11 +734,11 @@ angular
                         $scope.ItemsMakeupTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsMakeupAll, function(value, key) {
-                            if($x<3){
+                            if($x<4){
                                 $scope.ItemsMakeupUno[$x] = value;
-                            }else if($x<6){
+                            }else if($x<8){
                                 $scope.ItemsMakeupDos[$x] = value;
-                            }else if($x<9){
+                            }else if($x<12){
                                 $scope.ItemsMakeupTres[$x] = value;
                             }
                             $x++;
@@ -767,11 +767,11 @@ angular
                         $scope.ItemsBabyTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsBabyAll, function(value, key) {
-                            if($x<3){
+                            if($x<4){
                                 $scope.ItemsBabyUno[$x] = value;
-                            }else if($x<6){
+                            }else if($x<8){
                                 $scope.ItemsBabyDos[$x] = value;
-                            }else if($x<9){
+                            }else if($x<12){
                                 $scope.ItemsBabyTres[$x] = value;
                             }
                             $x++;
@@ -801,11 +801,11 @@ angular
                         $scope.ItemsComputersTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsComputersAll, function(value, key) {
-                            if($x<3){
+                            if($x<4){
                                 $scope.ItemsComputersUno[$x] = value;
-                            }else if($x<6){
+                            }else if($x<8){
                                 $scope.ItemsComputersDos[$x] = value;
-                            }else if($x<9){
+                            }else if($x<12){
                                 $scope.ItemsComputersTres[$x] = value;
                             }
                             $x++;
@@ -835,11 +835,11 @@ angular
                         $scope.ItemsCellPhonesTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsCellPhonesAll, function(value, key) {
-                            if($x<3){
+                            if($x<4){
                                 $scope.ItemsCellPhonesUno[$x] = value;
-                            }else if($x<6){
+                            }else if($x<8){
                                 $scope.ItemsCellPhonesDos[$x] = value;
-                            }else if($x<9){
+                            }else if($x<12){
                                 $scope.ItemsCellPhonesTres[$x] = value;
                             }
                             $x++;
@@ -869,11 +869,11 @@ angular
                         $scope.ItemsPetSuppliesTres= {};
                         $x=0;
                         angular.forEach($scope.ItemsPetSuppliesAll, function(value, key) {
-                            if($x<3){
+                            if($x<4){
                                 $scope.ItemsPetSuppliesUno[$x] = value;
-                            }else if($x<6){
+                            }else if($x<8){
                                 $scope.ItemsPetSuppliesDos[$x] = value;
-                            }else if($x<9){
+                            }else if($x<12){
                                 $scope.ItemsPetSuppliesTres[$x] = value;
                             }
                             $x++;

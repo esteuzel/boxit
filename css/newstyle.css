@@ -2947,3 +2947,7 @@ ul.top-categories li.active ul li a {
   padding: 1px 10px;
   cursor: context-menu;
 }
+
+.carousel-control {
+  width: 20px!important;
+}
