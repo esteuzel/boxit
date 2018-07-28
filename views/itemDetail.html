@@ -42,12 +42,15 @@
             </div>
 
 
-            <div class="store-search col-md-8 m-t-5">
+            <div class="store-search col-md-2 m-t-5">
                 <div class="dropdown  boxitStoreCategories">
                     <a class="link-volver btn" ui-sref="boxitStore">Volver</a>
                 </div>                  
             </div>
-
+            <div class="store-favoritos-button col-md-2 m-t-5">
+                <a ng-show="UserName" class="misFavoritos" ui-sref="misFavoritos">Mis Favoritos</a>
+            </div>
+            <div class="col-md-4">  </div>
             <div class="col-md-3">                
             
                 <div class="boxit-store-avatar" ng-show="UserName">
@@ -158,17 +161,6 @@
 
 
 
-
-
-
-<div class="col-md-2 carAvatar" ng-show="UserName">&nbsp;
-    <div class="Avatar"></div>
-    <span class="Name">Hola {{UserName}}</span>
-
-    <div class="store-favoritos-button">
-        <a class="misFavoritos" ui-sref="misFavoritos">Mis Favoritos</a>
-    </div>
-</div>
 
 <div class="store-itemdetail-cart">
     <a class="cart cart_anchor" ui-sref="carrito">
