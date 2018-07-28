@@ -1856,6 +1856,7 @@ box-shadow: 0 0 3px 2px rgba(228,121,17,.5);
 
 .store-breadcrumb {
   padding: 10px;
+  border-bottom: 1px solid #ccc;
 }
 .store-breadcrumb ul {
   list-style: none;
@@ -2670,7 +2671,7 @@ ul.top-categories li.active ul li a {
   width: 0;
 }
 .BoxitStoreContainer {
-  margin-top: 2px;
+  margin-top: 29px;
 }
 .resetCats {
 

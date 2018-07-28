@@ -113,7 +113,7 @@ angular
                             console.log('######## BUSQUEDA ##########');
                             console.log('"La busqueda no arrojo resultados: "', $scope.keyword);
 
-                            
+                            /*
                             var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
@@ -138,6 +138,12 @@ angular
                                 getCar();
                                 $scope.showProductsCategory = true;
                             });
+*/
+                                $scope.loadMain = true;
+                                $scope.firstSearch();
+                                getCar();
+                                $scope.showProductsCategory = true;
+
                             
                         } else {
                             $scope.loadMain = false;
