@@ -2923,3 +2923,16 @@ ul.top-categories li.active ul li a {
 .tab-secondary {
 
 }
+
+.link-volver {
+  background: #fff;
+  color: #3F525D;
+  padding: 8px 15px !important;
+}
+.link-volver span {
+  background-color: #fff;
+  color: #3F525D;
+  display: block;
+  padding: 1px 10px;
+  cursor: context-menu;
+}

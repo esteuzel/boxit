@@ -18,6 +18,7 @@ angular
             var usrObj = userData.getData();
             if (usrObj != undefined) {
                 userId = usrObj.IdCliente;
+                $scope.UserName = usrObj.UserName;
             } else {
                 userId = 0;
             }
