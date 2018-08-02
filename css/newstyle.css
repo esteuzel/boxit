@@ -408,6 +408,8 @@ html.touchevents .video-background {
   margin-bottom: 0;
   overflow: hidden;
   position: relative; }
+  #home-slider video{ width: 100%;}
+  #home-slider ul.slick-dots {    display: none;  }
   #home-slider .home-slide {
     float: left;
     height: 100%;
@@ -758,7 +760,8 @@ html.touchevents .video-background {
   footer #copyright {
     margin-top: 48px; }
   #home-slider {
-    height: calc(100vh - 100px); }
+    /*height: calc(100vh - 100px); */
+  }
     #home-slider .home-slide .slide-text {
       width: 90%; }
   #home-main .home-step {
@@ -835,7 +838,8 @@ html.touchevents .video-background {
     footer #copyright {
       margin-top: 24px; }
   #home-slider {
-    height: calc(100vh + 80px); }
+    /*height: calc(100vh + 80px);*/
+   }
     #home-slider .home-slide .slide-text {
       width: 100%; }
       #home-slider .home-slide .slide-text h1 {
