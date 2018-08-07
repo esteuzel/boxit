@@ -38,8 +38,11 @@ angular.module('boxit')
 
                 $scope.anunciar = function () {
                     console.log(' $scope.category', $scope.category);
-                    var user = userData.getData();  
-                    $scope.filename = $scope.f.name;
+                    var user = userData.getData();
+                    if($scope.f){
+                        $scope.filename = $scope.f.name;
+                    }
+                    
                     console.log(' $scope.filename', $scope.filename); 
 
                     $http({
@@ -146,6 +149,14 @@ angular.module('boxit')
                                 newFileQuinto = Upload.rename(newFileQuinto, newName+'_'+newFileQuinto.name) ;
                                 console.log(' newFileQuinto', newFileQuinto);
                                 $scope.uploadFiles(newFileQuinto,null,true);
+
+                                $scope.TrackingNumber = "";
+                                $scope.Shop = "";        
+                                $scope.Value = "";        
+                                $scope.arraivalDate = "";        
+                                $scope.category = "";        
+                                $scope.Description = "";        
+                                $scope.filename = "";
                             }
 
                                 
@@ -182,33 +193,6 @@ angular.module('boxit')
 
                         });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        $scope.TrackingNumber = "";
-
-                        $scope.Shop = "";
-
-                        $scope.Value = "";
-
-                        $scope.arraivalDate = "";
-
-                        $scope.category = "";
-
-                        $scope.Description = "";
-
-                        $scope.filename = "";
 
                     }, function error(results) {
 
