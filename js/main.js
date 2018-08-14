@@ -97,7 +97,7 @@ $(document).ready(function () {
 		}, 'xml');
 	});
 	//document.getElementById('myvideo').play();
-	var playPromise = document.getElementById('myvideo').play();
+	/*var playPromise = document.getElementById('myvideo').play();
 	if (playPromise !== undefined) {
 		playPromise.then(_ => {
 			console.log('play');
@@ -106,7 +106,7 @@ $(document).ready(function () {
 				console.log('error', error);
 				document.getElementById('myvideo').play();
 			});
-	}
+	}*/
 });
 function navbartoggle() {
 	$('#navbar').toggleClass('nav-open');
