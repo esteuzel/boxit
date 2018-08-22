@@ -40,7 +40,8 @@ angular
             $scope.searchButtonCatName = 'Categorías';
             $scope.subCategory = 0;
             //$scope.subCategoryTexto = "";
-            $scope.breadcrumbSubCategoryTexto = "jaja";            
+            $scope.breadcrumbSubCategoryTexto = "jaja";   
+            $scope.categoryTexto = "Categorías";         
 
             ////console.log("$scope.categoriesList",$scope.categoriesList);
             ////console.log("$scope.subCategoriesList",$scope.subCategoriesList); SubCategoryId textoEs
@@ -1148,9 +1149,10 @@ angular
                 $scope.showStoreBreadcrumb=true;
                 $scope.subCategoryTexto = subCategoryTexto;
                 $scope.breadcrumbSubCategoryTexto = subCategoryTexto;
-                $scope.CategoriaTexto = categoryTexto;
+                $scope.categoriaTexto = categoryTexto;
                 $scope.categoryTexto = categoryTexto;
-                //console.log('categoryValue',categoryValue);
+                console.log('$scope.categoriaTexto',$scope.categoriaTexto);
+                console.log('categoryTexto',categoryTexto);
                 //console.log('$scope.breadcrumbSubCategoryTexto',$scope.breadcrumbSubCategoryTexto);
                 ////console.log('$scope.categoryTexto',$scope.categoryTexto);
                 var element = document.getElementById("buttonShowCategories");
@@ -1424,7 +1426,7 @@ angular
                 $scope.index = "";
                 $scope.keyword = '';
                 //console.log('$location.path(/boxitStore',$location.path());
-                $location.path('/boxitStore');
+                $location.path('/boxitStore/');
 /*
                 if($scope.keyword!=undefined && $scope.keyword!=null && $scope.keyword!="undefined" && $scope.keyword!='' && $scope.keyword!=' '){
                     if($scope.keyword.length>0){
