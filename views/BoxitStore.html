@@ -45,7 +45,7 @@
 
             <div class="store-search col-md-8 m-t-5">
                 <div class="dropdown  boxitStoreCategories">
-                    <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">{{subCategoryTexto ? subCategoryTexto : 'Categorías'}}<span><i class="fa fa-caret-down"></i></span></a>
+                    <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">{{CategoriaTexto ? CategoriaTexto : 'Categorías'}}<span><i class="fa fa-caret-down"></i></span></a>
                     
                     <ul class="top-categories dropdown-menu">
                         <li class="resetCats">
@@ -69,6 +69,8 @@
         
                 <div class="store-search-input ">
                     <div class="input-group">
+                        <!--<input class="form-control doSearch" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text"
+                        />-->
                         <input class="form-control doSearch" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text"
                         />
                         <span class="input-group-btn">
@@ -186,7 +188,6 @@
 </div>
 
 
-
 <div class="store-breadcrumb" ng-show="showStoreBreadcrumb">
     <ul>
         <li>
@@ -206,7 +207,7 @@
             </span>
         </li>
         <li>
-            <span>{{subCategoryTexto}}</span>
+            <span>{{breadcrumbSubCategoryTexto}}</span>
         </li>
     </ul>
 </div>
