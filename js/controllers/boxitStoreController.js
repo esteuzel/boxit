@@ -84,7 +84,7 @@ angular
                 $scope.totalItems = 0;
                 allProducts = [];
                // //console.log(this);
-               console.log("SearchIndex ",$scope.index.attributes.SearchIndex);
+               //console.log("SearchIndex ",$scope.index.attributes.SearchIndex);
                     console.log("SubCategoryId ",$scope.subCategory);
                     console.log("self.keyword ",$scope.keyword);
 
@@ -200,6 +200,7 @@ angular
                         }else{
                             searchParams["SearchIndex"] = "All";
                         }
+                        console.log('searchParams',searchParams);
                         searchParams["ItemPage"] = i;
                         var curIndex = i;
                         

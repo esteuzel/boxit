@@ -48,6 +48,7 @@ $(document).ready(function () {
 		$('#navbar').toggleClass('nav-open');
 		$(this).toggleClass('collapsed');
 		goTopPage();
+		console.log('navbarlink click');
 	});
 	function goTopPage() {
 		var target = $('body');
@@ -107,6 +108,12 @@ $(document).ready(function () {
 				document.getElementById('myvideo').play();
 			});
 	}*/
+
+	//$('.navbarlink').click(function () {
+		//console.log('navbartoggle commented');
+		//navbartoggle();
+	//});
+	
 });
 function navbartoggle() {
 	$('#navbar').toggleClass('nav-open');

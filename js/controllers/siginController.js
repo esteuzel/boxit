@@ -3,8 +3,8 @@
  */
 angular
         .module('boxit')
-        .controller('siginController', [ '$scope', '$http', '$window', 'userData', '$interval', '$uibModal',
-            function ($scope, $http, $window, userData, $interval, $uibModal) {
+        .controller('siginController', [ '$scope', '$http', '$window', 'userData', '$interval', '$uibModal','$location',
+            function ($scope, $http, $window, userData, $interval, $uibModal,$location) {
                 $scope.IdTipoPlan = 2;
                 $scope.Categ = [
                     {name:"Intrumentos Musicales",id:"1", checked:"false"},
@@ -17,7 +17,7 @@ angular
                     {name:"Tecnología",id:"8", checked:"false"},
                     {name:"Otros",id:"9", checked:"false"},
                 ];
-
+               
                 $scope.today = function () {
                     $scope.popup1 = {
                         opened: false
@@ -251,7 +251,7 @@ angular
                             Para continuar debe confirmar su registro a través del email recibido";
 
                             estilo = "exito";
-                            $uibModal.open({
+                            var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
                                 controller: 'modalCambioClaveController',
@@ -265,6 +265,9 @@ angular
                                         return mensaje;
                                     }
                                 }
+                            });
+                            modalInstance.closed.then(function (someData) {
+                                $location.path('/boxitStore/');
                             });
                         }
 
