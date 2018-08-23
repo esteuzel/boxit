@@ -38,7 +38,7 @@ angular
             $scope.showSearchTopNewProdctsEmpty = false;
             $scope.preventCacheSearchKeyword = false;
             $scope.searchButtonCatName = 'Categorías';
-            $scope.subCategory = 0;
+            $scope.subCategory = '';
             //$scope.subCategoryTexto = "";
             $scope.breadcrumbSubCategoryTexto = "jaja";   
             $scope.categoryTexto = "Categorías";         
@@ -192,7 +192,12 @@ angular
                         var searchParams = {};
                       //  //console.log(self);
                         searchParams["Keywords"] = self.keyword;
-                        searchParams["SubCategoryId"] = $scope.subCategory;                        
+                        if($scope.subCategory>0){
+                            searchParams["SubCategoryId"] = $scope.subCategory;      
+                        }else{
+                            searchParams["SubCategoryId"] = '';
+                        }
+                                          
                         if (self.index != null || self.index != undefined)
                         {
                             searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
@@ -238,7 +243,11 @@ angular
                             searchParams["SearchIndex"] = "All";
                         }*/
                         searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
-                        searchParams["SubCategoryId"] = $scope.subCategory;    
+                        if($scope.subCategory>0){
+                            searchParams["SubCategoryId"] = $scope.subCategory;      
+                        }else{
+                            searchParams["SubCategoryId"] = '';
+                        }  
                         searchParams["ItemPage"] = i;
                         var IdCliente = 1;
 
@@ -1260,7 +1269,12 @@ angular
                 params = [];
                 params["SearchIndex"] = categoryValue;
                 params["Keywords"] = "";
-                params["SubCategoryId"] = subCategory;
+                if(subCategory>0){
+                    params["SubCategoryId"] = subCategory;
+                }else{
+                    params["SubCategoryId"] = '';
+                }
+                
                 //console.log("params",params);
                 $http({
                     method: "POST",
