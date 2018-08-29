@@ -5,7 +5,7 @@ angular
         .module('boxit')
         .controller('siginController', [ '$scope', '$http', '$window', 'userData', '$interval', '$uibModal','$location',
             function ($scope, $http, $window, userData, $interval, $uibModal,$location) {
-                $scope.IdTipoPlan = 2;
+                $scope.IdTipoPlan = 1;
                 $scope.Categ = [
                     {name:"Intrumentos Musicales",id:"1", checked:"false"},
                     {name:"Moda Femenina",id:"2", checked:"false"},
