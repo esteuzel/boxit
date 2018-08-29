@@ -41,11 +41,11 @@
                 <select class="form-control" ng-model="subCategory" ng-options="subCategory.SubCategoryName for subCategory in subCategories">
                 </select>
             </div>
-
-
+            
+            
             <div class="store-search col-md-8 m-t-5">
                 <div class="dropdown  boxitStoreCategories">
-                    <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">Categorías<span><i class="fa fa-caret-down"></i></span></a>
+                    <a class="dropdown-toggle link-categorias btn" data-toggle="dropdown">{{categoryTexto}}<span><i class="fa fa-caret-down"></i></span></a>
                     
                     <ul class="top-categories dropdown-menu">
                         <li class="resetCats">
@@ -69,6 +69,8 @@
         
                 <div class="store-search-input ">
                     <div class="input-group">
+                        <!--<input class="form-control doSearch" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text"
+                        />-->
                         <input class="form-control doSearch" name="find" ng-keypress="$event.keyCode == 13 ? doSearch() : ' '" ng-model="keyword" type="text"
                         />
                         <span class="input-group-btn">
@@ -186,7 +188,6 @@
 </div>
 
 
-
 <div class="store-breadcrumb" ng-show="showStoreBreadcrumb">
     <ul>
         <li>
@@ -206,7 +207,7 @@
             </span>
         </li>
         <li>
-            <span>{{subCategoryTexto}}</span>
+            <span>{{breadcrumbSubCategoryTexto}}</span>
         </li>
     </ul>
 </div>
@@ -255,7 +256,7 @@
                     </div>
                 </div>
                 <div style="clear: both;"></div>
-                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsTopSellerProducts track by $index">
+                <div class="col-sm-6 col-md-3 col-noppading" ng-repeat="item in itemsTopSellerProducts track by $index">
                     <div class="product-item">
                         <div class="product-item-info">
                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -303,7 +304,7 @@
                     </div>
                 </div>
                 <div style="clear: both;"></div>
-                <div class="col-sm-6 col-md-4 col-noppading" ng-repeat="item in itemsNewReleaseProducts track by $index">
+                <div class="col-sm-6 col-md-3 col-noppading" ng-repeat="item in itemsNewReleaseProducts track by $index">
                     <div class="product-item">
                         <div class="product-item-info">
                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -354,7 +355,7 @@
 
             <div class="serachresultdata" ng-show="showCar">
                 <div class="store-list" ng-show="showStoreFirstTen">
-                    <div class="col-sm-4 col-md-3 col-noppading" ng-repeat="item in Items">
+                    <div class="col-sm-3 col-md-3 col-noppading" ng-repeat="item in Items">
                         <div class="product-item">
                             <div class="product-item-info">
                                 <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -739,7 +740,7 @@
                             <div class="item active">
                                 <div class="row-no">
 
-                                    <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsMakeupUno">
+                                    <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsMakeupUno">
                                         <div class="product-item">
                                             <div class="product-item-info">
                                                 <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -786,7 +787,7 @@
                             <div class="item">
                                 <div class="row">
 
-                                    <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsMakeupDos">
+                                    <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsMakeupDos">
                                         <div class="product-item">
                                             <div class="product-item-info">
                                                 <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -832,7 +833,7 @@
                             <div class="item">
                                 <div class="row">
 
-                                    <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsMakeupTres">
+                                    <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsMakeupTres">
                                         <div class="product-item">
                                             <div class="product-item-info">
                                                 <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -988,7 +989,7 @@
                     <div class="item active">
                         <div class="row-no">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsBabyUno">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBabyUno">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1035,7 +1036,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsBabyDos">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBabyDos">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1081,7 +1082,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsBabyTres">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBabyTres">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1244,7 +1245,7 @@
                     <div class="item active">
                         <div class="row-no">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsComputersUno">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsComputersUno">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1291,7 +1292,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsComputersDos">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsComputersDos">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1337,7 +1338,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsComputersTres">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsComputersTres">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1491,7 +1492,7 @@
                     <div class="item active">
                         <div class="row-no">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsCellPhonesUno">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsCellPhonesUno">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1538,7 +1539,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsCellPhonesDos">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsCellPhonesDos">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1584,7 +1585,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsCellPhonesTres">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsCellPhonesTres">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1738,7 +1739,7 @@
                     <div class="item active">
                         <div class="row-no">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsPetSuppliesUno">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsPetSuppliesUno">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1785,7 +1786,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsPetSuppliesDos">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsPetSuppliesDos">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -1831,7 +1832,7 @@
                     <div class="item">
                         <div class="row">
 
-                            <div class="col-sm-4 col-noppading" ng-repeat="item in ItemsPetSuppliesTres">
+                            <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsPetSuppliesTres">
                                 <div class="product-item">
                                     <div class="product-item-info">
                                         <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">

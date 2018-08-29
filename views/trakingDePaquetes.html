@@ -24,14 +24,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<div class="nnoorow">	
 		
 
+		
+	
+				 
 
+					
 		<div class="col-sm-12 col-md-12 col-lg-12">
-			<ul class="nav nav-pills">
+			<ul class="nav nav-tabs">
 				<li class="tab-primary" ng-class="{'active' : showAll}"><a href="#" ng-click="showTrakings('showAll')">Historial</a>
 
 				</li>
 				<li  class="tab-secondary" ng-class="{'active' : showPaquetes}"><a href="#" ng-click="showTrakings('showPaquetes')">Paquetes</a>
-					<ul class="subpill">
+
+					
+
+				</li>
+				<li ng-class="{'active' : showOrdenes}"><a href="#" ng-click="showTrakings('showOrdenes')">Ordenes de Compra</a>
+					
+					
+				</li>				
+		  	</ul>
+		</div>
+
+			<ul class="subpill" ng-if="showPaquetes">
 						<li ng-class="{'active' : showPaquetesAlertado}">
 							<a href="#" ng-click="showTrakings('showPaquetesAlertado')">Alertados</a>
 						</li>
@@ -42,9 +57,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<a href="#" ng-click="showTrakings('showPaquetesEntregados')">Entregados</a>
 						</li>
 					</ul>
-				</li>
-				<li ng-class="{'active' : showOrdenes}"><a href="#" ng-click="showTrakings('showOrdenes')">Ordenes de Compra</a>
-					<ul class="subpill">
+
+			<ul class="subpill" ng-if="showOrdenes">
 						<li ng-class="{'active' : showOrdenesPendientes}">
 							<a href="#" ng-click="showTrakings('showOrdenesPendientes')">Pendiente pago</a>
 						</li>
@@ -52,13 +66,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 							<a href="#" ng-click="showTrakings('showOrdenesPagadas')">Pagadas</a>
 						</li>
 					</ul>
-				</li>				
-		  	</ul>
-		</div>
 
-
-
-		
 
 			<div class="col-sm-12 col-md-12 col-lg-12 tarjetas {{traking.attributes.statusClass}}" ng-repeat="traking in trakings">
 				<div class="tarjeta tarjeta-1">					

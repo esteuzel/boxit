@@ -3,10 +3,14 @@
     <div id="home-slider">
 
         <div class="home-slide" style="background-image: url('img/newstyle/slides/slide-1.jpg');">
-            <div class="video-background">
-                <div class="video-foreground">
+            <div class="video-background_jode">
+                <div class="video-foreground_nono">
+                    <video id="mivideonocomienza" style="min-width: 100%; min-height: 100%;" src="video/file.mp4" autoplay muted loop playsinline preload="none">
+                    </video>
+                    
                     <!--<iframe id="slide1Video" src="https://www.youtube.com/embed/uFf415Epa60?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=uFf415Epa60" frameborder="0" allowfullscreen></iframe>-->
-                    <iframe id="slide1Video" src="https://www.youtube.com/embed/bAo2ZjMjIlI?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=bAo2ZjMjIlI" frameborder="0" allowfullscreen></iframe>
+                    <!--<iframe id="slide1Video" src="https://www.youtube.com/embed/bAo2ZjMjIlI?controls=0&showinfo=0&rel=0&autoplay=1&mute=1&loop=1&playlist=bAo2ZjMjIlI" frameborder="0" allowfullscreen></iframe>-->
+                
                 </div>
             </div>
             <div class="container">
@@ -273,4 +277,19 @@ $(document).ready(function() {
         }, 1000);
     }
 });
+
+$(document).ready(function () {
+	//document.getElementById('myvideo').play();
+	var playPromise = document.getElementById('mivideonocomienza').play();
+	if (playPromise !== undefined) {
+		playPromise.then(_ => {
+			console.log('play');
+		})
+		.catch(error => {
+			console.log('error', error);
+			document.getElementById('myvideo').play();
+		});
+	}
+});
+
 </script>

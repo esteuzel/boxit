@@ -3,8 +3,8 @@
  */
 angular
         .module('boxit')
-        .controller('siginController', [ '$scope', '$http', '$window', 'userData', '$interval', '$uibModal',
-            function ($scope, $http, $window, userData, $interval, $uibModal) {
+        .controller('siginController', [ '$scope', '$http', '$window', 'userData', '$interval', '$uibModal','$location',
+            function ($scope, $http, $window, userData, $interval, $uibModal,$location) {
                 $scope.IdTipoPlan = 2;
                 $scope.Categ = [
                     {name:"Intrumentos Musicales",id:"1", checked:"false"},
@@ -17,7 +17,7 @@ angular
                     {name:"Tecnología",id:"8", checked:"false"},
                     {name:"Otros",id:"9", checked:"false"},
                 ];
-
+               
                 $scope.today = function () {
                     $scope.popup1 = {
                         opened: false
@@ -29,7 +29,8 @@ angular
                 $scope.dateOptions = {
                   //  dateDisabled: disabled,
                     formatYear: 'yyyy',
-                    maxDate: new Date(2020, 1, 1),
+                    showToday: false,    
+                    maxDate: new Date(2019, 1, 1),
                     minDate: new Date(1915, 1, 1),
                     startingDay: 1
                 };
@@ -45,8 +46,8 @@ angular
                     $scope.plataformas = results.data;
                     for (var i = 0; i < $scope.plataformas.length; i++) {
                         $scope.allBoxitAddress[$scope.plataformas[i].attributes.IdPlataforma] = $scope.plataformas[i].attributes.Direccion_Fisica;
-                        console.log("$scope.allBoxitAddress",$scope.allBoxitAddress);
-                        console.log("$scope.plataformas[i].attributes",$scope.plataformas[i].attributes);
+                        //console.log("$scope.allBoxitAddress",$scope.allBoxitAddress);
+                        //console.log("$scope.plataformas[i].attributes",$scope.plataformas[i].attributes);
                         
                     }
                 }, function error(results) {
@@ -63,6 +64,52 @@ angular
 
                 $scope.Sigin = function () {
                     var args = {};
+                    console.log('$scope.UserBirthdate',$scope.UserBirthdate);
+                    console.log('typeof', typeof $scope.UserBirthdate);
+                    var fecha1 = moment($scope.UserBirthdate);
+                    var fecha2 = moment(new Date());
+                    var diferencia = fecha2.diff(fecha1, 'years');
+
+                    if($scope.UserBirthdate===''){
+                        console.log('$scope.UserBirthdate',$scope.UserBirthdate);
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modalCambioClave.html',
+                            controller: 'modalCambioClaveController',
+                            size: 'sm',
+                            resolve: {
+                                mensaje: function () {
+                                    var mensaje = {};
+                                    mensaje.titulo = "Registro Usuario";
+                                    mensaje.texto = "Debes ingresar tu fecha de nacimiento.";
+                                    mensaje.estilo = "alerta";
+                                    return mensaje;
+                                }
+                            }
+                        });
+                        return "";
+                    }
+                    
+                    console.log(fecha2.diff(fecha1, 'years'), ' años de diferencia');
+                    if ((diferencia<18)) {
+                        //  ngToast.create("Password no coincide");
+                        $uibModal.open({
+                            animation: true,
+                            templateUrl: 'views/modalCambioClave.html',
+                            controller: 'modalCambioClaveController',
+                            size: 'sm',
+                            resolve: {
+                                mensaje: function () {
+                                    var mensaje = {};
+                                    mensaje.titulo = "Registro Usuario";
+                                    mensaje.texto = "Debes ser mayor de edad";
+                                    mensaje.estilo = "alerta";
+                                    return mensaje;
+                                }
+                            }
+                        });
+                        return "";
+                    }
 
                     if (!($scope.password === $scope.confirmarpassword)) {
                         //  ngToast.create("Password no coincide");
@@ -204,7 +251,7 @@ angular
                             Para continuar debe confirmar su registro a través del email recibido";
 
                             estilo = "exito";
-                            $uibModal.open({
+                            var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
                                 controller: 'modalCambioClaveController',
@@ -218,6 +265,9 @@ angular
                                         return mensaje;
                                     }
                                 }
+                            });
+                            modalInstance.closed.then(function (someData) {
+                                $location.path('/boxitStore/');
                             });
                         }
 

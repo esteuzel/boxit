@@ -115,7 +115,7 @@ angular
                         statusClass = 'showOrdenesPagadas';                        
                         break;
                         default:
-                        statusClass = 'Error de estado';        
+                        statusClass = 'showOrdenesPendientes';        
                         break;
                     }
                     value.attributes.statusClass = statusClass;
