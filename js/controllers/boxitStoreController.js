@@ -41,7 +41,9 @@ angular
             $scope.subCategory = '';
             //$scope.subCategoryTexto = "";
             $scope.breadcrumbSubCategoryTexto = "jaja";   
-            $scope.categoryTexto = "Categorías";         
+            $scope.categoryTexto = "Categorías";      
+            $scope.showLeftCategories = true;
+            obtenerCategoriesListEs();        
 
             ////console.log("$scope.categoriesList",$scope.categoriesList);
             ////console.log("$scope.subCategoriesList",$scope.subCategoriesList); SubCategoryId textoEs
@@ -58,7 +60,7 @@ angular
             } else {
                 id = 0;
             }
-            $scope.showProductsCategory = true;
+            $scope.showProductsCategory = false;
             
             ////console.log('controller boxitStoreController');
              //setInterval(getCar, 10000);
@@ -149,7 +151,7 @@ angular
                             });
 */
                                 $scope.loadMain = true;
-                                $scope.firstSearch();
+                                //$scope.firstSearch();
                                 getCar();
                                 $scope.showProductsCategory = true;
 
@@ -160,7 +162,7 @@ angular
                             $scope.showPagination = true;
                             $scope.showStoreBreadcrumb=true;
                             $scope.categoryTexto = $scope.index.attributes.SearchIndex;
-                            //$scope.subCategoryTexto = $scope.subCategoryTexto;
+                            //$scope.subCategoryTexto = $scope.subCategoryTexto; 
                             ////console.log('$scope.categoriesListEs',$scope.categoriesListEs);
                             //console.log('$scope.breadcrumbSubCategoryTexto',$scope.breadcrumbSubCategoryTexto);
                                
@@ -205,7 +207,7 @@ angular
                         }else{
                             searchParams["SearchIndex"] = "All";
                         }
-                        console.log('searchParams',searchParams);
+                        //console.log('searchParams',searchParams);
                         searchParams["ItemPage"] = i;
                         var curIndex = i;
                         
@@ -631,8 +633,9 @@ angular
                 });
             };
             $scope.firstSearch = function () {
-                $scope.showStoreCarousel = true;
-                
+                $scope.showStoreCarousel = true;                
+                $scope.showProductsCategory = false;
+                $scope.showStoreBreadcrumb=false;        
                 //let atributoSearchIndexSelected = localStorage.getItem("atributoSearchIndexSelected");
                 let vars = $stateParams.serchdata.split(',');
                 
@@ -646,7 +649,9 @@ angular
                                 
                 if( vars[1] > 0){
                     let SubCategoryId = vars[1];
-                    $scope.subCategory = vars[1];                    
+                    $scope.subCategory = vars[1];   
+                    showFirstSearchItemsByUrlParams(vars);    
+                    $scope.showStoreBreadcrumb=true;             
                 }                
 
                 getSubcategoryText(vars[1]);
@@ -667,11 +672,20 @@ angular
                 ////console.log("$scope.indexs",$scope.indexs);
 
                 angular.forEach($scope.indexs, function(value, key) {
-                    ////console.log("value" , value );
+                    //console.log("value" , value );
                     if(value.attributes.SearchIndex == atributoSearchIndexSelected){
                         $scope.index = value;
                     }
-                });          
+                });                                   
+
+                $http.get('categorias-es.json').then(function(response) {
+                    $scope.categoriesListEs = response.data.categoriases;     
+                    angular.forEach($scope.categoriesListEs, function(value, key) {                    
+                    if(value.code==$scope.index.attributes.SearchIndex){
+                        $scope.categoryTexto = value.texto;
+                        }
+                    });
+                });
                 
                 $scope.loadMain = false;
                 $scope.showCar = true;
@@ -679,6 +693,8 @@ angular
                 $scope.doSearch();
             }else{
                 //userData.getFirstSearch().then(function success(result) {
+                    $scope.showProductsCategory = true;
+                    getProductsCategory();
                     $scope.loadMain = false;
                     //$scope.Items = result;
                     $scope.showCar = true;
@@ -1169,24 +1185,41 @@ angular
                 $(element).click();
 
                 
-                $location.path('/boxitStore/'+categoryValue+','+subCategory+',');
+                
                 ////console.log('$location.path(',$location.path());  
                 
                 
                 ////console.log('element',element);
-                categoryClick(categoryValue);
+                
+                
+
+                $location.path('/boxitStore/'+categoryValue+','+subCategory+',');
+                
+            }
+
+            function showFirstSearchItemsByUrlParams(vars){
+
+                categoryClick(vars[0]);
                 $scope.keyword = "";
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;  
-                localStorage.setItem('subCategorySelected',subCategory);
+                localStorage.setItem('subCategorySelected',vars[1]);
                 let subCategorySelected = localStorage.getItem('subCategorySelected');
-                //console.log('subCategorySelected',subCategorySelected);
-                subCategoryClick(subCategory);
-                ////console.log('mostrarProductos subCategory',subCategory);
+                subCategoryClick(vars[1]);                
                 $scope.itemsTopSellerProducts = [];
                 $scope.loadMain = true;
-                goToTopBody();
+                goToTopBody();              
 
+
+                console.log('showFirstSearchItemsByUrlParams');
+                showTopSellerProducts(vars[1]);
+                showNewReleaseProducts(vars[1]);
+                showTenMoreProducts(vars[0],vars[1]);
+                $scope.showProductsCategory = false;
+                $scope.showStoreCarousel = false;
+            }
+            function showTopSellerProducts(subCategory){
+                console.log('showTopSellerProducts');
                 getTopSellerProducts(subCategory).then(function success(result) {                      
                     ////console.log('getTopSellerProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
@@ -1211,8 +1244,12 @@ angular
                 }, function error(result) {
                     //console.log(result);
                 });
-                $scope.itemsNewReleaseProducts = [];
+            }
 
+
+            function showNewReleaseProducts(subCategory){
+                console.log('showNewReleaseProducts');
+                $scope.itemsNewReleaseProducts = [];
                 getNewReleaseProducts(subCategory).then(function success(result) {                      
                     //console.log('getNewReleaseProducts.length');
                     angular.forEach(result.data.Item, function(value, key) {
@@ -1230,41 +1267,18 @@ angular
                         //console.log("$scope.itemsNewReleaseProducts.length" , $scope.itemsNewReleaseProducts.length );
                     }else{
                         if($scope.showSearchTopNewProdctsEmpty){
-                            //console.log("$scope.showSearchTopNewProdctsEmpty" , $scope.showSearchTopNewProdctsEmpty );
                             
-                            //getSearchEmptySubcategoryProducts(subCategoryTexto);
-                            //$scope.preventCacheSearchKeyword = false;
-                            //$scope.keyword = '';
-                            /*.then(function success(result) {
-                                $scope.preventCacheSearchKeyword = false;
-                                angular.forEach(result.data.Item, function(value) {
-                                    ////console.log("value" , value );
-                                    let newValue = checkItemData(value);
-                                    $scope.itemsTopSellerProducts.push(newValue);
-                                });
-                                return true;
-                            });*/
                         }
                     }
                     
                 }, function error(result) {
                     //console.log(result);
-                });
-
-
-                //getSearchEmptySubcategoryProducts(subCategoryTexto);
-                showTenMoreProducts(categoryValue,subCategory);
-
-                //getTopSellerProducts
-                $scope.showProductsCategory = false;
-                $scope.showStoreCarousel = false;
+                });  
             }
 
 
-
-
-
             function showTenMoreProducts(categoryValue,subCategory) {
+                console.log('showTenMoreProducts');
                 var defered = $q.defer();
                 params = [];
                 params["SearchIndex"] = categoryValue;
@@ -1377,8 +1391,7 @@ angular
             //getNewReleaseProducts
 
             //obtener listado de categorias
-            $scope.showLeftCategories = true;
-            obtenerCategoriesListEs();                                                      
+                                                             
             
             function obtenerCategoriesListFromJson(){
                 return $http.get('categorias-subcategorias.json').then(function(response) {
@@ -1409,7 +1422,7 @@ angular
 
                 $http.get('subcategorias_es.csv').then(function(datos) {
                     $scope.subCategoriesEs = csvToArray(datos.data);
-                    ////console.log('$scope.subCategoriesEs',$scope.subCategoriesEs);                    
+                    //console.log('$scope.subCategoriesEs',$scope.subCategoriesEs);                    
                 }); 
                 
                 $http.get('categorias-es.json').then(function(response) {
@@ -1434,7 +1447,7 @@ angular
             $scope.resetearCategorias = function(){
                 $scope.showStoreBreadcrumb=false;
                 $scope.subCategoryTexto = "";
-                $scope.categoryTexto = "";
+                $scope.categoryTexto = "Categorías";   
                 $scope.showTopSellerProducts = false;  
                 $scope.showNewReleaseProducts = false;
 
