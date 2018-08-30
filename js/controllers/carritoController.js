@@ -24,6 +24,7 @@ angular
                 $scope.acceptTerms = true;
                 $scope.carCommission = 0;
                 $scope.carTotal = 0;
+                $scope.mostrarDisclaimerPesoCero = false;
                 var userObj = userData.getData();
                 var id;
                 if (userObj != undefined) {
@@ -62,6 +63,7 @@ angular
                                 value.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
                             }else{
                                 value.Weight = 0;
+                                $scope.mostrarDisclaimerPesoCero = true;
                             }
                             value.Image = [];
                             value.Image.ImageUrl = item.Item.Image.ImageUrl;
@@ -86,6 +88,7 @@ angular
                                 newItem.Weight = Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
                             }else{
                                 newItem.Weight = 0;
+                                $scope.mostrarDisclaimerPesoCero = true;
                             }
                             newItem.Image = [];
                             newItem.Image.ImageUrl = item.Item.Image.ImageUrl;

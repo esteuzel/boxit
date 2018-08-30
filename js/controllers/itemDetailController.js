@@ -470,12 +470,16 @@ angular
                             $scope.similaritiesProductsTres= {};
                             $x=0;
                             angular.forEach($scope.similaritiesProducts, function(value, key) {
-                                if($x<3){
+                                if($x<4){
                                     $scope.similaritiesProductsUno[$x] = value;
-                                }else if($x<6){
+                                    $scope.similaritiesProductsUnoShowing = true;
+                                }else if($x<8){
                                     $scope.similaritiesProductsDos[$x] = value;
-                                }else if($x<9){
+                                    $scope.similaritiesProductsDosShowing = true;
+                                }else if($x<12){
                                     $scope.similaritiesProductsTres[$x] = value;
+                                    $scope.similaritiesProductsTresShowing = true;
+                                    console.log('$scope.similaritiesProductsTresShowing',$scope.similaritiesProductsTresShowing);
                                 }
                                 $x++;
                             }); 

@@ -113,6 +113,7 @@
                         <span id="cartNumber">{{carNumber}}</span>Cart </a>
                 </div>
             </div>
+<!--            
             <div class="row">
                 <div class="col-lg-6 boxit-store-search">
                     <div class="input-group">
@@ -127,6 +128,7 @@
                 </div>
             </div>
             <div class="row">
+                
                 <div class="dropdown col-md-2 boxitStoreCategories boxitStoreCategoriesMobile">
                     <button id="buttonShowCategories" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
                         aria-expanded="false" aria-controls="collapseExample">
@@ -147,8 +149,9 @@
                     </div>
 
                 </div>
+            
             </div>
-
+-->
         </div>
     </div>
 </div>
@@ -460,15 +463,15 @@
 
                 <div id="myCarousel" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li ng-if="similaritiesProductsDosShowing" data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li ng-if="similaritiesProductsDosShowing"  data-target="#myCarousel" data-slide-to="1"></li>
+                        <li ng-if="similaritiesProductsTresShowing" data-target="#myCarousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner store-list">
                         <div class="item active">
                             <div class="row-no">
 
-                                <div class="col-sm-4 col-noppading" ng-repeat="item in similaritiesProductsUno">
+                                <div class="col-sm-3 col-noppading" ng-repeat="item in similaritiesProductsUno">
                                     <div class="product-item">
                                         <div class="product-item-info">
                                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -512,10 +515,10 @@
                         </div>
 
 
-                        <div class="item">
+                        <div ng-if="similaritiesProductsDosShowing" class="item">
                             <div class="row">
 
-                                <div class="col-sm-4 col-noppading" ng-repeat="item in similaritiesProductsDos">
+                                <div class="col-sm-3 col-noppading" ng-repeat="item in similaritiesProductsDos">
                                     <div class="product-item">
                                         <div class="product-item-info">
                                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -558,10 +561,10 @@
                             </div>
                         </div>
 
-                        <div class="item">
+                        <div ng-if="similaritiesProductsTresShowing" class="item">
                             <div class="row">
 
-                                <div class="col-sm-4 col-noppading" ng-repeat="item in similaritiesProductsTres">
+                                <div class="col-sm-3 col-noppading" ng-repeat="item in similaritiesProductsTres">
                                     <div class="product-item">
                                         <div class="product-item-info">
                                             <a ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-photo">
@@ -607,11 +610,11 @@
 
 
                     </div>
-                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <a ng-if="similaritiesProductsDosShowing" class="left carousel-control" href="#myCarousel" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <a ng-if="similaritiesProductsDosShowing" class="right carousel-control" href="#myCarousel" data-slide="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                         <span class="sr-only">Next</span>
                     </a>
