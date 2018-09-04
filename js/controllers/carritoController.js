@@ -82,7 +82,7 @@ angular
                      $scope.mostrarDisclaimerPesoCero = true;
                 }
                 newItem.TotalPrice = newItem.Price*newItem.Quantity;
-                newItem.TotalPrice = Math.round(newItem.TotalPrice * 100) / 100
+                newItem.TotalPrice = Math.round(newItem.TotalPrice * 100) / 100;
                 return newItem;                
             };
             
@@ -140,8 +140,8 @@ angular
                             angular.forEach($scope.carItems, function(value, key) {
                                 itemsSubTotal = itemsSubTotal + value.TotalPrice;
                             });
-
-                            $scope.subTotal = "$ " + itemsSubTotal;
+                            itemsSubTotal = Math.round((itemsSubTotal) * 100) / 100;
+                            $scope.subTotal = itemsSubTotal;
                                 $scope.subtotalAmount = itemsSubTotal;
                                 getCommission();                                
                                 $scope.loading = false;
@@ -308,12 +308,13 @@ angular
                         console.log('getCommission getCommission',value);  
 
                         if (value != undefined) {
-                            $scope.carCommission = "$ "+value.data.Data.Rows.attributes.Commission;
+                            $scope.carCommission = value.data.Data.Rows.attributes.Commission;
                             let commissionAmount = parseInt(value.data.Data.Rows.attributes.Commission);
                             console.log('getCommission commissionAmount',commissionAmount);        
                             let subtotalAmount = $scope.subtotalAmount;/*parseInt($scope.subtotalAmount);*/
                             console.log('getCommission subtotalAmount',subtotalAmount);
-                            $scope.carTotal = "$ " + (commissionAmount + subtotalAmount);
+                            let car_total = Math.round((commissionAmount + subtotalAmount) * 100) / 100;
+                            $scope.carTotal = (car_total);
                             console.log('getCommission $scope.carTotal',$scope.carTotal); 
                             return value.data.Data.Rows.attributes.Commission;
                         }                                   
