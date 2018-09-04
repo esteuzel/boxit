@@ -14,7 +14,7 @@
 
 
 <div class="carrito-container">
-    <div style="margin-bottom: 20%" id="cssload-pgloading" ng-show="loading">
+    <div id="cssload-pgloading" ng-show="loading">
         <div class="cssload-loadingwrap">
             <ul class="cssload-bokeh">
                 <li></li>
@@ -54,7 +54,7 @@
                 <td class="block-img test">
                     <div style=" text-align:center;">
                         <a href="#" target="_blank">
-                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.Image.ImageUrl}}" alt="{{item.Title}}">
+                            <img id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.UrlImage}}" alt="{{item.Title}}">
                         </a>
                     </div>
                 </td>
@@ -84,12 +84,12 @@
                 </td>
                 <td class="a-center notranslate">
                     <span class="cart-price">        
-                        <span class="price currency_price">{{item.Price.FormattedPrice}}</span>
+                        <span class="price currency_price">$ {{item.Price}}</span>
                     </span>
                 </td>
                 <td class="a-center notranslate last">
                     <span class="price">
-                        <span class="price currency_price">{{item.ItemTotal.FormattedPrice}}</span>
+                        <span class="price currency_price">$ {{item.TotalPrice}}</span>
                     </span>
                 </td>
             </tr>
@@ -112,10 +112,10 @@
                             <em class="ng-bindingaa" ><span ng-class="{'weight-bold' : item.Weight == 0 }">Peso: {{item.Weight}} lbs.</span></em>
                         </li>   
                         <li>        
-                            <em class="ng-binding">Valor Unitario: <span class="price currency_price ng-binding">{{item.Price.FormattedPrice}}</span></em>
+                            <em class="ng-binding">Valor Unitario: <span class="price currency_price ng-binding">{{item.Price}}</span></em>
                         </li>
                         <li>        
-                            <em class="ng-binding">Valor Total: <span class="price currency_price ng-binding">{{item.ItemTotal.FormattedPrice}}</span></em>
+                            <em class="ng-binding">Valor Total: <span class="price currency_price ng-binding">{{item.TotalPrice}}</span></em>
                         </li>      
                     </ul>
                 </div>
@@ -157,8 +157,7 @@
                                     <tbody>
                                         <tr class="totals sub">
                                             <th class="texto">Subtotal</th>
-                                            <td class="amount">
-                                                <span class="price" ng-bind="subTotal"></span>
+                                            <td class="amount"><span class="price" ng-bind="subTotal"></span>
                                             </td>
                                         </tr>
                                         <tr class="totals sub">
