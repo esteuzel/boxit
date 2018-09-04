@@ -540,6 +540,7 @@ angular
 
                     // Image
                     args["UrlImage"] = itemadded.Image.ImageUrl;
+                    args["Title"] = itemadded.Attributes.Title;
                     //console.log("args",args);
                     userData.addItemToCar(args).then(function success(result) {
                         //console.log("addItemToCar",result);

@@ -245,7 +245,8 @@ angular
                     }              
                     // Image
                     args["UrlImage"] = currentItemObject.Item.Image.ImageUrl;
-                    console.log("args",args);
+                    args["Title"] = currentItemObject.Item.Attributes.Title;
+                    
 
                 if ($scope.cantidad == 0 || $scope.cantidad === undefined) {
                     args["Quantity"] = "0";
@@ -253,6 +254,7 @@ angular
                     args["Quantity"] = $scope.cantidad;
                 }
                 console.log('args', args);
+                
                 userData.addItemToCar(args).then(function success(result) {
                     refreshCarNumber(result);
                     //$uibModalInstance.close();
