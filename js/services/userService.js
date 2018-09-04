@@ -369,6 +369,27 @@ angular.module('boxit')
                     defered.reject(result)
                 });
                 return promise;
+            };            
+            factory.getAmazonCountItemCart = function (id) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                $http({
+                    method: "POST",
+                    url: host + "/amazon/AmazonCountItemCart",
+                    data: 
+                    {
+                        "IdCliente": id
+                    },
+                    headers: 
+                    {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    defered.resolve(result);
+                }, function error(result) {
+                    defered.reject(result);
+                });
+                return promise;
             };
             factory.getFirstSearch = function () {
                 var defered = $q.defer();

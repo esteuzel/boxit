@@ -280,6 +280,7 @@ angular
                             $scope.subTotal = result.data.Data.Cart.CartItems.SubTotal.FormattedPrice;
                             $scope.amazonLink = result.data.Data.Cart.PurchaseURL;
                             $scope.carNumber = calcularTotal($scope.carItems);
+                            console.log('$scope.carNumber',$scope.carNumber);   
                             angular.element(document.getElementById('cartNumber')).scope().carNumber = $scope.carNumber;
                         } else {
                             getCar();
@@ -301,12 +302,13 @@ angular
                 }
             };
             function calcularTotal(carItems) {
-                var totalAcumulado = 0;
-                for (var i = 0; i < carItems.length; i++) {
-                    var item = carItems[i];
-                    totalAcumulado = totalAcumulado + parseInt(item.Quantity);
-                }
-                return totalAcumulado;
+                userData.getAmazonCountItemCart(userId).then(function success(result) {       
+                    console.log(result);               
+                    $scope.carNumber = result.data.Data.Cart.Quantity;
+                    return result.data.Data.Cart.Quantity;
+                }, function error(result) {
+                    console.log(result);
+                });               
             }
 
             $scope.refreshTotal = function () {
@@ -520,7 +522,7 @@ angular
                 if(value.OfferSummary!=null){
                     if(value.OfferSummary.ListPrice!=null){
                         value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
-                        console.log("value.OfferSummary.ListPrice.FormattedPrice:",value.priceToShow);
+                        //console.log("value.OfferSummary.ListPrice.FormattedPrice:",value.priceToShow);
                     }
                 }
                 if(value.Offers!=null){                                                           
@@ -528,7 +530,7 @@ angular
                         if(value.Offers.Offer.OfferListing!=null){
                             if(value.Offers.Offer.OfferListing.Price!=null){
                                 value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                
-                                console.log("value.Offers.Offer.OfferListing.Price.FormattedPrice:",value.priceToShow);
+                                //console.log("value.Offers.Offer.OfferListing.Price.FormattedPrice:",value.priceToShow);
                             }
                         }
                     }
