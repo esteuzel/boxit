@@ -178,7 +178,8 @@ angular
                     }
                     $http({
                         method: "POST",
-                        url: userData.getHost() + "/amazon/amazonmodifycart",
+                       // url: userData.getHost() + "/amazon/amazonmodifycart",
+                        url: userData.getHost() + "/amazon/AmazonModifyCart2",
                         data: args,
                         headers: {
                             'Content-Type': 'application/json'

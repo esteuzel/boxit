@@ -464,7 +464,7 @@ console.log('controller shoppingCarController');
                     }
                 }
             };
-            $scope.modifyCar = function (op, carItemId, cantidad) {
+            /*$scope.modifyCar = function (op, carItemId, cantidad) {
                 var args = {};
                 args["IdCliente"] = userData.getData().IdCliente;
                 args["CartItemId"] = carItemId;
@@ -486,7 +486,7 @@ console.log('controller shoppingCarController');
                 }, function error(result) {
                     console.log(result);
                 });
-            };
+            };*/
             $scope.firstSearch = function () {
 
                 userData.getFirstSearch().then(function success(result) {

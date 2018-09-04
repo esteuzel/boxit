@@ -279,7 +279,8 @@ angular.module('boxit')
                 var promise = defered.promise;
                 $http({
                     method: "POST",
-                    url: host + "/amazon/amazongetcart",
+                    //url: host + "/amazon/amazongetcart",
+                    url: host + "/amazon/AmazonGetCart2",
                     data: {
                         "IdCliente": id
                     },
@@ -293,6 +294,7 @@ angular.module('boxit')
                 });
                 return promise;
             };
+            /*
             factory.getShoppingCarDetail = function (id) {
                 var defered = $q.defer();
                 var promise = defered.promise;
@@ -313,7 +315,8 @@ angular.module('boxit')
                     defered.reject(result);
                 });
                 return promise;
-            };
+            };*/
+            
             factory.getCommission = function (id) {
                 var defered = $q.defer();
                 var promise = defered.promise;

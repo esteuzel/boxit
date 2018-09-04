@@ -610,7 +610,7 @@ angular
                     }
                 }
             };
-            $scope.modifyCar = function (op, carItemId, cantidad) {
+            /*$scope.modifyCar = function (op, carItemId, cantidad) {
                 var args = {};
                 args["IdCliente"] = userData.getData().IdCliente;
                 args["CartItemId"] = carItemId;
@@ -632,7 +632,7 @@ angular
                 }, function error(result) {
                     //console.log(result);
                 });
-            };
+            };*/
             $scope.firstSearch = function () {
                 $scope.showStoreCarousel = true;                
                 $scope.showProductsCategory = false;
