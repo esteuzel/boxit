@@ -64,7 +64,7 @@ angular
             
             ////console.log('controller boxitStoreController');
              //setInterval(getCar, 10000);
-            var getCar = function () {
+            /*var getCar = function () {
                
                 userData.getShoppingCar(id).then(function success(result) {
                     ////console.log(result);
@@ -73,7 +73,7 @@ angular
                 }, function error(result) {
                     //console.log(result);
                 });
-            };
+            };*/
             $scope.doSearch = function () {                
                 console.log('doSearch');
                 $scope.showProductsCategory = false;
@@ -152,7 +152,7 @@ angular
 */
                                 $scope.loadMain = true;
                                 //$scope.firstSearch();
-                                getCar();
+                                //getCar();
                                 $scope.showProductsCategory = true;
 
                             
@@ -381,7 +381,7 @@ angular
                    modalInstance.closed.then(function (someData) {
                         //$scope.loadMain = true;
                        // $scope.firstSearch();
-                        getCar();
+                        //getCar();
                     });
                 
                 }, function error(result) {
@@ -544,7 +544,8 @@ angular
                     //console.log("args",args);
                     userData.addItemToCar(args).then(function success(result) {
                         //console.log("addItemToCar",result);
-                        refreshCar(result);
+                        //refreshCar(result);
+                        calcularCarritoTotal(result);
                     }, function error(error) {
                         //console.log(error);
                     });
@@ -572,7 +573,16 @@ angular
                     //$state.go('modalLoginNew');                    
                 }
             };
-            var refreshCar = function (result) {
+                function calcularCarritoTotal(carItems) {
+                    userData.getAmazonCountItemCart(userData.getData().IdCliente).then(function success(result) {       
+                        console.log(result);               
+                        $scope.carNumber = result.data.Data.Cart.Quantity;
+                        return result.data.Data.Cart.Quantity;
+                    }, function error(result) {
+                        console.log(result);
+                    });               
+                }
+            /*var refreshCar = function (result) {
                 $scope.showCarItems = false;
                 $scope.showLoginMessage = false;
                 $scope.loading = true;
@@ -609,7 +619,7 @@ angular
                         $scope.showLoginMessage = true;
                     }
                 }
-            };
+            };*/
             /*$scope.modifyCar = function (op, carItemId, cantidad) {
                 var args = {};
                 args["IdCliente"] = userData.getData().IdCliente;
@@ -730,7 +740,7 @@ angular
                     });   */                            
             }
 
-            $scope.clearShoppingCar = function () {
+           /* $scope.clearShoppingCar = function () {
                 clearCar(userObj.IdCliente).then(function success(result) {
                     var obj = {};
                     obj["data"] = result;
@@ -738,7 +748,7 @@ angular
                     angular.element(document.getElementById('cartNumber')).scope().carNumber = 0;
                     $scope.closeModal();
                 });
-            };
+            };*/
            
             function calcularTotal(carItems) {
                 var totalAcumulado = 0;
@@ -786,7 +796,7 @@ angular
 
             
             if (userObj != undefined) {
-            getCar();
+                calcularCarritoTotal(null);
             }
             
 

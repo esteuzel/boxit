@@ -43,6 +43,7 @@ angular
 
             var getCar = function () {
                 userData.getShoppingCar(id).then(function success(result) {
+                    console.log('getShoppingCar',result);
                     refreshCar(result);                    
                     return result;
                 }, function error(result) {
