@@ -211,7 +211,8 @@ angular
             var getCar = function () {               
                 userData.getShoppingCar(userId).then(function success(result) {
                     console.log('getCar',result);
-                    refreshCarNumber(result);
+                    //refreshCarNumber(result);
+                    calcularTotal(result);
                     return result;
                 }, function error(result) {
                     console.log('getCar',result);
@@ -256,7 +257,8 @@ angular
                 console.log('args', args);
                 
                 userData.addItemToCar(args).then(function success(result) {
-                    refreshCarNumber(result);
+                    //refreshCarNumber(result);
+                    calcularTotal(result);
                     //$uibModalInstance.close();
                     console.log('addItemToCar', result);
                 }, function error(result) {
@@ -264,11 +266,11 @@ angular
                 });
             };
 
-            var refreshCarNumber = function (result) {
-                $scope.showCarItems = false;
+             /*var refreshCarNumber = function (result) {
+                /* $scope.showCarItems = false;
                 $scope.showLoginMessage = false;
                 $scope.loading = true;
-                 
+                
                 if (result.data.Data.Cart != undefined) {
                     if (result.data.Data.Cart.CartItems != undefined || result.data.Data.Cart.CartItems != null) {
                         if (null !== result.data.Data.Cart.CartItems) {
@@ -302,7 +304,8 @@ angular
                         $scope.showLoginMessage = true;
                     }
                 }
-            };
+                
+            }; */
             function calcularTotal(carItems) {
                 userData.getAmazonCountItemCart(userId).then(function success(result) {       
                     console.log(result);               
