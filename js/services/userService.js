@@ -322,7 +322,8 @@ angular.module('boxit')
                 var promise = defered.promise;
                 $http({
                     method: "POST",
-                    url: host + "/amazon/amazongetcomision",
+                    //url: host + "/amazon/amazongetcomision",
+                    url: host + "/amazon/AmazonGetComision2",
                     data: 
                     {
                         "IdCliente": id
