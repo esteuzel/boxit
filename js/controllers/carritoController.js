@@ -208,15 +208,18 @@ angular
                     var promise = defered.promise;
                     var params = {};
                     params["IdCliente"] = IdCliente;
+                    console.log('limpiando carrito 2');
                     $http({
-                        method: "POST",
-                        url: userData.getHost() + "/amazon/amazonclearcart",
+                        method: "POST",                        
+                        //url: userData.getHost() + "/amazon/amazonclearcart",
+                        url: userData.getHost() + "/amazon/AmazonClearCart2",
                         data: params,
                         headers: {
                             'Content-Type': 'application/json'
                         }
                     }).then(function success(result) {
                         defered.resolve(result.data);
+                        console.log('carrito vaciado 2');
                     }, function error(result) {
                         defered.reject(result.data);
                     });
