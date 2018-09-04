@@ -358,7 +358,8 @@ angular.module('boxit')
                 var promise = defered.promise;
                 $http({
                     method: "POST",
-                    url: host + "/amazon/amazonaddcart",
+                    //url: host + "/amazon/amazonaddcart",
+                    url: host + "/amazon/AmazonAddCart2",
                     data: args,
                     headers: {
                         'Content-Type': 'application/json'
