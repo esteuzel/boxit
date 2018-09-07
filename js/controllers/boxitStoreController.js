@@ -821,7 +821,7 @@ angular
                 2619534011, PetSupplies, Mascotas
                 */
 
-                subCategory = 11058281;//Makeup,Maquillaje
+                subCategory =1040660; //Roma Mujer //11058281;//Makeup,Maquillaje
                 $scope.itemsTopSellerMakeup = [];
                 $scope.showTopSellerMakeup = false;
                 getTopSellerProducts(subCategory).then(function success(result) {
@@ -956,7 +956,7 @@ angular
                 });
 
 
-                subCategory = 2619534011;//PetSupplies, Mascotas
+                subCategory =1040658; //roma hombres //2619534011;//PetSupplies, Mascotas
                 $scope.itemsTopSellerPetSupplies = [];
                 $scope.showTopSellerPetSupplies = false;
                 getTopSellerProducts(subCategory).then(function success(result) {
