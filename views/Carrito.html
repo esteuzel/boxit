@@ -101,7 +101,7 @@
     <div id="cartitemsmobile" class="container-fluid data-table cart-table">
             <div class="row" ng-repeat="item in carItems">
                 <div class="col-12">
-                    <img class="img-responsive" id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.Image.ImageUrl}}" alt="{{item.Title}}">
+                    <img class="img-responsive" id="image-{{item.ItemId}}-default" class="product-image-photo img-responsive" src="{{item.UrlImage}}" alt="{{item.Title}}">
                 </div>
                 <div class="col-12">
                     <h2 class="product-name">
@@ -189,7 +189,7 @@
 
                                         <tr ng-if="mostrarDisclaimerPesoCero">
                                             <th colspan="3">
-                                                <h6><i> *El costo del envío será cobrado al retirar el paquete. </i></h6>                                       
+                                                <h6><i> *El costo del envío de alguno de los ítems será cobrado al retirar el paquete. </i></h6>                                       
                                             </th>                                                
                                         </tr>
                                         

@@ -467,8 +467,9 @@ angular
                             //  console.log(args["ListPurchaseOrderDetail"]);
                             newCheckout(args).then(function success(result) {
                                 var answer = result;
-
+console.log('answer',answer);
                                 if (answer === "The Purchase Order Detail Has Been Created") {
+                                    
                                     clearCar(IdCliente);
                                     $scope.checkout = true;
                                     $scope.shopping = false;

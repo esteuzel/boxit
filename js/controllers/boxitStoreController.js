@@ -25,6 +25,7 @@ angular
             $scope.amazonLink = "";
             $scope.showSubCategories = false;
             $scope.labusquedanoarrojoresultados=false;
+            $scope.mostrarlabusquedanoarrojoresultados=true;
             $scope.topCategory = "";
             $scope.showLeftCategories = false;
             $scope.categoriesList = [];
@@ -124,7 +125,10 @@ angular
                             //console.log('######## BUSQUEDA ##########');
                             //console.log('"La busqueda no arrojo resultados: "', $scope.keyword);
 
-                            /*
+                    if($scope.mostrarlabusquedanoarrojoresultados==true)
+                        {
+
+                           
                             var modalInstance = $uibModal.open({
                                 animation: true,
                                 templateUrl: 'views/modalCambioClave.html',
@@ -149,7 +153,7 @@ angular
                                 getCar();
                                 $scope.showProductsCategory = true;
                             });
-*/
+                        }
                                 $scope.loadMain = true;
                                 //$scope.firstSearch();
                                 //getCar();
@@ -276,7 +280,8 @@ angular
             function callPages(params) {
                 var defered = $q.defer();
                 var promise = defered.promise;
-                ////console.log("params",params);
+                console.log("params",params);
+                console.log("callPages","/amazon/amazongetkeywords");
                 $http({
                     method: "POST",
                     url: userData.getHost() + "/amazon/amazongetkeywords",
@@ -285,6 +290,7 @@ angular
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
+                    console.log("callPages result" , result );
                       if (result !== undefined && result !== null){
                          products[params["ItemPage"] - 1] =  result.data.Item;
                          if(result.data.Item){
@@ -296,6 +302,7 @@ angular
                                         allProducts.push(newValue);
                                     }                                    
                                 });
+                                console.log("allProducts" , allProducts );
                             }else{
                                 value = result.data.Item;
                                 let newValue = checkItemData(value);
@@ -644,6 +651,7 @@ angular
                 });
             };*/
             $scope.firstSearch = function () {
+                $scope.mostrarlabusquedanoarrojoresultados=false;
                 $scope.showStoreCarousel = true;                
                 $scope.showProductsCategory = false;
                 $scope.showStoreBreadcrumb=false;        
@@ -1183,6 +1191,7 @@ angular
                 //showProductsSubcategory();
             }
             $scope.mostrarProductos = function (subCategory,subCategoryTexto,categoryValue,categoryTexto) {
+                $scope.mostrarlabusquedanoarrojoresultados=false;
                 $scope.showStoreBreadcrumb=true;
                 $scope.subCategoryTexto = subCategoryTexto;
                 $scope.breadcrumbSubCategoryTexto = subCategoryTexto;
