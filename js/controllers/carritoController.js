@@ -438,6 +438,7 @@ angular
                         for (var i = 0; i < $scope.carItems.length; i++) {
 
                             var item = $scope.carItems[i];
+                            console.log('item',item);
                             var args = {};
                             var detail = {};
 
@@ -449,10 +450,10 @@ angular
                             //cantidad de unidades
                             args["Quantity"] = item.Quantity;
                             //precio de la unidad
-                            args["Amount"] = item.Price.FormattedPrice;
+                            args["Amount"] = item.Price;
                             // id del producto
                             args["ItemId"] = item.ItemId;
-                            console.log(args);
+                            console.log('args',args);
                             detail["PurchaseOrderDetail"] = args;
                             details.push("detail", detail);
                         }
