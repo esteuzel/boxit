@@ -40,8 +40,12 @@ angular.module('boxit')
                     console.log(' $scope.category', $scope.category);
                     var user = userData.getData();
                     if($scope.f){
+
+                        console.log(' $scope.f', $scope.f);
+
                         $scope.filename = $scope.f.name;
-                    }
+
+                    
                     
                     console.log(' $scope.filename', $scope.filename); 
 
@@ -199,6 +203,29 @@ angular.module('boxit')
                         console.log(results.data);
 
                     });
+
+                    
+
+                }else{
+                    console.log(' $scope.f no', $scope.f);
+                    var estilo = "alerta";
+                    respuesta = "Debe adjuntar copia de la factura.";
+                    $uibModal.open({
+                        animation: true,
+                        templateUrl: 'views/modalCambioClave.html',
+                        controller: 'modalCambioClaveController',
+                        size: 'sm',
+                        resolve: {
+                            mensaje: function () {
+                                var mensaje = {};
+                                mensaje.titulo = "Alertar paquete";
+                                mensaje.texto = respuesta;
+                                mensaje.estilo = estilo;
+                                return mensaje;
+                            }
+                        }
+                    });
+                }
 
 
 
