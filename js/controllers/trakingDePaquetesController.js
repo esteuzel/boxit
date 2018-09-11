@@ -118,28 +118,23 @@ angular
                         statusClass = 'showOrdenesPendientes';        
                         break;
                     }
+                    if(statusClass != 'showPaquetesProceso'){
+                        statusClass = statusClass + ' hideTemporal';
+                    }                    
                     value.attributes.statusClass = statusClass;
                     b.push(value);
                 });
 
                 $scope.trakings = b;
-
-               
-
-
-
-
-
+                $('.showPaquetesProceso').removeClass('hideTemporal');
+                $scope.showTrakings('showPaquetesProceso');
 
             }, function error(result) {
                 console.log(result);
             });
 
-            $scope.hideAll = function () {
-                console.log('hideAll');
-                    $('.tarjetas').hide();
-                    $scope.showTrakings('showPaquetesProceso');
-                    $('.showPaquetesAlertado').click();
+            $scope.hideAll = function (traking) {
+                
             };
         }]);
        

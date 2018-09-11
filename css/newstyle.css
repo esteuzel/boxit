@@ -3013,3 +3013,7 @@ footer ul li + li {
 .carousel-control {
   width: 20px!important;
 }
+
+.hideTemporal {
+  display: none;
+}
