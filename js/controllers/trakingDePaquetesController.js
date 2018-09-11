@@ -2,7 +2,7 @@ angular
     .module('boxit')
     .controller('trakingDePaquetesController', ['$scope', '$http', 'userData',
         function ($scope, $http, userData) {
-            $scope.showAll = true;
+            $scope.showAll = false;
             $scope.showPaquetes = false;
             $scope.showOrdenes = false;
             $scope.showOrdenesPendientes = false;
@@ -10,7 +10,7 @@ angular
             $scope.showPaquetesProceso = false;
             $scope.showPaquetesEntregados = false;
             $scope.showPaquetesAlertado = false;
-
+            
             $scope.showTrakings = function (parametros) {
                 console.log("parametros: ",parametros);
                 $('.tarjetas').hide();
@@ -27,7 +27,7 @@ angular
                     case 'showPaquetes': case 'showPaquetesProceso':
                         $scope.showPaquetes = true;
                         $scope.showPaquetesProceso = true;   
-                        showThisClass = 'showPaquetesProceso';                     
+                        showThisClass = 'showPaquetesProceso';                
                         break;
                     case 'showPaquetesEntregados': 
                         $scope.showPaquetes = true;
@@ -123,9 +123,8 @@ angular
                 });
 
                 $scope.trakings = b;
-                console.log("b",b);
 
-                
+               
 
 
 
@@ -135,4 +134,12 @@ angular
             }, function error(result) {
                 console.log(result);
             });
+
+            $scope.hideAll = function () {
+                console.log('hideAll');
+                    $('.tarjetas').hide();
+                    $scope.showTrakings('showPaquetesProceso');
+                    $('.showPaquetesAlertado').click();
+            };
         }]);
+       

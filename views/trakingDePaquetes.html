@@ -31,9 +31,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					
 		<div class="col-sm-12 col-md-12 col-lg-12">
 			<ul class="nav nav-tabs">
+				<!--
 				<li class="tab-primary" ng-class="{'active' : showAll}"><a href="#" ng-click="showTrakings('showAll')">Historial</a>
 
 				</li>
+				-->
 				<li  class="tab-secondary" ng-class="{'active' : showPaquetes}"><a href="#" ng-click="showTrakings('showPaquetes')">Paquetes</a>
 
 					
@@ -68,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					</ul>
 
 
-			<div class="col-sm-12 col-md-12 col-lg-12 tarjetas {{traking.attributes.statusClass}}" ng-repeat="traking in trakings">
+			<div class="col-sm-12 col-md-12 col-lg-12 tarjetas {{traking.attributes.statusClass}}" ng-repeat="traking in trakings" ng-init="hideAll()">
 				<div class="tarjeta tarjeta-1">					
 					<div class="tarjeta-header">
 						<div class="numeroTracking"><b>Número de Tracking: </b>{{traking.attributes.NumeroTracking}}</div>
@@ -87,7 +89,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			</div>
 	</div>
 </div>
-<div style="clear:both; width: 100%; height: 20px;"></div>
+<div  style="clear:both; width: 100%; height: 20px;"></div>
 <p><br></p>
 
 </body>
