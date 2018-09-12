@@ -298,6 +298,10 @@
 
                         <div class="col-price">
 
+                            <div ng-if="itemDiscount.haveDiscount" class="haveDiscount">
+                                <span>Precio: </span> <span style="text-decoration: line-through;">{{itemDiscount.priceOld}}</span> <span>Ahorrás: </span> <span>{{itemDiscount.AmountSaved}}</span> <span>( {{itemDiscount.PercentageSaved}}% )</span>
+                            </div>
+
                             <div class="itemdetail-price">
                                 <div class="price-box">
                                     <span class="price-container">
@@ -428,6 +432,33 @@
                                         <strong class="product-item-name">
                                             <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
                                         </strong>
+                                        <div ng-if="item.haveDiscount" class="price-discounts" data-product-id="{{item.ItemId}}">
+                                        <div class="discount-old_price">{{item.priceOld}}</div>
+                                        <div class="discount-percent">
+                                            <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                        </div>
+                                    </div>
+<div style="display: none">
+item.priceOld: {{item.priceOld}}
+item.PercentageSaved: {{item.PercentageSaved}}
+item.AmountSaved: {{item.AmountSaved}}
+item.priceToShow: {{item.priceToShow}}
+
+item.Offers.Offer.OfferListing.Price.FormattedPrice
+{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}
+
+item.Attributes.ListPrice.FormattedPrice
+{{item.Attributes.ListPrice.FormattedPrice}}
+
+item.OfferSummary.ListPrice.FormattedPrice
+{{item.OfferSummary.ListPrice.FormattedPrice}}
+
+item.Offers.Offer.OfferListing.PercentageSaved
+{{item.Offers.Offer.OfferListing.PercentageSaved}}
+
+item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
+{{item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice}}
+</div>
                                         <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                             <span class="price-container price-final_price tax weee">
                                                 <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
@@ -485,6 +516,33 @@
                                                 <strong class="product-item-name">
                                                     <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
                                                 </strong>
+                                                <div ng-if="item.haveDiscount" class="price-discounts" data-product-id="{{item.ItemId}}">
+                                        <div class="discount-old_price">{{item.priceOld}}</div>
+                                        <div class="discount-percent">
+                                            <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                        </div>
+                                    </div>
+<div style="display: none">
+item.priceOld: {{item.priceOld}}
+item.PercentageSaved: {{item.PercentageSaved}}
+item.AmountSaved: {{item.AmountSaved}}
+item.priceToShow: {{item.priceToShow}}
+
+item.Offers.Offer.OfferListing.Price.FormattedPrice
+{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}
+
+item.Attributes.ListPrice.FormattedPrice
+{{item.Attributes.ListPrice.FormattedPrice}}
+
+item.OfferSummary.ListPrice.FormattedPrice
+{{item.OfferSummary.ListPrice.FormattedPrice}}
+
+item.Offers.Offer.OfferListing.PercentageSaved
+{{item.Offers.Offer.OfferListing.PercentageSaved}}
+
+item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
+{{item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice}}
+</div>
                                                 <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                     <span class="price-container price-final_price tax weee">
                                                         <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
@@ -532,6 +590,33 @@
                                                 <strong class="product-item-name">
                                                     <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
                                                 </strong>
+                                                <div ng-if="item.haveDiscount" class="price-discounts" data-product-id="{{item.ItemId}}">
+                                        <div class="discount-old_price">{{item.priceOld}}</div>
+                                        <div class="discount-percent">
+                                            <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                        </div>
+                                    </div>
+<div style="display: none">
+item.priceOld: {{item.priceOld}}
+item.PercentageSaved: {{item.PercentageSaved}}
+item.AmountSaved: {{item.AmountSaved}}
+item.priceToShow: {{item.priceToShow}}
+
+item.Offers.Offer.OfferListing.Price.FormattedPrice
+{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}
+
+item.Attributes.ListPrice.FormattedPrice
+{{item.Attributes.ListPrice.FormattedPrice}}
+
+item.OfferSummary.ListPrice.FormattedPrice
+{{item.OfferSummary.ListPrice.FormattedPrice}}
+
+item.Offers.Offer.OfferListing.PercentageSaved
+{{item.Offers.Offer.OfferListing.PercentageSaved}}
+
+item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
+{{item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice}}
+</div>
                                                 <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                     <span class="price-container price-final_price tax weee">
                                                         <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">
@@ -578,6 +663,33 @@
                                                 <strong class="product-item-name">
                                                     <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
                                                 </strong>
+                                                <div ng-if="item.haveDiscount" class="price-discounts" data-product-id="{{item.ItemId}}">
+                                        <div class="discount-old_price">{{item.priceOld}}</div>
+                                        <div class="discount-percent">
+                                            <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                        </div>
+                                    </div>
+<div style="display: none">
+item.priceOld: {{item.priceOld}}
+item.PercentageSaved: {{item.PercentageSaved}}
+item.AmountSaved: {{item.AmountSaved}}
+item.priceToShow: {{item.priceToShow}}
+
+item.Offers.Offer.OfferListing.Price.FormattedPrice
+{{item.Offers.Offer.OfferListing.Price.FormattedPrice}}
+
+item.Attributes.ListPrice.FormattedPrice
+{{item.Attributes.ListPrice.FormattedPrice}}
+
+item.OfferSummary.ListPrice.FormattedPrice
+{{item.OfferSummary.ListPrice.FormattedPrice}}
+
+item.Offers.Offer.OfferListing.PercentageSaved
+{{item.Offers.Offer.OfferListing.PercentageSaved}}
+
+item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
+{{item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice}}
+</div>
                                                 <div class="price-box price-final_price" data-role="priceBox" data-product-id="72">
                                                     <span class="price-container price-final_price tax weee">
                                                         <span id="old-price-72-widget-product-grid" data-price-amount="125" data-price-type="finalPrice" class="price-wrapper ">

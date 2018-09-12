@@ -290,7 +290,7 @@ angular
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    console.log("callPages result" , result );
+                    //console.log("callPages result" , result );
                       if (result !== undefined && result !== null){
                          products[params["ItemPage"] - 1] =  result.data.Item;
                          if(result.data.Item){
@@ -324,26 +324,66 @@ angular
                 value.priceToShow="";
                 if(!value.ItemId || value.ItemId==null){ return null; }
                 if(!value.Image || value.Image==null){ return null; }  
-                if(value.OfferSummary!=null){
-                    if(value.OfferSummary.ListPrice!=null){
-                        value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
-                        ////console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
-                    }
-                }
+                
                 if(value.Offers!=null){                                                           
                     if(value.Offers.Offer!=null){
                         if(value.Offers.Offer.OfferListing!=null){
                             if(value.Offers.Offer.OfferListing.Price!=null){
                                 value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                
-                                ////console.log("value.Price_FormattedPrice",value.Price_FormattedPrice);
+                                
                             }
                         }
                     }
                 }
+
+                if(value.priceToShow==""){
+                    if(value.Attributes!=null){  
+                        if(value.Attributes.ListPrice!=null){
+                            if(value.Attributes.ListPrice.FormattedPrice!=null){
+                                value.priceToShow=value.Attributes.ListPrice.FormattedPrice;
+                            }
+                        }
+                    }
+                }
+
+                if(value.priceToShow==""){
+                    if(value.OfferSummary!=null){
+                        if(value.OfferSummary.ListPrice!=null){
+                            value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+                        }
+                    }
+                }
+                
                 if(value.priceToShow=="Too low to display"){
-                    ////console.log("value.priceToShow",value.Price_FormattedPrice);
                     value.priceToShow="";
-                }             
+                }
+
+                if(value.Offers!=null){                                                           
+                    if(value.Offers.Offer!=null){
+                        if(value.Offers.Offer.OfferListing!=null){
+                            if(value.Offers.Offer.OfferListing.PercentageSaved!=null){
+                            console.log("value",value);
+                            value.PercentageSaved=value.Offers.Offer.OfferListing.PercentageSaved;
+                            value.AmountSaved=value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice;
+                                value.priceOld=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                value.haveDiscount = false;
+                                value.priceOld = (parseFloat(value.Offers.Offer.OfferListing.AmountSaved.Amount) + parseFloat(value.Offers.Offer.OfferListing.Price.Amount)) / 100;
+                                value.priceOld = "$" + parseFloat(Math.round(value.priceOld * 100) / 100).toFixed(2);
+
+                                if(value.Offers.Offer.OfferListing.PercentageSaved!=null 
+                                    && value.Offers.Offer.OfferListing.AmountSaved!=null 
+                                    && value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice!= null){
+                                        value.haveDiscount = true;
+                                        //value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+
+                                        value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                        
+                                }
+                            
+                            }
+                        }
+                    }
+                }
+
                 return value;
             }
 
@@ -357,7 +397,7 @@ angular
 
             $scope.initIndex = function () {
                 if ($scope.indexs == undefined) {
-                    //console.log("realizando busqueda");
+                   
                     userData.setSearchIndex();
                     $interval(function () {
                         $scope.indexs = userData.getSearchIndex();
@@ -368,7 +408,7 @@ angular
             };
             $scope.viewItemDetail= function (item) {
                 userData.getItemDetails(item.ItemId).then(function success(result) {
-                    //console.log(result);
+
                 });
             }
             $scope.viewItem = function (item) {
@@ -392,18 +432,14 @@ angular
                     });
                 
                 }, function error(result) {
-                    //console.log(result);
                 });
             };
             $scope.onKeyEnterPress = function () {
-              //  //console.log(this);
-              //  //console.log($event);
                 if (event.keyCode === 13) {
                     $scope.doSearch();
                 }
             };
             $scope.showShoppingCar = function () {
-                    //console.log('boxitStoreController showShoppingCar');
                 $state.go('modal');
             };
             $scope.goBack = function () {
@@ -433,7 +469,7 @@ angular
 
 
                     }, function error(result) {
-                        //console.log(result);
+                        
                         // defered.resolve('success');
                     }));
                     promises.push(defered.promise);
@@ -446,7 +482,6 @@ angular
                 var IdCliente = userData.getData().IdCliente;
                 itemLinks().then(function success(result) {
 
-                //   //console.log($scope.carItems);
                     for (var i = 0; i < $scope.carItems.length; i++) {
 
 
@@ -461,9 +496,9 @@ angular
                         args["Quantity"] = item.Quantity;
                         //precio de la unidad
                         args["Amount"] = item.Price.Amount;
-                        // //console.log(args);
+                        
 
-                     //   //console.log(i);
+                     
                         promises.push(itemCheckOut(args));
                     }
                 });
@@ -489,7 +524,7 @@ angular
                 }).then(function success(result) {
                     defered.resolve(result.data.Rows.attributes.Message);
                 }, function error(result) {
-                    //console.log(result.data.Rows.attributes.Message);
+                    
                     defered.reject(result.data.Rows.attributes.Message);
                 });
 
@@ -548,13 +583,13 @@ angular
                     // Image
                     args["UrlImage"] = itemadded.Image.ImageUrl;
                     args["Title"] = itemadded.Attributes.Title;
-                    //console.log("args",args);
+                    
                     userData.addItemToCar(args).then(function success(result) {
-                        //console.log("addItemToCar",result);
+                        
                         //refreshCar(result);
                         calcularCarritoTotal(result);
                     }, function error(error) {
-                        //console.log(error);
+                        
                     });
                 } else {
 
@@ -586,7 +621,7 @@ angular
                         $scope.carNumber = result.data.Data.Cart.Quantity;
                         return result.data.Data.Cart.Quantity;
                     }, function error(result) {
-                        console.log(result);
+                        
                     });               
                 }
             /*var refreshCar = function (result) {
@@ -647,7 +682,7 @@ angular
                     $scope.$parent.subTotal = result.data.Data.Cart.CartItems.SubTotal.FormattedPrice;
                     refreshCar(result);
                 }, function error(result) {
-                    //console.log(result);
+                    
                 });
             };*/
             $scope.firstSearch = function () {
@@ -658,11 +693,7 @@ angular
                 //let atributoSearchIndexSelected = localStorage.getItem("atributoSearchIndexSelected");
                 let vars = $stateParams.serchdata.split(',');
                 
-                //console.log('vars',vars);
-                //console.log('vars[0]',vars[0]);
-                //console.log('typeof vars[0]',typeof vars[0]);
-                let atributoSearchIndexSelected = vars[0];
-                //console.log("atributoSearchIndexSelected",atributoSearchIndexSelected);                
+                let atributoSearchIndexSelected = vars[0];              
                 
             if(atributoSearchIndexSelected!='' && atributoSearchIndexSelected!=null && $scope.labusquedanoarrojoresultados==false){
                                 
@@ -674,13 +705,11 @@ angular
                 }                
 
                 getSubcategoryText(vars[1]);
-                ////console.log("getSubcategoryText(vars[1] ",getSubcategoryText(vars[1]));
                 
                 //let keyword = localStorage.getItem("keyword");
                 let keyword = decodeURIComponent(vars[2]);
 
-                //console.log("self.keyword ",$scope.keyword);
-                //console.log("keyword ",keyword);
+               
 
                 if(keyword!=null){
                     $scope.keyword = keyword;
@@ -688,10 +717,10 @@ angular
                 if($scope.indexs==undefined){
                     $scope.indexs = userData.getSearchIndex();
                 }
-                ////console.log("$scope.indexs",$scope.indexs);
+                
 
                 angular.forEach($scope.indexs, function(value, key) {
-                    //console.log("value" , value );
+                    
                     if(value.attributes.SearchIndex == atributoSearchIndexSelected){
                         $scope.index = value;
                     }
@@ -730,19 +759,19 @@ angular
 
                 $http.get('subcategorias_es.csv').then(function(datos) {
                     $scope.subCategoriesEs = csvToArray(datos.data);
-                    //console.log('$scope.subCategoriesEs',$scope.subCategoriesEs);
+                    
                     $scope.breadcrumbSubCategoryTexto = $scope.subCategoriesEs[sid];   
                     //return $scope.subCategoriesEs[sid];             
                 }); 
 
                     /*angular.forEach($scope.subCategoriesList, function(value, key) {
-                        //console.log('value',value);            
+                              
                     });    
                     angular.forEach($scope.subCategoriesList, function(value, key) { 
                         
-                        //console.log('SubCategoryId',value);                       
+                                        
                         if(value.SubCategoryId==sid){
-                            //console.log('SubCategoryId',value.SubCategoryId);
+                            
                             return value.textoEs;
                         }                                        
                     });   */                            
@@ -788,8 +817,6 @@ angular
             }            
 
             $scope.setSubCategories = function () {
-                //console.log("this.index",this.index);
-                //console.log("setSubCategories",this.index.attributes.SearchIndex);
                 localStorage.setItem("atributoSearchIndexSelected",this.index.attributes.SearchIndex);
             
                 getSubCategories(this.index.attributes.SearchIndex).then(function success(result) {
@@ -797,7 +824,7 @@ angular
                     $scope.subCategories = result.data;
                     $scope.showSubCategories = true;
                 }, function error(result) {
-                    //console.log(result);
+                    
                     $scope.showSubCategories = false;
                 });
             };
@@ -833,7 +860,7 @@ angular
                     });
                     if($scope.itemsTopSellerMakeup.length>0){
                         $scope.showTopSellerMakeup = true;
-                        //console.log('getTopSellerProducts Makeup $scope.itemsTopSellerMakeup ',$scope.itemsTopSellerMakeup);
+                        
                         $scope.ItemsMakeupAll = $scope.itemsTopSellerMakeup;
                         $scope.ItemsMakeupUno= {};
                         $scope.ItemsMakeupDos= {};
@@ -851,7 +878,7 @@ angular
                         });                       
                     }                                                            
                 }, function error(result) {
-                    //console.log(result);
+                    
                 });
 
                 subCategory = 196601011;//Baby & Toddler Toys,Juguetes para Bebés y Niños
@@ -866,7 +893,7 @@ angular
                     });
                     if($scope.itemsTopSellerBaby.length>0){
                         $scope.showTopSellerBaby = true;
-                        //console.log('getTopSellerProducts Baby $scope.itemsTopSellerBaby ',$scope.itemsTopSellerBaby);
+                        
                         $scope.ItemsBabyAll = $scope.itemsTopSellerBaby;
                         $scope.ItemsBabyUno= {};
                         $scope.ItemsBabyDos= {};
@@ -884,7 +911,7 @@ angular
                         });                       
                     }                                                            
                 }, function error(result) {
-                    //console.log(result);
+                    
                 });
 
 
@@ -1197,8 +1224,8 @@ angular
                 $scope.breadcrumbSubCategoryTexto = subCategoryTexto;
                 $scope.categoriaTexto = categoryTexto;
                 $scope.categoryTexto = categoryTexto;
-                console.log('$scope.categoriaTexto',$scope.categoriaTexto);
-                console.log('categoryTexto',categoryTexto);
+                //console.log('$scope.categoriaTexto',$scope.categoriaTexto);
+                //console.log('categoryTexto',categoryTexto);
                 //console.log('$scope.breadcrumbSubCategoryTexto',$scope.breadcrumbSubCategoryTexto);
                 ////console.log('$scope.categoryTexto',$scope.categoryTexto);
                 var element = document.getElementById("buttonShowCategories");
@@ -1241,7 +1268,7 @@ angular
             function showTopSellerProducts(subCategory){
                 console.log('showTopSellerProducts');
                 getTopSellerProducts(subCategory).then(function success(result) {                      
-                    ////console.log('getTopSellerProducts',result);
+                    console.log('getTopSellerProducts',result);
                     angular.forEach(result.data.Item, function(value, key) {
                         ////console.log("value" , value );
                         let newValue = checkItemData(value);

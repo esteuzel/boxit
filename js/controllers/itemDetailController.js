@@ -35,8 +35,10 @@ angular
                    //$scope.itemPrice = item.Item.Offers.Offer.OfferListing.Price.FormattedPrice;
                    //amount = item.Item.Offers.Offer.OfferListing.Price.Amount;
                    $scope.itemPrice = getItemPrice(item.Item);//item.Item.OfferSummary.ListPrice.FormattedPrice;
+                   console.log($scope.itemPrice);
                    amount = item.Item.OfferSummary.ListPrice.Amount;
-                   
+                   $scope.itemDiscount = getItemDiscount(item.Item);
+                   console.log('itemDiscount',$scope.itemDiscount);
                    if(item.Item.Attributes.PackageDimensions != null){
                     $scope.peso = item.Item.Attributes.PackageDimensions.Weight == null ? 0 : Math.ceil(item.Item.Attributes.PackageDimensions.Weight / 100);
                    }else{
@@ -47,7 +49,42 @@ angular
                    setItemVariation(item);
                }
             });
-
+            function getItemDiscount(value){
+                let discount = {'haveDiscount':'','PercentageSaved':'','AmountSaved':'','priceOld':'','priceToShow':'',};
+                if(value.Offers!=null){                                                      
+                    if(value.Offers.Offer!=null){
+                        if(value.Offers.Offer.OfferListing!=null){
+                            if(value.Offers.Offer.OfferListing.PercentageSaved!=null){
+                            /*console.log("value",value);
+                            console.log("Offers.Offer.OfferListing.PercentageSaved",value.Offers.Offer.OfferListing.PercentageSaved);
+                            console.log("Offers.Offer.AmountSaved.FormattedPrice",value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice);
+                            console.log("Offers.Offer.OfferListing.Price.FormattedPrice",value.Offers.Offer.OfferListing.Price.FormattedPrice);*/
+                            discount.PercentageSaved=value.Offers.Offer.OfferListing.PercentageSaved;
+                            discount.AmountSaved=value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice;
+                            discount.priceOld=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                            discount.haveDiscount = false;
+                            value.PercentageSaved=value.Offers.Offer.OfferListing.PercentageSaved;
+                            value.AmountSaved=value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice;
+                            //value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                value.priceOld=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                value.haveDiscount = false;
+                                if(value.Offers.Offer.OfferListing.PercentageSaved!=null 
+                                    && value.Offers.Offer.OfferListing.AmountSaved!=null 
+                                    && value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice!= null){
+                                        value.haveDiscount = true;
+                                        //value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+                                        value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                        discount.haveDiscount = true;
+                                        //discount.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+                                        discount.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                }                            
+                            }
+                        }
+                    }
+                }
+                     console.log('discount',discount);
+                     return discount;
+            }
             
             function goToTopBody(){
                 $('html,body').animate({
@@ -394,29 +431,27 @@ angular
               };//ng-click="doTheBack()"
             
             function getItemPrice(value){
+                if(value.OfferSummary!=null){
+                    if(value.OfferSummary.ListPrice!=null){
+                        if(value.OfferSummary.ListPrice.FormattedPrice!=null){
+                            value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+                        }
+                    }
+                }
                 if(value.Offers.Offer!=null){
                     if(value.Offers.Offer.OfferListing!=null){
                         if(value.Offers.Offer.OfferListing.Price!=null){
                             if(value.Offers.Offer.OfferListing.Price.FormattedPrice!=null){
-                                //return value.Offers.Offer.OfferListing.Price.FormattedPrice;
                                 value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;
                             }
-                        }
-                    }
-                }
-                if(value.OfferSummary!=null){
-                    if(value.OfferSummary.ListPrice!=null){
-                        if(value.OfferSummary.ListPrice.FormattedPrice!=null){
-                            //return value.OfferSummary.ListPrice.FormattedPrice;
-                            value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
                         }
                     }
                 }
                 if(value.priceToShow=="Too low to display"){
                     //console.log("value.priceToShow",value.Price_FormattedPrice);
                     value.priceToShow=value.Attributes.ListPrice.FormattedPrice;
-                }             
-                         
+                }                
+                
                 return value.priceToShow;
             }
 
@@ -524,28 +559,92 @@ angular
                 value.priceToShow = 0;
                 if(!value.ItemId || value.ItemId==null){ return null; }
                 if(!value.Image || value.Image==null){ return null; }  
-                if(value.OfferSummary!=null){
-                    if(value.OfferSummary.ListPrice!=null){
-                        value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
-                        //console.log("value.OfferSummary.ListPrice.FormattedPrice:",value.priceToShow);
-                    }
-                }
+                
                 if(value.Offers!=null){                                                           
                     if(value.Offers.Offer!=null){
                         if(value.Offers.Offer.OfferListing!=null){
                             if(value.Offers.Offer.OfferListing.Price!=null){
                                 value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                
-                                //console.log("value.Offers.Offer.OfferListing.Price.FormattedPrice:",value.priceToShow);
+                                
                             }
                         }
                     }
                 }
+
+                if(value.priceToShow==""){
+                    if(value.Attributes!=null){  
+                        if(value.Attributes.ListPrice!=null){
+                            if(value.Attributes.ListPrice.FormattedPrice!=null){
+                                value.priceToShow=value.Attributes.ListPrice.FormattedPrice;
+                            }
+                        }
+                    }
+                }
+
+                if(value.priceToShow==""){
+                    if(value.OfferSummary!=null){
+                        if(value.OfferSummary.ListPrice!=null){
+                            value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+                        }
+                    }
+                }
+                
                 if(value.priceToShow=="Too low to display"){
-                    console.log("value.priceToShow",value.priceToShow);
                     value.priceToShow="";
-                }             
+                }           
+
+                if(value.Offers!=null){                                                           
+                    if(value.Offers.Offer!=null){
+                        if(value.Offers.Offer.OfferListing!=null){
+                            if(value.Offers.Offer.OfferListing.PercentageSaved!=null){
+                            console.log("value",value);
+                            value.PercentageSaved=value.Offers.Offer.OfferListing.PercentageSaved;
+                            value.AmountSaved=value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice;
+                                value.priceOld=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+                                value.haveDiscount = false;
+                                value.priceOld = (parseFloat(value.Offers.Offer.OfferListing.AmountSaved.Amount) + parseFloat(value.Offers.Offer.OfferListing.Price.Amount)) / 100;
+                                value.priceOld = "$" + parseFloat(Math.round(value.priceOld * 100) / 100).toFixed(2);
+
+                                if(value.Offers.Offer.OfferListing.PercentageSaved!=null 
+                                    && value.Offers.Offer.OfferListing.AmountSaved!=null 
+                                    && value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice!= null){
+                                        value.haveDiscount = true;
+                                        //value.priceToShow=value.OfferSummary.ListPrice.FormattedPrice;
+
+                                        value.priceToShow=value.Offers.Offer.OfferListing.Price.FormattedPrice;                                        
+                                }
+                            
+                            }
+                        }
+                    }
+                }
                 return value;
             }
 
 
         }]);
+
+/* reglas de precios */
+
+/*
+1. TOMAR EL PRIMERA INSTANCIA EL PRECIO DE LA SIGUIENTE VARIABLE:
+
+Precio Actual:  Offers.Offer.OfferListing.Price.FormattedPrice
+
+HAY QUE VALIDAR SI ESE PRECIO TIENE VALOR Y  SI TRAE INFORMACION DE PORCENTAJE DE DESCUENTO PARA COLOCAR LA INFORMACION DE DESCUENTO:
+
+Porcentaje Descuento  =  Offers.Offer.OfferListing.PercentageSaved;
+Precio Viejo= (Offers.Offer.OfferListing.AmountSaved.Amount) + parseFloat(value.Offers.Offer.OfferListing.Price.Amount)) / 100;
+
+2. SI LO ANTERIOR VIENE VACIO BUSCAR EL PRECIO EN LISTPRICE  
+
+Precio Actual:  Attributes.ListPrice.FormattedPrice
+NO COLOCAR INFORMACION DE DESCUENTO
+
+3. SI LO ANTERIOR VIENE VACIO BUSCAR EL PRECIO EN OFFERSUMMARY
+
+OfferSummary.ListPrice.FormattedPrice
+NO COLOCAR INFORMACION DE DESCUENTO
+
+4. SI NINGUNO TIENE VALOR, NO MOSTRAR PRODUCTO
+*/

@@ -1147,7 +1147,7 @@ width: 100%;
 .store-list .product-item {
   text-align: center;
   margin: 2px;
-  min-height: 400px;
+  min-height: 410px;
 }
 .store-list .product-item-info {
   border: 1px solid #eee;  
@@ -1268,7 +1268,7 @@ width: 100%;
       margin: 0 auto;
   }
   .price-box {
-      margin-top: 20px;
+      margin-top: 10px;
       margin-bottom: 10px;
   }
   .price-box .price {
@@ -3016,4 +3016,28 @@ footer ul li + li {
 
 .hideTemporal {
   display: none;
+}
+
+.price-discounts {
+  display: flex;
+  margin-top: 10px;
+}
+.discount-old_price {
+  text-decoration: line-through;
+  text-align: right;
+  width: 50%;
+  padding: 4px 5px 0 5px;
+}
+.discount-percent {
+  
+  text-align: left;
+  border: 1px solid red;
+  padding: 2px 5px 0 5px;
+ color: red;
+}
+.discount-percent span{
+
+}
+.discount-percent span.texto {
+
 }
