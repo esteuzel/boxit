@@ -97,6 +97,7 @@ angular
                     products = [];
                     if(allProducts.length==0){
                         $scope.hayItemsPorMostrar = false;
+                        $scope.showPopupNoResultsPlease =
                         showPopupNoResults();
                     }
                     $scope.totalItems = allProducts.length;
@@ -189,6 +190,39 @@ angular
 
             };
             function searchProducts(self) {
+
+                let coma = encodeURIComponent(",");
+                var searchParams = {};
+                        let comillaSimple = encodeURIComponent("'");
+                        let barra = encodeURIComponent("/");
+                        let Keywords = self.keyword;
+                        Keywords = Keywords.replace(",", coma);
+                        Keywords = Keywords.replace("'", comillaSimple);
+                        Keywords = Keywords.replace("/", barra);
+
+                        if (!$scope.preventCacheSearchKeyword) {
+                            //$scope.preventCacheSearchKeyword = true;
+
+                            if ($scope.subCategory > 0) {
+                                searchParams["SubCategoryId"] = $scope.subCategory;
+                            } else {
+                                searchParams["SubCategoryId"] = '';
+                            }
+    
+                            if (self.index != null || self.index != undefined) {
+                                searchParams["SearchIndex"] = self.index.attributes.SearchIndex;
+    
+                            } else {
+                                searchParams["SearchIndex"] = "All";
+                            }
+
+
+                            $location.path('/boxitStore/' + searchParams["SearchIndex"] + ',' + searchParams["SubCategoryId"] + ',' + Keywords);
+                            //return;
+                            console.log('$location.path(',$location.path());  
+                        }
+
+
                 console.log('searchProducts');
                 $scope.hayItemsPorMostrar = false;
                 var promises = [];
@@ -220,7 +254,7 @@ angular
                         defered.resolve(callPages(searchParams).then(function success(result) {
                             console.log('result', result);
                             if (result !== undefined && result !== null) {
-                                console.log('result', result);
+                                //console.log('result', result);
                                 $scope.hayItemsPorMostrar = true;
                             }
                             //defered.resolve('success');
@@ -230,18 +264,7 @@ angular
                         }));
 
                         promises.push(defered.promise);
-                        let coma = encodeURIComponent(",");
-                        let comillaSimple = encodeURIComponent("'");
-                        let barra = encodeURIComponent("/");
-                        let Keywords = searchParams["Keywords"];
-                        Keywords = Keywords.replace(",", coma);
-                        Keywords = Keywords.replace("'", comillaSimple);
-                        Keywords = Keywords.replace("/", barra);
-
-                        if (!$scope.preventCacheSearchKeyword) {
-                            $location.path('/boxitStore/' + searchParams["SearchIndex"] + ',' + searchParams["SubCategoryId"] + ',' + Keywords);
-                            ////console.log('$location.path(',$location.path());  
-                        }
+                        
 
 
                     } else {
@@ -342,7 +365,7 @@ angular
                     }
                 }
 
-                if (value.priceToShow == "") {
+                if (value.priceToShow == "" || value.priceToShow == "Too low to display") {
                     if (value.Attributes != null) {
                         if (value.Attributes.ListPrice != null) {
                             if (value.Attributes.ListPrice.FormattedPrice != null) {
@@ -352,7 +375,7 @@ angular
                     }
                 }
 
-                if (value.priceToShow == "") {
+                if (value.priceToShow == "" || value.priceToShow == "Too low to display") {
                     if (value.OfferSummary != null) {
                         if (value.OfferSummary.ListPrice != null) {
                             value.priceToShow = value.OfferSummary.ListPrice.FormattedPrice;
@@ -853,7 +876,7 @@ angular
                 2619534011, PetSupplies, Mascotas
                 */
 
-                subCategory = 1040660; //Roma Mujer //11058281;//Makeup,Maquillaje
+                subCategory = 1040660; //1040660Ropa Mujer //11058281;//Makeup,Maquillaje
                 $scope.itemsTopSellerMakeup = [];
                 $scope.showTopSellerMakeup = false;
                 getTopSellerProducts(subCategory).then(function success(result) {
@@ -1247,6 +1270,7 @@ angular
 
 
                 $location.path('/boxitStore/' + categoryValue + ',' + subCategory + ',');
+                
 
             }
 
@@ -1264,10 +1288,14 @@ angular
                 goToTopBody();
 
 
+                if(vars[2]==""){
+                    showTopSellerProducts(vars[1]);
+                    showNewReleaseProducts(vars[1]);
+                    showTenMoreProducts(vars[0], vars[1]);
+                }
+                console.log('vars[2]',vars[2]);
+                
 
-                showTopSellerProducts(vars[1]);
-                showNewReleaseProducts(vars[1]);
-                showTenMoreProducts(vars[0], vars[1]);
                 $scope.showProductsCategory = false;
                 $scope.showStoreCarousel = false;
             }
@@ -1539,7 +1567,7 @@ angular
                         mensaje: function () {
                             var mensaje = {};
                             mensaje.titulo = "Busqueda";
-                            mensaje.texto = "La busqueda no arrojo resultados";
+                            mensaje.texto = "La busqueda no arrojo resultados...";
                             mensaje.estilo = "alerta";
                             return mensaje;
                         }

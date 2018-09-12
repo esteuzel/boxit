@@ -1152,6 +1152,7 @@ width: 100%;
 .store-list .product-item-info {
   border: 1px solid #eee;  
   padding-top: 10px;
+  min-height: 410px;
 }
 .store-list .product-item-info:hover {
   box-shadow: 0px 0px 20px 0px rgba(0,0,0,.3);
@@ -3019,8 +3020,11 @@ footer ul li + li {
 }
 
 .price-discounts {
-  display: flex;
   margin-top: 10px;
+  min-height: 24px;
+}
+.price-discounts-inner {
+    display: flex;
 }
 .discount-old_price {
   text-decoration: line-through;

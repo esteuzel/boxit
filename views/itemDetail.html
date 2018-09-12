@@ -302,6 +302,28 @@
                                 <span>Precio: </span> <span style="text-decoration: line-through;">{{itemDiscount.priceOld}}</span> <span>Ahorrás: </span> <span>{{itemDiscount.AmountSaved}}</span> <span>( {{itemDiscount.PercentageSaved}}% )</span>
                             </div>
 
+<div style="display: none">
+itemDiscount.priceOld: {{item.priceOld}}
+itemDiscount.PercentageSaved: {{item.PercentageSaved}}
+itemDiscount.AmountSaved: {{item.AmountSaved}}
+itemDiscount.priceToShow: {{item.priceToShow}}
+
+itemSelected.Offers.Offer.OfferListing.Price.FormattedPrice
+{{itemSelected.Offers.Offer.OfferListing.Price.FormattedPrice}}
+
+itemSelected.Attributes.ListPrice.FormattedPrice
+{{itemSelected.Attributes.ListPrice.FormattedPrice}}
+
+itemSelected.OfferSummary.ListPrice.FormattedPrice
+{{itemSelected.OfferSummary.ListPrice.FormattedPrice}}
+
+itemSelected.Offers.Offer.OfferListing.PercentageSaved
+{{itemSelected.Offers.Offer.OfferListing.PercentageSaved}}
+
+itemSelected.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
+{{itemSelected.Offers.Offer.OfferListing.AmountSaved.FormattedPrice}}
+</div>
+
                             <div class="itemdetail-price">
                                 <div class="price-box">
                                     <span class="price-container">

@@ -62,6 +62,11 @@ angular
                             discount.PercentageSaved=value.Offers.Offer.OfferListing.PercentageSaved;
                             discount.AmountSaved=value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice;
                             discount.priceOld=value.Offers.Offer.OfferListing.Price.FormattedPrice;
+
+                            discount.priceOld = (parseFloat(value.Offers.Offer.OfferListing.AmountSaved.Amount) + parseFloat(value.Offers.Offer.OfferListing.Price.Amount)) / 100;
+                            discount.priceOld = "$" + parseFloat(Math.round(discount.priceOld * 100) / 100).toFixed(2);
+
+
                             discount.haveDiscount = false;
                             value.PercentageSaved=value.Offers.Offer.OfferListing.PercentageSaved;
                             value.AmountSaved=value.Offers.Offer.OfferListing.AmountSaved.FormattedPrice;
