@@ -453,11 +453,13 @@ itemSelected.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                                     <div class="product-item-details">
                                         <strong class="product-item-name">
                                             <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
-                                        </strong>
-                                        <div ng-if="item.haveDiscount" class="price-discounts" data-product-id="{{item.ItemId}}">
-                                        <div class="discount-old_price">{{item.priceOld}}</div>
-                                        <div class="discount-percent">
-                                            <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                        </strong>                                    
+                                    <div class="price-discounts">
+                                        <div ng-if="item.haveDiscount" class="price-discounts-inner" data-product-id="{{item.ItemId}}">
+                                            <div class="discount-old_price">{{item.priceOld}}</div>
+                                            <div class="discount-percent">
+                                                <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                            </div>
                                         </div>
                                     </div>
 <div style="display: none">
@@ -538,10 +540,12 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                                                 <strong class="product-item-name">
                                                     <a title="Lord Benedict Handy" ui-sref="itemDetail({itemId: item.ItemId})" class="product-item-link">{{item.Attributes.Title}}</a>
                                                 </strong>
-                                                <div ng-if="item.haveDiscount" class="price-discounts" data-product-id="{{item.ItemId}}">
-                                        <div class="discount-old_price">{{item.priceOld}}</div>
-                                        <div class="discount-percent">
-                                            <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                    <div class="price-discounts">
+                                        <div ng-if="item.haveDiscount" class="price-discounts-inner" data-product-id="{{item.ItemId}}">
+                                            <div class="discount-old_price">{{item.priceOld}}</div>
+                                            <div class="discount-percent">
+                                                <span>{{item.PercentageSaved}}</span> <span class="texto">% off</span>
+                                            </div>
                                         </div>
                                     </div>
 <div style="display: none">
