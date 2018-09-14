@@ -76,7 +76,7 @@ angular
                 });
             };*/
             $scope.doSearch = function () {
-                console.log('doSearch');
+                //console.log('doSearch');
                 $scope.showProductsCategory = false;
                 $scope.showStoreCarousel = false;
                 //////console.log('showProductsCategory',$scope.showProductsCategory);
@@ -219,11 +219,11 @@ angular
 
                             $location.path('/boxitStore/' + searchParams["SearchIndex"] + ',' + searchParams["SubCategoryId"] + ',' + Keywords);
                             //return;
-                            console.log('$location.path(',$location.path());  
+                            //console.log('$location.path(',$location.path());  
                         }
 
 
-                console.log('searchProducts');
+                //console.log('searchProducts');
                 $scope.hayItemsPorMostrar = false;
                 var promises = [];
                 var i;
@@ -250,16 +250,16 @@ angular
 
                         searchParams["ItemPage"] = i;
                         var curIndex = i;
-                        console.log('searchParams ::: ', searchParams);
+                        //console.log('searchParams ::: ', searchParams);
                         defered.resolve(callPages(searchParams).then(function success(result) {
-                            console.log('result', result);
+                            //console.log('result', result);
                             if (result !== undefined && result !== null) {
                                 //console.log('result', result);
                                 $scope.hayItemsPorMostrar = true;
                             }
                             //defered.resolve('success');
                         }, function error(result) {
-                            console.log(result);
+                            //console.log(result);
                             // defered.resolve('success');
                         }));
 
@@ -876,36 +876,43 @@ angular
                 2619534011, PetSupplies, Mascotas
                 */
 
+               
+
                 subCategory = 1040660; //1040660Ropa Mujer //11058281;//Makeup,Maquillaje
                 $scope.itemsTopSellerMakeup = [];
                 $scope.showTopSellerMakeup = false;
-                getTopSellerProducts(subCategory).then(function success(result) {
-                    angular.forEach(result.data.Item, function (value, key) {
-                        let newValue = checkItemData(value);
-                        if (newValue != null) {
-                            $scope.itemsTopSellerMakeup.push(newValue);
-                        }
-                    });
-                    if ($scope.itemsTopSellerMakeup.length > 0) {
-                        $scope.showTopSellerMakeup = true;
-
-                        $scope.ItemsMakeupAll = $scope.itemsTopSellerMakeup;
-                        $scope.ItemsMakeupUno = {};
-                        $scope.ItemsMakeupDos = {};
-                        $scope.ItemsMakeupTres = {};
-                        $x = 0;
-                        angular.forEach($scope.ItemsMakeupAll, function (value, key) {
-                            if ($x < 4) {
-                                $scope.ItemsMakeupUno[$x] = value;
-                            } else if ($x < 8) {
-                                $scope.ItemsMakeupDos[$x] = value;
-                            } else if ($x < 12) {
-                                $scope.ItemsMakeupTres[$x] = value;
+                    getTenProducts($scope.itemsTopSellerMakeup,"Fashion", 7147440011, "").then(function success(result) {
+                        //console.log('resultresultresultresult',result);
+                        //console.log('allProducts',allProducts);
+                        /*
+                        angular.forEach(result, function (value, key) {
+                            //console.log('value',value);
+                            let newValue = checkItemData(value);
+                            if (newValue != null) {
+                                $scope.itemsTopSellerMakeup.push(newValue);
                             }
-                            $x++;
                         });
-                    }
-                }, function error(result) {
+                        */
+                        if ($scope.itemsTopSellerMakeup.length > 0) {
+                            $scope.showTopSellerMakeup = true;
+
+                            $scope.ItemsMakeupAll = $scope.itemsTopSellerMakeup;
+                            $scope.ItemsMakeupUno = {};
+                            $scope.ItemsMakeupDos = {};
+                            $scope.ItemsMakeupTres = {};
+                            $x = 0;
+                            angular.forEach($scope.ItemsMakeupAll, function (value, key) {
+                                if ($x < 4) {
+                                    $scope.ItemsMakeupUno[$x] = value;
+                                } else if ($x < 8) {
+                                    $scope.ItemsMakeupDos[$x] = value;
+                                } else if ($x < 12) {
+                                    $scope.ItemsMakeupTres[$x] = value;
+                                }
+                                $x++;
+                            });
+                        }
+                    }, function error(result) {
 
                 });
 
@@ -1010,7 +1017,7 @@ angular
                     ////console.log(result);
                 });
 
-
+/*
                 subCategory = 1040658; //roma hombres //2619534011;//PetSupplies, Mascotas
                 $scope.itemsTopSellerPetSupplies = [];
                 $scope.showTopSellerPetSupplies = false;
@@ -1043,6 +1050,52 @@ angular
                 }, function error(result) {
                     ////console.log(result);
                 });
+*/
+
+
+
+
+
+                subCategory = 1040658; //roma hombres //2619534011;//PetSupplies, Mascotas
+                $scope.itemsTopSellerPetSupplies = [];
+                $scope.showTopSellerPetSupplies = false;
+                getTenProducts($scope.itemsTopSellerPetSupplies, "Fashion", 1040658, "").then(function success(result) {
+                    //console.log('resultresultresultresult',result);
+                    //console.log('allProducts',allProducts);
+                    /*
+                    angular.forEach(result, function (value, key) {
+                        //console.log('value',value);
+                        let newValue = checkItemData(value);
+                        if (newValue != null) {
+                            $scope.itemsTopSellerMakeup.push(newValue);
+                        }
+                    });
+                    */
+                    if ($scope.itemsTopSellerPetSupplies.length > 0) {
+                        $scope.showTopSellerPetSupplies = true;
+                        ////console.log('getTopSellerProducts PetSupplies $scope.itemsTopSellerPetSupplies ',$scope.itemsTopSellerPetSupplies);
+                        $scope.ItemsPetSuppliesAll = $scope.itemsTopSellerPetSupplies;
+                        $scope.ItemsPetSuppliesUno = {};
+                        $scope.ItemsPetSuppliesDos = {};
+                        $scope.ItemsPetSuppliesTres = {};
+                        $x = 0;
+                        angular.forEach($scope.ItemsPetSuppliesAll, function (value, key) {
+                            if ($x < 4) {
+                                $scope.ItemsPetSuppliesUno[$x] = value;
+                            } else if ($x < 8) {
+                                $scope.ItemsPetSuppliesDos[$x] = value;
+                            } else if ($x < 12) {
+                                $scope.ItemsPetSuppliesTres[$x] = value;
+                            }
+                            $x++;
+                        });
+                    }
+                }, function error(result) {
+                    ////console.log(result);
+                });
+
+
+
 
 
             };
@@ -1246,7 +1299,7 @@ angular
                 //showProductsSubcategory();
             }
             $scope.mostrarProductos = function (subCategory, subCategoryTexto, categoryValue, categoryTexto) {
-                console.log('mostrarProductos');
+                //console.log('mostrarProductos');
                 $scope.mostrarlabusquedanoarrojoresultados = false;
                 $scope.showStoreBreadcrumb = true;
                 $scope.subCategoryTexto = subCategoryTexto;
@@ -1275,7 +1328,7 @@ angular
             }
 
             function showFirstSearchItemsByUrlParams(vars) {
-                console.log('showFirstSearchItemsByUrlParams');
+                //console.log('showFirstSearchItemsByUrlParams');
                 categoryClick(vars[0]);
                 $scope.keyword = "";
                 $scope.showTopSellerProducts = false;
@@ -1293,7 +1346,7 @@ angular
                     showNewReleaseProducts(vars[1]);
                     showTenMoreProducts(vars[0], vars[1]);
                 }
-                console.log('vars[2]',vars[2]);
+                //console.log('vars[2]',vars[2]);
                 
 
                 $scope.showProductsCategory = false;
@@ -1379,7 +1432,7 @@ angular
                         'Content-Type': 'application/json'
                     }
                 }).then(function success(result) {
-                    ////console.log('result',result);
+                    //console.log('result',result);
                     if (result !== undefined && result !== null) {
                         if (result.data.Item) {
                             if (result.data.Item.length > 1) {
@@ -1460,6 +1513,126 @@ angular
                 });
                 return promise;
             }
+
+            function getTenProducts(objetoContenedor,categoryValue, subCategory=0, keyword_="") {
+                //console.log('getTenProducts');
+                //var defered = $q.defer();
+                //var promise = defered.promise;
+                products = [];
+                var promises = [];
+                var i;
+                for (i = 1; i < 6; i++) {
+                    var defered = $q.defer();
+
+                        var searchParams = {};
+                        //  ////console.log(self);
+                        searchParams["Keywords"] = keyword_;
+                        searchParams["SubCategoryId"] = subCategory;                        
+                        searchParams["SearchIndex"] = categoryValue;
+                        searchParams["ItemPage"] = i;
+                        var curIndex = i;
+                        //console.log('searchParams ::: ', searchParams);
+                        defered.resolve(callPageItems(objetoContenedor,searchParams).then(function success(result) {
+                            //console.log('result', result);
+                            if (result !== undefined && result !== null) {
+                                //console.log('result', result);
+                                //$scope.hayItemsPorMostrar = true;
+                            }
+                            //defered.resolve('success');
+                        }, function error(result) {
+                            //console.log(result);
+                            // defered.resolve('success');
+                        }));
+
+                        promises.push(defered.promise);                    
+                }
+                return $q.all(promises);
+            }
+
+
+            function callPageItems(objetoContenedor,params) {
+                var defered = $q.defer();
+                var promise = defered.promise;
+                //console.log("params",params);
+                //console.log("callPages","/amazon/amazongetkeywords");
+                $http({
+                    method: "POST",
+                    url: userData.getHost() + "/amazon/amazongetkeywords",
+                    data: params,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                    //console.log("callPages amazongetkeywords result", result);
+                    if (result !== undefined && result !== null) {
+                        products[params["ItemPage"] - 1] = result.data.Item;
+                        if (result.data.Item) {
+                            if (result.data.Item.length > 1) {
+                                angular.forEach(result.data.Item, function (value, key) {
+                                    //////console.log("value" , value );
+                                    let newValue = checkItemData(value);
+                                    if (newValue != null) {
+                                        objetoContenedor.push(newValue);
+                                    }
+                                });
+                                //console.log("allProducts" , allProducts );
+                            } else {
+                                value = result.data.Item;
+                                let newValue = checkItemData(value);
+                                if (newValue != null) {
+                                    objetoContenedor.push(newValue);
+                                }
+                            }
+                        }
+                    }
+                    defered.resolve(result.data.Item);
+                }, function error(result) {
+                    defered.reject(result.data);
+                });
+                return promise;
+            }
+
+
+
+
+
+
+                /*
+                //console.log("params",params);
+                $http({
+                    method: "POST",
+                    url: userData.getHost() + "/amazon/amazongetkeywords",
+                    data: params,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(function success(result) {
+                   //console.log('result',result);
+                    if (result !== undefined && result !== null) {
+                        if (result.data.Item) {
+                            if (result.data.Item.length > 1) {
+                                angular.forEach(result.data.Item, function (value, key) {
+                                    //console.log("value" , value );
+                                    let newValue = checkItemData(value);
+                                    if (newValue != null) {
+                                        allProducts.push(newValue);
+                                    }
+                                });
+                            } else {
+                                value = result.data.Item;
+                                let newValue = checkItemData(value);
+                                if (newValue != null) {
+                                    allProducts.push(newValue);
+                                }
+                            }
+                        }
+                    }
+                    defered.resolve(result.data.Item);
+                }, function error(result) {
+                    defered.reject(result.data);
+                });
+                return promise;
+                */
 
             /*function getSearchEmptySubcategoryProducts(subCategoryTexto){
                 $scope.keyword = subCategoryTexto;
