@@ -1572,7 +1572,9 @@ angular
                                     //////console.log("value" , value );
                                     let newValue = checkItemData(value);
                                     if (newValue != null) {
-                                        objetoContenedor.push(newValue);
+                                        if(objetoContenedor.length<12){
+                                             objetoContenedor.push(newValue);
+                                        }                                       
                                     }
                                 });
                                 //console.log("allProducts" , allProducts );
@@ -1580,7 +1582,9 @@ angular
                                 value = result.data.Item;
                                 let newValue = checkItemData(value);
                                 if (newValue != null) {
-                                    objetoContenedor.push(newValue);
+                                    if(objetoContenedor.length<12){
+                                        objetoContenedor.push(newValue);
+                                   } 
                                 }
                             }
                         }
