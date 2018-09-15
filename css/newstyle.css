@@ -2750,6 +2750,7 @@ footer ul li + li {
 
 .tarjetas {
   margin-top: 16px;
+  float: left;
 }
 .tarjeta {
 	border: 1px solid #DDE9F6;
