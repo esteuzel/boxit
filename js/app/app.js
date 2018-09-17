@@ -4,67 +4,67 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         $urlRouterProvider.otherwise('/home');
         $stateProvider.state('userMenu', {
             url: '/userInterface',
-            templateUrl: 'views/userMenu.html?v= + Math.random()',
+            templateUrl: 'views/userMenu.html?v=105',
             controller: 'userMenuController'
         }).state('userMenu.inicio', {
             url: '/inicio',
-            templateUrl: 'views/inicio.html?v=1000',
+            templateUrl: 'views/inicio.html?v=105',
             controller: 'inicioController'
         }).state('userMenu.editarPerfil', {
             url: '/editarPerfil',
-            templateUrl: 'views/editarPerfil.html?v=${new Date().getTime()}',
+            templateUrl: 'views/editarPerfil.html?v=105',
             controller: 'editarPerfilController'
         }).state('userMenu.modificarContrasena', {
             url: '/modificarContrasena',
-            templateUrl: 'views/modificarContrasena.html?v=${new Date().getTime()}',
+            templateUrl: 'views/modificarContrasena.html?v=105',
             controller: 'modificarContrasenaController'
         }).state('userMenu.seleccionarBoxIt', {
             url: '/seleccionarBoxIt',
-            templateUrl: 'views/seleccionarBoxIt.html?v=${new Date().getTime()}',
+            templateUrl: 'views/seleccionarBoxIt.html?v=105',
             controller: 'seleccionarBoxitController'
         }).state('userMenu.anunciarPaquete', {
             url: '/anunciarPaquete',
-            templateUrl: 'views/anunciarPaquete.html?v=1000',
+            templateUrl: 'views/anunciarPaquete.html?v=105',
             controller: 'anunciarPaqueteController'
         }).state('userMenu.trakingDePaquetes', {
             url: '/trakingDePaquetes',
-            templateUrl: 'views/trakingDePaquetes.html?v=${new Date().getTime()}',
+            templateUrl: 'views/trakingDePaquetes.html?v=105',
             controller: 'trakingDePaquetesController'
         }).state('userMenu.cerrarSesion', {
             url: '/cerrarSesion',
-            templateUrl: 'views/cerrarSesion.html?v=${new Date().getTime()}',
+            templateUrl: 'views/cerrarSesion.html?v=105',
             controller: 'cerrarSesionController'
         /*}).state('recovery', {
             url: '/recovery/:hash',
-            templateUrl: "views/recuperarPassForm.html?v=${new Date().getTime()}",
+            templateUrl: "views/recuperarPassForm.html?v=105",
             controller: 'passwordController'*/
         }).state('activar', {
             url: '/activar/:hash',
-            templateUrl: "views/activar.html?v=${new Date().getTime()}",
+            templateUrl: "views/activar.html?v=105",
             controller: 'activarController'
         }).state('anular',{
            url:'/anularOrden/:orden',
-           templateUrl: "views/anularOrden.html?v=${new Date().getTime()}",
+           templateUrl: "views/anularOrden.html?v=105",
            controller: 'anularController' 
         }).state('home', {
                 url: "/home",
                 cache: false,
-                templateUrl: "views/home.html",
+                templateUrl: "views/home.html?v=105",
                 controller: "homeController"
             }
         ).state('devolucion', {
                 url: "/devolucion",
-                templateUrl: "views/Devolucion.html?v=${new Date().getTime()}",
+                templateUrl: "views/Devolucion.html?v=105",
                 controller: ""
             }
         ).state('enviar', {
                 url: "/enviar",
-                templateUrl: "views/Enviar.html?v=${new Date().getTime()}",
+                templateUrl: "views/Enviar.html?v=105",
                 controller: ""
             }
         ).state('faq', {
                 url: "/faq",
-                templateUrl: "views/faq.html?v=${new Date().getTime()}",
+                templateUrl: "views/faq.html?v=105",
                 controller: ""
 
             }
@@ -104,36 +104,36 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             controller: ""
 
         }
-	    ).state('contactanos', {
-	        url: "/contactanos",
-	        templateUrl: "views/contactanos.html?v=${new Date().getTime()}",
-	        controller: ""
-	
-	    }
-	    ).state('ProductosProhibidos', {
-	        url: "/ProductosProhibidos",
-	        templateUrl: "views/ProductosProhibidos.html?v=${new Date().getTime()}",
-	        controller: ""
-	
-	    }
+        ).state('contactanos', {
+            url: "/contactanos",
+            templateUrl: "views/contactanos.html?v=105",
+            controller: ""
+    
+        }
+        ).state('ProductosProhibidos', {
+            url: "/ProductosProhibidos",
+            templateUrl: "views/ProductosProhibidos.html?v=105",
+            controller: ""
+    
+        }
          ).state('FarmaciaDroga', {
-	        url: "/FarmaciaDroga",
-	        templateUrl: "views/FarmaciaDroga.html?v=${new Date().getTime()}",
-	        controller: ""
-	
-	    }
+            url: "/FarmaciaDroga",
+            templateUrl: "views/FarmaciaDroga.html?v=105",
+            controller: ""
+    
+        }
          ).state('MaterialPeligroso', {
-	        url: "/MaterialPeligroso",
-	        templateUrl: "views/MaterialPeligroso.html?v=${new Date().getTime()}",
-	        controller: ""
-	
-	    }
+            url: "/MaterialPeligroso",
+            templateUrl: "views/MaterialPeligroso.html?v=105",
+            controller: ""
+    
+        }
           ).state('TramitesEspeciales', {
-	        url: "/TramitesEspeciales",
-	        templateUrl: "views/TramitesEspeciales.html?v=${new Date().getTime()}",
-	        controller: ""
-	
-	    }
+            url: "/TramitesEspeciales",
+            templateUrl: "views/TramitesEspeciales.html?v=105",
+            controller: ""
+    
+        }
           ).state('ubicaciones', {
             url: "/ubicaciones",
             templateUrl: "views/ubicaciones.html?v=002",
@@ -142,13 +142,13 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         }
         ).state('iniciarSesion', {
                 url: "/iniciarSesion",
-                templateUrl: "views/IniciarSesion.html?v=${new Date().getTime()}",
+                templateUrl: "views/IniciarSesion.html?v=105",
                 controller: "loginController"
 
             }
         ).state('confirmacion', {
             url: "/confirmacion/:hash",
-            templateUrl: "views/recuperarPassForm.html?v=${new Date().getTime()}",
+            templateUrl: "views/recuperarPassForm.html?v=105",
             params: {
                 hash: ""
             },
@@ -156,29 +156,29 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         }    
         ).state('pagoservicio', {
                 url: "/pagoservicio",
-                templateUrl: "views/Pagoservicio.html?v=${new Date().getTime()}",
+                templateUrl: "views/Pagoservicio.html?v=105",
                 controller: ""
 
             }
         ).state('precios', {
                 url: "/precios",
-                templateUrl: "views/Precios.html?v=${new Date().getTime()}",
+                templateUrl: "views/Precios.html?v=105",
                 controller: "precioController"
             }
         ).state('registro', {
                 url: "/registro",
                 cache: false,
-                templateUrl: "views/Registro.html?"+$.now(),
+                templateUrl: "views/Registro.html?v=105",
                 controller: "siginController"
             }
         ).state('retiro', {
                 url: "/retiro",
-                templateUrl: "views/Retiro.html?v=${new Date().getTime()}",
+                templateUrl: "views/Retiro.html?v=105",
                 controller: ""
             }
         ).state('boxitStoreOld', {
                 url: "/boxitStoreOld",
-                templateUrl: "views/BoxitStoreOld.html?"+$.now(),
+                templateUrl: "views/BoxitStoreOld.html?v=105",
                 controller: "shoppingCarController"
             }
         /*).state('boxitStore', {
@@ -189,7 +189,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         ).state('boxitStore', {
             url: '/boxitStore/:serchdata',
             reloadOnSearch : false,
-            templateUrl: "views/BoxitStore.html?"+$.now(),
+            templateUrl: "views/BoxitStore.html?v=106",
             params: {
                 serchdata: ""
             },                
@@ -198,7 +198,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
 
         ).state('carrito', {
                 url: "/carrito",
-                templateUrl: "views/Carrito.html?"+$.now(),
+                templateUrl: "views/Carrito.html?v=105",
                 controller: "carritoController"
             }
         ).state('modal', {
@@ -207,7 +207,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 onEnter: ['$uibModal', '$state', function ($uibModal, $state) {
                     console.log('Open modal');
                     $uibModal.open({
-                        templateUrl: 'views/modalShoppingCar.html',
+                        templateUrl: 'views/modalShoppingCar.html?v=105"',
                         size: 'lg',
                         controller: 'modalShoppingCarController'
                     }).result.finally(function () {
@@ -220,7 +220,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 parent: 'modal',
                 views: {
                     'modal@': {
-                        templateUrl: 'views/itemList.html'
+                        templateUrl: 'views/itemList.html?v=105'
                     }
                 },
                 controller: 'shoppingCarController'
@@ -228,7 +228,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         ).state('itemDetail', {
             url: '/itemDetail/:itemId',
             reloadOnSearch : false,
-            templateUrl: 'views/itemDetail.html',
+            templateUrl: 'views/itemDetail.html?v=106',
             params: {
                 itemId: ""
             },                
@@ -254,7 +254,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 parent: 'modal',
                 views: {
                     'modal@': {
-                        templateUrl: 'views/checkoutmessage.html'
+                        templateUrl: 'views/checkoutmessage.html?v=105'
                     }
                 }
             }
@@ -263,7 +263,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 parent: 'modal',
                 views: {
                     'modal@': {
-                        templateUrl: 'views/modalLogin.html'
+                        templateUrl: 'views/modalLogin.html?v=105'
                     }
                 },
                 controller:'modalLoginController'
@@ -274,7 +274,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
                 onEnter: ['$uibModal', '$state', function ($uibModal, $state) {
                     console.log('Open modal terminosycondiciones');
                     $uibModal.open({
-                        templateUrl: 'views/terminosycondiciones.html',
+                        templateUrl: 'views/terminosycondiciones.html?v=105',
                         size: 'lg',
                     }).result.finally(function () {
                         $state.go('home');
@@ -298,7 +298,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         }
         ).state('subirArchivo', {
             url: '/subirArchivo',
-            templateUrl: 'views/subirArchivo.html?v=${new Date().getTime()}',
+            templateUrl: 'views/subirArchivo.html?v=105',
             controller: 'subirArchivoController'
         }
 /*
@@ -320,7 +320,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
             */
         ).state('misFavoritos', {
             url: "/misFavoritos",
-            templateUrl: "views/misFavoritos.html",
+            templateUrl: "views/misFavoritos.html?v=105",
             controller: "myWishList"
         }        
         ).state('rusia2018', {
@@ -339,7 +339,7 @@ angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'a
         }
         ).state('giftcards', {
             url: "/giftcards",
-            templateUrl: "views/giftcards.html",
+            templateUrl: "views/giftcards.html?v=105",
             controller: "giftcardsController"
         }
 

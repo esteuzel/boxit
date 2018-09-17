@@ -154,7 +154,7 @@ angular.module('boxit')
                     } else if ("UserEmail is required" === respuesta) {
                         respuesta = "El correo del usuario es requerido";
                     } else if ("UserEmail invalid format" === respuesta) {
-                        respuesta = "El formato de correo es invalido";
+                        respuesta = "El formato de correo es inválido";
                     } else if ("UserEmail Already Exists" === respuesta) {
                         respuesta = "Ya existe un usuario con el mismo correo";
                     } else if ("IdPlataforma could not be found" === respuesta) {
@@ -164,17 +164,17 @@ angular.module('boxit')
                     } else if ("UserLastName is required" === respuesta) {
                         respuesta = "El apellido del usuario es requerido";
                     } else if ("UserGender is required" === respuesta) {
-                        respuesta = "El genero del usuario es requerido";
+                        respuesta = "El género del usuario es requerido";
                     } else if ("UserGender is different for H and M" === respuesta) {
-                        respuesta = "El genero seleccionado es invalido";
+                        respuesta = "El género seleccionado es invalido";
                     } else if ("UserBirthdate is required" === respuesta) {
                         respuesta = "La fecha de nacimiento es requerida";
                     } else if ("UserBirthdate invalid format" === respuesta) {
-                        respuesta = "La fecha de nacimiento tiene un formato invalido";
+                        respuesta = "La fecha de nacimiento tiene un formato inválido";
                     } else if ("Success" === respuesta) {
-                        respuesta = "Cambio realizado con exito";
+                        respuesta = "Cambio realizado con éxito";
                     } else if ("IdCliente is empty or invalid format" === respuesta) {
-                        respuesta = "IdCliente invalido";
+                        respuesta = "IdCliente inválido";
                     }
 
 
