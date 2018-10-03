@@ -598,9 +598,8 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
 
                     <div id="myCarousel" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                                <li ng-repeat="item in ItemsElectronicsAllTotal track by $index" data-target="#myCarousel" data-slide-to="{{$index}}"  
+                                ng-class="{'active': $index==0}">  
                         </ol>
                         <div class="carousel-inner store-list">
                             <div class="item active">
@@ -755,7 +754,7 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                             </div>
 
                             <div class="item">
-                                <div class="row">
+                                <div class="row"  ng-if="ItemsElectronicsTres.length > 0">
 
                                     <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsElectronicsTres">
                                         <div class="product-item">
@@ -957,9 +956,8 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
 
             <div id="boxitStoreComputersCarouselDesktop" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#boxitStoreComputersCarouselDesktop" data-slide-to="0" class="active"></li>
-                    <li data-target="#boxitStoreComputersCarouselDesktop" data-slide-to="1"></li>
-                    <li data-target="#boxitStoreComputersCarouselDesktop" data-slide-to="2"></li>
+                        <li ng-repeat="item in ItemsComputersAllTotal track by $index" data-target="#boxitStoreComputersCarouselDesktop" data-slide-to="{{$index}}"  
+                        ng-class="{'active': $index==0}">  
                 </ol>
                 <div class="carousel-inner store-list">
                     <div class="item active">
@@ -1113,7 +1111,7 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item" ng-if="ItemsComputersTres.length > 0">
                         <div class="row">
 
                             <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsComputersTres">
@@ -1320,9 +1318,8 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
 
             <div id="boxitStoreCellPhonesCarouselDesktop" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#boxitStoreCellPhonesCarouselDesktop" data-slide-to="0" class="active"></li>
-                    <li data-target="#boxitStoreCellPhonesCarouselDesktop" data-slide-to="1"></li>
-                    <li data-target="#boxitStoreCellPhonesCarouselDesktop" data-slide-to="2"></li>
+                        <li ng-repeat="item in ItemsCellPhonesAllTotal track by $index" data-target="#boxitStoreCellPhonesCarouselDesktop" data-slide-to="{{$index}}"  
+                        ng-class="{'active': $index==0}">  
                 </ol>
                 <div class="carousel-inner store-list">
                     <div class="item active">
@@ -1476,7 +1473,7 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item" ng-if="ItemsCellPhonesTres.length > 0">
                         <div class="row">
 
                             <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsCellPhonesTres">
@@ -1677,9 +1674,8 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
 
                     <div id="boxitStoreMakeupCarouselDesktop" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                         <ol class="carousel-indicators">
-                            <li data-target="#boxitStoreMakeupCarouselDesktop" data-slide-to="0" class="active"></li>
-                            <li data-target="#boxitStoreMakeupCarouselDesktop" data-slide-to="1"></li>
-                            <li data-target="#boxitStoreMakeupCarouselDesktop" data-slide-to="2"></li>
+                                <li ng-repeat="item in ItemsMakeupAllTotal track by $index" data-target="#boxitStoreMakeupCarouselDesktop" data-slide-to="{{$index}}"  
+                                ng-class="{'active': $index==0}"> 
                         </ol>
                         <div class="carousel-inner store-list">
                             <div class="item active">
@@ -1833,7 +1829,7 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                                 </div>
                             </div>
 
-                            <div class="item">
+                            <div class="item"  ng-if="ItemsMakeupTres.length > 0">
                                 <div class="row">
 
                                     <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsMakeupTres">
@@ -2042,9 +2038,8 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
 
             <div id="boxitStoreBabyCarouselDesktop" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#boxitStoreBabyCarouselDesktop" data-slide-to="0" class="active"></li>
-                    <li data-target="#boxitStoreBabyCarouselDesktop" data-slide-to="1"></li>
-                    <li data-target="#boxitStoreBabyCarouselDesktop" data-slide-to="2"></li>
+                        <li ng-repeat="item in ItemsBabyAllTotal track by $index" data-target="#boxitStoreBabyCarouselDesktop" data-slide-to="{{$index}}"  
+                        ng-class="{'active': $index==0}"> 
                 </ol>
                 <div class="carousel-inner store-list">
                     <div class="item active">
@@ -2198,7 +2193,7 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item" ng-if="ItemsBabyTres.length > 0">
                         <div class="row">
 
                             <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsBabyTres">
@@ -2400,9 +2395,8 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
 
             <div id="boxitStorePetSuppliesCarouselDesktop" class="carousel slide carousel-store-hidden-mobile" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#boxitStorePetSuppliesCarouselDesktop" data-slide-to="0" class="active"></li>
-                    <li data-target="#boxitStorePetSuppliesCarouselDesktop" data-slide-to="1"></li>
-                    <li data-target="#boxitStorePetSuppliesCarouselDesktop" data-slide-to="2"></li>
+                    <li ng-repeat="item in ItemsPetSuppliesAllTotal track by $index" data-target="#boxitStorePetSuppliesCarouselDesktop" data-slide-to="{{$index}}"  
+                        ng-class="{'active': $index==0}">                    
                 </ol>
                 <div class="carousel-inner store-list">
                     <div class="item active">
@@ -2556,7 +2550,7 @@ item.Offers.Offer.OfferListing.AmountSaved.FormattedPrice
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item" ng-if="ItemsPetSuppliesTres.length > 0">
                         <div class="row">
 
                             <div class="col-sm-3 col-noppading" ng-repeat="item in ItemsPetSuppliesTres">

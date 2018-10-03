@@ -893,7 +893,7 @@ angular
                             }
                         });
                         */
-                        if ($scope.itemsTopSellerMakeup.length > 0) {
+                        if ($scope.itemsTopSellerMakeup.length > 0) {                            
                             $scope.showTopSellerMakeup = true;
 
                             $scope.ItemsMakeupAll = $scope.itemsTopSellerMakeup;
@@ -901,13 +901,17 @@ angular
                             $scope.ItemsMakeupDos = {};
                             $scope.ItemsMakeupTres = {};
                             $x = 0;
+                            $scope.ItemsMakeupAllTotal = [];
                             angular.forEach($scope.ItemsMakeupAll, function (value, key) {
                                 if ($x < 4) {
                                     $scope.ItemsMakeupUno[$x] = value;
+                                    $scope.ItemsMakeupAllTotal[0] = 1;
                                 } else if ($x < 8) {
                                     $scope.ItemsMakeupDos[$x] = value;
+                                    $scope.ItemsMakeupAllTotal[1] = 2;
                                 } else if ($x < 12) {
                                     $scope.ItemsMakeupTres[$x] = value;
+                                    $scope.ItemsMakeupAllTotal[2] = 3;
                                 }
                                 $x++;
                             });
@@ -927,6 +931,7 @@ angular
                         }
                     });
                     if ($scope.itemsTopSellerBaby.length > 0) {
+                        $scope.ItemsBabyAllTotal = $scope.itemsTopSellerBaby.length;
                         $scope.showTopSellerBaby = true;
 
                         $scope.ItemsBabyAll = $scope.itemsTopSellerBaby;
@@ -934,13 +939,17 @@ angular
                         $scope.ItemsBabyDos = {};
                         $scope.ItemsBabyTres = {};
                         $x = 0;
+                        $scope.ItemsBabyAllTotal = [];
                         angular.forEach($scope.ItemsBabyAll, function (value, key) {
                             if ($x < 4) {
                                 $scope.ItemsBabyUno[$x] = value;
+                                $scope.ItemsBabyAllTotal[0] = 1;
                             } else if ($x < 8) {
                                 $scope.ItemsBabyDos[$x] = value;
+                                $scope.ItemsBabyAllTotal[1] = 2;
                             } else if ($x < 12) {
                                 $scope.ItemsBabyTres[$x] = value;
+                                $scope.ItemsBabyAllTotal[2] = 3;
                             }
                             $x++;
                         });
@@ -968,16 +977,21 @@ angular
                         $scope.ItemsComputersDos = {};
                         $scope.ItemsComputersTres = {};
                         $x = 0;
+                        $scope.ItemsComputersAllTotal = [];
                         angular.forEach($scope.ItemsComputersAll, function (value, key) {
                             if ($x < 4) {
                                 $scope.ItemsComputersUno[$x] = value;
+                                $scope.ItemsComputersAllTotal[0] = 1;
                             } else if ($x < 8) {
                                 $scope.ItemsComputersDos[$x] = value;
+                                $scope.ItemsComputersAllTotal[1] = 2;
                             } else if ($x < 12) {
                                 $scope.ItemsComputersTres[$x] = value;
+                                $scope.ItemsComputersAllTotal[2] = 3;
                             }
                             $x++;
                         });
+                        console.log('$scope.ItemsComputersAllTotal',$scope.ItemsComputersAllTotal);
                     }
                 }, function error(result) {
                     ////console.log(result);
@@ -1002,13 +1016,17 @@ angular
                         $scope.ItemsCellPhonesDos = {};
                         $scope.ItemsCellPhonesTres = {};
                         $x = 0;
+                        $scope.ItemsCellPhonesAllTotal = [];
                         angular.forEach($scope.ItemsCellPhonesAll, function (value, key) {
                             if ($x < 4) {
                                 $scope.ItemsCellPhonesUno[$x] = value;
+                                $scope.ItemsCellPhonesAllTotal[0] = 1;
                             } else if ($x < 8) {
                                 $scope.ItemsCellPhonesDos[$x] = value;
+                                $scope.ItemsCellPhonesAllTotal[1] = 2;
                             } else if ($x < 12) {
                                 $scope.ItemsCellPhonesTres[$x] = value;
+                                $scope.ItemsCellPhonesAllTotal[2] = 3;
                             }
                             $x++;
                         });
@@ -1079,16 +1097,21 @@ angular
                         $scope.ItemsPetSuppliesDos = {};
                         $scope.ItemsPetSuppliesTres = {};
                         $x = 0;
+                        $scope.ItemsPetSuppliesAllTotal[0] = [];
                         angular.forEach($scope.ItemsPetSuppliesAll, function (value, key) {
                             if ($x < 4) {
                                 $scope.ItemsPetSuppliesUno[$x] = value;
+                                $scope.ItemsPetSuppliesAllTotal[0] = 1;
                             } else if ($x < 8) {
                                 $scope.ItemsPetSuppliesDos[$x] = value;
+                                $scope.ItemsPetSuppliesAllTotal[1] = 2;
                             } else if ($x < 12) {
                                 $scope.ItemsPetSuppliesTres[$x] = value;
+                                $scope.ItemsPetSuppliesAllTotal[2] = 3;
                             }
                             $x++;
                         });
+                        
                     }
                 }, function error(result) {
                     ////console.log(result);
