@@ -3089,3 +3089,93 @@ footer ul li + li {
 .discount-percent span.texto {
 
 }
+
+/* forma de pago  */
+.pagar-botones label {
+  width: 80%;
+  margin: 5px 0;
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.pagar-botones input {
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+}
+.pagar-botones .outside {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #1cb6cd;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: none;
+}
+.pagar-botones .inside {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: inline-block;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #1cb6cd;
+  left: 3px;
+  top: 3px;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+}
+.pagar-botones .no-transforms .inside {
+  left: auto;
+  top: auto;
+  width: 0;
+  height: 0;
+}
+.pagar-botones input:checked + .outside .inside {
+  -webkit-animation: radio-select 0.1s linear;
+          animation: radio-select 0.1s linear;
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+}
+.pagar-botones .no-transforms input:checked + .outside .inside {
+  width: 10px;
+  height: 10px;
+}
+.pagar-botones .formasdepago {
+	padding: 10px;
+	background: #f1f1f1;
+}
+.pagar-botones .formadepago {
+    float: left;
+    padding-left: 40px;
+}
+.pagar-botones .formadepago-container {
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	background: #fff;
+  padding: 6px;
+  font-size: 20px;
+}
+.pagar-botones .formadepago-container.nequi {
+	margin-top: 10px;
+}
+.formadepago.efectivo {
+  background: url("../img/newstyle/formapago-efectivo.png") no-repeat center left;
+}
+.formadepago.nequi {
+  background: url("../img/newstyle/formapago-nequi.jpg") no-repeat center left;
+}
+.boxit-shopping-cart .action.primary {
+  font-size: 20px;
+}

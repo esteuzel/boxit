@@ -24,9 +24,9 @@ var user = {
         tel: ""
     }
 };
-//var host = "https://myboxit.com:8443";
+var host = "https://myboxit.com:8443";
 //var host = "http://162.243.14.131:8080";
-var host = "http://142.93.30.194:8080";
+//var host = "http://142.93.30.194:8080";
 //var host = "";
 angular.module('boxit')
         .factory('userData', function ($http, $q, $localStorage) {

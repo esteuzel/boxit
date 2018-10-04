@@ -23,7 +23,7 @@ angular
                 $scope.acceptTerms = true;
                 $scope.carCommission = 0;
                 $scope.carTotal = 0;
-
+                $scope.formadepago=null;
                 // Added by MAB - 20180927
                 $scope.phoneNumber = '';
 
@@ -423,6 +423,16 @@ angular
                 };
 
                 $scope.purchase = function () {
+                    if($scope.formadepago==null){
+                        alert("Selecciona forma de pago");
+                        return;
+                    }else if($scope.formadepago==0){
+                        //NEQUI
+                        $scope.purchaseWithNequi();
+                        return;
+                    }else{
+
+                    
                     $scope.mostrarBoxitShoppingCart = false;
                     console.log($scope.carItems);
                     if (!validate()) {
@@ -466,7 +476,7 @@ angular
                         getIdCompra().then(function success(result) {
                             var args = {};
 
-                            //console.log("metodos nuevos");
+                            console.log("getIdCompra result", result);
                             args["IdOrdenCompra"] = result;
                             args["ListPurchaseOrderDetail"] = details;
                             //  console.log(args["ListPurchaseOrderDetail"]);
@@ -522,7 +532,7 @@ console.log('answer',answer);
 
                     });
 
-
+                }
                     //clearCar(IdCliente);
                     // $scope.checkout = true;
                     // $scope.shopping = false;
@@ -723,6 +733,7 @@ console.log('answer',answer);
                             if (result.status === '35') {
                                 // Cerrar Modal y confirmar el pago
                                 $scope.CompraNequiMessage = 'Pago aprobado...';
+                                pagoNequiAprobado();
                                 $timeout(function () {
                                     $scope.CompraNequiMessage = '';
                                     $scope.nequiModal.dismiss('cancel');
@@ -743,6 +754,75 @@ console.log('answer',answer);
                                 }, 3500);
                         })
                 };
+
+                function pagoNequiAprobado(){
+
+                    $scope.mostrarBoxitShoppingCart = false;
+                    $scope.showCarItems = false;
+                    $scope.showLoginMessage = false;
+                    $scope.loading = true;
+                    var details = [];
+                    links = [];
+                    var IdCliente = userData.getData().IdCliente;
+                    var paypurchaseorderParams = [];
+
+                    itemLinks().then(function success(result) {
+
+                        for (var i = 0; i < $scope.carItems.length; i++) {
+                            var item = $scope.carItems[i];
+                            var args = {};
+                            var detail = {};
+                            args["IdCliente"] = IdCliente;
+                            args["Package"] = item.Title;
+                            args["Link"] =links[item.ItemId];
+                            args["Quantity"] = item.Quantity;
+                            args["Amount"] = item.Price;
+                            args["ItemId"] = item.ItemId;
+                            detail["PurchaseOrderDetail"] = args;
+                            details.push("detail", detail);
+                        }
+
+                        getIdCompra().then(function success(result) {
+                            paypurchaseorderParams["IdOrdenCompra"] = result;
+                            paypurchaseorderParams["IdFormaPago"] = 8;
+                            paypurchaseorderParams["Amount"] = $scope.carTotal;
+                            paypurchaseorderParams["Numero"] = $scope.phoneNumber;
+                            var args = {};
+                            args["IdOrdenCompra"] = result;
+                            args["ListPurchaseOrderDetail"] = details;
+
+                            newCheckout(args).then(function success(result) {
+
+                                var answer = result;
+                                if (answer === "The Purchase Order Detail Has Been Created") {
+                                    clearCar(IdCliente);
+                                    $scope.checkout = true;
+                                    $scope.shopping = false;
+
+                                    $http({
+                                        method: "POST",
+                                        url: userData.getHost() + "/amazon/paypurchaseorder",
+                                        data: paypurchaseorderParams,
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        }
+                                    }).then(function success(result) {
+                                        console.log('paypurchaseorder success',result);                                        
+                                    }, function error(result) {
+                                        console.log('paypurchaseorder error',result);
+                                    });
+
+                                }
+
+                            });
+
+                        });
+
+                    });
+
+                    console.log('$scope.phoneNumber',$scope.phoneNumber);                   	                    
+
+                }
 
                 var newCheckout = function (params) {
                     var defered = $q.defer();
@@ -770,15 +850,18 @@ console.log('answer',answer);
                 var getIdCompra = function () {
                     var defered = $q.defer();
                     var promise = defered.promise;
-
+                    var args = {};
+                    console.log('$scope.formadepago',$scope.formadepago);
+                    args["NotificacionNuevaOrden"] = $scope.formadepago;
                     $http({
                         method: "POST",
                         url: userData.getHost() + "/amazon/insertpurchaseorderenc",
+                        data: args,
                         headers: {
                             'Content-Type': 'application/json'
                         }
                     }).then(function success(result) {
-                        console.log(result);
+                        console.log('getIdCompra result', result);
                         defered.resolve(result.data.Data.Rows.attributes.IdOrdenCompra);
                     }, function error(result) {
                         console.log(result.data.Rows.attributes.Message);

@@ -198,16 +198,56 @@
                                 </table>
                             </div>    
                         </div>
+
+                        <div class="pagar-botones">
+
+                            <div class="formasdepago">
+
+                                <div class="formadepago-container efectivo">
+
+                                    <label>
+                                        <input type="radio" class="radio-inline" name="formadepago" 
+                                        ng-model="formadepago" value="1">
+                                        <span class="outside">
+                                            <span class="inside"></span>
+                                        </span>
+                                        <div class="formadepago efectivo">Efectivo</div>
+                                    </label>
+
+                                </div>
+
+                                <div class="formadepago-container nequi">
+
+                                    <label>
+                                        <input type="radio"class="radio-inline" name="formadepago" 
+                                        ng-model="formadepago" value="0">
+                                        <span class="outside">
+                                            <span class="inside"></span>
+                                        </span>
+                                        <div class="formadepago nequi">NEQUI</div>
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="pagar-en-efectivo">
+                            <button type="button" ng-click="purchase()" title="Pagar en efectivo" class="action primary checkout">
+                                <span>Pagar</span>
+                            </button>
+                        </div>
+                        <!--
                         <div class="pagar-en-efectivo">
                             <button type="button" ng-click="purchase()" title="Pagar en efectivo" class="action primary checkout">
                                 <span>Pagar en efectivo</span>
-                            </button>
+                            </button>-->
                             <!-- Added by MAB 20180916 -->
-                            <br /><br />
+                        <!--    <br /><br />
                             <button type="button" ng-click="purchaseWithNequi()" title="Pagar con Nequi" class="action primary checkout">
                                 <span>Pagar con Nequi</span>
                             </button>
-                        </div>
+                        </div>-->
                     </div>
     
                 <div class="action-buttons" ng-show="shopping">            
