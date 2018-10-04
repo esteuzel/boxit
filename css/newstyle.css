@@ -2366,8 +2366,10 @@ margin-right: 100px;
       padding: 20px;
   }
 }
+/* Added by MAB */
 .compra-procesada {
   background: #FFF;
+  text-align: center;
 }
 .compra-procesada img{
   margin: 0 auto;
@@ -2379,7 +2381,48 @@ margin-right: 100px;
 .modal-checkoutmessage {
   width: 350px;
 }
+.modal-nequicheckoutmessage {
+  width: 500px;
+}
+.nequiCheckoutMessageForm {
+  padding: 10px 0;
+}
+.nequiCheckout.action.primary[disabled] {
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: .65;
+}
+.nequiCheckout.action.primary {
+  color: #fff;
+  background-color: #1cb6cd;
+  border-color: #1cb6cd;
+  height: 45px;
+  line-height: 45px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: visible;
+  width: 100%;
+  border-style: solid;
+  border-width: 1px;
+  padding: 0;
+  cursor: pointer;
+  padding: 0 20px;
+}
+.nequiCheckout.columna {
+  width: 40%;
+  display: inline-block;
+}
+.text-center {
+  text-align: center;
+}
+.nequiCheckout.texto {
+  margin-bottom: .5em;
+  font-size: 13px;
+  margin: 15px 45px 5px;
+}
 /* end new */
+
 span.requerido {
   color: #a82773;
 }

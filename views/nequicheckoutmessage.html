@@ -1,0 +1,73 @@
+<div class="compra-procesada">
+
+    <div class="modal-header">
+        <h3 class="modal-title customLabel">Pagar con Nequi<img class="img-responsive" style="float:right; margin-right: 30px;" src="img/NequiLogo.png" alt="N" width="50px"/></h3>
+
+    </div>
+
+    <div class="header-nequi-compra">
+        <form name="form1" style="border: thin solid transparent !important;">
+        <div class="nequiCheckoutMessageForm">
+            <div class="FieldContent"><span>Ingrese su Número Telefónico:</span></div>
+            <div class="row">
+                <div class="col col-xs-8 col-xs-offset-2">
+                    <input  name="phoneNumber"
+                            class="form-control text-center" 
+                            ng-model="phoneNumber"
+                            type="text" 
+                            ng-pattern="/([0-9]{7,8})/" 
+                            minlength="7" 
+                            maxlength="8" />
+                </div>
+            </div>
+        </div>
+        </form>
+        <div class="row" style="margin-right: 0; margin-left: 0;">
+        <p class="nequiCheckout texto">Seleccione la forma de pagar con Nequi::</p>
+        </div>
+        <div class="row" style="margin-right: 0; margin-left: 0;">
+            <div class="col col-xs-6">
+                <button class="nequiCheckout action primary" 
+                        type="button" 
+                        ng-click="purchaseWithNequiQR()"
+                        ng-disabled="!form1.$valid || form1.phoneNumber.$isEmpty(phoneNumber) || !enableButtons">
+                    Escanear Código
+                </button>
+            </div>
+            <div class="col col-xs-6">
+                <button class="nequiCheckout action primary" 
+                        type="button" 
+                        ng-click="purchaseWithNequiPush()"
+                        ng-disabled="!form1.$valid || form1.phoneNumber.$isEmpty(phoneNumber) || !enableButtons">
+                    Enviar Notificación
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="compra-nequi-qr" ng-if="tipoCompraNequi==='QR'">
+        <p class="nequiCheckout texto">Escanea el siguiente código QR desde la aplicación Nequi instalada en tu teléfono:</p>
+        <qrcode data="{{ qrCodeString }}" 
+            version="2" 
+            error-correction-level="Q" 
+            size="200" 
+            color="#000" 
+            background="#fff">
+        </qrcode>
+        <p class="nequiCheckout texto">Una vez escaneado el código QR presiona el botón Aceptar. Tienes {{ minutes }} minutos y {{ '00' + seconds | limitTo: -2 }} segundos para completar tu transacción</p>
+    </div>
+    <div class="compra-nequi-push" ng-if="tipoCompraNequi==='PUSH'">
+        <br>
+        <p class="nequiCheckout texto">Hemos enviado un mensaje a la aplicación instalada en su teléfono. Una vez completada la transacción presione el boton Aceptar</p>
+    </div>
+
+
+    <div class="modal-footer">
+        <!-- <div ng-if="!!CompraNequiMessage">
+            <p>{{ CompraNequiMessage | limitTo: 15 }}</p>
+        </div> -->
+        <button ng-if="!!CompraNequiMessage" class=" btn btn-default" type="button" disabled >{{ CompraNequiMessage | limitTo: 30 }}</button>
+        <button class=" btn btn-primary" type="button" ng-click="aceptarModal()">Aceptar</button>
+        <button class=" btn btn-default" type="button" ng-click="cancelModal()" >Cancelar</button>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 angular
     .module('boxit')
-        .controller('carritoController', ['$scope', '$stateParams', '$http', '$q', '$anchorScroll', 'userData', '$uibModal', '$localStorage', '$window', '$location', '$interval', '$state',
-            function ($scope, $stateParams, $http, $q, $anchorScroll, userData, $uibModal, $localStorage, $window, $location, $interval, $state) {             
+        .controller('carritoController', ['$scope', '$stateParams', '$http', '$q', '$anchorScroll', 'userData', 'NequiService', '$uibModal', '$localStorage', '$window', '$location', '$interval', '$state', '$timeout',
+            function ($scope, $stateParams, $http, $q, $anchorScroll, userData, NequiService, $uibModal, $localStorage, $window, $location, $interval, $state, $timeout) {             
                 var products = [];
                 var links = [];
             //localStorage.removeItem('myWishList');
@@ -23,6 +23,10 @@ angular
                 $scope.acceptTerms = true;
                 $scope.carCommission = 0;
                 $scope.carTotal = 0;
+
+                // Added by MAB - 20180927
+                $scope.phoneNumber = '';
+
                 $scope.mostrarDisclaimerPesoCero = false;
                 var userObj = userData.getData();
                 var id;
@@ -526,6 +530,220 @@ console.log('answer',answer);
                     // $state.go("checkoutmessage");
                     // return $q.all(promises);
                 };
+                // Add by MAB 20180927
+                /**
+                 * Inicia el proceso de pago mediante Nequi
+                 * @description Abre un modal para procesar el pago mediante Nequi permitiendo seleccionrar 
+                 *              la modalidad de pago: código QR o mensaje Push. Obliga la carga de un teléfono 
+                 *              el cual no es validado contra Nequi y tiene caracter de informativo (salvo el 
+                 *              pago mediante mensaje Push)
+                 */
+                $scope.purchaseWithNequi = function () {
+
+                    $scope.enableButtons = true;
+                    $scope.CompraNequiMessage = '';
+                    /**
+                     * Mantiene el tipo de operación de pago seleccionado
+                     * @type {string}
+                     * @description pago Qr = "QR", pago push = "PUSH"
+                     */
+                    $scope.tipoCompraNequi = '';
+                    /**
+                     * CodeString
+                     * @type {string}
+                     * @description mantiene el código que identifica a cada transacción de pago
+                     * @todo reemplazar por la propiedad "codeQr" del objeto "lastTransax"
+                     */
+                    $scope.CodeString = '';
+                    /**
+                     * lastTransax
+                     * @type {object}
+                     * @description mantiene una copia de la respuesta de las transacciones de pago (QR y Push),
+                     *              para ser empleado en los procesos de alidación de pago y reversa
+                     */
+                    $scope.lastTransax = null;
+                    /**
+                     * countDown
+                     * @type {object}
+                     * @description mantiene el timer activo. Siempre debe iniciar como undefined
+                     */
+                    $scope.countDown = undefined;
+
+                    $scope.nequiModal = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static',
+                        templateUrl: 'views/nequicheckoutmessage.html',
+                        controller: 'carritoController',
+                        controllerAs: '$ctrl',
+                        size: 'nequicheckoutmessage',
+                        scope: $scope,
+                    });
+
+                };
+
+                // Added by MAB 20180929
+                $scope.startCountDown = function () {
+                    // Don't start if we are already in a countdown
+                    if (angular.isDefined($scope.countDown)) return;
+
+                    $scope.time = 30 * 60;   // Minutos * Segundos
+                    $scope.minutes = 30;
+                    $scope.seconds =  0;
+                    $scope.countDown = $interval(function () {
+                        if ($scope.time > 0) {
+                            $scope.time -= 1;
+                            $scope.minutes = Math.floor($scope.time / 60);
+                            $scope.seconds = Math.floor($scope.time % 60);
+                        } else {
+                            $scope.stopCountDown();
+                        }
+                    }, 1000);
+                };
+
+                // Added by MAB 20180929
+                $scope.stopCountDown = function () {
+                    if (angular.isDefined($scope.countDown)) {
+                        $interval.cancel($scope.countDown);
+                        $scope.countDown = undefined;
+                        $scope.time      = undefined;
+                        $scope.minutes   = undefined;
+                        $scope.seconds   = undefined;
+                    }
+                };
+
+                // Added by MAB 20190927
+                $scope.$on('$destroy', function () {
+                    // Make sure that the interval is destroyed too
+                    $scope.stopCountDown();
+                });
+
+                // Added by MAB 20190927
+                $scope.purchaseWithNequiQR = function() {
+                    /**
+                     * amount
+                     * @type {number}
+                     * @description Monto a se bonado mediante Nequi. 
+                     * @todo Se debe obtener este valor del servicio correspondiente
+                     */
+                    var amount =$scope.carTotal * 1;
+
+                    NequiService
+                        .payWithQR ( $scope.phoneNumber, amount)
+                        .then(function (transax) {
+                            $scope.CodeString   = transax.codeQR;
+                            // Se prepar´el string con el que se generará la imágen de código QR
+                            $scope.qrCodeString = "bancadigital-" + transax.codeQR;
+                            $scope.lastTransax = transax;
+                            $scope.tipoCompraNequi = 'QR';
+                            $scope.enableButtons = false;
+
+                            $scope.startCountDown();
+
+                        })
+                        .catch(function (error) {
+                            $scope.tipoCompraNequi = '';
+                            $scope.lastTransax = null;
+                            $scope.enableButtons = true;
+                        })
+                };
+                // Added by MAB 20190927
+                $scope.purchaseWithNequiPush = function() {
+                    var amount =$scope.carTotal * 1;
+
+                    NequiService
+                        .payWithPush($scope.phoneNumber, amount)
+                        .then(function (transax) {
+                            $scope.CodeString = transax.codeQR;
+                            $scope.lastTransax = transax;
+                            $scope.tipoCompraNequi = 'PUSH';
+                            $scope.enableButtons = false;
+
+                            $scope.startCountDown();
+
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            $scope.tipoCompraNequi = '';
+                            $scope.lastTransax = null;
+                            $scope.enableButtons = true;
+                            $scope.CompraNequiMessage = 'Error al enviar notificación';
+                                $timeout(function () {
+                                    $scope.CompraNequiMessage = '';
+                                }, 3500);
+                        })
+                };
+                // Add by MAB 20180916
+                $scope.cancelModal = function () {
+                    // Si existe una transacción
+                    // if ($scope.lastTransax) {
+
+                    //     $scope.stopCountDown();
+
+                    //     var messageId;
+                    //     // Dependiendo del tipo de forma de pago Nequi seteamos el parametro "messageID"
+                    //     if ($scope.tipoCompraNequi === 'QR') {
+                    //         messageId = $scope.lastTransax.codeQR;
+                    //     } else if ($scope.tipoCompraNequi === 'PUSH') {
+                    //         messageId = $scope.lastTransax.messageId;
+                    //     } else {
+                    //         /** @todo Ver que hacer cuando no existe un "tipoCompraNequi" valido */
+                    //     }
+
+                    //     // Ejecutar la reversa antes de salir
+                    //     NequiService
+                    //         .reverseTransaction(
+                    //             $scope.lastTransax.phoneNumber,
+                    //             $scope.lastTransax.amount,
+                    //             messageId,
+                    //         ).then(function (success) {
+                    //             console.log('La transacción se reverso correctamente!');
+                    //             $scope.nequiModal.dismiss('cancel');
+                    //         })
+                    //         .catch(function (error) {
+                    //             // Ante un error en la reversa, mostrar error y salir
+                    //             console.log(error);
+                    //             $scope.CompraNequiMessage = 'ERROR al anular...';
+                    //             $timeout(function () {
+                    //                 $scope.CompraNequiMessage = '';
+                    //                 $scope.nequiModal.dismiss('cancel');
+                    //             }, 3000);
+                    //         });
+                    // } else {
+                    //     // sino solo salir
+                    //     $scope.nequiModal.dismiss('cancel');
+                    // }
+                    $scope.nequiModal.dismiss('cancel');
+                };
+
+                // Added by MAB 20180927
+                $scope.aceptarModal = function () {
+                    NequiService
+                        .paymentStatus($scope.phoneNumber, $scope.CodeString)
+                        .then(function (result) {
+                            if (result.status === '35') {
+                                // Cerrar Modal y confirmar el pago
+                                $scope.CompraNequiMessage = 'Pago aprobado...';
+                                $timeout(function () {
+                                    $scope.CompraNequiMessage = '';
+                                    $scope.nequiModal.dismiss('cancel');
+                                }, 3500);
+                            } else {    // result.status === '33'
+                                // Pago pendiente. Notificar
+                                $scope.CompraNequiMessage = 'Pago pendiente...';
+                                $timeout(function () {
+                                    $scope.CompraNequiMessage = '';
+                                }, 3500);
+                            }
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                            $scope.CompraNequiMessage = 'Pago Cancelado';
+                                $timeout(function () {
+                                    $scope.CompraNequiMessage = '';
+                                }, 3500);
+                        })
+                };
+
                 var newCheckout = function (params) {
                     var defered = $q.defer();
                     var promise = defered.promise;

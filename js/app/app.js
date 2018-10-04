@@ -1,4 +1,4 @@
-angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'angular-md5','ngFileUpload'])
+angular.module('boxit', ['ngToast', 'ui.bootstrap', 'ui.router', 'ngStorage', 'angular-md5','ngFileUpload','monospaced.qrcode'])
     .config(['$urlRouterProvider', '$stateProvider', '$locationProvider',function ($urlRouterProvider, $stateProvider, $locationProvider) {        
         $locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/home');
