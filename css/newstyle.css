@@ -3183,3 +3183,8 @@ footer ul li + li {
   padding-left: 10px;
   padding-right: 10px;
 }
+.pagar-botones p{
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-left: 10px;
+}
