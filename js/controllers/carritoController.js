@@ -428,6 +428,7 @@ angular
                         return;
                     }else if($scope.formadepago==0){
                         //NEQUI
+                        console.log('$scope.formadepago',$scope.formadepago);
                         $scope.purchaseWithNequi();
                         return;
                     }else{
@@ -777,6 +778,8 @@ console.log('answer',answer);
 
                 function pagoNequiAprobado(){
                     console.log('pagoNequiAprobado',pagoNequiAprobado);
+                    console.log('pagoNequiAprobado $scope.formadepago',$scope.formadepago);
+                    $scope.formadepago = 0;
                     $scope.mostrarBoxitShoppingCart = false;
                     $scope.showCarItems = false;
                     $scope.showLoginMessage = false;
