@@ -784,7 +784,7 @@ console.log('answer',answer);
                     var details = [];
                     links = [];
                     var IdCliente = userData.getData().IdCliente;
-                    var paypurchaseorderParams = [];
+                    var paypurchaseorderParams = {};
 
                     itemLinks().then(function success(result) {
                         console.log('itemLinks',result);
@@ -821,6 +821,7 @@ console.log('answer',answer);
                                     clearCar(IdCliente);
                                     $scope.checkout = true;
                                     $scope.shopping = false;
+                                    console.log('paypurchaseorderParams',paypurchaseorderParams);
 
                                     $http({
                                         method: "POST",
