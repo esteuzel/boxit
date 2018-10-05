@@ -3154,18 +3154,18 @@ footer ul li + li {
 }
 .pagar-botones .formasdepago {
 	padding: 10px;
-	background: #f1f1f1;
+	/*background: #f1f1f1;*/
 }
 .pagar-botones .formadepago {
     float: left;
     padding-left: 40px;
 }
 .pagar-botones .formadepago-container {
-	border: 1px solid #CCC;
+	border: 1px solid #5A6A7A;
 	border-radius: 5px;
 	background: #fff;
   padding: 6px;
-  font-size: 20px;
+  font-size: 16px;
 }
 .pagar-botones .formadepago-container.nequi {
 	margin-top: 10px;
@@ -3177,5 +3177,9 @@ footer ul li + li {
   background: url("../img/newstyle/formapago-nequi.jpg") no-repeat center left;
 }
 .boxit-shopping-cart .action.primary {
-  font-size: 20px;
+  font-size: 18px;
+}
+.pagar-en-efectivo {
+  padding-left: 10px;
+  padding-right: 10px;
 }
