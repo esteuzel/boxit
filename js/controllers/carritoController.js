@@ -23,7 +23,7 @@ angular
                 $scope.acceptTerms = true;
                 $scope.carCommission = 0;
                 $scope.carTotal = 0;
-                $scope.formadepago=null;
+                $scope.formadepago=1;
                 // Added by MAB - 20180927
                 $scope.phoneNumber = '';
 
@@ -722,8 +722,27 @@ console.log('answer',answer);
                     //     // sino solo salir
                     //     $scope.nequiModal.dismiss('cancel');
                     // }
-                    $scope.nequiModal.dismiss('cancel');
+                    $scope.nequiModalCancel = $uibModal.open({
+                        animation: true,
+                        backdrop: 'static',
+                        templateUrl: 'views/nequicancelconfirmation.html',
+                        controller: 'carritoController',
+                        controllerAs: '$ctrl',
+                        size: 'nequicheckoutmessage',
+                        scope: $scope,
+                    });
+                    //$scope.nequiModal.dismiss('cancel');
                 };
+
+                $scope.nequiCancelConfirmation = function(confirmation) {
+                    if(confirmation==1){
+                        console.log('cancelar pago');
+                        $scope.nequiModalCancel.dismiss('cancel');
+                        $scope.nequiModal.dismiss('cancel');
+                    }else{
+                        $scope.nequiModalCancel.dismiss('cancel');
+                    }
+                }
 
                 // Added by MAB 20180927
                 $scope.aceptarModal = function () {
@@ -733,6 +752,7 @@ console.log('answer',answer);
                             if (result.status === '35') {
                                 // Cerrar Modal y confirmar el pago
                                 $scope.CompraNequiMessage = 'Pago aprobado...';
+                                console.log('paymentStatus',result);
                                 pagoNequiAprobado();
                                 $timeout(function () {
                                     $scope.CompraNequiMessage = '';
@@ -756,7 +776,7 @@ console.log('answer',answer);
                 };
 
                 function pagoNequiAprobado(){
-
+                    console.log('pagoNequiAprobado',pagoNequiAprobado);
                     $scope.mostrarBoxitShoppingCart = false;
                     $scope.showCarItems = false;
                     $scope.showLoginMessage = false;
@@ -767,6 +787,7 @@ console.log('answer',answer);
                     var paypurchaseorderParams = [];
 
                     itemLinks().then(function success(result) {
+                        console.log('itemLinks',result);
 
                         for (var i = 0; i < $scope.carItems.length; i++) {
                             var item = $scope.carItems[i];
@@ -783,6 +804,7 @@ console.log('answer',answer);
                         }
 
                         getIdCompra().then(function success(result) {
+                            console.log('getIdCompra',result);
                             paypurchaseorderParams["IdOrdenCompra"] = result;
                             paypurchaseorderParams["IdFormaPago"] = 8;
                             paypurchaseorderParams["Amount"] = $scope.carTotal;
@@ -792,6 +814,7 @@ console.log('answer',answer);
                             args["ListPurchaseOrderDetail"] = details;
 
                             newCheckout(args).then(function success(result) {
+                                console.log('getIdCompra',result);
 
                                 var answer = result;
                                 if (answer === "The Purchase Order Detail Has Been Created") {
