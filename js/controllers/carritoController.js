@@ -834,7 +834,26 @@ console.log('answer',answer);
                                             'Content-Type': 'application/json'
                                         }
                                     }).then(function success(result) {
-                                        console.log('paypurchaseorder success',result);                                        
+                                        console.log('paypurchaseorder success',result);
+                                        
+                                        var answer = result;
+                                        console.log('answer',answer);
+                                        $uibModal.open({
+                                            animation: true,
+                                            templateUrl: 'views/nequipaidmessage.html',
+                                            controller: 'carritoController',
+                                            size: 'checkoutmessage',
+                                            resolve: {
+                                                mensaje: function () {
+                                                    var mensaje = {};
+                                                    mensaje.titulo = "Shopping Car";
+                                                    mensaje.texto = answer;
+                                                    mensaje.estilo = "alerta";
+                                                    return mensaje;
+                                                }
+                                            }    
+                                        });
+
                                     }, function error(result) {
                                         console.log('paypurchaseorder error',result);
                                     });
