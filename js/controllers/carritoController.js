@@ -647,9 +647,33 @@ console.log('answer',answer);
                             $scope.lastTransax = transax;
                             $scope.tipoCompraNequi = 'QR';
                             $scope.enableButtons = false;
+                            
+                            //------------------------------------
+                            // Added by Alexandra (Guardar info de transacción)
+                            var inserttransaccionpagoParams = {};
+                            inserttransaccionpagoParams["IdCliente"] = userData.getData().IdCliente;;
+                            inserttransaccionpagoParams["NroTransaccion"] =  $scope.CodeString;
+                            inserttransaccionpagoParams["TipoCompra"] = $scope.tipoCompraNequi;
+                            inserttransaccionpagoParams["Amount"] = amount;
+                            inserttransaccionpagoParams["MessageId"] =transax.messageId;
+                            inserttransaccionpagoParams["CodDescripcion"] = "NEQUI";
+                            console.log('inserttransaccionpago',inserttransaccionpagoParams);
+                            $http({
+                                        method: "POST",
+                                        url: userData.getHost() + "/amazon/inserttransaccionpago",
+                                        data: inserttransaccionpagoParams,
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        }
+                                    }).then(function success(result) {
+                                        console.log('inserttransaccionpago success',result);
+                                     
+                                    }, function error(result) {
+                                        console.log('inserttransaccionpago error',result);
+                                    });
 
+                            //-----------------------------------
                             $scope.startCountDown();
-
                         })
                         .catch(function (error) {
                             $scope.tipoCompraNequi = '';
@@ -670,6 +694,31 @@ console.log('answer',answer);
                             $scope.enableButtons = false;
 
                             $scope.startCountDown();
+
+                            //------------------------------------
+                            // Added by Alexandra (Guardar info de transacción)
+                            var inserttransaccionpagoParams = {};
+                            inserttransaccionpagoParams["IdCliente"] = userData.getData().IdCliente;;
+                            inserttransaccionpagoParams["NroTransaccion"] =  $scope.CodeString;
+                            inserttransaccionpagoParams["TipoCompra"] = $scope.tipoCompraNequi;
+                            inserttransaccionpagoParams["Amount"] = amount;
+                            inserttransaccionpagoParams["MessageId"] =transax.messageId;
+                            inserttransaccionpagoParams["CodDescripcion"] = "NEQUI";
+                            $http({
+                                        method: "POST",
+                                        url: userData.getHost() + "/amazon/inserttransaccionpago",
+                                        data: inserttransaccionpagoParams,
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        }
+                                    }).then(function success(result) {
+                                        console.log('inserttransaccionpago success',result);
+                                     
+                                    }, function error(result) {
+                                        console.log('inserttransaccionpago error',result);
+                                    });
+
+                            //-----------------------------------
 
                         })
                         .catch(function (error) {
@@ -750,7 +799,7 @@ console.log('answer',answer);
                     NequiService
                         .paymentStatus($scope.phoneNumber, $scope.CodeString)
                         .then(function (result) {
-                            if (result.status === '35') {
+                           if (result.status === '35') {
                                 // Cerrar Modal y confirmar el pago
                                 $scope.CompraNequiMessage = 'Pago aprobado...';
                                 console.log('paymentStatus',result);
@@ -768,7 +817,7 @@ console.log('answer',answer);
                             }
                         })
                         .catch(function (error) {
-                            console.log(error);
+                             console.log(error);
                             $scope.CompraNequiMessage = 'Pago Cancelado';
                                 $timeout(function () {
                                     $scope.CompraNequiMessage = '';
@@ -812,6 +861,9 @@ console.log('answer',answer);
                             paypurchaseorderParams["IdFormaPago"] = 8;
                             paypurchaseorderParams["Amount"] = $scope.carTotal;
                             paypurchaseorderParams["Numero"] = $scope.phoneNumber;
+                            paypurchaseorderParams["TipoCompra"] = $scope.tipoCompraNequi;
+                            paypurchaseorderParams["NroTransaccion"] = $scope.CodeString;
+                            console.log('AAAAAA '+paypurchaseorderParams);
                             var args = {};
                             args["IdOrdenCompra"] = result;
                             args["ListPurchaseOrderDetail"] = details;

@@ -1479,6 +1479,7 @@ section.carrito {
   overflow: visible;
   width: 100%;
   border-style: solid;
+  border-radius: 5px;
   border-width: 1px;
   padding: 0;
   margin: 0;
@@ -2403,7 +2404,8 @@ margin-right: 100px;
   vertical-align: top;
   overflow: visible;
   width: 100%;
-  border-style: solid;
+  /*border-style: solid;*/
+  border-radius: 4px;
   border-width: 1px;
   padding: 0;
   cursor: pointer;
@@ -3153,7 +3155,7 @@ footer ul li + li {
   height: 10px;
 }
 .pagar-botones .formasdepago {
-	padding: 10px;
+	padding: 5px;
 	/*background: #f1f1f1;*/
 }
 .pagar-botones .formadepago {
@@ -3161,14 +3163,14 @@ footer ul li + li {
     padding-left: 40px;
 }
 .pagar-botones .formadepago-container {
-	border: 1px solid #5A6A7A;
+	/*border: 1px solid #5A6A7A;*/
 	border-radius: 5px;
 	background: #fff;
   padding: 6px;
-  font-size: 16px;
+  font-size: 15px;
 }
 .pagar-botones .formadepago-container.nequi {
-	margin-top: 10px;
+	margin-top: 5px;
 }
 .formadepago.efectivo {
   background: url("../img/newstyle/formapago-efectivo.png") no-repeat center left;
@@ -3184,7 +3186,7 @@ footer ul li + li {
   padding-right: 10px;
 }
 .pagar-botones p{
-  font-size: 14px;
+  font-size: 12px;
   margin-bottom: 0;
   padding-left: 10px;
 }
