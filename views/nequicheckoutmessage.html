@@ -9,7 +9,7 @@
         <div class="nequiCheckoutMessageForm">
             <div class="FieldContent"><span>Ingrese su Número Telefónico:</span></div>
             <div class="row">
-                <div class="col col-xs-8 col-xs-offset-2">
+                <div class="col col-xs-12 col-md-8 col-md-offset-2">
                     <input  name="phoneNumber"
                             class="form-control text-center" 
                             ng-model="phoneNumber"
@@ -25,7 +25,7 @@
         <p class="nequiCheckout texto">Seleccione la forma de pagar con Nequi::</p>
         </div>
         <div class="row" style="margin-right: 0; margin-left: 0;">
-            <div class="col col-xs-6">
+            <div class="col col-xs-12 col-md-6">
                 <button class="nequiCheckout action primary" 
                         type="button" 
                         ng-click="purchaseWithNequiQR()"
@@ -33,7 +33,7 @@
                     Escanear Código
                 </button>
             </div>
-            <div class="col col-xs-6">
+            <div class="col col-xs-12 col-md-6">
                 <button class="nequiCheckout action primary" 
                         type="button" 
                         ng-click="purchaseWithNequiPush()"

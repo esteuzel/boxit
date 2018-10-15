@@ -97,7 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <div class="nequiCheckoutMessageForm">
             <div class="FieldContent"><span>Ingrese su Número Telefónico:</span></div>
             <div class="row">
-                <div class="col col-xs-8 col-xs-offset-2">
+                <div class="col col-xs-12 col-md-8 col-md-offset-2">
                     <input name="phoneNumber" class="form-control text-center ng-pristine ng-untouched ng-valid ng-empty ng-valid-pattern ng-valid-minlength ng-valid-maxlength" ng-model="phoneNumber" type="text" ng-pattern="/([0-9]{7,8})/" minlength="7" maxlength="8">
                 </div>
             </div>
@@ -107,12 +107,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p class="nequiCheckout texto">Seleccione la forma de pagar con Nequi::</p>
         </div>
         <div class="row" style="margin-right: 0; margin-left: 0;">
-            <div class="col col-xs-6">
+            <div class="col col-xs-12 col-md-6">
                 <button class="nequiCheckout action primary" type="button" ng-click="purchaseWithNequiQR()" ng-disabled="!form1.$valid || form1.phoneNumber.$isEmpty(phoneNumber) || !enableButtons" disabled="disabled">
                     Escanear Código
                 </button>
             </div>
-            <div class="col col-xs-6">
+            <div class="col col-xs-12 col-md-6">
                 <button class="nequiCheckout action primary" type="button" ng-click="purchaseWithNequiPush()" ng-disabled="!form1.$valid || form1.phoneNumber.$isEmpty(phoneNumber) || !enableButtons" disabled="disabled">
                     Enviar Notificación
                 </button>

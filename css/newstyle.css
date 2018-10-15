@@ -2383,7 +2383,8 @@ margin-right: 100px;
   width: 350px;
 }
 .modal-nequicheckoutmessage {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
 }
 .nequiCheckoutMessageForm {
   padding: 10px 0;
@@ -2422,6 +2423,14 @@ margin-right: 100px;
   margin-bottom: .5em;
   font-size: 13px;
   margin: 15px 45px 5px;
+}
+@media (max-width: 768px){
+  .modal-dialog{    
+    margin: 30px auto;
+  }
+  .nequiCheckout {
+    margin-top: 10px;
+  }
 }
 /* end new */
 
